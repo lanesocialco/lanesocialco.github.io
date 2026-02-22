@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found. Head back to Lane Social Co's home page or explore the social media audit.">
+  <title>404 — Lane Social Co</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* TOKENS */
+    :root {
+      --purple: #7B2FFF; --purple-rgb: 123,47,255;
+      --bg: #FFFFFF; --bg-alt: #F4F3F0; --surface: #FFFFFF;
+      --text: #0A0A0A; --text-sub: #444444; --text-muted: #888888;
+      --border: #E8E6E1; --nav-bg: rgba(255,255,255,0.92); --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A; --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C; --bg-alt: #141414; --surface: #1A1A1A;
+        --text: #F0F0F0; --text-sub: #AAAAAA; --text-muted: #666666;
+        --border: #262626; --nav-bg: rgba(12,12,12,0.92); --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img-light { display: block; height: 38px; width: auto; }
+    .logo-img-dark { display: none; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none; } .logo-img-dark { display: block; } }
+    .logo-fallback { display: flex; align-items: center; gap: 10px; }
+    .logo-mark { color: var(--purple); font-size: 26px; line-height: 1; font-weight: 800; }
+    .logo-divider { width: 2px; height: 26px; background: var(--purple); opacity: 0.4; }
+    .logo-name { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1.15; letter-spacing: -0.3px; }
+    .nav-links { list-style: none; display: flex; gap: 32px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 15px; font-weight: 500; opacity: 0.6; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .nav-links a.active { border-bottom: 2px solid var(--purple); padding-bottom: 2px; }
+    .nav-cta { background: var(--ink) !important; color: var(--ink-text) !important; padding: 10px 22px !important; border-radius: 6px !important; opacity: 1 !important; font-weight: 700 !important; font-size: 14px !important; border-bottom: none !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--purple) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* FOOTER */
+    footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 64px 48px 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 18px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 14px; }
+    .footer-tagline { font-size: 14px; line-height: 1.65; color: var(--text-muted); margin-bottom: 8px; max-width: 260px; }
+    .footer-loc { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; color: var(--text); letter-spacing: 0.12em; margin-bottom: 16px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { text-decoration: none; font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--purple); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--purple); }
+
+    /* COMMON */
+    .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 20px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--purple); color: #fff; padding: 18px 36px; border-radius: 8px; font-size: 17px; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 24px rgba(var(--purple-rgb),0.35); font-family: 'Bricolage Grotesque', sans-serif; border: none; cursor: pointer; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(var(--purple-rgb),0.45); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-size: 16px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.3); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-ghost:hover { color: var(--purple); border-color: var(--purple); }
+    .btn-white { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #0A0A0A; padding: 18px 32px; border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none; width: 100%; transition: background 0.15s, color 0.15s; font-family: 'Bricolage Grotesque', sans-serif; border: none; cursor: pointer; }
+    .btn-white:hover { background: var(--purple); color: #fff; }
+    .badge { display: inline-block; background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 4px; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; text-transform: uppercase; }
+    .badge-light { background: rgba(var(--purple-rgb),0.1); color: var(--purple); }
+    .check { width: 22px; height: 22px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; color: #fff; }
+    .glow { position: absolute; pointer-events: none; border-radius: 50%; }
+
+    /* REVEAL ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; } .reveal-d4 { transition-delay: 0.4s; }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: fixed; top: 69px; left: 0; right: 0; flex-direction: column; align-items: flex-start; background: var(--nav-bg); backdrop-filter: blur(12px); padding: 16px 24px 24px; gap: 4px; border-bottom: 1px solid var(--border); transform: translateY(-8px); opacity: 0; pointer-events: none; transition: transform 0.25s, opacity 0.25s; }
+      .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .nav-links li { width: 100%; }
+      .nav-links a { font-size: 17px; padding: 11px 0; display: block; border-bottom: 1px solid var(--border); opacity: 0.75; }
+      .nav-links a.active, .nav-links li:last-child a { border-bottom: none; }
+      footer { padding: 48px 24px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* 404 PAGE SPECIFIC */
+    .not-found-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+
+    .not-found-bg {
+      position: absolute;
+      font-size: clamp(180px, 30vw, 320px);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      color: var(--purple);
+      opacity: 0.06;
+      user-select: none;
+      letter-spacing: -10px;
+      line-height: 0.9;
+    }
+
+    .not-found-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+    }
+
+    .not-found-content h1 {
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 800;
+      margin: 24px 0 28px 0;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .not-found-content p {
+      font-size: 17px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .not-found-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .not-found-cta .btn-primary {
+      display: inline-flex;
+    }
+
+    .not-found-cta .btn-ghost {
+      display: inline-flex;
+    }
+
+    .not-found-help {
+      margin-top: 48px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 768px) {
+      .not-found-section {
+        padding: 60px 24px;
+        margin-top: 60px;
+      }
+
+      .not-found-content h1 {
+        margin: 20px 0 24px 0;
+      }
+
+      .not-found-cta {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .not-found-cta .btn-primary,
+      .not-found-cta .btn-ghost {
+        width: 100%;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" height="50" onerror="this.style.display='none'">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" height="50" onerror="this.style.display='none'">
+      <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane<br>Social Co</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Audit</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="nav-cta">Get your audit →</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="not-found-section reveal">
+    <div class="not-found-bg">404</div>
+    <div class="not-found-content">
+      <div class="section-label">404 · Page not found</div>
+      <h1>We lost that page.</h1>
+      <p>It might have moved, or it never existed. Either way, here's where to go instead.</p>
+
+      <div class="not-found-cta">
+        <a href="index.html" class="btn-primary">Go home →</a>
+        <a href="services.html" class="btn-ghost">Get your audit</a>
+      </div>
+
+      <p class="not-found-help">Looking for something specific? Try the search bar or reach out.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>
+        <p class="footer-loc">Las Vegas, NV &amp; everywhere else</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="services.html">$97 Social Audit</a></li>
+        <li><a href="contact.html">Strategy Session</a></li>
+        <li><a href="contact.html">Done For You</a></li>
+        <li><a href="contact.html">Work With Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Free Resources</h4><ul>
+        <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+        <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+        <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+        <li><a href="freebie-bio-optimization.html">Bio Cheat Sheet</a></li>
+        <li><a href="shop-free.html">All Free Resources →</a></li>
+        <li><a href="shop-paid.html">Paid Products →</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV</div>
+      <div class="footer-social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger nav
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open);
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open'); navToggle.classList.remove('open'); navToggle.setAttribute('aria-expanded', false);
+      }));
+    }
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

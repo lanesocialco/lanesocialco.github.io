@@ -1,0 +1,51 @@
+============================================================
+LANE SOCIAL CO. — FONT UPLOAD GUIDE FOR SHOPIFY
+============================================================
+
+
+BRICOLAGE GROTESQUE (Included in this folder)
+-----------------------------------------------
+Files:
+  BricolageGrotesque-Bold-700.woff2     ← Headlines, nav buttons
+  BricolageGrotesque-ExtraBold-800.woff2 ← Hero headline, section headings
+
+NOTE: Bricolage Grotesque is already loading from Google Fonts CDN
+in the theme (no Shopify upload strictly required). Upload these files
+only if you want self-hosted fonts for performance/privacy reasons.
+If you upload them, update the @font-face in lane-social-custom.css.liquid
+to point to the Shopify asset URLs.
+
+
+GARET (Download manually — requires browser)
+----------------------------------------------
+1. Go to: https://fontshare.com/fonts/garet
+2. Click "Download Family"
+3. Unzip the downloaded file
+4. You'll find files like: Garet-Book.woff2, Garet-Heavy.woff2
+   (or .ttf equivalents — Shopify accepts both)
+
+Files you need:
+  Garet-Book.woff2   ← Body text, descriptions (400 weight)
+  Garet-Heavy.woff2  ← Heavier body text (700 weight)
+
+
+HOW TO UPLOAD TO SHOPIFY
+--------------------------
+1. Go to Shopify Admin
+2. Navigate to: Content → Files
+3. Click "Upload files"
+4. Upload all 4 font files (2 Bricolage + 2 Garet)
+5. Shopify will generate CDN URLs for each file
+
+The @font-face declarations in assets/lane-social-custom.css.liquid
+already reference these exact filenames. Once uploaded, Garet will
+render automatically — no code changes needed.
+
+
+UNTIL GARET IS UPLOADED
+-------------------------
+The theme falls back to "Plus Jakarta Sans" (also loaded from Google
+Fonts). It's clean and similar in feel. No broken layouts, just a
+different body font until Garet is in place.
+
+============================================================

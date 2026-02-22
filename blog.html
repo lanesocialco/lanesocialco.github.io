@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Strategy Blog — Lane Social Co</title>
+  <meta name="description" content="Tactical social media strategy, growth tactics, and real client results for small businesses. Weekly articles about Instagram, TikTok, content, and growth.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    nav::after {
+      content: '';
+      display: none;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .logo-img-light,
+    .logo-img-dark {
+      display: block;
+      height: 38px;
+      width: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light { display: none !important; }
+      .logo-img-dark { display: block !important; }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .logo-img-dark { display: none !important; }
+      .logo-img-light { display: block !important; }
+    }
+
+    .logo-fallback {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      font-size: 20px;
+      color: var(--purple);
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    .logo-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple);
+      color: var(--ink-text);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--purple);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+      }
+
+      .nav-links a {
+        padding: 8px 0;
+      }
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 40px;
+      margin-top: 100px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-logo {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-size: 13px;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-social a {
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-social {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 0 24px;
+      }
+    }
+
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(123,47,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-sub);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 80px;
+        padding-bottom: 40px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+    }
+
+    .category-filter {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 16px;
+      margin-bottom: 60px;
+      scrollbar-width: none;
+    }
+
+    .category-filter::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-tag {
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--text);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-tag:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 100px;
+      padding: 0;
+    }
+
+    .featured-image {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(123,47,255,0.2) 0%, rgba(123,47,255,0.05) 100%);
+      overflow: hidden;
+    }
+
+    .featured-content h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .featured-meta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .category-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-strategy {
+      background: rgba(123,47,255,0.2);
+      color: var(--purple);
+    }
+
+    .badge-instagram {
+      background: rgba(255,100,120,0.2);
+      color: #FF6478;
+    }
+
+    .badge-tiktok {
+      background: rgba(0,240,200,0.2);
+      color: #00F0C8;
+    }
+
+    .badge-content {
+      background: rgba(255,180,0,0.2);
+      color: #FFB400;
+    }
+
+    .badge-growth {
+      background: rgba(100,200,80,0.2);
+      color: #64C850;
+    }
+
+    .badge-local {
+      background: rgba(80,150,255,0.2);
+      color: #5096FF;
+    }
+
+    .badge-products {
+      background: rgba(255,140,80,0.2);
+      color: #FF8C50;
+    }
+
+    .featured-meta .date,
+    .featured-meta .read-time {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .featured-excerpt {
+      font-size: 18px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .read-more {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--purple);
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 900px) {
+      .featured-post {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .featured-content h2 {
+        font-size: 36px;
+      }
+
+      .featured-image {
+        aspect-ratio: 16 / 9;
+      }
+
+      .featured-excerpt {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .featured-content h2 {
+        font-size: 28px;
+      }
+
+      .featured-excerpt {
+        font-size: 14px;
+      }
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 8px 24px var(--card-shadow);
+      transform: translateY(-4px);
+    }
+
+    .article-card .category-badge {
+      margin-bottom: 16px;
+    }
+
+    .article-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .article-card .excerpt {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .article-card .meta {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .article-card .author::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), rgba(123,47,255,0.6));
+      margin-right: 6px;
+      vertical-align: text-bottom;
+    }
+
+    @media (max-width: 900px) {
+      .article-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-card {
+        padding: 24px;
+      }
+
+      .article-card h3 {
+        font-size: 16px;
+      }
+    }
+
+    .newsletter-section {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 60px 80px;
+      text-align: center;
+      margin: 80px 0;
+    }
+
+    .newsletter-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .newsletter-form input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .newsletter-form button {
+      padding: 12px 24px;
+      background: var(--purple);
+      color: var(--ink-text);
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .newsletter-section {
+        padding: 40px 24px;
+      }
+
+      .newsletter-section h2 {
+        font-size: 24px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    .load-more {
+      display: block;
+      margin: 0 auto;
+      padding: 12px 48px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .load-more:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .article-card,
+      .read-more {
+        transition: none;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback">
+          <span class="logo-mark">✳</span>
+          <span class="logo-divider"></span>
+          <span class="logo-name">Lane Social Co</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Strategy, not guesswork.</h1>
+      <p>Real tactical advice for small businesses growing on social media. Written by Nate. No fluff, no trends that will be dead in a week.</p>
+    </section>
+
+    <div class="category-filter">
+      <a href="blog.html" class="category-tag">All</a>
+      <a href="blog-category-strategy.html" class="category-tag">Strategy</a>
+      <a href="blog-category-instagram.html" class="category-tag">Instagram</a>
+      <a href="blog-category-tiktok.html" class="category-tag">TikTok</a>
+      <a href="blog-category-content.html" class="category-tag">Content</a>
+      <a href="blog-category-growth.html" class="category-tag">Growth</a>
+      <a href="blog-category-local.html" class="category-tag">Local Business</a>
+      <a href="blog-category-products.html" class="category-tag">Digital Products</a>
+    </div>
+
+    <section class="featured-post reveal">
+      <div class="featured-image"></div>
+      <div class="featured-content">
+        <div class="featured-meta">
+          <span class="category-badge badge-strategy">STRATEGY</span>
+          <span class="date">Jan 15, 2025</span>
+          <span class="read-time">8 min read</span>
+        </div>
+        <h2>How to Build a Social Media Strategy from Scratch (Without Hiring an Agency)</h2>
+        <p class="featured-excerpt">Most small businesses skip strategy and jump straight to posting. They wonder why nothing gains traction. A real strategy takes a few hours and changes everything. Here's exactly how to build one.</p>
+        <a href="blog-category-strategy.html" class="read-more">Read Full Article →</a>
+      </div>
+    </section>
+
+    <div class="article-grid">
+      <a href="blog-category-instagram.html" class="article-card reveal">
+        <span class="category-badge badge-instagram">INSTAGRAM</span>
+        <h3>The Instagram Algorithm in 2025: What Actually Matters</h3>
+        <p class="excerpt">Everyone has opinions about the algorithm. Most are wrong. Here's what Meta engineers actually prioritize and what your account should focus on instead of chasing vanity metrics.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Jan 8, 2025</span>
+          <span class="read-time">6 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-tiktok.html" class="article-card reveal">
+        <span class="category-badge badge-tiktok">TIKTOK</span>
+        <h3>Why Your TikTok Isn't Growing (And It's Not the Algorithm)</h3>
+        <p class="excerpt">TikTok's algorithm gets blamed for everything. But the real problem is usually one of these five things. Most accounts fix one and see immediate growth. Let's find yours.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Dec 28, 2024</span>
+          <span class="read-time">7 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-content.html" class="article-card reveal">
+        <span class="category-badge badge-content">CONTENT</span>
+        <h3>5 Content Pillars Every Small Business Needs</h3>
+        <p class="excerpt">Without content pillars, you either post randomly or you post the same thing on repeat. This framework generates 30+ months of consistent, varied content from just five ideas.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Dec 15, 2024</span>
+          <span class="read-time">5 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-growth.html" class="article-card reveal">
+        <span class="category-badge badge-growth">GROWTH</span>
+        <h3>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h3>
+        <p class="excerpt">A local restaurant hired us. They had 800 followers and no strategy. 15 days later, 12K followers and a waitlist. Here's exactly what we did and what you can apply immediately.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Dec 2, 2024</span>
+          <span class="read-time">8 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-local.html" class="article-card reveal">
+        <span class="category-badge badge-local">LOCAL BUSINESS</span>
+        <h3>Local Business Social Media: The Complete Guide</h3>
+        <p class="excerpt">Local businesses have an unfair advantage most never use. You're competing with chain stores with million-dollar budgets. Here's how to win your neighborhood with authenticity.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Nov 20, 2024</span>
+          <span class="read-time">9 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-products.html" class="article-card reveal">
+        <span class="category-badge badge-products">DIGITAL PRODUCTS</span>
+        <h3>Selling Digital Products on Social: The Honest Truth</h3>
+        <p class="excerpt">Social sells services poorly. But digital products? Different story. Here's the exact content mix and positioning that converts followers into customers for digital product businesses.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Nov 5, 2024</span>
+          <span class="read-time">6 min</span>
+        </div>
+      </a>
+    </div>
+
+    <section class="newsletter-section reveal">
+      <h2>Get strategy in your inbox. Once a week. No fluff.</h2>
+      <form class="newsletter-form">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <div style="text-align: center; margin: 80px 0;">
+      <button class="load-more">Load More Articles</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Lane Social Co Blog",
+    "description": "Social media strategy and growth tactics for small businesses",
+    "url": "https://lanesocialco.com/blog.html",
+    "author": {
+      "@type": "Person",
+      "name": "Nate",
+      "url": "https://lanesocialco.com"
+    }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

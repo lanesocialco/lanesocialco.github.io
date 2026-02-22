@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Instagram Algorithm in 2025: What Actually Matters — Lane Social Co</title>
+  <meta name="description" content="Stop guessing about the Instagram algorithm. Learn what Meta actually prioritizes, how to get reach without paid ads, and what most accounts get wrong.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-instagram.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .logo-img-light,
+    .logo-img-dark {
+      display: block;
+      height: 38px;
+      width: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light { display: none !important; }
+      .logo-img-dark { display: block !important; }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .logo-img-dark { display: none !important; }
+      .logo-img-light { display: block !important; }
+    }
+
+    .logo-fallback {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      font-size: 20px;
+      color: var(--purple);
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    .logo-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple);
+      color: var(--ink-text);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+      }
+
+      .nav-links a {
+        padding: 8px 0;
+      }
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 40px;
+      margin-top: 100px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-logo {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-size: 13px;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-social a {
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-social {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 0 24px;
+      }
+    }
+
+    .category-hero {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,100,120,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .category-hero h1 {
+      font-family: 'DM Mono', monospace;
+      font-size: 120px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 0.9;
+      position: relative;
+      z-index: 1;
+      color: #FF6478;
+    }
+
+    .category-hero p {
+      font-size: 18px;
+      color: var(--text-sub);
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .category-hero {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+
+      .category-hero h1 {
+        font-size: 72px;
+      }
+
+      .category-hero p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-hero {
+        padding-top: 80px;
+        padding-bottom: 30px;
+      }
+
+      .category-hero h1 {
+        font-size: 48px;
+      }
+
+      .category-hero p {
+        font-size: 14px;
+      }
+    }
+
+    article {
+      max-width: 720px;
+      margin: 80px auto;
+    }
+
+    article .article-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    article .category-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(255,100,120,0.2);
+      color: #FF6478;
+    }
+
+    article h2 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    article > p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+      color: var(--text-sub);
+    }
+
+    article h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    article h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    article ul,
+    article ol {
+      margin-left: 24px;
+      margin-bottom: 24px;
+    }
+
+    article li {
+      margin-bottom: 10px;
+      line-height: 1.75;
+    }
+
+    article strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    article em {
+      font-style: italic;
+    }
+
+    article .pullquote {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+      padding: 32px 24px;
+      border-left: 4px solid #FF6478;
+      background: var(--bg-alt);
+      margin: 40px 0;
+      color: var(--text);
+    }
+
+    article .cta-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    article .cta-card h4 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    article .cta-card p {
+      margin-bottom: 20px;
+    }
+
+    article .cta-card a {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--ink-text);
+      padding: 12px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    article .cta-card a:hover {
+      opacity: 0.9;
+    }
+
+    .faq-section {
+      max-width: 720px;
+      margin: 80px auto;
+    }
+
+    .faq-section h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .faq-item {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h4 {
+      font-size: 16px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item h4:hover {
+      color: var(--purple);
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .more-posts {
+      max-width: 720px;
+      margin: 80px auto;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
+    }
+
+    .more-posts h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .more-posts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .post-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 8px 24px var(--card-shadow);
+    }
+
+    .post-card h4 {
+      font-size: 15px;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .post-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 12px 0 0 0;
+    }
+
+    @media (max-width: 900px) {
+      article h2 {
+        font-size: 36px;
+      }
+
+      article h3 {
+        font-size: 22px;
+      }
+
+      .more-posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      article h2 {
+        font-size: 28px;
+      }
+
+      article > p {
+        font-size: 15px;
+      }
+
+      article .pullquote {
+        font-size: 16px;
+        padding: 24px 16px;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .post-card,
+      .faq-item h4 {
+        transition: none;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback">
+          <span class="logo-mark">✳</span>
+          <span class="logo-divider"></span>
+          <span class="logo-name">Lane Social Co</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Instagram</h1>
+      <p>What the algorithm actually prioritizes. What it doesn't. And how to get reach without paying Meta.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">INSTAGRAM</span>
+        <span>Jan 8, 2025</span>
+        <span>6 min read</span>
+      </div>
+
+      <h2>The Instagram Algorithm in 2025: What Actually Matters</h2>
+
+      <p>Everyone has opinions about the Instagram algorithm. Your friend says it's broken. Your competitor says Reels are the only thing that works. Your agency says you need to post at a specific time. Most of them are wrong.</p>
+
+      <p>Here's what actually matters to the algorithm in 2025.</p>
+
+      <h3>What the Algorithm Actually Prioritizes</h3>
+
+      <p>Meta's algorithm doesn't care about your posting time. It doesn't care how long you've had an account. It doesn't care about hashtags as much as it used to. What it actually measures is user behavior.</p>
+
+      <p>The algorithm looks at three things:</p>
+
+      <ul>
+        <li><strong>Shares.</strong> If someone shares your post to their Stories or DMs, the algorithm sees that as a signal that your content matters to that person. One share is worth ten comments in the algorithm's eyes.</li>
+        <li><strong>Saves.</strong> A save means someone wants to come back to your content. It's a stronger signal than a like.</li>
+        <li><strong>Watch time.</strong> For Reels and videos, the algorithm measures how long someone watches. If people watch your Reel to completion, the algorithm pushes it out more.</li>
+      </ul>
+
+      <p>Likes are important but least important of the three. Comments are visible but don't move the algorithm as much as you think.</p>
+
+      <p>The goal of the algorithm is simple: keep people on the app as long as possible. If your content does that, the algorithm will show it to more people.</p>
+
+      <h3>What the Algorithm Does NOT Care About</h3>
+
+      <p>Stop worrying about these things. They don't matter.</p>
+
+      <p>Post time is not a major signal anymore. You've probably heard you should post at 9 AM or 6 PM. That's outdated advice. Post when you're ready to post. The algorithm will still show it to people interested in your content, regardless of time.</p>
+
+      <p>Hashtags are not the driver they were five years ago. Use them because they're relevant, not because you need thirty of them. Five to ten relevant hashtags are enough. The algorithm relies on your content and user behavior first, hashtags second.</p>
+
+      <p>Account age doesn't matter. A brand new account can blow up overnight if the content is good. A five-year-old account can stall if the content is boring.</p>
+
+      <p>Following the rules of "you must post consistently" is overstated. You must be consistent when you do post, but the algorithm won't penalize you for taking a week off. It will reward you for posting content that people actually want to engage with.</p>
+
+      <h3>Reels vs. Carousels vs. Single Images</h3>
+
+      <p>Meta wants you to make Reels. Instagram is a video-first platform now. But that doesn't mean Reels are the only thing that works.</p>
+
+      <p>Here's what actually performs in 2025:</p>
+
+      <p><strong>Reels.</strong> Video content gets 67 percent more reach than static images. Reels are recommended more often. The algorithm pushes them hardest. Make Reels. They don't have to be high production. A phone video of you talking to the camera for thirty seconds works.</p>
+
+      <p><strong>Carousels.</strong> A carousel (multiple images swiped left) gets more engagement than a single image because people have to interact with it to see all the slides. The algorithm interprets that interaction as interest.</p>
+
+      <p><strong>Single images.</strong> They still work, but they'll never compete with Reels for reach. Use single images to build community with your existing audience, not to get new people to discover you.</p>
+
+      <p>If you want growth, prioritize Reels. If you want engagement from people who already follow you, use carousels or single images.</p>
+
+      <h3>The Posting Frequency Myth</h3>
+
+      <p>Some accounts post three times per week and blow up. Others post daily and stay flat. The difference isn't frequency. It's quality.</p>
+
+      <p>The algorithm would rather see you post one great Reel per week than five mediocre posts daily. One piece of content that keeps someone watching for fifteen seconds will get more reach than five pieces that bore them after two seconds.</p>
+
+      <p>Pick a frequency you can sustain with good content. For most small businesses, that's two to four posts per week. Stick to it. Don't burn yourself out trying to post every day if your content suffers.</p>
+
+      <div class="pullquote">
+        The algorithm isn't broken. It's just measuring what actually matters: keeping people engaged. Create content that does that, and everything else takes care of itself.
+      </div>
+
+      <h3>How to Get Reach Without Paid Ads</h3>
+
+      <p>Organic reach is harder in 2025 than it was in 2020. But it's not impossible. Here's what actually works:</p>
+
+      <p><strong>Make content for sharing.</strong> Before you post anything, ask: would someone want to send this to a friend? Would they save it? If the answer is no, don't post it. Make content that begs to be shared.</p>
+
+      <p><strong>Hook in the first second.</strong> On Reels, you have one second to make someone keep watching. On carousels, your first image needs to make someone want to see the next one. Spend 50 percent of your content creation time on the hook.</p>
+
+      <p><strong>End with an ask.</strong> Don't end your content and hope people engage. Ask them to save, share, or comment. "Save this" gets saves. "Tag someone you'd send this to" gets tags. "Share this with your team" gets shares.</p>
+
+      <p><strong>Use trending sounds on Reels, but make them relevant.</strong> A trending sound doesn't mean you have to dance or make a joke. Use the sound in a way that's authentic to your content. A fitness account can use a trending sound with a real workout tip. It still counts as using the trend.</p>
+
+      <p><strong>Post Reels consistently.</strong> If you post once per week, that's enough for growth. If you post Reels sporadically and single images the rest of the time, growth will stall.</p>
+
+      <h3>What Most Accounts Get Wrong</h3>
+
+      <p>Small businesses make the same three mistakes over and over.</p>
+
+      <p><strong>Mistake one:</strong> They focus on followers instead of engagement. They see their follower count and celebrate. But if those followers never engage, they don't matter. Focus on engagement rate first. Follower growth will follow.</p>
+
+      <p><strong>Mistake two:</strong> They make content for themselves, not their audience. They post what they think is interesting, not what their audience needs. The algorithm doesn't care about your opinion. It cares about user behavior. Make what your audience actually wants to see.</p>
+
+      <p><strong>Mistake three:</strong> They give up after two months. Instagram growth isn't linear. Some weeks are flat. Some weeks are explosive. Most accounts see real traction after three to four months of consistent posting. Most accounts quit before that.</p>
+
+      <div class="cta-card">
+        <h4>Get a full audit of your Instagram account.</h4>
+        <p>We analyze your content, engagement patterns, and audience to create a custom growth plan. See exactly what's working and what's not.</p>
+        <a href="audit-intake.html">Book an Audit</a>
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>How often should I post on Instagram?</h4>
+        <p>Post two to four times per week if your content is good. Post once per week if that's all you have time for. The quality of your content matters more than frequency. One great Reel per week will get you more reach than five mediocre posts daily. Pick a rhythm you can sustain and stick to it.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do hashtags still matter?</h4>
+        <p>Hashtags matter, but not as much as they used to. They're a discovery tool for people searching for a specific topic. Use five to ten relevant hashtags on your posts. Don't stuff hashtags into your caption. Put them in a comment. The algorithm doesn't care about hashtag volume. It cares about relevance.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's better: Reels or carousels?</h4>
+        <p>Reels get more reach because the algorithm prioritizes video. Carousels get more engagement from people who see them. For growth, prioritize Reels. For community building and engagement with your existing audience, carousels work great. The best strategy is a mix: mostly Reels with some carousels and single images for variety.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I be doing Instagram Stories?</h4>
+        <p>Stories are for community building, not growth. They're visible to people who already follow you. Use Stories to stay top-of-mind with your audience, to share behind-the-scenes content, and to drive them to your main feed or links. But don't expect Stories to grow your following.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How long should my Reels be?</h4>
+        <p>Length doesn't matter. A fifteen-second Reel that's boring will get less reach than a forty-five-second Reel that's interesting. What matters is watch time. Keep people watching. If you can do that in fifteen seconds, great. If it takes sixty seconds, that's fine too.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Instagram Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-content.html" class="post-card">
+          <h4>5 Content Pillars Every Small Business Needs</h4>
+          <p>Dec 15, 2024 • 5 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="audit-intake.html" class="post-card">
+          <h4>Get an Instagram Audit</h4>
+          <p>We'll analyze your account and create a custom growth plan</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Instagram Algorithm in 2025: What Actually Matters",
+    "description": "Stop guessing about the Instagram algorithm. Learn what Meta actually prioritizes, how to get reach without paid ads, and what most accounts get wrong.",
+    "image": "https://lanesocialco.com/assets/images/instagram-og.jpg",
+    "datePublished": "2025-01-08",
+    "dateModified": "2025-01-08",
+    "author": {
+      "@type": "Person",
+      "name": "Nate",
+      "url": "https://lanesocialco.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lane Social Co"
+    }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

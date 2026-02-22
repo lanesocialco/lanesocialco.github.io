@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Social media strategy, audits, and free resources. Book your $97 audit or grab free downloads.">
+  <title>Lane Social Co · Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* TOKENS */
+    :root {
+      --purple: #7B2FFF; --purple-rgb: 123,47,255;
+      --bg: #FFFFFF; --bg-alt: #F4F3F0; --surface: #FFFFFF;
+      --text: #0A0A0A; --text-sub: #444444; --text-muted: #888888;
+      --border: #E8E6E1; --nav-bg: rgba(255,255,255,0.92); --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A; --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C; --bg-alt: #141414; --surface: #1A1A1A;
+        --text: #F0F0F0; --text-sub: #AAAAAA; --text-muted: #666666;
+        --border: #262626; --nav-bg: rgba(12,12,12,0.92); --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    /* LINKS PAGE SPECIFIC */
+    .links-container {
+      min-height: 100vh;
+      background: var(--ink);
+      color: var(--ink-text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .links-header {
+      margin-bottom: 40px;
+      margin-top: 20px;
+    }
+
+    .links-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: var(--ink-text);
+      text-decoration: none;
+    }
+
+    .links-logo span {
+      color: var(--purple);
+      font-size: 32px;
+    }
+
+    .avatar-circle {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(var(--purple-rgb), 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin: 0 auto 24px;
+      border: 2px solid rgba(var(--purple-rgb), 0.3);
+    }
+
+    .links-name {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.6px;
+    }
+
+    .links-bio {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: rgba(var(--ink-text), 0.65);
+      letter-spacing: 0.08em;
+      margin-bottom: 48px;
+      text-transform: uppercase;
+    }
+
+    .links-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 64px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--ink-text);
+      color: var(--ink);
+      padding: 24px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+      border: 2px solid var(--ink-text);
+      min-height: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--purple);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .link-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .link-card:hover {
+      color: var(--ink-text);
+      border-color: var(--purple);
+    }
+
+    .link-card-emoji {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .link-card-text {
+      text-align: left;
+      font-size: 15px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .links-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: rgba(var(--ink-text), 0.5);
+      letter-spacing: 0.08em;
+    }
+
+    .stat-item {
+      padding: 12px 16px;
+      border: 1px solid rgba(var(--ink-text), 0.1);
+      border-radius: 8px;
+      text-transform: uppercase;
+    }
+
+    .links-footer {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(var(--ink-text), 0.4);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 600px) {
+      .links-container {
+        padding: 32px 20px;
+      }
+
+      .links-cards {
+        max-width: 100%;
+      }
+
+      .link-card {
+        padding: 20px 24px;
+        min-height: 68px;
+      }
+
+      .link-card-emoji {
+        font-size: 20px;
+      }
+
+      .link-card-text {
+        font-size: 14px;
+      }
+
+      .links-stats {
+        gap: 12px;
+        font-size: 11px;
+      }
+
+      .stat-item {
+        padding: 10px 12px;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <div class="links-container">
+    <div class="links-header">
+      <a href="index.html" class="links-logo">
+        <span>✳</span> Lane Social Co
+      </a>
+      <div class="avatar-circle">✳</div>
+      <h1 class="links-name">Lane Social Co</h1>
+      <p class="links-bio">Social media strategy · Las Vegas</p>
+    </div>
+
+    <div class="links-cards">
+      <a href="services.html" class="link-card">
+        <span class="link-card-emoji">🔍</span>
+        <span class="link-card-text">Get your $97 Social Media Audit</span>
+      </a>
+      <a href="shop-free.html" class="link-card">
+        <span class="link-card-emoji">🆓</span>
+        <span class="link-card-text">Free Resources & Downloads</span>
+      </a>
+      <a href="blog.html" class="link-card">
+        <span class="link-card-emoji">📖</span>
+        <span class="link-card-text">Read the Blog</span>
+      </a>
+      <a href="contact.html" class="link-card">
+        <span class="link-card-emoji">🤝</span>
+        <span class="link-card-text">Work With Us</span>
+      </a>
+      <a href="results.html" class="link-card">
+        <span class="link-card-emoji">📊</span>
+        <span class="link-card-text">See Real Results</span>
+      </a>
+    </div>
+
+    <div class="links-stats">
+      <div class="stat-item">12k followers</div>
+      <div class="stat-item">2M+ interactions</div>
+      <div class="stat-item">1M+ accounts reached</div>
+    </div>
+
+    <div class="links-footer">
+      © 2025 Lane Social Co
+    </div>
+  </div>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

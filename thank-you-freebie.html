@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Your Email - Lane Social Co</title>
+  <meta name="description" content="Your freebie is on the way. Check your email to download your resource.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Minimal header */
+    .header {
+      padding: 24px 80px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .logo-simple {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-simple span {
+      font-size: 18px;
+      color: var(--purple);
+    }
+
+    /* Main content */
+    main {
+      background-color: var(--bg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 140px 80px;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(123,47,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .envelope-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-section h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-section .subheading {
+      font-size: 18px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+      line-height: 1.8;
+    }
+
+    /* Message box */
+    .message-box {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 60px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message-box p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    .message-box p strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .message-box p:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    /* Explore section */
+    .explore-section {
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .explore-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .explore-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .explore-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .explore-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 4px 12px var(--card-shadow);
+      transform: translateY(-4px);
+    }
+
+    .explore-card-icon {
+      font-size: 36px;
+      display: block;
+    }
+
+    .explore-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .explore-card p {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .explore-card-badge {
+      font-size: 11px;
+      background-color: var(--bg-alt);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 20px;
+      align-self: center;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 60px;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-section h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--purple);
+      color: var(--ink-text);
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-alt);
+      padding: 40px 80px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 20px 24px;
+      }
+
+      .container {
+        padding: 100px 24px;
+      }
+
+      .hero-section h1 {
+        font-size: 42px;
+      }
+
+      .explore-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-section {
+        padding: 40px 24px;
+      }
+
+      footer {
+        padding: 30px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 16px;
+      }
+
+      .container {
+        padding: 60px 16px;
+      }
+
+      .hero-section h1 {
+        font-size: 32px;
+      }
+
+      .hero-section .subheading {
+        font-size: 16px;
+      }
+
+      .envelope-icon {
+        font-size: 48px;
+      }
+
+      .message-box {
+        padding: 24px 16px;
+      }
+
+      .explore-section h2 {
+        font-size: 20px;
+      }
+
+      .explore-card {
+        padding: 24px 16px;
+      }
+
+      .cta-section {
+        padding: 30px 16px;
+      }
+
+      .cta-section h2 {
+        font-size: 22px;
+      }
+
+      .cta-button {
+        width: 100%;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo-simple">
+      <span>✳</span>
+      <span>Lane Social Co</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero-section">
+        <div class="envelope-icon">✉️</div>
+        <h1>Your freebie is on the way.</h1>
+        <p class="subheading">Check your inbox for the download link. Don't see it? Check your spam folder just in case.</p>
+      </section>
+
+      <div class="message-box">
+        <p><strong>Didn't get the email?</strong> No problem. It usually arrives within a few minutes, but sometimes it likes to hide.</p>
+        <p>Still waiting? Feel free to reach out at hello@lanesocialco.com</p>
+      </div>
+
+      <section class="explore-section">
+        <h2>While you're here, explore more:</h2>
+        <div class="explore-cards">
+          <a href="freebie-audit-checklist.html" class="explore-card">
+            <span class="explore-card-icon">✓</span>
+            <h3>Audit Checklist</h3>
+            <p>Self-audit your accounts and identify quick wins.</p>
+          </a>
+          <a href="freebie-content-pillars.html" class="explore-card">
+            <span class="explore-card-icon">📍</span>
+            <h3>Content Pillars</h3>
+            <p>Define your unique voice and content themes.</p>
+          </a>
+          <a href="services.html" class="explore-card">
+            <span class="explore-card-icon">🎯</span>
+            <h3>Full Audit</h3>
+            <p>Ready for a deep dive? Get your $97 audit today.</p>
+            <span class="explore-card-badge">Paid Service</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <h2>Ready for the full picture?</h2>
+        <p>Our $97 Social Media Audit gives you everything you need to grow on social. Detailed analysis. Clear strategy. 30-minute walkthrough call with Nate.</p>
+        <a href="services.html" class="cta-button">Get Your Audit →</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

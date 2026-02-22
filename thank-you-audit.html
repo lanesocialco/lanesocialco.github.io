@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In - Lane Social Co</title>
+  <meta name="description" content="Your audit request has been received. Here's what happens next.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Minimal header */
+    .header {
+      padding: 24px 80px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .logo-simple {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-simple span {
+      font-size: 18px;
+      color: var(--purple);
+    }
+
+    /* Main content */
+    main {
+      background-color: var(--bg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 140px 80px;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(123,47,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-section h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-section .subheading {
+      font-size: 18px;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .envelope-icon {
+      font-size: 48px;
+      margin-bottom: 24px;
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Timeline section */
+    .timeline-section {
+      margin-bottom: 80px;
+    }
+
+    .timeline-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .timeline-item {
+      text-align: center;
+    }
+
+    .timeline-step {
+      width: 50px;
+      height: 50px;
+      background-color: var(--purple);
+      color: var(--ink-text);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      margin: 0 auto 20px;
+    }
+
+    .timeline-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* While you wait section */
+    .wait-section {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 60px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .wait-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .freebie-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .freebie-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s;
+    }
+
+    .freebie-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 4px 12px var(--card-shadow);
+      transform: translateY(-2px);
+    }
+
+    .freebie-card-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .freebie-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .freebie-card p {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* Social sharing */
+    .share-section {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .share-section h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .share-button {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .share-button:hover {
+      background-color: var(--bg-alt);
+      border-color: var(--purple);
+    }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--purple);
+      color: var(--ink-text);
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-alt);
+      padding: 40px 80px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        padding: 20px 24px;
+      }
+
+      .container {
+        padding: 100px 24px;
+      }
+
+      .hero-section h1 {
+        font-size: 42px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .freebie-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .wait-section {
+        padding: 40px 24px;
+      }
+
+      .share-buttons {
+        flex-wrap: wrap;
+      }
+
+      footer {
+        padding: 30px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 16px;
+      }
+
+      .container {
+        padding: 60px 16px;
+      }
+
+      .hero-section h1 {
+        font-size: 32px;
+      }
+
+      .hero-section .subheading {
+        font-size: 16px;
+      }
+
+      .wait-section {
+        padding: 30px 16px;
+      }
+
+      .wait-section h2 {
+        font-size: 20px;
+      }
+
+      .timeline-section h2 {
+        font-size: 20px;
+      }
+
+      .timeline-item h3 {
+        font-size: 14px;
+      }
+
+      .cta-section h2 {
+        font-size: 20px;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo-simple">
+      <span>✳</span>
+      <span>Lane Social Co</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero-section">
+        <div class="envelope-icon">📬</div>
+        <h1>You're in.</h1>
+        <p class="subheading">Your audit request has been received. Here's what happens next.</p>
+      </section>
+
+      <section class="timeline-section">
+        <h2>Your Audit Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-step">1</div>
+            <h3>We Review</h3>
+            <p>We dive into your intake form and get familiar with your business.</p>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Within 24 hours</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-step">2</div>
+            <h3>We Audit</h3>
+            <p>Deep analysis of your accounts, competitors, and content performance.</p>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">3-5 business days</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-step">3</div>
+            <h3>You Get Results</h3>
+            <p>Full written report plus a 30-minute walkthrough call with Nate.</p>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">After audit complete</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="wait-section">
+        <h2>While You Wait</h2>
+        <p style="color: var(--text-sub); margin-bottom: 32px;">Grab one of our free resources to start optimizing today.</p>
+        <div class="freebie-cards">
+          <a href="freebie-audit-checklist.html" class="freebie-card">
+            <span class="freebie-card-icon">✓</span>
+            <h3>Audit Checklist</h3>
+            <p>Self-audit your accounts before we do.</p>
+          </a>
+          <a href="freebie-content-pillars.html" class="freebie-card">
+            <span class="freebie-card-icon">📍</span>
+            <h3>Content Pillars</h3>
+            <p>Define what you stand for on social.</p>
+          </a>
+          <a href="freebie-bio-optimization.html" class="freebie-card">
+            <span class="freebie-card-icon">🔤</span>
+            <h3>Bio Optimization</h3>
+            <p>Write a bio that converts.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="share-section">
+        <h3>Tell your followers you're leveling up.</h3>
+        <div class="share-buttons">
+          <a href="https://instagram.com" class="share-button" target="_blank">Share on Instagram</a>
+          <a href="https://tiktok.com" class="share-button" target="_blank">Share on TikTok</a>
+          <a href="https://twitter.com" class="share-button" target="_blank">Share on Twitter</a>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <h2>Ready for more?</h2>
+        <p>Check out all our free resources and services.</p>
+        <a href="shop-free.html" class="cta-button">Explore Free Resources →</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

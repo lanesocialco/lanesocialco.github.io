@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How a Las Vegas Restaurant Got 12K Followers in 15 Days — Lane Social Co</title>
+  <meta name="description" content="Real case study: a Las Vegas restaurant went from 800 followers to 12,800 in 15 days. Learn the exact strategy, content mix, and why engagement drove reach.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-growth.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,200,80,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #64C850; }
+    .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .category-hero { padding-top: 100px; padding-bottom: 40px; }
+      .category-hero h1 { font-size: 72px; }
+      .category-hero p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .category-hero { padding-top: 80px; padding-bottom: 30px; }
+      .category-hero h1 { font-size: 48px; }
+      .category-hero p { font-size: 14px; }
+    }
+    article { max-width: 720px; margin: 80px auto; }
+    article .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(100,200,80,0.2); color: #64C850; }
+    article h2 { font-size: 52px; font-weight: 800; margin-bottom: 40px; line-height: 1.15; }
+    article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
+    article h3 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    article h4 { font-size: 18px; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
+    article li { margin-bottom: 10px; line-height: 1.75; }
+    article strong { font-weight: 700; color: var(--text); }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #64C850; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+    article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
+    article .cta-card p { margin-bottom: 20px; }
+    article .cta-card a { display: inline-block; background: var(--purple); color: var(--ink-text); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    article .cta-card a:hover { opacity: 0.9; }
+    .faq-section { max-width: 720px; margin: 80px auto; }
+    .faq-section h3 { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+    .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; margin-top: 0; margin-bottom: 12px; cursor: pointer; transition: color 0.3s ease; }
+    .faq-item h4:hover { color: var(--purple); }
+    .faq-item p { font-size: 14px; color: var(--text-sub); line-height: 1.75; margin: 0; }
+    .more-posts { max-width: 720px; margin: 80px auto; padding-top: 60px; border-top: 1px solid var(--border); }
+    .more-posts h3 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+    .more-posts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .post-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); }
+    .post-card h4 { font-size: 15px; margin-top: 0; line-height: 1.4; }
+    .post-card p { font-size: 12px; color: var(--text-muted); margin: 12px 0 0 0; }
+    @media (max-width: 900px) {
+      article h2 { font-size: 36px; }
+      article h3 { font-size: 22px; }
+      .more-posts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      article h2 { font-size: 28px; }
+      article > p { font-size: 15px; }
+      article .pullquote { font-size: 16px; padding: 24px 16px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Growth</h1>
+      <p>Real case studies. Real numbers. Real lessons you can apply to your account.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">GROWTH</span>
+        <span>Dec 2, 2024</span>
+        <span>8 min read</span>
+      </div>
+
+      <h2>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h2>
+
+      <p>This is a real case study. A local Las Vegas restaurant hired us. They had 800 followers. Their content was scattered. No strategy. No consistency. Just random photos of food.</p>
+
+      <p>Fifteen days later, they had 12,800 followers. Their engagement rate went from 0.5 percent to 5 percent. They started getting DMs from people who'd seen their content and wanted to visit. By day 30, they had a waitlist.</p>
+
+      <p>This is what happened.</p>
+
+      <h3>The Situation Before</h3>
+
+      <p>The restaurant had an Instagram account. It existed. They posted maybe two or three times per week. Photos of dishes. No captions. No strategy. Their most recent post had been five days ago.</p>
+
+      <p>They were competing with every other restaurant on Instagram. They had no unique angle. No reason for someone to follow them over the place across the street.</p>
+
+      <p>Their owner said, "We tried Instagram. It doesn't work for restaurants." What actually happened: they tried Instagram without strategy. Strategy makes the difference.</p>
+
+      <h3>What Changed</h3>
+
+      <p>Three things.</p>
+
+      <p><strong>Number one: they defined their angle.</strong> This wasn't just another restaurant. They were a neighborhood spot run by a family who cared. They had history. They had a story. We made that the center of everything they posted.</p>
+
+      <p><strong>Number two: they committed to posting twice per day.</strong> Once in the morning (9 AM) and once in the evening (6 PM). Every single day for thirty days.</p>
+
+      <p><strong>Number three: they used a content framework.</strong> Instead of guessing what to post, they followed a pattern. Day one: behind the scenes (kitchen prep). Day two: food close-up with a story. Day three: owner's take (why this dish matters). Repeat.</p>
+
+      <h3>The Content Mix They Used</h3>
+
+      <p>They didn't post random food photos. They posted strategically.</p>
+
+      <p>40 percent of their posts were behind-the-scenes content. The chef prepping. The team getting ready for service. The restaurant before it opened. People connect with process, not just product.</p>
+
+      <p>30 percent were finished dishes with stories. Not just "look at this pasta." But "this pasta recipe came from the owner's grandmother in Italy. We've made it the same way for 15 years."</p>
+
+      <p>20 percent was owner's perspective. "Here's why we don't use frozen ingredients." "Here's what makes our pizza different." "Here's the one thing we refuse to compromise on."</p>
+
+      <p>10 percent was direct promotion. "Happy hour until 7 PM today." "Make a reservation." "Try our new seasonal menu."</p>
+
+      <div class="pullquote">
+        People don't follow restaurants for pictures of food. They follow them for connection, story, and the feeling that this place is run by people who care.
+      </div>
+
+      <h3>How Engagement Drove Reach</h3>
+
+      <p>The Instagram algorithm didn't care that they posted twice per day. It cared that people engaged with the posts.</p>
+
+      <p>The behind-the-scenes content got the highest engagement. People saved it. People shared it. People commented asking questions. The algorithm saw that signal and pushed the content to more people.</p>
+
+      <p>Within four days, their posts were being shown to people who didn't follow them. By day seven, each post was reaching 3,000 to 5,000 people (they had 1,600 followers). By day fifteen, each post was reaching 8,000 to 12,000 people.</p>
+
+      <p>The growth compounded. More reach meant more new followers. More followers meant more engagement. More engagement meant more reach. The momentum built.</p>
+
+      <h3>What Happened at Day 15</h3>
+
+      <p>They hit 12,800 followers. They were getting forty to fifty DMs per day from people saying they wanted to visit. Their Instagram bio link drove traffic to their reservation system. They went from a waitlist of zero to a waitlist of forty people in two weeks.</p>
+
+      <p>But here's the important part: this didn't happen because of luck. It happened because they changed strategy. They went from random posting to intentional content. From no story to a clear story. From hoping for growth to building it systematically.</p>
+
+      <h3>What They Did Next</h3>
+
+      <p>They didn't stop. They kept the same posting frequency. They kept the same content ratios. But they added one thing: they started responding to comments and DMs within an hour.</p>
+
+      <p>A person comments "is this good for vegetarians?" They answer immediately. That person feels heard. They're more likely to visit. The algorithm sees the engagement and pushes the post even more.</p>
+
+      <p>By day 60, they hit 18,000 followers. By day 90, they had 22,000. They stopped tracking Instagram specifically because the business impact was clear: more customers, higher revenue, better brand.</p>
+
+      <h3>Lessons Any Small Business Can Apply</h3>
+
+      <p><strong>Lesson one: strategy beats posting volume.</strong> Posting five times per day with no strategy gets you nowhere. Posting twice per day with intentional content gets you growth.</p>
+
+      <p><strong>Lesson two: people follow people, not brands.</strong> Every post had a human angle. The chef. The owner. The team. That's what people engaged with.</p>
+
+      <p><strong>Lesson three: consistency compounds.</strong> Day three, they had 850 followers (basically nothing changed). Day seven, they had 1,200. Day fifteen, they had 12,800. It looked like it happened overnight. It didn't. It was fourteen days of consistency.</p>
+
+      <p><strong>Lesson four: behind-the-scenes beats polished.</strong> Their "polished" food photos got 2 percent engagement. A blurry video of the chef talking to the camera got 15 percent engagement. Don't perfect it. Authenticate it.</p>
+
+      <p><strong>Lesson five: engagement metrics matter more than follower count.</strong> They went from 800 followers with 0.5 percent engagement to 12,800 followers with 5 percent engagement. That 5 percent (640 people per post engaging) is worth more than 100,000 followers who don't care.</p>
+
+      <div class="cta-card">
+        <h4>Want similar results for your business?</h4>
+        <p>We audit your account, identify what's holding you back, and create a custom growth plan. See exactly where your growth is hiding.</p>
+        <a href="audit-intake.html">Book an Audit</a>
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>Can this work for any type of business?</h4>
+        <p>The framework works for any business, but the content changes. A restaurant posts food and process. A salon posts transformations and team. A coach posts student results and lessons. Same structure, different content.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How long does this usually take?</h4>
+        <p>Real growth usually takes ninety days of consistent posting. But you'll see momentum shifts within two to four weeks if you're doing it right. By week two, you should see your engagement rate increase. That's the leading indicator that growth is coming.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if I don't have time to post twice per day?</h4>
+        <p>Post once per day. It works slower, but it still works. The key is consistency and quality. One good post per day beats five mediocre posts per week.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I use paid ads to accelerate this?</h4>
+        <p>Not initially. Get to 5,000 followers organically first. Your organic growth will tell you what content works. Then use ads to amplify what's already working. Ads with no organic foundation waste money.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Growth Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-local.html" class="post-card">
+          <h4>Local Business Social Media: The Complete Guide</h4>
+          <p>Nov 20, 2024 • 9 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="audit-intake.html" class="post-card">
+          <h4>Get Your Growth Audit</h4>
+          <p>We'll analyze your account and create a custom growth plan</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How a Las Vegas Restaurant Got 12K Followers in 15 Days",
+    "description": "Real case study: a Las Vegas restaurant went from 800 followers to 12,800 in 15 days. Learn the exact strategy, content mix, and why engagement drove reach.",
+    "datePublished": "2024-12-02",
+    "author": { "@type": "Person", "name": "Nate" },
+    "publisher": { "@type": "Organization", "name": "Lane Social Co" }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

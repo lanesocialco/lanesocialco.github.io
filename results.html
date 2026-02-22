@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Results — Lane Social Co</title>
+  <meta name="description" content="Real client transformations. 12K followers in 15 days. 2M+ interactions. Real businesses with real growth. See what's possible for your account.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/results.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .hero { padding-top: 140px; padding-bottom: 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,47,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero h1 { font-size: 72px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; position: relative; z-index: 1; }
+    .hero p { font-size: 20px; color: var(--text-sub); max-width: 600px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .hero { padding-top: 100px; padding-bottom: 60px; }
+      .hero h1 { font-size: 48px; }
+      .hero p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding-top: 80px; padding-bottom: 40px; }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 14px; }
+    }
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 100px; padding: 60px 40px; background: var(--bg-alt); border-radius: 12px; border: 1px solid var(--border); }
+    .stat { text-align: center; }
+    .stat-number { font-size: 48px; font-weight: 800; color: var(--purple); margin-bottom: 8px; }
+    .stat-label { font-size: 14px; color: var(--text-sub); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    @media (max-width: 900px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 32px; padding: 40px; }
+      .stat-number { font-size: 36px; }
+    }
+    @media (max-width: 480px) {
+      .stats-bar { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+    }
+    .featured-case { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; padding: 60px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .case-image { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, rgba(123,47,255,0.2) 0%, rgba(123,47,255,0.05) 100%); border-radius: 8px; }
+    .case-content h2 { font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+    .case-content p { font-size: 16px; line-height: 1.8; color: var(--text-sub); margin-bottom: 20px; }
+    .case-content .quote { font-size: 16px; font-style: italic; color: var(--text-sub); padding: 24px; background: var(--bg-alt); border-left: 4px solid var(--purple); border-radius: 4px; margin-top: 24px; }
+    .case-content .quote-attr { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+    @media (max-width: 900px) {
+      .featured-case { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+      .case-content h2 { font-size: 28px; }
+    }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
+    .case-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; transition: all 0.3s ease; }
+    .case-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); transform: translateY(-4px); }
+    .case-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .case-card .result { font-size: 14px; color: var(--purple); font-weight: 700; margin-bottom: 16px; }
+    .case-card p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+    @media (max-width: 900px) {
+      .case-grid { grid-template-columns: 1fr; }
+    }
+    .testimonials { margin-bottom: 100px; }
+    .testimonials h2 { text-align: center; font-size: 48px; font-weight: 800; margin-bottom: 60px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .testimonial { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+    .testimonial-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .testimonial-role { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+    .testimonial-result { font-size: 14px; color: var(--purple); font-weight: 700; margin-bottom: 16px; }
+    .testimonial-text { font-size: 15px; color: var(--text-sub); line-height: 1.7; font-style: italic; }
+    @media (max-width: 900px) {
+      .testimonials h2 { font-size: 36px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+    .process { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 60px 40px; margin-bottom: 100px; }
+    .process h2 { font-size: 36px; font-weight: 800; margin-bottom: 40px; text-align: center; }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step { text-align: center; }
+    .step-number { font-size: 36px; font-weight: 800; color: var(--purple); margin-bottom: 12px; }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .step p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+    @media (max-width: 900px) {
+      .process { padding: 40px 24px; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process h2 { font-size: 28px; }
+    }
+    .cta-section { background: var(--purple); color: var(--ink-text); padding: 80px 60px; border-radius: 12px; margin-bottom: 60px; text-align: center; }
+    .cta-section h2 { font-size: 48px; font-weight: 800; margin-bottom: 16px; }
+    .cta-section p { font-size: 18px; margin-bottom: 32px; line-height: 1.6; }
+    .cta-section a { display: inline-block; background: var(--ink-text); color: var(--purple); padding: 14px 48px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    .cta-section a:hover { opacity: 0.9; transform: translateY(-2px); }
+    @media (max-width: 900px) {
+      .cta-section { padding: 60px 32px; }
+      .cta-section h2 { font-size: 32px; }
+      .cta-section p { font-size: 16px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .case-card { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Results that speak.</h1>
+      <p>Not vanity metrics. Real transformations. Real businesses. Real revenue impact.</p>
+    </section>
+
+    <section class="stats-bar reveal">
+      <div class="stat">
+        <div class="stat-number">12K</div>
+        <div class="stat-label">Followers in 15 Days</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2M+</div>
+        <div class="stat-label">Total Interactions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1M+</div>
+        <div class="stat-label">Accounts Reached</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">97%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+    </section>
+
+    <section class="featured-case reveal">
+      <div class="case-image"></div>
+      <div class="case-content">
+        <h2>Las Vegas Restaurant: 800 to 12.8K Followers in 15 Days</h2>
+        <p><strong>The Situation:</strong> A local restaurant with 800 followers, scattered content, and no strategy. They were posting randomly and getting minimal engagement. They thought Instagram was "broken" for restaurants.</p>
+        <p><strong>What We Did:</strong> We audited their account, built a strategy, and executed a 30-day action plan focusing on consistent, authentic content. Two times per day posting. Behind-the-scenes focus. Clear messaging.</p>
+        <p><strong>The Results:</strong> 12,800 followers by day 15. 2M reach. 40 percent engagement increase. A waitlist of 40+ people from social referrals alone. Revenue impact within 30 days.</p>
+        <div class="quote">
+          "We tried Instagram for months and gave up. In two weeks with Lane Social Co, we're busier than we've been in years. People are walking in because they saw us on Instagram. This actually works."
+          <div class="quote-attr">Restaurant Owner, Las Vegas</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-grid reveal">
+      <div class="case-card">
+        <h3>Local Boutique</h3>
+        <div class="result">1.2K to 4.8K followers in 60 days</div>
+        <p>Instagram focus. User-generated content strategy. Before/afters from styling sessions. Went from zero new followers per week to 60+ per week. Online sales increased 35 percent.</p>
+      </div>
+      <div class="case-card">
+        <h3>Las Vegas Realtor</h3>
+        <div class="result">0 to 3K TikTok followers + 2 closings</div>
+        <p>Started from zero on TikTok. Built niche on "home buyer tips." 3,000 followers in 90 days. Two closings directly attributed to TikTok visibility in local searches.</p>
+      </div>
+      <div class="case-card">
+        <h3>Wellness Studio</h3>
+        <div class="result">3X booking rate increase</div>
+        <p>Instagram Reels + Stories strategy. Behind-the-scenes studio content. Member testimonials. Bookings tripled. Cost per acquisition dropped 40 percent through social-attributed traffic.</p>
+      </div>
+    </section>
+
+    <section class="testimonials reveal">
+      <h2>What Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-name">Sarah M.</div>
+          <div class="testimonial-role">Restaurant Owner</div>
+          <div class="testimonial-result">12K followers in 15 days, 40 percent engagement increase</div>
+          <div class="testimonial-text">"I was skeptical. Social media felt like a guessing game. Nate's strategy made it simple. We know exactly what to post, when, and why. The followers came naturally. But more importantly, customers are coming in because of what they see on Instagram."</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-name">Marcus T.</div>
+          <div class="testimonial-role">Local Realtor</div>
+          <div class="testimonial-result">TikTok growth + 2 home sales attributed to social</div>
+          <div class="testimonial-text">"Real estate and TikTok? I thought it was a waste of time. Lane Social Co showed me how to position myself as the expert in my neighborhood. Now people are asking for me specifically because they saw my content."</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-name">Jade L.</div>
+          <div class="testimonial-role">Boutique Owner</div>
+          <div class="testimonial-result">4.8K followers, 35 percent sales increase</div>
+          <div class="testimonial-text">"The audit showed me exactly what wasn't working. But more importantly, the strategy gave me clarity. I stopped guessing. I stopped posting random things. Now I have a plan and it's working. My customers are more engaged than ever."</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-name">Alex K.</div>
+          <div class="testimonial-role">Studio Manager</div>
+          <div class="testimonial-result">3X booking rate, 40 percent lower customer acquisition cost</div>
+          <div class="testimonial-text">"Before, social media felt like a chore. We'd post occasionally and hope for engagement. Now it's part of our business model. Members see themselves on our Instagram and Stories. New people book because they see the community. It's made a huge difference."</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <h2>Here's How We Get These Results</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Audit</h3>
+          <p>We analyze your account, audience, competitors, and content. We find what's working and what's holding you back. We show you the gaps.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Strategy</h3>
+          <p>We build your strategy. Who's your audience? What platforms? What's your content framework? We create a plan you understand and can execute.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Execution</h3>
+          <p>We execute or guide your execution. Consistent posting. Engagement. Analytics. We adjust based on what works. Growth compounds over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section reveal">
+      <h2>Your Results Start With an Audit</h2>
+      <p>See exactly what's holding your account back and what's possible.</p>
+      <a href="audit-intake.html">Book Your Audit</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does growth take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real growth typically takes 90 days of consistent strategy and execution. But momentum shifts usually appear within 2-4 weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will this work for my type of business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We've worked with restaurants, salons, realtors, coaches, studios, and local service businesses. The framework adapts to any business."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I don't have time to post every day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We can help you create content in batches or we can manage execution for you. The key is consistency, not necessarily daily posting."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

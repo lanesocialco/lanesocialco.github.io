@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Social Media Audit - Lane Social Co</title>
+  <meta name="description" content="Complete your intake form for the $97 social media audit and get a detailed analysis of your accounts from a Las Vegas-based strategist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .logo-img-light, .logo-img-dark {
+      height: 38px;
+      width: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light { display: none; }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .logo-img-dark { display: none; }
+    }
+
+    .logo-fallback {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .logo-mark {
+      font-size: 18px;
+      color: var(--purple);
+      font-weight: 800;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 20px;
+      background-color: var(--border);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background-color: var(--purple);
+      color: var(--ink-text);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+      color: var(--ink-text);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--text);
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--surface);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+
+      .nav-links.open {
+        max-height: 600px;
+        padding: 20px 24px;
+      }
+
+      .nav-links li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-cta {
+        display: inline-block;
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 12px 16px;
+      }
+
+      .logo {
+        gap: 8px;
+      }
+
+      .logo-fallback {
+        font-size: 12px;
+      }
+    }
+
+    /* Main content */
+    main {
+      background-color: var(--bg);
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 140px 80px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(123,47,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .subheading {
+      font-size: 18px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-note {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 0 auto 60px;
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-note p {
+      color: var(--text-sub);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .form-note a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Progress indicator */
+    .progress-bar {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .progress-step:not(:last-child)::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background-color: var(--border);
+      margin-left: 12px;
+    }
+
+    .progress-step .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--bg-alt);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .progress-step.active .step-number {
+      background-color: var(--purple);
+      color: var(--ink-text);
+      border-color: var(--purple);
+    }
+
+    .progress-step.complete .step-number {
+      background-color: var(--purple);
+      color: var(--ink-text);
+      border-color: var(--purple);
+    }
+
+    .progress-step .step-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .progress-bar {
+        margin-bottom: 40px;
+      }
+
+      .progress-step .step-label {
+        display: block;
+      }
+
+      .progress-step:not(:last-child)::after {
+        content: none;
+      }
+    }
+
+    /* Form container */
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      padding: 0 80px;
+    }
+
+    .form-section {
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .form-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group input[type="url"]:focus,
+    .form-group input[type="number"]:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-group-inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group-inline.full {
+      grid-template-columns: 1fr;
+    }
+
+    .checkbox-group,
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-item,
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkbox-item input[type="checkbox"],
+    .radio-item input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--purple);
+    }
+
+    .checkbox-item label,
+    .radio-item label {
+      margin: 0;
+      font-weight: 400;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Form navigation */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 60px;
+      padding: 0 80px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-nav button {
+      background-color: var(--purple);
+      color: var(--ink-text);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .form-nav button:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    .form-nav button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .form-nav button.secondary {
+      background-color: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .form-nav button.secondary:hover {
+      background-color: var(--bg-alt);
+    }
+
+    .form-nav .progress-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Success message */
+    .success-message {
+      display: none;
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 80px 80px;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .success-message h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .success-message p {
+      font-size: 16px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+    }
+
+    .success-message a {
+      display: inline-block;
+      background-color: var(--purple);
+      color: var(--ink-text);
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .success-message a:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-alt);
+      padding: 60px 80px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1400px;
+      margin: 0 auto;
+      font-size: 12px;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-social a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .hero {
+        padding: 100px 24px 60px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .form-container,
+      .form-nav {
+        padding: 0 24px;
+      }
+
+      .form-group-inline {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 24px;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 80px 16px 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .form-note {
+        margin: 0 -16px 40px;
+        border-radius: 0;
+      }
+
+      .form-container,
+      .form-nav {
+        padding: 0 16px;
+      }
+
+      .form-section h2 {
+        font-size: 22px;
+      }
+
+      .progress-step .step-label {
+        font-size: 11px;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+      <span class="logo-fallback">
+        <span class="logo-mark">✳</span>
+        <span class="logo-divider"></span>
+        <span class="logo-name">Lane Social Co</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Audit</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Let's dig into your social.</h1>
+      <p class="subheading">We'll analyze your accounts, uncover what's working and what isn't, and give you a roadmap to grow.</p>
+    </section>
+
+    <div class="form-container">
+      <div class="form-note">
+        <p><strong>Important:</strong> Complete this form after purchasing your audit. If you haven't yet, <a href="services.html">grab it here →</a></p>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-step active" id="step-1-indicator">
+          <div class="step-number">1</div>
+          <div class="step-label">Your Business</div>
+        </div>
+        <div class="progress-step" id="step-2-indicator">
+          <div class="step-number">2</div>
+          <div class="step-label">Your Socials</div>
+        </div>
+        <div class="progress-step" id="step-3-indicator">
+          <div class="step-number">3</div>
+          <div class="step-label">Your Goals</div>
+        </div>
+        <div class="progress-step" id="step-4-indicator">
+          <div class="step-number">4</div>
+          <div class="step-label">Context</div>
+        </div>
+      </div>
+
+      <form id="auditForm">
+        <!-- Section 1: Your Business -->
+        <section class="form-section active" data-section="1">
+          <h2>Your Business</h2>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+          <div class="form-group">
+            <label for="businessName">Business Name</label>
+            <input type="text" id="businessName" name="businessName" required>
+          </div>
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="industry" placeholder="e.g., Fitness, Coaching, E-commerce" required>
+          </div>
+          <div class="form-group-inline">
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" placeholder="City, State" required>
+            </div>
+            <div class="form-group">
+              <label for="website">Website (if you have one)</label>
+              <input type="url" id="website" name="website" placeholder="https://example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="yearsInBusiness">How long have you been in business?</label>
+            <select id="yearsInBusiness" name="yearsInBusiness" required>
+              <option value="">Select...</option>
+              <option value="less-than-1">Less than 1 year</option>
+              <option value="1-2">1-2 years</option>
+              <option value="2-5">2-5 years</option>
+              <option value="5-10">5-10 years</option>
+              <option value="10-plus">10+ years</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Section 2: Your Socials -->
+        <section class="form-section" data-section="2">
+          <h2>Your Social Accounts</h2>
+          <div class="form-group">
+            <label for="instagramHandle">Instagram Handle</label>
+            <input type="text" id="instagramHandle" name="instagramHandle" placeholder="@yourhandle" required>
+          </div>
+          <div class="form-group">
+            <label for="tiktokHandle">TikTok Handle (optional)</label>
+            <input type="text" id="tiktokHandle" name="tiktokHandle" placeholder="@yourhandle">
+          </div>
+          <div class="form-group">
+            <label for="facebookHandle">Facebook (optional)</label>
+            <input type="text" id="facebookHandle" name="facebookHandle" placeholder="Page name or URL">
+          </div>
+          <div class="form-group">
+            <label>Other platforms you use:</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="pinterest" name="otherPlatforms" value="Pinterest">
+                <label for="pinterest">Pinterest</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="linkedin" name="otherPlatforms" value="LinkedIn">
+                <label for="linkedin">LinkedIn</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="youtube" name="otherPlatforms" value="YouTube">
+                <label for="youtube">YouTube</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="twitter" name="otherPlatforms" value="Twitter/X">
+                <label for="twitter">Twitter/X</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="primaryPlatform">Which platform drives the most results for you?</label>
+            <select id="primaryPlatform" name="primaryPlatform" required>
+              <option value="">Select...</option>
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="facebook">Facebook</option>
+              <option value="pinterest">Pinterest</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="youtube">YouTube</option>
+              <option value="twitter">Twitter/X</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Section 3: Your Goals -->
+        <section class="form-section" data-section="3">
+          <h2>Your Goals</h2>
+          <div class="form-group">
+            <label for="auditExpectations">What are you hoping to get from this audit?</label>
+            <textarea id="auditExpectations" name="auditExpectations" placeholder="Tell us what you want to learn..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="successLook">What does success look like in 90 days?</label>
+            <textarea id="successLook" name="successLook" placeholder="More followers? More sales? Better engagement?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="biggestStruggle">What's your biggest social media struggle right now?</label>
+            <select id="biggestStruggle" name="biggestStruggle" required>
+              <option value="">Select...</option>
+              <option value="content-ideas">Content ideas</option>
+              <option value="posting-consistency">Posting consistency</option>
+              <option value="getting-engagement">Getting engagement</option>
+              <option value="growing-followers">Growing followers</option>
+              <option value="converting-customers">Converting followers to customers</option>
+              <option value="something-else">Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="monthlyBudget">What's your monthly social media budget?</label>
+            <select id="monthlyBudget" name="monthlyBudget" required>
+              <option value="">Select...</option>
+              <option value="0">$0 (organic only)</option>
+              <option value="100-500">$100-500</option>
+              <option value="500-1000">$500-1,000</option>
+              <option value="1000-5000">$1,000-5,000</option>
+              <option value="5000-plus">$5,000+</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Section 4: Context -->
+        <section class="form-section" data-section="4">
+          <h2>Context</h2>
+          <div class="form-group">
+            <label for="idealCustomer">Who is your ideal customer? What are they like?</label>
+            <textarea id="idealCustomer" name="idealCustomer" placeholder="Describe your ideal customer..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="competitors">Who do you consider competitors? (2-3 accounts)</label>
+            <textarea id="competitors" name="competitors" placeholder="List competitors or accounts you look up to..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Have you worked with a social media strategist before?</label>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" id="strategy-yes" name="workedWithStrategist" value="yes" required>
+                <label for="strategy-yes">Yes</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="strategy-no" name="workedWithStrategist" value="no">
+                <label for="strategy-no">No</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="strategy-sort-of" name="workedWithStrategist" value="sort-of">
+                <label for="strategy-sort-of">Sort of</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="extraContext">Anything else we should know?</label>
+            <textarea id="extraContext" name="extraContext" placeholder="Any other context that would help us..." required></textarea>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <div class="form-nav">
+      <button class="secondary" id="prevBtn" style="display: none;">Back</button>
+      <span class="progress-text"><span id="currentStep">1</span> of 4</span>
+      <button id="nextBtn">Next →</button>
+    </div>
+
+    <div class="success-message" id="successMessage">
+      <h2>We've got your info.</h2>
+      <p>Expect your audit within 3-5 business days. We'll dive deep into your accounts and deliver actionable insights.</p>
+      <a href="index.html">Back to Home →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); navToggle.classList.remove('open');
+    }));
+
+    // Form handling
+    let currentStep = 1;
+    const form = document.getElementById('auditForm');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const currentStepSpan = document.getElementById('currentStep');
+    const successMessage = document.getElementById('successMessage');
+
+    const sections = document.querySelectorAll('.form-section');
+    const totalSteps = sections.length;
+
+    function showStep(step) {
+      sections.forEach((section, index) => {
+        section.classList.remove('active');
+        const indicator = document.getElementById(`step-${index + 1}-indicator`);
+        indicator.classList.remove('active');
+        if (index + 1 < step) {
+          indicator.classList.add('complete');
+        }
+        if (index + 1 === step) {
+          section.classList.add('active');
+          indicator.classList.add('active');
+        }
+      });
+
+      currentStepSpan.textContent = step;
+      prevBtn.style.display = step === 1 ? 'none' : 'block';
+      nextBtn.textContent = step === totalSteps ? 'Submit My Intake Form →' : 'Next →';
+
+      window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function validateStep(step) {
+      const section = document.querySelector(`[data-section="${step}"]`);
+      const inputs = section.querySelectorAll('input[required], select[required], textarea[required]');
+      let isValid = true;
+
+      inputs.forEach(input => {
+        if (input.type === 'radio') {
+          const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+          let anyChecked = false;
+          radioGroup.forEach(radio => { if (radio.checked) anyChecked = true; });
+          if (!anyChecked) isValid = false;
+        } else if (input.type === 'checkbox') {
+          // Skip individual checkboxes validation
+        } else if (!input.value.trim()) {
+          isValid = false;
+        }
+      });
+
+      return isValid;
+    }
+
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (!validateStep(currentStep)) {
+        alert('Please fill in all required fields before proceeding.');
+        return;
+      }
+
+      if (currentStep === totalSteps) {
+        // Submit form
+        form.style.display = 'none';
+        document.querySelector('.form-nav').style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        successMessage.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    showStep(currentStep);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

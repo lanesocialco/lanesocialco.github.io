@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Content Pillars Every Small Business Needs — Lane Social Co</title>
+  <meta name="description" content="Learn the 5 universal content pillars that work for every small business. Generate endless content ideas and build consistency without guessing what to post.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-content.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,180,0,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #FFB400; }
+    .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .category-hero { padding-top: 100px; padding-bottom: 40px; }
+      .category-hero h1 { font-size: 72px; }
+      .category-hero p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .category-hero { padding-top: 80px; padding-bottom: 30px; }
+      .category-hero h1 { font-size: 48px; }
+      .category-hero p { font-size: 14px; }
+    }
+    article { max-width: 720px; margin: 80px auto; }
+    article .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(255,180,0,0.2); color: #FFB400; }
+    article h2 { font-size: 52px; font-weight: 800; margin-bottom: 40px; line-height: 1.15; }
+    article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
+    article h3 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    article h4 { font-size: 18px; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
+    article li { margin-bottom: 10px; line-height: 1.75; }
+    article strong { font-weight: 700; color: var(--text); }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #FFB400; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+    article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
+    article .cta-card p { margin-bottom: 20px; }
+    article .cta-card a { display: inline-block; background: var(--purple); color: var(--ink-text); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    article .cta-card a:hover { opacity: 0.9; }
+    .faq-section { max-width: 720px; margin: 80px auto; }
+    .faq-section h3 { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+    .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; margin-top: 0; margin-bottom: 12px; cursor: pointer; transition: color 0.3s ease; }
+    .faq-item h4:hover { color: var(--purple); }
+    .faq-item p { font-size: 14px; color: var(--text-sub); line-height: 1.75; margin: 0; }
+    .more-posts { max-width: 720px; margin: 80px auto; padding-top: 60px; border-top: 1px solid var(--border); }
+    .more-posts h3 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+    .more-posts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .post-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); }
+    .post-card h4 { font-size: 15px; margin-top: 0; line-height: 1.4; }
+    .post-card p { font-size: 12px; color: var(--text-muted); margin: 12px 0 0 0; }
+    @media (max-width: 900px) {
+      article h2 { font-size: 36px; }
+      article h3 { font-size: 22px; }
+      .more-posts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      article h2 { font-size: 28px; }
+      article > p { font-size: 15px; }
+      article .pullquote { font-size: 16px; padding: 24px 16px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Content</h1>
+      <p>The framework for generating infinite content ideas without guessing what to post.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">CONTENT</span>
+        <span>Dec 15, 2024</span>
+        <span>5 min read</span>
+      </div>
+
+      <h2>5 Content Pillars Every Small Business Needs</h2>
+
+      <p>You have no idea what to post today. You posted yesterday. You need something for tomorrow. You're scrolling your competitors, trying to steal ideas. You're asking friends what they think. You're burnt out.</p>
+
+      <p>This is because you don't have content pillars. Content pillars are the five to seven topics you repeatedly talk about. Once you have them, posting becomes simple. You know exactly what to create. You don't guess. You don't stress.</p>
+
+      <h3>What Content Pillars Are and Why They Matter</h3>
+
+      <p>A pillar is a lane. You stay in your lanes. You don't drift into random territory. Think of the platforms you follow: they have patterns. Starbucks posts about morning routines, their coffee, community, behind the scenes. Apple posts about innovation, products, simplicity, culture. They're not random. They're predictable. That's intentional.</p>
+
+      <p>Once you know your pillars, generating content becomes fast. You pick a pillar. You create something in that pillar. You move on. No debate. No stress. Just execution.</p>
+
+      <p>Your audience also starts to expect what you'll post. They know your patterns. They trust that when they follow you, they'll get consistent value in a specific area.</p>
+
+      <h3>The 5 Universal Pillars for Small Businesses</h3>
+
+      <p>Most small businesses can use the same five pillars. They work whether you're a salon, a restaurant, a realtor, or a coach.</p>
+
+      <p><strong>Pillar 1: Education.</strong> Teach your audience something. How to do something. Why something works. A tip. A mistake to avoid. People follow to learn. If you're the only one teaching this, they'll follow you for years.</p>
+
+      <p><strong>Pillar 2: Behind the Scenes.</strong> Show your process. Your team. Your daily life. Your workspace. Your mistakes. People connect with people, not brands. BTS content is the highest engagement content on social media right now. Don't skip this pillar.</p>
+
+      <p><strong>Pillar 3: Social Proof.</strong> Show results. Client testimonials. Before and afters. Case studies. Numbers. Social proof is the reason people convert. It builds trust. Make this pillar 20 percent of your content.</p>
+
+      <p><strong>Pillar 4: Personality/Culture.</strong> Your opinion. Your sense of humor. Your weird hobby. Your controversial take. Your sense of style. People follow for entertainment and connection. This pillar builds that. It's usually 10 to 15 percent of your content, but it's what people remember.</p>
+
+      <p><strong>Pillar 5: Promotions.</strong> Your products. Your services. Your offers. Your links. This is the smallest pillar, usually 10 percent of content. But it's necessary. Your audience is there to become customers eventually.</p>
+
+      <h3>How to Ratio Your Content Across Pillars</h3>
+
+      <p>Not all pillars are equal. Some matter more for your business. Here's the split that works for most small businesses:</p>
+
+      <ul>
+        <li>Education: 40-50 percent of posts</li>
+        <li>Behind the Scenes: 20-25 percent</li>
+        <li>Social Proof: 15-20 percent</li>
+        <li>Personality: 10-15 percent</li>
+        <li>Promotions: 5-10 percent</li>
+      </ul>
+
+      <p>If you post three times per week, that's three posts using three different pillars. Monday is education. Wednesday is behind the scenes. Friday is social proof. Simple.</p>
+
+      <p>Don't be rigid. These are guidelines, not rules. But they work. Test this ratio for a month. If it works, keep going. If engagement is low, adjust.</p>
+
+      <h3>How to Generate 30 Ideas from 5 Pillars</h3>
+
+      <p>Here's the real power of pillars: infinite ideas. Each pillar can have dozens of angles.</p>
+
+      <p><strong>For education,</strong> brainstorm thirty mistakes your audience makes. Thirty tips related to your work. Thirty questions they ask. Each is a post.</p>
+
+      <p><strong>For behind the scenes,</strong> photograph or film your team, your space, your process. Document a day in your life. Show a mistake. Show how you handle a problem. Document the unsexy parts of your business.</p>
+
+      <p><strong>For social proof,</strong> ask clients for quick testimonials. Screenshot their messages. Share case studies. Share numbers. Show the transformation.</p>
+
+      <p><strong>For personality,</strong> share your opinions (without being offensive). Share your hobbies. Share your struggles. Share what you're learning. Share memes that match your brand voice.</p>
+
+      <p><strong>For promotions,</strong> create content that sells. Explain why your product exists. Show someone using it. Explain the outcome. Make an offer. Repeat.</p>
+
+      <div class="pullquote">
+        With just five pillars, you generate hundreds of content ideas. You never run out. You never have to guess.
+      </div>
+
+      <h3>Why Consistency Beats Virality</h3>
+
+      <p>A viral post is fun. But it's random. You can't control it. You can't plan for it. Consistency is different. Consistency is predictable. You post the same types of content, to the same audience, at the same frequency.</p>
+
+      <p>Over time, consistency beats virality. A small account posting three times per week of really good educational content will have more followers in a year than an account that posts randomly and sometimes goes viral.</p>
+
+      <p>The algorithm doesn't reward viral posts. It rewards consistency. It says, "this person posts regularly, their audience engages, so I'll show it to more people." That compounds over time. After six months, you have hundreds of engaged followers. After a year, thousands.</p>
+
+      <p>Consistency is boring. Virality is exciting. But consistency is what actually builds a business.</p>
+
+      <div class="cta-card">
+        <h4>Get our Content Pillars Framework</h4>
+        <p>A free template to help you define your five pillars and generate 30 days of content ideas. Download now and start posting with confidence.</p>
+        <a href="freebie-content-pillars.html">Download Framework</a>
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>What if my business doesn't fit the five pillars?</h4>
+        <p>Most do, but you can adjust. If you're a very specific niche, you might only use three pillars. That's fine. The key is having a framework so you know what to post. It doesn't have to be exactly five.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do I choose which pillar to use for each post?</h4>
+        <p>Pick a posting schedule. "Monday is education, Wednesday is behind the scenes, Friday is social proof." Stick to it for a month. Then adjust based on what performs best. The algorithm will tell you what your audience likes.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I change my content pillars if they're not working?</h4>
+        <p>Give each pillar ninety days before changing. Most of the time, the pillar isn't the problem. Your execution is. Improve your content quality and wait for results. If after ninety days you're still not getting traction, adjust the pillar.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I use more than five pillars?</h4>
+        <p>You can, but it gets complicated. More pillars means more topics to brainstorm, more content to create. Start with five. Master them. If you want to add more later, you can.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Content Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-strategy.html" class="post-card">
+          <h4>How to Build a Social Media Strategy from Scratch</h4>
+          <p>Jan 15, 2025 • 8 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="freebie-content-pillars.html" class="post-card">
+          <h4>Get the Content Pillars Framework</h4>
+          <p>Free download with a 30-day content idea template</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Content Pillars Every Small Business Needs",
+    "description": "Learn the 5 universal content pillars that work for every small business. Generate endless content ideas and build consistency without guessing what to post.",
+    "datePublished": "2024-12-15",
+    "author": { "@type": "Person", "name": "Nate" },
+    "publisher": { "@type": "Organization", "name": "Lane Social Co" }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

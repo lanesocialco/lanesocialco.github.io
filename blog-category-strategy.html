@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Social Media Strategy from Scratch — Lane Social Co</title>
+  <meta name="description" content="Learn how to build a social media strategy without hiring an agency. Step-by-step framework covering audience definition, platform selection, content pillars, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-strategy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .logo-img-light,
+    .logo-img-dark {
+      display: block;
+      height: 38px;
+      width: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light { display: none !important; }
+      .logo-img-dark { display: block !important; }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .logo-img-dark { display: none !important; }
+      .logo-img-light { display: block !important; }
+    }
+
+    .logo-fallback {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      font-size: 20px;
+      color: var(--purple);
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    .logo-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple);
+      color: var(--ink-text);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+      }
+
+      .nav-links a {
+        padding: 8px 0;
+      }
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 40px;
+      margin-top: 100px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-logo {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-size: 13px;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-social a {
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-social {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 0 24px;
+      }
+    }
+
+    .category-hero {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(123,47,255,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .category-hero h1 {
+      font-family: 'DM Mono', monospace;
+      font-size: 120px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 0.9;
+      position: relative;
+      z-index: 1;
+      color: var(--purple);
+    }
+
+    .category-hero p {
+      font-size: 18px;
+      color: var(--text-sub);
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .category-hero {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+
+      .category-hero h1 {
+        font-size: 72px;
+      }
+
+      .category-hero p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-hero {
+        padding-top: 80px;
+        padding-bottom: 30px;
+      }
+
+      .category-hero h1 {
+        font-size: 48px;
+      }
+
+      .category-hero p {
+        font-size: 14px;
+      }
+    }
+
+    article {
+      max-width: 720px;
+      margin: 80px auto;
+    }
+
+    article .article-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    article .category-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(123,47,255,0.2);
+      color: var(--purple);
+    }
+
+    article h2 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    article > p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+      color: var(--text-sub);
+    }
+
+    article h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    article h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    article ul,
+    article ol {
+      margin-left: 24px;
+      margin-bottom: 24px;
+    }
+
+    article li {
+      margin-bottom: 10px;
+      line-height: 1.75;
+    }
+
+    article strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    article em {
+      font-style: italic;
+    }
+
+    article .pullquote {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+      padding: 32px 24px;
+      border-left: 4px solid var(--purple);
+      background: var(--bg-alt);
+      margin: 40px 0;
+      color: var(--text);
+    }
+
+    article .cta-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    article .cta-card h4 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    article .cta-card p {
+      margin-bottom: 20px;
+    }
+
+    article .cta-card a {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--ink-text);
+      padding: 12px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    article .cta-card a:hover {
+      opacity: 0.9;
+    }
+
+    .faq-section {
+      max-width: 720px;
+      margin: 80px auto;
+    }
+
+    .faq-section h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .faq-item {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h4 {
+      font-size: 16px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item h4:hover {
+      color: var(--purple);
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .more-posts {
+      max-width: 720px;
+      margin: 80px auto;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
+    }
+
+    .more-posts h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .more-posts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .post-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 8px 24px var(--card-shadow);
+    }
+
+    .post-card h4 {
+      font-size: 15px;
+      margin-top: 0;
+      line-height: 1.4;
+    }
+
+    .post-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 12px 0 0 0;
+    }
+
+    @media (max-width: 900px) {
+      article h2 {
+        font-size: 36px;
+      }
+
+      article h3 {
+        font-size: 22px;
+      }
+
+      .more-posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      article h2 {
+        font-size: 28px;
+      }
+
+      article > p {
+        font-size: 15px;
+      }
+
+      article .pullquote {
+        font-size: 16px;
+        padding: 24px 16px;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .post-card,
+      .faq-item h4 {
+        transition: none;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback">
+          <span class="logo-mark">✳</span>
+          <span class="logo-divider"></span>
+          <span class="logo-name">Lane Social Co</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Strategy</h1>
+      <p>The fundamentals. The frameworks. The stuff that actually works.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">STRATEGY</span>
+        <span>Jan 15, 2025</span>
+        <span>8 min read</span>
+      </div>
+
+      <h2>How to Build a Social Media Strategy from Scratch (Without Hiring an Agency)</h2>
+
+      <p>Most small businesses skip strategy and jump straight to posting. They throw content at the wall, check their analytics every day, hope something sticks. Nothing does. Months go by. They spend money on ads. Their followers stay flat. They tell themselves the algorithm is broken.</p>
+
+      <p>Here's the truth: the algorithm is fine. The strategy is missing.</p>
+
+      <p>A real social media strategy takes about six to eight hours to build. You can do it yourself on a Saturday afternoon with a notebook and coffee. It costs nothing. And it changes everything about how your account grows. This is that strategy.</p>
+
+      <h3>Why Most Businesses Skip Strategy (and Pay for It)</h3>
+
+      <p>Building a strategy feels abstract. You can't see it. There's no immediate dopamine hit. Posting feels concrete. You write something, hit publish, watch the numbers climb in real-time. That's addictive.</p>
+
+      <p>So businesses post without strategy. They post what feels right today. They chase trends. They copy competitors. They post fifteen times because their cousin said consistency matters. Then they wonder why they're exhausted and getting nowhere.</p>
+
+      <p>The real problem: without strategy, you have no filter for decisions. You don't know which content to make. You don't know when to post it. You don't know who you're actually talking to. You're just performing, hoping an audience shows up.</p>
+
+      <p>Audiences don't work that way. People follow accounts that solve a specific problem or make them feel something specific. An account with fifty followers and a clear strategy will outgrow an account with two thousand followers and no direction. Every single time.</p>
+
+      <h3>What a Real Social Media Strategy Includes</h3>
+
+      <p>Don't overthink this. A social media strategy has five moving parts. That's it.</p>
+
+      <ul>
+        <li>Your audience (who you're actually talking to)</li>
+        <li>Your platforms (where they are)</li>
+        <li>Your content pillars (what you talk about)</li>
+        <li>Your posting rhythm (when and how often)</li>
+        <li>Your success metrics (how you know it's working)</li>
+      </ul>
+
+      <p>You write these five things down. You refer back to them every week. You make decisions inside these guardrails. That's the strategy. Everything else is execution.</p>
+
+      <h3>Step 1: Define Your Audience</h3>
+
+      <p>Not "people on Instagram." Not "entrepreneurs." Not "women 25 to 45." Specific.</p>
+
+      <p>Ask these questions:</p>
+
+      <ul>
+        <li>Who has the problem I solve?</li>
+        <li>What's their actual age range, job, income, location?</li>
+        <li>What do they care about besides my solution?</li>
+        <li>Where do they hang out online?</li>
+        <li>What language do they use?</li>
+        <li>What are they afraid of?</li>
+      </ul>
+
+      <p>Write this down in a paragraph. It should take you fifteen minutes max. Here's an example: "Small business owners in Las Vegas, aged 28 to 52, who run restaurants, gyms, or salons. They're frustrated with the cost of Facebook ads, they don't understand Instagram, and they think social media is just for young people. They want growth but feel behind. They talk to their friends about business over dinner. They listen to podcasts while working out."</p>
+
+      <p>That's your audience. Real. Specific. Useful.</p>
+
+      <h3>Step 2: Pick Your Platforms</h3>
+
+      <p>You don't need to be everywhere. In fact, being everywhere is a great way to be nowhere.</p>
+
+      <p>Pick two platforms maximum. Three if one of them is YouTube and you're willing to repurpose content.</p>
+
+      <p>The rule: your audience is on this platform, AND you actually enjoy using it. A platform you hate to use will show. People feel it.</p>
+
+      <p>For a small business audience in 2025: Instagram and TikTok win. If you're B2B, add LinkedIn. If you sell to retirees, Facebook. If you make tutorials or education content, YouTube. Simple.</p>
+
+      <p>Pick your platform. Commit to it for ninety days. Then decide if you're staying or switching.</p>
+
+      <h3>Step 3: Set Your Content Pillars</h3>
+
+      <p>Content pillars are the five to seven core topics you talk about. Think of them as lanes in a highway. You stay in your lanes. You don't drift into random territory.</p>
+
+      <p>Most small businesses need five pillars:</p>
+
+      <ul>
+        <li>Education (teach them something)</li>
+        <li>Behind the scenes (show your process)</li>
+        <li>Social proof (show it works, client results)</li>
+        <li>Personality/culture (why you're different)</li>
+        <li>Promotions (sell stuff)</li>
+      </ul>
+
+      <p>You don't have to use all five. Pick the four that matter most to your audience. That's it.</p>
+
+      <p>The benefit: now when you sit down to create content, you're not staring at a blank page. You have four lanes to work in. Infinite variations inside those lanes. You'll never run out of ideas.</p>
+
+      <h3>Step 4: Build Your Posting Rhythm</h3>
+
+      <p>How often should you post? The answer everyone hates: as often as you can do it well.</p>
+
+      <p>But here's what's actually true: three posts per week beats five posts per week of mediocre content. Quality beats frequency every time.</p>
+
+      <p>Pick a rhythm you can sustain. For a small business: two to four times per week is the sweet spot. Sunday, Tuesday, Thursday. Monday, Wednesday, Friday. Pick days you can actually show up.</p>
+
+      <p>Then pick a time. Post when your audience is on the platform. For most small businesses, that's 9 AM, 12 PM, or 6 PM your local time. Pick one. Be consistent.</p>
+
+      <h3>Step 5: Define What Success Looks Like</h3>
+
+      <p>Success is not vanity metrics. It's not "get to 10K followers." Followers are an output. Success is a business outcome.</p>
+
+      <p>Ask yourself: if this worked perfectly, what would be different about my business?</p>
+
+      <ul>
+        <li>More leads coming in? (Success is a qualified lead per week)</li>
+        <li>More customers? (Success is sales attributed to social)</li>
+        <li>More people at events? (Success is RSVPs from social links)</li>
+        <li>More email signups? (Success is newsletter subscribers from links)</li>
+      </ul>
+
+      <p>Pick one. Write it down. That's your north star. Everything you create should move toward that metric.</p>
+
+      <h3>The Tools You Need (Keep It Simple)</h3>
+
+      <p>You need a calendar. A physical notebook works. Google Sheets works better.</p>
+
+      <p>You need a design tool for graphics. Canva. That's it. Free version is plenty.</p>
+
+      <p>You need to track analytics. Instagram and TikTok have built-in analytics. Use those. Don't buy fancy software yet.</p>
+
+      <p>You need a content library. A folder. Google Drive. Somewhere to keep your best-performing posts so you can remix and rework them.</p>
+
+      <p>That's the full tech stack. You don't need more.</p>
+
+      <div class="cta-card">
+        <h4>Want a framework to work from?</h4>
+        <p>We built a content pillars template that walks through this exact process. Free to download.</p>
+        <a href="freebie-content-pillars.html">Get the Content Pillars Framework</a>
+      </div>
+
+      <div class="pullquote">
+        A strategy isn't complicated. It's just clarity. Who you're talking to. What you're saying. Why it matters. Once you have that, posting becomes easy.
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>How long does it take to build a social media strategy?</h4>
+        <p>Six to eight hours if you're doing it yourself. You can break this into two sessions. Spend time on audience definition and pillar selection. Those two things are the hardest. Platform, rhythm, and metrics are quick once you know your audience. Set a deadline for yourself. Don't let this drag on.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Do I need to be on every platform?</h4>
+        <p>No. In fact, being on every platform is worse than being on one platform really well. Pick one. Get good at it. After ninety days of consistent posting and actual growth, then add a second platform if you want. Your audience will tell you where to focus.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What if I don't have time to post every day?</h4>
+        <p>Then don't. Post three times a week. Post twice a week. Post once a week if that's all you have. Consistency matters more than frequency. An account that posts once weekly for a year will outgrow an account that posts five times a week for two months then quits.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I hire someone to manage my social media?</h4>
+        <p>Not yet. First build the strategy yourself. Understand what works for your audience. Document it. Then hire someone to execute the strategy you built. A good manager without a clear strategy will waste your money. A clear strategy with someone managing it will actually work.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do I know if my strategy is working?</h4>
+        <p>Check your metrics monthly, not daily. Are you getting closer to your north star metric? Are the right kinds of people following you? Are people engaging with your content? If the answer is no after three months of consistent posting, the strategy needs to change. Not the posting schedule. Not the platform. The strategy.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Strategy Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-content.html" class="post-card">
+          <h4>5 Content Pillars Every Small Business Needs</h4>
+          <p>Dec 15, 2024 • 5 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="audit-intake.html" class="post-card">
+          <h4>Need an Audit?</h4>
+          <p>We audit accounts and build custom strategy. Book a call.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Build a Social Media Strategy from Scratch (Without Hiring an Agency)",
+    "description": "Learn how to build a social media strategy without hiring an agency. Step-by-step framework covering audience definition, platform selection, content pillars, and more.",
+    "image": "https://lanesocialco.com/assets/images/strategy-og.jpg",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-01-15",
+    "author": {
+      "@type": "Person",
+      "name": "Nate",
+      "url": "https://lanesocialco.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lane Social Co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lanesocialco.com/assets/images/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

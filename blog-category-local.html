@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Business Social Media: The Complete Guide — Lane Social Co</title>
+  <meta name="description" content="Local businesses have an unfair advantage on social media. Learn how to use community content, partnerships, and authenticity to beat chain competitors.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-local.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(80,150,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #5096FF; }
+    .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .category-hero { padding-top: 100px; padding-bottom: 40px; }
+      .category-hero h1 { font-size: 72px; }
+      .category-hero p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .category-hero { padding-top: 80px; padding-bottom: 30px; }
+      .category-hero h1 { font-size: 48px; }
+      .category-hero p { font-size: 14px; }
+    }
+    article { max-width: 720px; margin: 80px auto; }
+    article .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(80,150,255,0.2); color: #5096FF; }
+    article h2 { font-size: 52px; font-weight: 800; margin-bottom: 40px; line-height: 1.15; }
+    article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
+    article h3 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    article h4 { font-size: 18px; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
+    article li { margin-bottom: 10px; line-height: 1.75; }
+    article strong { font-weight: 700; color: var(--text); }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #5096FF; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+    article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
+    article .cta-card p { margin-bottom: 20px; }
+    article .cta-card a { display: inline-block; background: var(--purple); color: var(--ink-text); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    article .cta-card a:hover { opacity: 0.9; }
+    .faq-section { max-width: 720px; margin: 80px auto; }
+    .faq-section h3 { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+    .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; margin-top: 0; margin-bottom: 12px; cursor: pointer; transition: color 0.3s ease; }
+    .faq-item h4:hover { color: var(--purple); }
+    .faq-item p { font-size: 14px; color: var(--text-sub); line-height: 1.75; margin: 0; }
+    .more-posts { max-width: 720px; margin: 80px auto; padding-top: 60px; border-top: 1px solid var(--border); }
+    .more-posts h3 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+    .more-posts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .post-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); }
+    .post-card h4 { font-size: 15px; margin-top: 0; line-height: 1.4; }
+    .post-card p { font-size: 12px; color: var(--text-muted); margin: 12px 0 0 0; }
+    @media (max-width: 900px) {
+      article h2 { font-size: 36px; }
+      article h3 { font-size: 22px; }
+      .more-posts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      article h2 { font-size: 28px; }
+      article > p { font-size: 15px; }
+      article .pullquote { font-size: 16px; padding: 24px 16px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Local</h1>
+      <p>Turn your neighborhood into your biggest advantage on social media.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">LOCAL BUSINESS</span>
+        <span>Nov 20, 2024</span>
+        <span>9 min read</span>
+      </div>
+
+      <h2>Local Business Social Media: The Complete Guide</h2>
+
+      <p>You're a local business. You have a neighborhood. You have a story rooted in a place. You have customers who are your neighbors.</p>
+
+      <p>You're competing with Starbucks, McDonald's, Sephora. Chain stores with million-dollar marketing budgets. Accounts run by social media teams in corporate offices. But you have something they don't: authenticity, community, and a genuine place in people's lives.</p>
+
+      <p>This is your unfair advantage. Most local businesses waste it.</p>
+
+      <h3>Why Local Businesses Have an Unfair Advantage on Social</h3>
+
+      <p>Chain stores post about their products. "Try our new burger." "Summer sale, 20 percent off." Transactional. Impersonal.</p>
+
+      <p>Local businesses post about community. "We sponsored the local soccer team." "Local artist designed our new menu." "This neighborhood is changing and we're part of it." Personal. Real.</p>
+
+      <p>The social media algorithm doesn't reward chain brand posts. It rewards engagement. Local content gets engagement because people care about their community. They save it. They share it. They comment.</p>
+
+      <p>A local coffee shop posting "thanks to our neighbors who've supported us for 10 years" gets more engagement than Starbucks posting the same message from a thousand locations. Why? Because it's real. Your followers know you. They walk past you. They're your neighbors.</p>
+
+      <p>The advantage isn't in your budget. It's in your authenticity.</p>
+
+      <h3>The Mistake of Trying to Go Viral</h3>
+
+      <p>Local business owners often make the same mistake: they try to make viral content.</p>
+
+      <p>You don't need viral content. You need local content. You don't need a million views. You need the right thousand people: people in your neighborhood, people who will buy from you, people who will tell their friends.</p>
+
+      <p>A post that reaches 10,000 people in your neighborhood is worth more than a post that reaches 100,000 people across the country.</p>
+
+      <p>Stop chasing virality. Start building community.</p>
+
+      <h3>What Local Content Actually Performs</h3>
+
+      <p><strong>Community posts.</strong> "Shoutout to [local business] for sponsoring our team." "Local artist spotlight." "Community event coverage." This content gets massive engagement from local audiences.</p>
+
+      <p><strong>Local partnerships.</strong> Post with other local businesses. "Visit our partner [business] across the street for coffee, then come here for lunch." Their followers see it. Your followers see it. It works because both of you are invested in the neighborhood.</p>
+
+      <p><strong>Behind the scenes.</strong> The owner's journey. The team. How you source local ingredients. People buy from people. This is the content that converts neighbors into customers.</p>
+
+      <p><strong>Local stories.</strong> Why did you open this business? What's your connection to this neighborhood? Tell that story. It's what makes you different from the chain across town.</p>
+
+      <p><strong>UGC (user-generated content).</strong> Repost photos and videos from your customers and community. Tag local creators. They share it with their followers. It's the best marketing.</p>
+
+      <div class="pullquote">
+        Local content beats viral content. Community beats reach. Real beats polished.
+      </div>
+
+      <h3>Google Business and Social Integration</h3>
+
+      <p>Most local businesses have a Google Business profile. Few use it with their social strategy.</p>
+
+      <p>Post on Google Business the same day you post on Instagram. Link them together. Google Business posts show up in Google Search and Google Maps. When someone searches "coffee near me," they might see your post. That post has a link to your location, hours, menu.</p>
+
+      <p>Google Business + Social Media is a powerful combination. Google drives local search. Social builds community. Together, they dominate your neighborhood.</p>
+
+      <h3>Local Hashtag Strategy</h3>
+
+      <p>Forget hashtags about your industry. Use local hashtags.</p>
+
+      <p>Research hashtags specific to your neighborhood. #LasVegasSmallBusiness. #DowntownLV. #LocalLV. These hashtags are followed by local people looking for local businesses.</p>
+
+      <p>Use five to ten local hashtags on every post. Use the same hashtags consistently. You'll show up when locals search for businesses in your area.</p>
+
+      <h3>Reviews and UGC as Content</h3>
+
+      <p>Your best marketing isn't your posts. It's customer reviews and photos.</p>
+
+      <p>Encourage customers to tag you. Reply to every tag. Repost the best photos and videos. This is user-generated content. It's more authentic than anything you create.</p>
+
+      <p>Ask customers to leave reviews on Google, Yelp, and Instagram. The algorithm sees reviews as engagement. More reviews mean more visibility in local search.</p>
+
+      <p>A customer's honest review of your product is worth more than a hundred posts from you.</p>
+
+      <h3>Turning Followers into Regulars</h3>
+
+      <p>You don't want distant followers. You want repeat customers in your neighborhood.</p>
+
+      <p>Use Stories to drive traffic. "Happy hour until 7 PM" Story at 4 PM. "New menu item" Story on launch day. Stories are ephemeral. They create urgency. People come in today because of a Story.</p>
+
+      <p>Use your bio link to drive to your reservation system or menu. Make it easy for followers to become customers.</p>
+
+      <p>Host local events and promote them on social. "Free wine tasting Thursday night." Get followers to show up. Once they visit, some become regulars.</p>
+
+      <div class="cta-card">
+        <h4>Get a local social audit</h4>
+        <p>We analyze how local businesses in your area are winning on social. We show you the gaps and opportunities unique to your neighborhood and business.</p>
+        <a href="audit-intake.html">Book an Audit</a>
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>Should I post about non-business stuff on my local business account?</h4>
+        <p>Yes. Post about community events. Post about neighborhood happenings. Post about other local businesses. The more you post about your neighborhood, the more local people follow you. Some posts won't be about your business. That's okay.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How do I partner with other local businesses on social?</h4>
+        <p>Reach out. Propose collaboration. "Let's cross-promote on social." Mention them in captions. Tag them. Repost their content. It benefits both of you. Followers of another local business are likely to follow you too.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's the best way to ask customers for reviews and photos?</h4>
+        <p>Make it easy. Include a QR code on your receipt linking to review sites. Mention it verbally when they check out. Offer a small incentive (not payment). "Tag us and we'll repost." A repost is incentive enough for many people.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I buy local ads or focus on organic?</h4>
+        <p>Start with organic. Build community first. Once you have 2,000 to 5,000 engaged followers, then consider ads. A small ad budget targeting your neighborhood amplifies organic content that's already working.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Local Business Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-strategy.html" class="post-card">
+          <h4>How to Build a Social Media Strategy from Scratch</h4>
+          <p>Jan 15, 2025 • 8 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="audit-intake.html" class="post-card">
+          <h4>Get Your Local Audit</h4>
+          <p>We analyze your local social strategy and create a growth plan</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Local Business Social Media: The Complete Guide",
+    "description": "Local businesses have an unfair advantage on social media. Learn how to use community content, partnerships, and authenticity to beat chain competitors.",
+    "datePublished": "2024-11-20",
+    "author": { "@type": "Person", "name": "Nate" },
+    "publisher": { "@type": "Organization", "name": "Lane Social Co" }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

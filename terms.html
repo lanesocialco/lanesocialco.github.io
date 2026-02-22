@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Lane Social Co</title>
+  <meta name="description" content="Terms of Service for Lane Social Co. Review our terms for using our services and website.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .logo-mark {
+      font-size: 18px;
+      color: var(--purple);
+      font-weight: 800;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 20px;
+      background-color: var(--border);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background-color: var(--purple);
+      color: var(--ink-text);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+      color: var(--ink-text);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--text);
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--surface);
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+
+      .nav-links.open {
+        max-height: 600px;
+        padding: 20px 24px;
+      }
+
+      .nav-links li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-cta {
+        display: inline-block;
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    /* Main content */
+    main {
+      background-color: var(--bg);
+      padding: 140px 80px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      color: var(--text-sub);
+      font-size: 14px;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--text-sub);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      color: var(--text-sub);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-alt);
+      padding: 60px 80px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1400px;
+      margin: 0 auto;
+      font-size: 12px;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-social a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      main {
+        padding: 100px 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 24px;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 12px 16px;
+      }
+
+      main {
+        padding: 60px 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      p, li {
+        font-size: 14px;
+      }
+    }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="logo-mark">✳</span>
+      <span class="logo-divider"></span>
+      <span>Lane Social Co</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Audit</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <div class="meta">Last updated: January 2025 | Effective date: January 1, 2025</div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing and using this website and the services offered by Lane Social Co ("we," "us," "our," or "Lane Social Co"), you agree to be bound by these Terms of Service. If you do not agree to abide by the above, please do not use this service.</p>
+
+      <h2>2. Description of Services</h2>
+      <p>Lane Social Co provides social media strategy, audits, and digital products for small businesses. Our primary services include:</p>
+      
+      <h3>Social Media Audit ($97)</h3>
+      <p>A one-time comprehensive analysis of your social media accounts, including strategy recommendations. This is a digital service delivered as a written report with an optional 30-minute consultation call. Once purchased, the audit cannot be refunded.</p>
+
+      <h3>Digital Products and Free Resources</h3>
+      <p>We offer downloadable digital products (checklists, templates, guides) for free and paid. Digital products are delivered electronically and are non-refundable once downloaded or access is provided.</p>
+
+      <h3>Service Limitations</h3>
+      <p>Our services are provided on an "as-is" basis. Results vary based on implementation and market conditions. We do not guarantee specific outcomes, follower growth, or financial returns. Past client results do not guarantee your future results.</p>
+
+      <h2>3. Payment and Non-Refundable Services</h2>
+      <p>All purchases of our audit services and digital products are final and non-refundable. This includes:</p>
+      <ul>
+        <li>The $97 Social Media Audit</li>
+        <li>All purchased digital products</li>
+        <li>Consultation services</li>
+      </ul>
+      <p>Refunds will only be issued if payment was processed in error or if technical issues prevent you from accessing purchased content. Contact us at notnathanlane@gmail.com within 7 days of purchase for such requests.</p>
+
+      <h2>4. Payment Processing</h2>
+      <p>We use Gumroad to process payments. By making a purchase, you authorize us to charge the payment method on file. You are responsible for maintaining accurate payment information. We are not liable for failed transactions due to outdated or incorrect payment details.</p>
+
+      <h2>5. Intellectual Property Rights</h2>
+      
+      <h3>Content Ownership</h3>
+      <p>All content on this website, including text, graphics, logos, images, audio, and video, are the property of Lane Social Co or licensed to us. This content is protected by copyright law.</p>
+
+      <h3>Use License</h3>
+      <p>You are granted a limited, non-exclusive license to view and print content from this website for personal, non-commercial use only. You may not:</p>
+      <ul>
+        <li>Modify or copy our content</li>
+        <li>Use our content for commercial purposes without permission</li>
+        <li>Remove any copyright or proprietary notices</li>
+        <li>Reproduce, distribute, or transmit our content</li>
+        <li>Use our content to create competing products or services</li>
+      </ul>
+
+      <h3>Your Content</h3>
+      <p>Any feedback, suggestions, or information you provide to us becomes our property and may be used without restriction, including in our future services, marketing, or content.</p>
+
+      <h2>6. User Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Violate any applicable laws or regulations</li>
+        <li>Infringe on any intellectual property rights</li>
+        <li>Harass, abuse, or harm any person</li>
+        <li>Spam or send unsolicited messages</li>
+        <li>Attempt to gain unauthorized access to our systems</li>
+        <li>Upload viruses or malicious code</li>
+        <li>Engage in any form of fraud or misrepresentation</li>
+        <li>Collect or track personal information of others</li>
+      </ul>
+
+      <h2>7. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Lane Social Co shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, even if we have been advised of the possibility of such damages.</p>
+
+      <h2>8. No Guarantee of Results</h2>
+      <p>Our services provide analysis and recommendations based on industry best practices. We do not guarantee:</p>
+      <ul>
+        <li>Specific growth in followers or engagement</li>
+        <li>Increased sales or revenue</li>
+        <li>Viral content or specific performance metrics</li>
+        <li>Implementation success or client compliance</li>
+      </ul>
+      <p>Results depend on your implementation, market conditions, audience receptiveness, and numerous external factors beyond our control.</p>
+
+      <h2>9. Third-Party Links and Services</h2>
+      <p>Our website may contain links to third-party websites and services. We are not responsible for the content, accuracy, or practices of external sites. Your use of third-party services is subject to their terms and conditions.</p>
+
+      <h2>10. Disclaimer of Warranties</h2>
+      <p>This website and all services are provided on an "as-is" and "as-available" basis. We make no warranties, express or implied, regarding the website, content, or services. We disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+      <h2>11. Governing Law and Dispute Resolution</h2>
+      <p>These Terms of Service are governed by and construed in accordance with the laws of the State of Nevada, without regard to its conflict of law provisions. Any legal action or dispute arising under these terms shall be resolved exclusively in the state or federal courts located in Las Vegas, Nevada.</p>
+
+      <h2>12. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless Lane Social Co, its owners, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of our services, violation of these terms, or infringement of any rights.</p>
+
+      <h2>13. Termination of Access</h2>
+      <p>We reserve the right to terminate or suspend your access to our website and services at any time, with or without cause. Termination of access does not entitle you to a refund of any payments made.</p>
+
+      <h2>14. Changes to Terms</h2>
+      <p>We may update these Terms of Service at any time. Changes become effective immediately upon posting to the website. Your continued use of our services constitutes acceptance of the updated terms. We encourage you to review these terms periodically.</p>
+
+      <h2>15. Contact Information</h2>
+      <p>For questions about these Terms of Service, to report violations, or to discuss disputes:</p>
+      <p>
+        <strong>Lane Social Co</strong><br>
+        Email: notnathanlane@gmail.com<br>
+        Location: Las Vegas, Nevada
+      </p>
+
+      <h2>16. Severability</h2>
+      <p>If any provision of these Terms of Service is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+      <h2>17. Entire Agreement</h2>
+      <p>These Terms of Service, along with our Privacy Policy, constitute the entire agreement between you and Lane Social Co regarding your use of our website and services. This agreement supersedes all prior negotiations, representations, and agreements.</p>
+
+      <h2>18. Age Requirement</h2>
+      <p>By using our website and services, you represent that you are at least 18 years old and capable of entering into a legally binding contract. If you are under 18, you must have parental consent to use our services.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); navToggle.classList.remove('open');
+    }));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

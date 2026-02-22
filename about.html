@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO -->
+<meta name="description" content="Lane Social Co is a Las Vegas-based social media strategy firm run by Nate Lane. We built this to give businesses the honest audit they've never gotten — no fluff, no retainer.">
+<meta name="keywords" content="Lane Social Co, Nate Lane, Las Vegas social media, social media consultant Las Vegas, social media strategy company">
+<meta name="author" content="Nate Lane, Lane Social Co">
+<link rel="canonical" href="https://lanesocialco.com/about.html">
+<!-- Open Graph -->
+<meta property="og:title" content="About Lane Social Co — Las Vegas Social Media Strategy">
+<meta property="og:description" content="We built Lane Social Co to give businesses the honest social media audit they've never gotten. Las Vegas based, serving clients everywhere.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lanesocialco.com/about.html">
+<meta property="og:image" content="https://lanesocialco.com/assets/images/og-default.jpg">
+<meta property="og:site_name" content="Lane Social Co">
+<meta property="og:locale" content="en_US">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Lane Social Co — Las Vegas Social Media Strategy">
+<meta name="twitter:description" content="Built on results, not noise. Las Vegas social media strategy and audits.">
+<meta name="twitter:image" content="https://lanesocialco.com/assets/images/og-default.jpg">
+<title>About Lane Social Co — Las Vegas Social Media Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #7B2FFF;
+    --purple-rgb: 123,47,255;
+
+    /* Light mode semantic tokens */
+    --bg: #FFFFFF;
+    --bg-alt: #F4F3F0;
+    --surface: #FFFFFF;
+    --text: #0A0A0A;
+    --text-sub: #444444;
+    --text-muted: #888888;
+    --border: #E8E6E1;
+    --nav-bg: rgba(255,255,255,0.92);
+    --card-shadow: rgba(0,0,0,0.06);
+
+    /* Fixed (same in both modes) */
+    --ink: #0A0A0A;
+    --ink-text: #FFFFFF;
+    --gray: #888888;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0C0C0C;
+      --bg-alt: #141414;
+      --surface: #1A1A1A;
+      --text: #F0F0F0;
+      --text-sub: #AAAAAA;
+      --text-muted: #666666;
+      --border: #262626;
+      --nav-bg: rgba(12,12,12,0.92);
+      --card-shadow: rgba(0,0,0,0.3);
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    background: var(--bg); color: var(--text); overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-img { height: 50px; width: auto; }
+  .logo-img-light { display: block; }
+  .logo-img-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    .logo-img-light { display: none; }
+    .logo-img-dark { display: block; }
+  }
+  .logo-text-fallback { display: none; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+  .logo-mark { color: var(--purple); font-size: 26px; line-height: 1; }
+  .logo-divider { width: 2px; height: 26px; background: var(--purple); opacity: 0.4; }
+  .logo-name { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1.15; letter-spacing: -0.3px; }
+  .nav-links { list-style: none; display: flex; gap: 32px; align-items: center; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; color: var(--text); font-size: 15px; font-weight: 500; opacity: 0.6; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-links a.active { opacity: 1; border-bottom: 2px solid var(--purple); padding-bottom: 2px; }
+  .nav-cta { background: var(--ink) !important; color: var(--ink-text) !important; padding: 10px 22px !important; border-radius: 6px !important; opacity: 1 !important; font-weight: 700 !important; font-size: 14px !important; border-bottom: none !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--purple) !important; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 101; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: fixed; top: 69px; left: 0; right: 0;
+      flex-direction: column; align-items: flex-start;
+      background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 16px 24px 24px; gap: 4px;
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-8px); opacity: 0; pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .nav-links li { width: 100%; }
+    .nav-links a { font-size: 17px; padding: 11px 0; display: block; border-bottom: 1px solid var(--border); opacity: 0.75; }
+    .nav-links a.active { border-bottom-color: var(--purple); opacity: 1; }
+    .nav-links li:last-child a { border-bottom: none; }
+    .nav-cta { margin-top: 8px; text-align: center; padding: 14px 22px !important; font-size: 16px !important; }
+  }
+
+  /* ABOUT HERO */
+  .about-hero {
+    padding: 160px 48px 100px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .hero-glow {
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hero-glow { background: radial-gradient(circle, rgba(var(--purple-rgb),0.15) 0%, transparent 70%); }
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--purple); margin-bottom: 20px;
+  }
+  .about-hero h1 {
+    font-size: clamp(44px, 5.5vw, 76px); font-weight: 800;
+    letter-spacing: -2px; line-height: 1.05; margin-bottom: 28px;
+    color: var(--text);
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s;
+  }
+  .about-hero h1 em { font-style: normal; color: var(--purple); }
+  .about-hero-text {
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s;
+  }
+  .about-hero p {
+    font-size: 18px; line-height: 1.75; color: var(--text-sub); margin-bottom: 20px;
+  }
+  .photo-block {
+    position: relative;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
+  }
+  .photo-placeholder {
+    width: 100%; aspect-ratio: 4/5;
+    background: var(--bg-alt); border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .photo-placeholder::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.15) 0%, transparent 70%);
+  }
+  @media (prefers-color-scheme: dark) {
+    .photo-placeholder::before { background: radial-gradient(circle, rgba(var(--purple-rgb),0.25) 0%, transparent 70%); }
+  }
+  .photo-placeholder-text {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+    text-align: center; position: relative; z-index: 1;
+  }
+  .photo-placeholder-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .photo-badge {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--ink); color: var(--ink-text);
+    border-radius: 12px; padding: 20px 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  .photo-badge-num {
+    font-size: 32px; font-weight: 800; letter-spacing: -1px;
+    color: var(--purple); line-height: 1;
+  }
+  .photo-badge-label {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.08em;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--ink); padding: 60px 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative; overflow: hidden;
+  }
+  .stats-bar::before {
+    content: '';
+    position: absolute; top: 50%; left: 30%;
+    transform: translateY(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .stat-item {
+    padding: 0 40px; border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-size: 48px; font-weight: 800; letter-spacing: -2px;
+    color: var(--ink-text); line-height: 1; margin-bottom: 8px;
+  }
+  .stat-num span { color: var(--purple); }
+  .stat-label {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* STORY */
+  .story { padding: 100px 48px; background: var(--bg); }
+  .story-inner {
+    display: grid; grid-template-columns: 300px 1fr;
+    gap: 80px; align-items: start;
+  }
+  .story-sidebar { position: sticky; top: 120px; }
+  .story-sidebar h2 {
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 800;
+    letter-spacing: -1px; line-height: 1.1; margin-bottom: 24px;
+    color: var(--text);
+  }
+  .story-sidebar h2 em { font-style: normal; color: var(--purple); }
+  .story-sidebar p {
+    font-size: 15px; color: var(--text-muted);
+    font-family: 'DM Mono', monospace; line-height: 1.65;
+  }
+  .story-body { }
+  .story-body p {
+    font-size: 19px; line-height: 1.8; color: var(--text-sub); margin-bottom: 28px;
+  }
+  .story-body p:last-child { margin-bottom: 0; }
+  .story-body strong { font-weight: 700; color: var(--text); }
+  .story-pull {
+    border-left: 3px solid var(--purple);
+    padding: 24px 32px; margin: 40px 0;
+    background: rgba(var(--purple-rgb),0.04); border-radius: 0 12px 12px 0;
+  }
+  .story-pull p {
+    font-size: 22px; font-weight: 700; color: var(--text);
+    line-height: 1.45; margin-bottom: 0 !important;
+    letter-spacing: -0.3px;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy { padding: 100px 48px; background: var(--bg-alt); }
+  .philosophy h2 {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+    letter-spacing: -1.2px; margin-bottom: 60px; max-width: 600px;
+    color: var(--text);
+  }
+  .philosophy-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .philo-card {
+    background: var(--surface); border-radius: 16px; padding: 40px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--border);
+  }
+  .philo-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px var(--card-shadow); }
+  .philo-number {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--purple); letter-spacing: 0.1em; margin-bottom: 16px;
+  }
+  .philo-card h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 14px; color: var(--text); }
+  .philo-card p { font-size: 16px; line-height: 1.7; color: var(--text-sub); }
+
+  /* WHO WE WORK WITH */
+  .who { padding: 100px 48px; background: var(--bg); }
+  .who h2 {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+    letter-spacing: -1.2px; margin-bottom: 20px;
+    color: var(--text);
+  }
+  .who-sub {
+    font-size: 18px; color: var(--text-sub); line-height: 1.65; max-width: 560px; margin-bottom: 56px;
+  }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .who-card {
+    background: var(--bg-alt); border-radius: 12px; padding: 28px 24px;
+    text-align: center; transition: background 0.2s;
+    border: 1px solid var(--border);
+  }
+  .who-card:hover { background: rgba(var(--purple-rgb),0.06); }
+  .who-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+  .who-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .who-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+  /* CTA */
+  .about-cta {
+    padding: 120px 48px; background: var(--ink);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .about-cta::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-cta h2 {
+    font-size: clamp(36px, 5vw, 68px); font-weight: 800;
+    letter-spacing: -2px; color: var(--ink-text); line-height: 1.0;
+    margin-bottom: 20px; position: relative;
+  }
+  .about-cta h2 em { font-style: normal; color: var(--purple); }
+  .about-cta p {
+    font-size: 18px; color: rgba(255,255,255,0.5);
+    max-width: 440px; margin: 0 auto 44px; line-height: 1.65; position: relative;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--purple); color: var(--ink-text);
+    padding: 18px 36px; border-radius: 8px;
+    font-size: 17px; font-weight: 700; text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 24px rgba(var(--purple-rgb),0.35); position: relative;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(var(--purple-rgb),0.45); }
+  .btn-primary .price {
+    background: rgba(255,255,255,0.2); padding: 3px 10px;
+    border-radius: 4px; font-size: 14px; font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    padding: 64px 48px 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand {}
+  .footer-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--text);
+    font-size: 18px; font-weight: 800; letter-spacing: -0.4px;
+    margin-bottom: 14px;
+  }
+  .footer-tagline { font-size: 14px; line-height: 1.65; color: var(--text-muted); margin-bottom: 8px; max-width: 260px; }
+  .footer-location { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; margin-bottom: 16px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { text-decoration: none; font-size: 14px; color: var(--text-muted); transition: color 0.2s; font-weight: 400; }
+  .footer-col ul a:hover { color: var(--purple); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; border-top: 1px solid var(--border);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; }
+  .footer-social { display: flex; gap: 20px; }
+  .footer-social a { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-social a:hover { color: var(--purple); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .about-hero { grid-template-columns: 1fr; padding: 110px 24px 60px; gap: 48px; }
+    .photo-block { order: -1; }
+    .stats-bar { grid-template-columns: 1fr 1fr; gap: 40px; padding: 48px 24px; }
+    .stat-item { border-right: none; padding: 0; }
+    .story, .philosophy, .who, .about-cta { padding: 80px 24px; }
+    .story-inner { grid-template-columns: 1fr; gap: 40px; }
+    .story-sidebar { position: static; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 24px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Lane Social Co",
+  "url": "https://lanesocialco.com/about.html",
+  "description": "Lane Social Co is a Las Vegas-based social media strategy firm built to give businesses honest, specific audits and clear action plans.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Lane Social Co",
+    "founder": { "@type": "Person", "name": "Nate Lane", "jobTitle": "Founder" },
+    "foundingLocation": { "@type": "Place", "name": "Las Vegas, NV" },
+    "url": "https://lanesocialco.com"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" height="50" onerror="this.style.display='none'">
+    <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" height="50" onerror="this.style.display='none'">
+    <span class="logo-text-fallback">
+      <span class="logo-mark">✳</span>
+      <span class="logo-divider"></span>
+      <span class="logo-name">Lane<br>Social Co</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Audit</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html" class="nav-cta">Get your audit →</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <div class="hero-glow"></div>
+  <div class="about-hero-left">
+    <div class="section-label">About Lane Social Co</div>
+    <h1>Built on<br>results, not<br><em>noise.</em></h1>
+    <div class="about-hero-text">
+      <p>Lane Social Co was built in Las Vegas by someone who spent years watching businesses pour time and money into social media that wasn't working — and finally got tired of nobody telling them the truth about why.</p>
+      <p>We're not a big agency. We don't do retainers, vague strategy decks, or five-hour kickoff calls. We do one thing: figure out what's actually wrong with your social presence and tell you exactly how to fix it.</p>
+    </div>
+  </div>
+  <div class="photo-block">
+    <div class="photo-placeholder">
+      <div class="photo-placeholder-text">
+        <span class="photo-placeholder-icon">✳</span>
+        Add your photo here
+      </div>
+    </div>
+    <div class="photo-badge">
+      <div class="photo-badge-num">12k</div>
+      <div class="photo-badge-label">followers · 15 days</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">12<span>k</span></div>
+    <div class="stat-label">Followers in 15 days</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">2<span>M+</span></div>
+    <div class="stat-label">Interactions, month one</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1<span>M+</span></div>
+    <div class="stat-label">Accounts reached</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">$97</div>
+    <div class="stat-label">To get total clarity</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div class="story-sidebar">
+      <div class="section-label">The story</div>
+      <h2>Where this<br>all <em>came from.</em></h2>
+      <p>Las Vegas · Social Strategy · Digital Products</p>
+    </div>
+    <div class="story-body">
+      <p>It started with a frustration. <strong>Businesses would come to us posting every single day, doing all the things they were supposed to do, and still getting nothing back.</strong> Not because they weren't trying — they were. The problem was that nobody had ever sat them down and been honest about what was actually working.</p>
+
+      <p>Social media has an industry built around keeping people confused. Agencies charge retainers to do work that doesn't move the needle. Gurus sell courses full of tactics that worked in 2019. Platforms change their algorithms every six months and nobody explains what that actually means for your business.</p>
+
+      <div class="story-pull">
+        <p>"The businesses getting real results on social aren't doing more — they're doing the right things. There's a difference, and most people never figure out what it is."</p>
+      </div>
+
+      <p>Lane Social Co was built to cut through that. <strong>We started with a simple idea: what if someone just looked at your social presence, told you the truth, and gave you a clear list of what to do?</strong> No fluff. No vague strategy. No ongoing commitment unless you want one.</p>
+
+      <p>The results we've gotten for clients — 12,000 followers in 15 days, two million interactions in a single month, a million accounts reached — didn't come from magic. They came from actually understanding where an audience lives, what makes them stop scrolling, and what makes them trust a brand enough to follow it.</p>
+
+      <p>We're based in Las Vegas, but we work with businesses everywhere. The problems are usually the same regardless of where you are or what you're selling. And the fixes, once you know what they are, tend to be simpler than you'd expect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="section-label">How we think</div>
+  <h2>Three things we believe that most agencies don't.</h2>
+  <div class="philosophy-grid">
+    <div class="philo-card">
+      <div class="philo-number">01 — Honesty</div>
+      <h3>The truth is more useful than comfort</h3>
+      <p>We'd rather tell you something that's hard to hear than give you a polished report that doesn't change anything. If your content is bland, we'll say it. If you're on the wrong platform, you'll know. That's what you're paying for.</p>
+    </div>
+    <div class="philo-card">
+      <div class="philo-number">02 — Specificity</div>
+      <h3>Generic advice is worth what you paid for it</h3>
+      <p>We don't do templates. Every audit is built around your specific business, your specific audience, and your specific situation. The action list you get back is for you — not a version of you that represents a thousand other clients.</p>
+    </div>
+    <div class="philo-card">
+      <div class="philo-number">03 — Simplicity</div>
+      <h3>Complexity is usually just confusion in disguise</h3>
+      <p>The best social strategies aren't complicated. They're clear, consistent, and built around what your audience actually responds to. If you feel overwhelmed, that's a sign something's off — not a sign you need to do more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="who">
+  <div class="section-label">Who this is for</div>
+  <h2>We work with people who are serious about growth.</h2>
+  <p class="who-sub">We're not the right fit for everyone. But if you're already putting in the work and not seeing results, we're probably exactly what you need.</p>
+  <div class="who-grid">
+    <div class="who-card">
+      <span class="who-icon">🏪</span>
+      <h3>Small businesses</h3>
+      <p>Local and regional businesses that need social to actually drive customers, not just look active.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🎤</span>
+      <h3>Personal brands</h3>
+      <p>Creators, consultants, coaches, and speakers building an audience around who they are.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">🎭</span>
+      <h3>Entertainers</h3>
+      <p>Vegas and beyond — performers, venues, and entertainment businesses that need a real presence.</p>
+    </div>
+    <div class="who-card">
+      <span class="who-icon">📦</span>
+      <h3>Product brands</h3>
+      <p>E-commerce and DTC brands trying to build community and drive sales through organic content.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <h2>Ready to get<br>a real <em>answer?</em></h2>
+  <p>Find out exactly what's holding your social media back — and get a clear plan to fix it.</p>
+  <a href="services.html" class="btn-primary">
+    Get your social audit
+    <span class="price">$97</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+      <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>
+      <p class="footer-location">Las Vegas, NV &amp; everywhere else</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">$97 Social Audit</a></li>
+        <li><a href="contact.html">Strategy Session</a></li>
+        <li><a href="contact.html">Done For You</a></li>
+        <li><a href="audit-intake.html">Client Intake</a></li>
+        <li><a href="contact.html">Work With Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Free Resources</h4>
+      <ul>
+        <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+        <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+        <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+        <li><a href="freebie-bio-optimization.html">Bio Cheat Sheet</a></li>
+        <li><a href="shop-free.html">All Free Resources →</a></li>
+        <li><a href="shop-paid.html">Paid Products →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV · All rights reserved</div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="TikTok">TikTok</a>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    const isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

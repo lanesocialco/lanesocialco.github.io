@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selling Digital Products on Social: The Honest Truth — Lane Social Co</title>
+  <meta name="description" content="Why social sells services poorly but digital products well. The exact content mix, proof strategy, and conversion framework that works.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-category-products.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,140,80,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #FF8C50; }
+    .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .category-hero { padding-top: 100px; padding-bottom: 40px; }
+      .category-hero h1 { font-size: 72px; }
+      .category-hero p { font-size: 16px; }
+    }
+    @media (max-width: 480px) {
+      .category-hero { padding-top: 80px; padding-bottom: 30px; }
+      .category-hero h1 { font-size: 48px; }
+      .category-hero p { font-size: 14px; }
+    }
+    article { max-width: 720px; margin: 80px auto; }
+    article .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(255,140,80,0.2); color: #FF8C50; }
+    article h2 { font-size: 52px; font-weight: 800; margin-bottom: 40px; line-height: 1.15; }
+    article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
+    article h3 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    article h4 { font-size: 18px; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
+    article li { margin-bottom: 10px; line-height: 1.75; }
+    article strong { font-weight: 700; color: var(--text); }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #FF8C50; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+    article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
+    article .cta-card p { margin-bottom: 20px; }
+    article .cta-card a { display: inline-block; background: var(--purple); color: var(--ink-text); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    article .cta-card a:hover { opacity: 0.9; }
+    .faq-section { max-width: 720px; margin: 80px auto; }
+    .faq-section h3 { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+    .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; margin-top: 0; margin-bottom: 12px; cursor: pointer; transition: color 0.3s ease; }
+    .faq-item h4:hover { color: var(--purple); }
+    .faq-item p { font-size: 14px; color: var(--text-sub); line-height: 1.75; margin: 0; }
+    .more-posts { max-width: 720px; margin: 80px auto; padding-top: 60px; border-top: 1px solid var(--border); }
+    .more-posts h3 { font-size: 24px; font-weight: 700; margin-bottom: 32px; }
+    .more-posts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .post-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); }
+    .post-card h4 { font-size: 15px; margin-top: 0; line-height: 1.4; }
+    .post-card p { font-size: 12px; color: var(--text-muted); margin: 12px 0 0 0; }
+    @media (max-width: 900px) {
+      article h2 { font-size: 36px; }
+      article h3 { font-size: 22px; }
+      .more-posts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      article h2 { font-size: 28px; }
+      article > p { font-size: 15px; }
+      article .pullquote { font-size: 16px; padding: 24px 16px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-hero">
+      <h1>Products</h1>
+      <p>Digital products don't convert from social the same way services do. Here's what actually works.</p>
+    </section>
+
+    <article class="reveal">
+      <div class="article-meta">
+        <span class="category-badge">DIGITAL PRODUCTS</span>
+        <span>Nov 5, 2024</span>
+        <span>6 min read</span>
+      </div>
+
+      <h2>Selling Digital Products on Social: The Honest Truth</h2>
+
+      <p>Most people think social media is a sales channel for services. You post, people book you, you deliver the service. That's how it works.</p>
+
+      <p>Digital products are different. Social is a terrible channel for selling courses, templates, and ebooks directly. But social is an amazing channel for building the audience that buys digital products.</p>
+
+      <p>Here's the difference and how to win at it.</p>
+
+      <h3>Why Social Sells Services Poorly But Products Well</h3>
+
+      <p>A service is an experience you deliver. A one-on-one coaching call. A consulting engagement. Personal. Specific to that person.</p>
+
+      <p>You can't sell that effectively on a single Instagram post. The sale requires conversation, clarity, trust-building. A post isn't enough. People need to book a call with you first.</p>
+
+      <p>A digital product is a scalable asset. A course. A template. An ebook. Once it's made, you sell it a thousand times without changing it. No custom work. No discovery call needed.</p>
+
+      <p>Social media is perfect for selling digital products because you can teach, show results, and build trust without ever talking to someone directly. A Reel can sell a product. An email can sell a product. A post series can sell a product.</p>
+
+      <p>The key difference: services need a conversation. Digital products need proof.</p>
+
+      <h3>The Content Flywheel for Digital Products</h3>
+
+      <p>You need a flywheel. Social media posts that teach (build awareness). Email that builds desire. Sales page that closes.</p>
+
+      <p>Start on social. Teach something free. A tip. A framework. Show how it works. People save it. People think "wow, this is helpful and free."</p>
+
+      <p>The CTA is simple: "I made a full course on this. It's 80 percent off this week."</p>
+
+      <p>People click. They go to your sales page. They read what the course includes. They see testimonials. They buy.</p>
+
+      <p>That's the flywheel. Social teaches. Sales page closes.</p>
+
+      <h3>Proof Content vs. Promotional Content (80/20)</h3>
+
+      <p>Your content should be 80 percent proof and 20 percent promotion.</p>
+
+      <p>Proof means showing that the thing you're selling works. A template you made that clients used to get results. A system you use in your own business. A lesson that someone told you changed their business.</p>
+
+      <p>Proof is teaching without selling. It's credibility building. People see it and think "if this person is willing to teach me the framework for free, the paid course must be amazing."</p>
+
+      <p>Promotional content is the direct sell. "Get my course. Limited time offer." 20 percent of your posts.</p>
+
+      <p>If you flip the ratio (80 percent promotional), nobody buys. If you do only proof content (0 percent promotional), people forget you have something to sell.</p>
+
+      <div class="pullquote">
+        Teach your way to product sales. The best way to sell a course is to give away so much value that people want the full version.
+      </div>
+
+      <h3>Email List Building from Social</h3>
+
+      <p>Your email list is worth more than your follower count. An email subscriber is someone who explicitly said "I want to hear from you regularly."</p>
+
+      <p>Use social to build email. "Sign up for my free training on X." That's an opt-in. A person gives you their email. Now you can sell to them directly without relying on the Instagram algorithm.</p>
+
+      <p>The sequence: Social media hooks them. Free training or ebook gets their email. Email teaches more. Email sells the product.</p>
+
+      <p>Email has 40 times higher conversion rate than social media. Focus on email first. Social is the top of the funnel. Email is where the sale happens.</p>
+
+      <h3>What Actually Converts Followers into Buyers</h3>
+
+      <p>Three things: proof, price clarity, and scarcity.</p>
+
+      <p><strong>Proof.</strong> Testimonials from people who bought and used your product. Before and afters. Results. Numbers.</p>
+
+      <p><strong>Price clarity.</strong> Show the exact price. Don't hide it. Don't say "prices start at." People should know exactly what they're paying before they land on the sales page.</p>
+
+      <p><strong>Scarcity.</strong> "Limited time offer." "Only 50 spots." Create urgency. Not fake urgency. Real scarcity. Limited cohort size for a course. Limited-time discount. Ending next Friday.</p>
+
+      <p>Without scarcity, people bookmark your post and forget. With scarcity, they act today.</p>
+
+      <h3>The Mistake of Launching Without an Audience</h3>
+
+      <p>Most people create a digital product then try to sell it on a cold Instagram account with 500 followers.</p>
+
+      <p>That's the mistake. Build audience first. Then launch products.</p>
+
+      <p>Spend three to six months posting proof content. Teaching. Building trust. Getting to 5,000 to 10,000 engaged followers. Then launch your product to that audience.</p>
+
+      <p>A product launch to 10,000 engaged followers will make sales. A product launch to 500 followers will make nothing.</p>
+
+      <p>Most failed digital product launches aren't because the product was bad. They're because there was no audience.</p>
+
+      <div class="cta-card">
+        <h4>Ready to launch a digital product?</h4>
+        <p>We help creators build audiences on social and convert them to customers. From strategy to launch, we've done this before.</p>
+        <a href="contact.html">Get Started</a>
+      </div>
+    </article>
+
+    <section class="faq-section reveal">
+      <h3>FAQ</h3>
+
+      <div class="faq-item">
+        <h4>Should I sell my product directly on social or on a landing page?</h4>
+        <p>Always use a sales page or checkout page, never the Instagram DMs or comments. You need a funnel you control. Social is for awareness and driving traffic. The sales page is where the conversion happens.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How long does it take to sell a digital product?</h4>
+        <p>If you already have an audience, you can start selling the same day you launch. If you're building an audience from zero, expect three to six months of content creation before your first sale.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's the best digital product to start with?</h4>
+        <p>Start with something you can create in a week. An ebook. A template. A short course. Don't spend six months building a massive course with no audience. Create something fast, validate that people want it, then build the larger product.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Should I use ads to sell digital products?</h4>
+        <p>Yes, but not until you've proven product-market fit with organic sales first. Once you know your conversion rate and profit margin, then ads make sense. Test ads with a small budget after your first 20 sales.</p>
+      </div>
+    </section>
+
+    <section class="more-posts reveal">
+      <h3>More Product Posts</h3>
+      <div class="more-posts-grid">
+        <a href="blog-category-content.html" class="post-card">
+          <h4>5 Content Pillars Every Small Business Needs</h4>
+          <p>Dec 15, 2024 • 5 min read</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more strategy, growth, and platform-specific content</p>
+        </a>
+        <a href="shop.html" class="post-card">
+          <h4>Browse Our Shop</h4>
+          <p>Templates, courses, and resources for social growth</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Selling Digital Products on Social: The Honest Truth",
+    "description": "Why social sells services poorly but digital products well. The exact content mix, proof strategy, and conversion framework that works.",
+    "datePublished": "2024-11-05",
+    "author": { "@type": "Person", "name": "Nate" },
+    "publisher": { "@type": "Organization", "name": "Lane Social Co" }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  HOW TO USE THIS TEMPLATE:
+  
+  1. Duplicate this file and rename it: blog-[your-post-slug].html
+     Example: blog-instagram-growth-guide.html
+  
+  2. Find every ✏️ EDIT comment and replace the placeholder content with your own
+  
+  3. Update these key sections in <head>:
+     - <title> tag
+     - meta description
+     - meta og:image
+     - Article schema datePublished
+  
+  4. Add category metadata:
+     - Update .category-badge text (Strategy, Instagram, TikTok, etc.)
+     - Update .category-badge class (badge-strategy, badge-instagram, etc.)
+     - Update category color in .category-hero h1 and ::before gradient
+  
+  5. Write your article content:
+     - Replace hero h1 with your post title
+     - Fill in all article sections
+     - Update FAQ items
+     - Update "More Posts" links at bottom
+  
+  6. Add your post to blog.html:
+     - Copy the article card HTML from blog.html
+     - Update with your new post title, excerpt, date, link
+  
+  7. Save and test locally before uploading
+  
+  Estimated time to publish: 20-30 minutes (if you have your content ready)
+  -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✏️ EDIT: Your Post Title Here — Lane Social Co</title>
+  <meta name="description" content="✏️ EDIT: Write a 155-160 character meta description that summarizes your post and includes target keywords.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/blog-[post-slug].html">
+  <meta property="og:title" content="✏️ EDIT: Your Post Title — Lane Social Co">
+  <meta property="og:description" content="✏️ EDIT: Same as meta description above">
+  <meta property="og:image" content="✏️ EDIT: https://lanesocialco.com/assets/images/[post-slug]-og.jpg">
+  <meta property="og:url" content="https://lanesocialco.com/blog-[post-slug].html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-mark { font-size: 20px; color: var(--purple); }
+    .logo-divider { width: 1px; height: 16px; background: var(--border); }
+    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
+    .nav-cta:hover { opacity: 0.9; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      .nav-toggle { display: flex; }
+      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .nav-links.open { max-height: 500px; }
+      .nav-links a { padding: 8px 0; }
+    }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand { grid-column: 1; }
+    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
+    .footer-col ul { list-style: none; }
+    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
+    .footer-col a:hover { color: var(--purple); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 24px; }
+    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-social { flex-direction: column; gap: 12px; }
+    }
+    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { main { padding: 0 24px; } }
+    .article-hero { padding-top: 140px; padding-bottom: 80px; text-align: center; position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,47,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .article-hero h1 { font-size: 60px; font-weight: 800; margin-bottom: 24px; line-height: 1.2; position: relative; z-index: 1; }
+    .article-hero .article-meta { display: flex; gap: 16px; align-items: center; justify-content: center; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .article-hero .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(123,47,255,0.2); color: var(--purple); }
+    article { max-width: 720px; margin: 0 auto 80px; }
+    article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
+    article h2 { font-size: 36px; font-weight: 800; margin-top: 60px; margin-bottom: 24px; line-height: 1.25; }
+    article h3 { font-size: 24px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.3; }
+    article h4 { font-size: 18px; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+    article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
+    article li { margin-bottom: 10px; line-height: 1.75; }
+    article strong { font-weight: 700; color: var(--text); }
+    article em { font-style: italic; }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid var(--purple); background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
+    article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
+    article .cta-card p { margin-bottom: 20px; }
+    article .cta-card a { display: inline-block; background: var(--purple); color: var(--ink-text); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+    article .cta-card a:hover { opacity: 0.9; }
+    .faq-section { max-width: 720px; margin: 80px auto; }
+    .faq-section h2 { margin-top: 0; }
+    .faq-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h4 { font-size: 16px; margin-top: 0; margin-bottom: 12px; cursor: pointer; transition: color 0.3s ease; }
+    .faq-item h4:hover { color: var(--purple); }
+    .faq-item p { font-size: 14px; color: var(--text-sub); line-height: 1.75; margin: 0; }
+    .more-posts { max-width: 720px; margin: 80px auto; padding-top: 60px; border-top: 1px solid var(--border); }
+    .more-posts h2 { margin-top: 0; }
+    .more-posts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    .post-card:hover { border-color: var(--purple); box-shadow: 0 8px 24px var(--card-shadow); }
+    .post-card h4 { font-size: 15px; margin-top: 0; line-height: 1.4; }
+    .post-card p { font-size: 12px; color: var(--text-muted); margin: 12px 0 0 0; }
+    @media (max-width: 900px) {
+      article h2 { font-size: 28px; }
+      article h3 { font-size: 20px; }
+      .article-hero h1 { font-size: 42px; }
+      .more-posts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      article h2 { font-size: 24px; }
+      article > p { font-size: 15px; }
+      article .pullquote { font-size: 16px; padding: 24px 16px; }
+      .article-hero h1 { font-size: 32px; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+  .footer-logo-light { display: block; height: 88px; width: auto; }
+  .footer-logo-dark { display: none; height: 88px; width: auto; }
+  @media (prefers-color-scheme: dark) {
+    .footer-logo-light { display: none; }
+    .footer-logo-dark { display: block; }
+  }
+
+  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
+  .mouse-glow {
+    display: none;
+    position: fixed;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    will-change: left, top;
+  }
+  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
+    .mouse-glow { display: block; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Audit</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ✏️ EDIT: Change the h1 to your post title. Make it compelling and keyword-rich. -->
+    <section class="article-hero reveal">
+      <div class="article-meta">
+        <!-- ✏️ EDIT: Change category text and badge class. Options: badge-strategy, badge-instagram, badge-tiktok, badge-content, badge-growth, badge-local, badge-products -->
+        <span class="category-badge badge-strategy">STRATEGY</span>
+        <!-- ✏️ EDIT: Update the publish date -->
+        <span>Jan 15, 2025</span>
+        <!-- ✏️ EDIT: Update read time (count words / 200) -->
+        <span>8 min read</span>
+      </div>
+      <h1>✏️ EDIT: Your Post Title Here</h1>
+    </section>
+
+    <!-- ✏️ ADD: Write your intro paragraph(s) here. Hook the reader. Why should they read this? What will they learn? -->
+    <article class="reveal">
+      <p>✏️ ADD: Start with a hook. A problem statement. A surprising fact. Make them want to keep reading. This should be 2-3 sentences that capture why this post matters.</p>
+
+      <!-- ✏️ ADD: Add your main content sections below. Follow this pattern: h2 heading, then paragraphs, lists, and examples. Use at least 4-5 main sections. -->
+      <h2>Section One: The Main Idea</h2>
+
+      <p>✏️ ADD: Write the first main section of your post. Explain the concept. Provide context. Use specific examples. Aim for 150-250 words per section.</p>
+
+      <p>✏️ ADD: Continue with more detail. Use lists, examples, or frameworks to make it clear and actionable.</p>
+
+      <ul>
+        <li>✏️ ADD: First key point</li>
+        <li>✏️ ADD: Second key point</li>
+        <li>✏️ ADD: Third key point</li>
+      </ul>
+
+      <h2>Section Two: Why This Matters</h2>
+
+      <p>✏️ ADD: Explain the "why" behind the concept. Why should readers care? How does it apply to them?</p>
+
+      <h2>Section Three: How to Implement It</h2>
+
+      <p>✏️ ADD: Give actionable steps. Be specific. If you say "do this," explain HOW to do it. What tools? What process? What should someone do right now?</p>
+
+      <!-- ✏️ OPTIONAL: Add a pullquote if you have a memorable statement from your article. This breaks up the text and adds emphasis. -->
+      <div class="pullquote">
+        ✏️ OPTIONAL: Add a memorable quote or statement that summarizes a key point.
+      </div>
+
+      <!-- ✏️ OPTIONAL: Add a mid-article CTA card. This works best around the halfway point to give readers a resource or next step. -->
+      <div class="cta-card">
+        <h4>✏️ OPTIONAL: Add a Resource or CTA Here</h4>
+        <p>Offer something related to the content. A free download. A booking link. A product.</p>
+        <a href="freebie-content-pillars.html">✏️ EDIT: Link text and URL</a>
+      </div>
+
+      <h2>Section Four: Common Mistakes</h2>
+
+      <p>✏️ ADD: What do people get wrong about this topic? What mistakes do you see? Address objections and misconceptions.</p>
+
+      <h2>The Bottom Line</h2>
+
+      <p>✏️ ADD: Wrap up your article. Summarize the main takeaways. What should they do with this information? What's the next step?</p>
+    </article>
+
+    <!-- ✏️ EDIT: FAQ Section. Replace with real questions from your audience. Aim for 4-5 questions. -->
+    <section class="faq-section reveal">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <h4>✏️ EDIT: What is the most common question about this topic?</h4>
+        <p>✏️ ADD: Answer it directly and clearly. Be concise but thorough. 2-3 sentences max.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>✏️ EDIT: How long does it take to see results?</h4>
+        <p>✏️ ADD: Address timeline expectations. Be realistic. Set proper expectations.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>✏️ EDIT: What if my situation is different?</h4>
+        <p>✏️ ADD: Address edge cases or variations. Show how the framework adapts.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>✏️ EDIT: Where can I learn more?</h4>
+        <p>✏️ ADD: Point to related resources, your services, or related posts.</p>
+      </div>
+    </section>
+
+    <!-- ✏️ EDIT: Related Posts. Link to 2-3 related blog posts or CTAs. Update URLs and titles. -->
+    <section class="more-posts reveal">
+      <h2>✏️ EDIT: Related Resources</h2>
+      <div class="more-posts-grid">
+        <a href="blog-category-strategy.html" class="post-card">
+          <h4>Related Post Title 1</h4>
+          <p>Date • Read time</p>
+        </a>
+        <a href="blog.html" class="post-card">
+          <h4>Back to All Posts</h4>
+          <p>Browse more content on this topic</p>
+        </a>
+        <a href="audit-intake.html" class="post-card">
+          <h4>Get Help With This</h4>
+          <p>Book a consultation or audit</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+    </a>
+        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
+        <p class="footer-loc">LAS VEGAS, NV</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Social Media Audit</a></li>
+          <li><a href="audit-intake.html">Book an Audit</a></li>
+          <li><a href="results.html">Client Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="shop-free.html">All Freebies</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="links.html">Links</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="links.html">All Links</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✏️ EDIT: Update JSON-LD schema with your post details -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "✏️ EDIT: Your Post Title",
+    "description": "✏️ EDIT: Same as meta description in <head>",
+    "image": "✏️ EDIT: https://lanesocialco.com/assets/images/[slug]-og.jpg",
+    "datePublished": "✏️ EDIT: 2025-01-15",
+    "dateModified": "✏️ EDIT: 2025-01-15",
+    "author": {
+      "@type": "Person",
+      "name": "Nate",
+      "url": "https://lanesocialco.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lane Social Co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lanesocialco.com/assets/images/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); 
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('revealed'); 
+          observer.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+<!-- MOUSE GLOW -->
+<div class="mouse-glow" id="mouseGlow"></div>
+<script>
+  (function() {
+    var glow = document.getElementById('mouseGlow');
+    if (!glow) return;
+    var rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  })();
+</script>
+</body>
+</html>
