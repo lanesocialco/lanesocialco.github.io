@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Media Strategy Blog — Lane Social Co</title>
-  <meta name="description" content="Tactical social media strategy, growth tactics, and real client results for small businesses. Weekly articles about Instagram, TikTok, content, and growth.">
+  <meta name="description" content="Tactical social media strategy, growth tactics, and real client results for small businesses. Guides on Instagram, TikTok, content strategy, and more.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://lanesocialco.com/blog.html">
+  <meta property="og:title" content="Blog — Lane Social Co">
+  <meta property="og:description" content="Real tactical advice for small businesses growing on social media. No fluff.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lanesocialco.com/blog.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --purple: #7B2FFF;
       --purple-rgb: 123,47,255;
@@ -42,368 +48,103 @@
       }
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Bricolage Grotesque', sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── NAV ───────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
       background: var(--nav-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 16px 0;
-    }
-
-    nav::after {
-      content: '';
-      display: none;
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
+      padding: 16px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 80px;
     }
-
-    .logo {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .logo-img-light,
-    .logo-img-dark {
-      display: block;
-      height: 38px;
-      width: auto;
-    }
-
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img { height: 44px; width: auto; }
+    .logo-img-light { display: block; }
+    .logo-img-dark { display: none; }
     @media (prefers-color-scheme: dark) {
-      .logo-img-light { display: none !important; }
-      .logo-img-dark { display: block !important; }
+      .logo-img-light { display: none; }
+      .logo-img-dark { display: block; }
     }
-
-    @media (prefers-color-scheme: light) {
-      .logo-img-dark { display: none !important; }
-      .logo-img-light { display: block !important; }
-    }
-
-    .logo-fallback {
-      display: none !important;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-mark {
-      font-size: 20px;
-      color: var(--purple);
-    }
-
-    .logo-divider {
-      width: 1px;
-      height: 16px;
-      background: var(--border);
-    }
-
-    .logo-name {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      gap: 5px;
-    }
-
-    .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-toggle.open span:nth-child(1) {
-      transform: rotate(45deg) translate(10px, 10px);
-    }
-
-    .nav-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--purple);
-    }
-
-    .nav-cta {
-      background: var(--purple);
-      color: var(--ink-text);
-      padding: 10px 24px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--purple);
-      opacity: 0.9;
-    }
-
+    .logo-text-fallback { display: none; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; color: var(--text); }
+    .logo-mark { color: var(--purple); font-size: 22px; }
+    .logo-divider { width: 2px; height: 22px; background: var(--purple); opacity: 0.4; }
+    .logo-name { font-size: 16px; font-weight: 800; color: var(--text); }
+    .nav-links { list-style: none; display: flex; gap: 32px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 15px; font-weight: 500; opacity: 0.6; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; border-bottom: 2px solid var(--purple); padding-bottom: 2px; }
+    .nav-cta { background: var(--ink) !important; color: var(--ink-text) !important; padding: 10px 22px !important; border-radius: 6px !important; opacity: 1 !important; font-weight: 700 !important; font-size: 14px !important; border-bottom: none !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--purple) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 101; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 900px) {
-      .nav-container {
-        padding: 0 24px;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
+      nav { padding: 14px 24px; }
+      .nav-toggle { display: flex; }
       .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        gap: 16px;
-        padding: 24px;
-        background: var(--surface);
+        position: fixed; top: 65px; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start;
+        background: var(--nav-bg); backdrop-filter: blur(12px);
+        padding: 16px 24px 24px; gap: 4px;
         border-bottom: 1px solid var(--border);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        transform: translateY(-8px); opacity: 0; pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
       }
-
-      .nav-links.open {
-        max-height: 500px;
-      }
-
-      .nav-links a {
-        padding: 8px 0;
-      }
+      .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .nav-links li { width: 100%; }
+      .nav-links a { font-size: 17px; padding: 11px 0; display: block; border-bottom: 1px solid var(--border); opacity: 0.75; }
+      .nav-links a.active { border-bottom-color: var(--purple); opacity: 1; }
+      .nav-links li:last-child a { border-bottom: none; }
+      .nav-cta { margin-top: 8px; text-align: center !important; padding: 14px 22px !important; font-size: 16px !important; }
     }
 
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 60px 80px 40px;
-      margin-top: 100px;
-    }
-
-    .footer-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand {
-      grid-column: 1;
-    }
-
-    .footer-logo {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .footer-tagline {
-      font-size: 13px;
-      color: var(--text-sub);
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .footer-loc {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-col h4 {
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text);
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col a {
-      text-decoration: none;
-      color: var(--text-sub);
-      font-size: 13px;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-col a:hover {
-      color: var(--purple);
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-social a {
-      text-decoration: none;
-      color: var(--text-muted);
-      transition: color 0.3s ease;
-    }
-
-    .footer-social a:hover {
-      color: var(--purple);
-    }
-
-    @media (max-width: 900px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      footer {
-        padding: 40px 24px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-social {
-        flex-direction: column;
-        gap: 12px;
-      }
-    }
-
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 80px;
-    }
-
-    @media (max-width: 900px) {
-      main {
-        padding: 0 24px;
-      }
-    }
-
-    /* BLOG EDITORIAL HERO — dark full-bleed masthead style */
-    .hero {
-      padding-top: 160px;
-      padding-bottom: 80px;
-      margin: 0 -80px;
-      padding-left: 80px;
-      padding-right: 80px;
+    /* ── MASTHEAD ───────────────────────────────── */
+    .masthead {
       background: var(--ink);
+      padding: 80px 80px 72px;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
-    .hero::before {
+    .masthead::before {
       content: '';
       position: absolute;
-      bottom: -100px;
-      right: -100px;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(123,47,255,0.18) 0%, transparent 65%);
+      bottom: -120px; right: -120px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.2) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
     }
-
-    .hero::after {
+    .masthead::after {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(123,47,255,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(var(--purple-rgb),0.4), transparent);
     }
-
-    .blog-eyebrow {
+    .masthead-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+    .masthead-eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--purple);
       margin-bottom: 24px;
@@ -411,737 +152,949 @@
       align-items: center;
       gap: 10px;
     }
-
-    .blog-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--purple);
-    }
-
-    .hero h1 {
-      font-size: clamp(60px, 7vw, 96px);
+    .masthead-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--purple); }
+    .masthead h1 {
+      font-size: clamp(48px, 7vw, 88px);
       font-weight: 800;
-      margin-bottom: 24px;
+      letter-spacing: -2.5px;
       line-height: 1.05;
       color: #ffffff;
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
+      margin-bottom: 20px;
     }
-
-    .hero h1 em {
-      color: var(--purple);
-      font-style: normal;
-    }
-
-    .hero p {
+    .masthead h1 em { font-style: normal; color: var(--purple); }
+    .masthead-sub {
       font-size: 18px;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      position: relative;
-      z-index: 1;
+      color: rgba(255,255,255,0.5);
+      max-width: 560px;
       line-height: 1.65;
     }
-
     @media (max-width: 900px) {
-      .hero {
-        padding-top: 120px;
-        padding-bottom: 60px;
-        margin: 0 -24px;
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
+      .masthead { padding: 60px 24px 56px; }
     }
 
-    @media (max-width: 480px) {
-      .hero {
-        padding-top: 100px;
-        padding-bottom: 48px;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
+    /* ── SEARCH ─────────────────────────────────── */
+    .search-section {
+      padding: 40px 80px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 65px;
+      z-index: 50;
     }
-
-    .category-filter {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-top: 64px;
-      padding-bottom: 16px;
-      margin-bottom: 60px;
-      scrollbar-width: none;
+    .search-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .search-box {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
     }
-
-    .category-filter::-webkit-scrollbar {
-      display: none;
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 18px;
+      pointer-events: none;
     }
-
-    .category-tag {
-      text-decoration: none;
-      padding: 8px 16px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      color: var(--text);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .category-tag:hover {
-      border-color: var(--purple);
-      color: var(--purple);
-    }
-
-    .featured-post {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 100px;
-      padding: 0;
-    }
-
-    .featured-image {
+    .search-input {
       width: 100%;
-      aspect-ratio: 1;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(123,47,255,0.2) 0%, rgba(123,47,255,0.05) 100%);
-      overflow: hidden;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 16px;
+      padding: 14px 16px 14px 46px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
     }
-
-    .featured-content h2 {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      line-height: 1.2;
-    }
-
-    .featured-meta {
+    .search-input:focus { border-color: var(--purple); }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-tags {
       display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      align-items: center;
+      gap: 8px;
       flex-wrap: wrap;
     }
-
-    .category-badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .badge-strategy {
-      background: rgba(123,47,255,0.2);
-      color: var(--purple);
-    }
-
-    .badge-instagram {
-      background: rgba(255,100,120,0.2);
-      color: #FF6478;
-    }
-
-    .badge-tiktok {
-      background: rgba(0,240,200,0.2);
-      color: #00F0C8;
-    }
-
-    .badge-content {
-      background: rgba(255,180,0,0.2);
-      color: #FFB400;
-    }
-
-    .badge-growth {
-      background: rgba(100,200,80,0.2);
-      color: #64C850;
-    }
-
-    .badge-local {
-      background: rgba(80,150,255,0.2);
-      color: #5096FF;
-    }
-
-    .badge-products {
-      background: rgba(255,140,80,0.2);
-      color: #FF8C50;
-    }
-
-    .featured-meta .date,
-    .featured-meta .read-time {
-      font-size: 13px;
+    .search-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
       color: var(--text-muted);
-    }
-
-    .featured-excerpt {
-      font-size: 18px;
-      color: var(--text-sub);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .read-more {
-      display: inline-block;
       text-decoration: none;
-      color: var(--purple);
-      font-weight: 700;
-      font-size: 14px;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      background: none;
+      font-weight: 500;
+      transition: all 0.2s;
     }
-
-    .read-more:hover {
-      transform: translateX(4px);
+    .search-tag:hover, .search-tag.active { border-color: var(--purple); color: var(--purple); background: rgba(var(--purple-rgb),0.07); }
+    .search-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
-
     @media (max-width: 900px) {
-      .featured-post {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .featured-content h2 {
-        font-size: 36px;
-      }
-
-      .featured-image {
-        aspect-ratio: 16 / 9;
-      }
-
-      .featured-excerpt {
-        font-size: 16px;
-      }
+      .search-section { padding: 20px 24px; top: 57px; }
+      .search-tags { display: flex; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+      .search-tag { white-space: nowrap; }
+      .search-count { display: none; }
     }
 
-    @media (max-width: 480px) {
-      .featured-content h2 {
-        font-size: 28px;
-      }
+    /* ── MAIN LAYOUT ─────────────────────────────── */
+    .blog-main { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+    @media (max-width: 900px) { .blog-main { padding: 0 24px; } }
 
-      .featured-excerpt {
-        font-size: 14px;
-      }
+    /* ── TOP POSTS ───────────────────────────────── */
+    .top-posts { padding: 64px 0 48px; }
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--purple); display: block; }
+    .top-posts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .top-posts-grid { grid-template-columns: 1fr; } }
+
+    .top-post-featured {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .top-post-featured:hover { transform: translateY(-3px); box-shadow: 0 12px 40px var(--card-shadow); }
+    .top-post-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .top-post-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(var(--purple-rgb),0.35) 0%, transparent 60%);
+    }
+    .top-post-thumb-icon { font-size: 56px; position: relative; z-index: 1; opacity: 0.9; }
+    .post-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+    .top-post-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .top-post-body h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .top-post-body p { font-size: 15px; color: var(--text-sub); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .post-read-more {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      text-decoration: none;
     }
 
+    .top-posts-right { display: flex; flex-direction: column; gap: 16px; }
+    .top-post-sm {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      text-decoration: none;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .top-post-sm:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--card-shadow); }
+    .top-post-sm-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .top-post-sm h3 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .top-post-sm p { font-size: 13px; color: var(--text-muted); line-height: 1.55; flex: 1; margin-bottom: 14px; }
+    .top-post-sm .post-meta { font-size: 11px; }
+
+    /* BADGE COLORS */
+    .badge-strategy { background: rgba(123,47,255,0.12); color: var(--purple); }
+    .badge-instagram { background: rgba(193,53,132,0.1); color: #c13584; }
+    .badge-tiktok { background: rgba(0,0,0,0.07); color: #333; }
+    @media (prefers-color-scheme: dark) {
+      .badge-tiktok { background: rgba(255,255,255,0.08); color: #ccc; }
+    }
+    .badge-content { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+    .badge-growth { background: rgba(22,163,74,0.1); color: #166534; }
+    .badge-local { background: rgba(234,88,12,0.1); color: #c2410c; }
+    .badge-products { background: rgba(168,85,247,0.1); color: #7c3aed; }
+    .badge-setup { background: rgba(20,184,166,0.1); color: #0f766e; }
+    @media (prefers-color-scheme: dark) {
+      .badge-content { color: #60a5fa; background: rgba(59,130,246,0.12); }
+      .badge-growth { color: #4ade80; background: rgba(22,163,74,0.12); }
+      .badge-local { color: #fb923c; background: rgba(234,88,12,0.12); }
+      .badge-products { color: #c084fc; background: rgba(168,85,247,0.12); }
+      .badge-instagram { color: #e879f9; background: rgba(193,53,132,0.12); }
+      .badge-setup { color: #2dd4bf; background: rgba(20,184,166,0.12); }
+    }
+
+    /* ── CATEGORIES ──────────────────────────────── */
+    .categories-section {
+      padding: 0 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1100px) { .categories-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .categories-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .categories-grid { grid-template-columns: 1fr; } }
+
+    .cat-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .cat-card:hover::before { opacity: 1; }
+    .cat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--card-shadow); }
+    .cat-card-strategy:hover::before { background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 70%); }
+    .cat-card-instagram:hover::before { background: radial-gradient(circle, rgba(193,53,132,0.1) 0%, transparent 70%); }
+    .cat-card-tiktok:hover::before { background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%); }
+    .cat-card-content:hover::before { background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%); }
+    .cat-card-growth:hover::before { background: radial-gradient(circle, rgba(22,163,74,0.1) 0%, transparent 70%); }
+    .cat-card-local:hover::before { background: radial-gradient(circle, rgba(234,88,12,0.1) 0%, transparent 70%); }
+    .cat-card-products:hover::before { background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%); }
+    .cat-card-setup:hover::before { background: radial-gradient(circle, rgba(20,184,166,0.1) 0%, transparent 70%); }
+
+    .cat-icon { font-size: 32px; }
+    .cat-name { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; color: var(--text); }
+    .cat-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; flex: 1; }
+    .cat-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+    }
+    .cat-arrow { font-size: 14px; color: var(--text-muted); align-self: flex-end; transition: transform 0.2s; }
+    .cat-card:hover .cat-arrow { transform: translateX(4px); color: var(--purple); }
+
+    /* ── ALL ARTICLES ────────────────────────────── */
+    .all-articles { padding: 56px 0 80px; }
     .article-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-bottom: 80px;
+      gap: 20px;
     }
+    @media (max-width: 1100px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .article-grid { grid-template-columns: 1fr; } }
 
     .article-card {
-      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      transition: all 0.3s ease;
+      border-radius: 16px;
+      padding: 24px;
       text-decoration: none;
-      color: inherit;
       display: flex;
       flex-direction: column;
+      background: var(--surface);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .article-card:hover {
-      border-color: var(--purple);
-      box-shadow: 0 8px 24px var(--card-shadow);
-      transform: translateY(-4px);
-    }
-
-    .article-card .category-badge {
-      margin-bottom: 16px;
-    }
-
-    .article-card h3 {
-      font-size: 18px;
+    .article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--card-shadow); }
+    .article-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 14px;
+      align-self: flex-start;
     }
-
-    .article-card .excerpt {
+    .article-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .article-card p {
       font-size: 14px;
       color: var(--text-sub);
       line-height: 1.6;
-      margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex-grow: 1;
+      flex: 1;
+      margin-bottom: 18px;
     }
-
-    .article-card .meta {
+    .article-meta {
       display: flex;
-      gap: 16px;
-      font-size: 12px;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
       color: var(--text-muted);
-      margin-bottom: 12px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+      letter-spacing: 0.03em;
     }
+    .article-meta span + span::before { content: '·'; margin-right: 10px; }
 
-    .article-card .author::before {
-      content: '';
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--purple), rgba(123,47,255,0.6));
-      margin-right: 6px;
-      vertical-align: text-bottom;
-    }
-
-    @media (max-width: 900px) {
-      .article-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .article-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .article-card {
-        padding: 24px;
-      }
-
-      .article-card h3 {
-        font-size: 16px;
-      }
-    }
-
-    .newsletter-section {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 60px 80px;
+    .no-results {
+      grid-column: 1/-1;
       text-align: center;
-      margin: 80px 0;
+      padding: 80px 20px;
+      color: var(--text-muted);
     }
+    .no-results-icon { font-size: 48px; margin-bottom: 16px; }
+    .no-results h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .no-results p { font-size: 15px; }
 
-    .newsletter-section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
+    /* ── NEWSLETTER ──────────────────────────────── */
+    .newsletter {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    .newsletter-sub {
-      font-size: 15px;
-      color: var(--text-sub);
-      margin-bottom: 28px;
-      line-height: 1.6;
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
-
+    .newsletter h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+      color: var(--text);
+      position: relative;
+    }
+    .newsletter h2 em { font-style: normal; color: var(--purple); }
+    .newsletter p { font-size: 17px; color: var(--text-sub); margin-bottom: 32px; max-width: 440px; margin-left: auto; margin-right: auto; position: relative; }
     .newsletter-form {
       display: flex;
       gap: 12px;
-      max-width: 500px;
+      max-width: 440px;
       margin: 0 auto;
+      position: relative;
     }
-
-    .newsletter-form input {
+    .newsletter-input {
       flex: 1;
-      padding: 12px 16px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 15px;
+      padding: 15px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
       background: var(--surface);
       color: var(--text);
-      font-family: inherit;
-      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
     }
-
-    .newsletter-form input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .newsletter-form button {
-      padding: 12px 24px;
+    .newsletter-input:focus { border-color: var(--purple); }
+    .newsletter-input::placeholder { color: var(--text-muted); }
+    .newsletter-submit {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 15px 28px;
       background: var(--purple);
-      color: var(--ink-text);
+      color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s ease;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.15s;
     }
-
-    .newsletter-form button:hover {
-      opacity: 0.9;
+    .newsletter-submit:hover { background: #6920e8; transform: translateY(-1px); }
+    .newsletter-fine {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      position: relative;
     }
-
     @media (max-width: 900px) {
-      .newsletter-section {
-        padding: 40px 24px;
-      }
-
-      .newsletter-section h2 {
-        font-size: 24px;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
+      .newsletter { padding: 56px 24px; }
+      .newsletter-form { flex-direction: column; }
     }
 
-    .load-more {
-      display: block;
-      margin: 0 auto;
-      padding: 12px 48px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
-      color: var(--text);
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 64px 48px 32px;
     }
-
-    .load-more:hover {
-      border-color: var(--purple);
-      color: var(--purple);
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
     }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
+    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 14px; }
+    .footer-logo-light { display: block; height: 80px; width: auto; }
+    .footer-logo-dark { display: none; height: 80px; width: auto; }
+    @media (prefers-color-scheme: dark) {
+      .footer-logo-light { display: none; }
+      .footer-logo-dark { display: block; }
     }
-
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-tagline { font-size: 14px; line-height: 1.65; color: var(--text-muted); margin-bottom: 8px; max-width: 260px; }
+    .footer-location { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; margin-bottom: 16px; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { text-decoration: none; font-size: 14px; color: var(--text-muted); transition: color 0.2s; font-weight: 400; }
+    .footer-col ul a:hover { color: var(--purple); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 24px; border-top: 1px solid var(--border);
+      flex-wrap: wrap; gap: 12px;
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal,
-      .article-card,
-      .read-more {
-        transition: none;
-      }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--purple); }
+    @media (max-width: 900px) {
+      footer { padding: 48px 24px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
-  
-  .footer-logo-light { display: block; height: 88px; width: auto; }
-  .footer-logo-dark { display: none; height: 88px; width: auto; }
-  @media (prefers-color-scheme: dark) {
-    .footer-logo-light { display: none; }
-    .footer-logo-dark { display: block; }
-  }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
-  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
-  .mouse-glow {
-    display: none;
-    position: fixed;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    will-change: left, top;
-  }
-  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
-    .mouse-glow { display: block; }
-  }
-</style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; }
+    .reveal.visible { animation: fadeUp 0.5s ease forwards; }
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
-        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
-        <span class="logo-fallback">
-          <span class="logo-mark">✳</span>
-          <span class="logo-divider"></span>
-          <span class="logo-name">Lane Social Co</span>
-        </span>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" height="44" onerror="this.style.display='none'">
+    <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" height="44" onerror="this.style.display='none'">
+    <span class="logo-text-fallback">
+      <span class="logo-mark">✳</span>
+      <span class="logo-divider"></span>
+      <span class="logo-name">Lane Social Co</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Audit</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="product-audit.html" class="nav-cta">Get your audit →</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MASTHEAD -->
+<section class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-eyebrow">Lane Social Co · Blog</div>
+    <h1>Strategy, not<br><em>guesswork.</em></h1>
+    <p class="masthead-sub">Real tactical advice for small businesses growing on social. No trends that'll be dead in a week. No fluff. Just what actually works.</p>
+  </div>
+</section>
+
+<!-- SEARCH + FILTER BAR -->
+<div class="search-section" id="searchSection">
+  <div class="search-inner">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search articles..." autocomplete="off" aria-label="Search blog articles">
+    </div>
+    <div class="search-tags">
+      <button class="search-tag active" data-cat="all">All</button>
+      <button class="search-tag" data-cat="strategy">Strategy</button>
+      <button class="search-tag" data-cat="instagram">Instagram</button>
+      <button class="search-tag" data-cat="tiktok">TikTok</button>
+      <button class="search-tag" data-cat="content">Content</button>
+      <button class="search-tag" data-cat="growth">Growth</button>
+      <button class="search-tag" data-cat="local">Local Biz</button>
+      <button class="search-tag" data-cat="setup">Profile Setup</button>
+      <button class="search-tag" data-cat="products">Digital Products</button>
+    </div>
+    <span class="search-count" id="articleCount"></span>
+  </div>
+</div>
+
+<div class="blog-main">
+
+  <!-- TOP 3 POSTS -->
+  <section class="top-posts">
+    <div class="section-eyebrow">Start here</div>
+    <div class="top-posts-grid">
+
+      <!-- Featured top post -->
+      <a href="blog-category-strategy.html" class="top-post-featured reveal">
+        <div class="top-post-thumb">
+          <div class="top-post-thumb-icon">🗺️</div>
+          <span class="post-badge badge-strategy">Strategy</span>
+        </div>
+        <div class="top-post-body">
+          <h2>How to Build a Social Media Strategy from Scratch (Without Hiring an Agency)</h2>
+          <p>Most small businesses skip strategy and jump straight to posting. They wonder why nothing gains traction. A real strategy takes a few hours and changes everything. Here's exactly how to build one.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="post-meta"><span>Jan 15, 2025</span><span style="margin:0 4px;">·</span><span>8 min read</span></div>
+            <span class="post-read-more">Read →</span>
+          </div>
+        </div>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Audit</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+
+      <!-- Two smaller posts stacked on the right -->
+      <div class="top-posts-right">
+        <a href="blog-category-instagram.html" class="top-post-sm reveal">
+          <span class="top-post-sm-badge badge-instagram">Instagram</span>
+          <h3>The Instagram Algorithm in 2025: What Actually Matters</h3>
+          <p>Everyone has opinions about the algorithm. Most of them are wrong. Here's what actually drives reach right now.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="post-meta"><span>Jan 8, 2025</span><span style="margin:0 4px;">·</span><span>6 min</span></div>
+            <span class="post-read-more">Read →</span>
+          </div>
+        </a>
+        <a href="blog-category-growth.html" class="top-post-sm reveal">
+          <span class="top-post-sm-badge badge-growth">Growth</span>
+          <h3>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h3>
+          <p>They had 800 followers, no strategy, and were posting randomly. Here's exactly what changed everything.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div class="post-meta"><span>Dec 2, 2024</span><span style="margin:0 4px;">·</span><span>8 min</span></div>
+            <span class="post-read-more">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY CARDS -->
+  <section class="categories-section">
+    <div class="section-eyebrow">Browse by topic</div>
+    <div class="categories-grid">
+      <a href="blog-category-strategy.html" class="cat-card cat-card-strategy">
+        <span class="cat-icon">🗺️</span>
+        <div class="cat-name">Strategy</div>
+        <div class="cat-desc">Platform selection, audience research, goal setting, and building a plan that actually fits your business.</div>
+        <div class="cat-count">Core pillar</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-instagram.html" class="cat-card cat-card-instagram">
+        <span class="cat-icon">📸</span>
+        <div class="cat-name">Instagram</div>
+        <div class="cat-desc">How to properly set up your Instagram profile, grow an engaged following, and make Reels work for your business.</div>
+        <div class="cat-count">Profile setup guides included</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-tiktok.html" class="cat-card cat-card-tiktok">
+        <span class="cat-icon">🎵</span>
+        <div class="cat-name">TikTok</div>
+        <div class="cat-desc">Setting up a business TikTok that converts, hook strategy, trending audio, and what the algorithm actually rewards.</div>
+        <div class="cat-count">Profile setup guides included</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-content.html" class="cat-card cat-card-content">
+        <span class="cat-icon">✍️</span>
+        <div class="cat-name">Content Strategy</div>
+        <div class="cat-desc">Captions, content pillars, posting schedules, content batching, and how to never run out of ideas.</div>
+        <div class="cat-count">Core pillar</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-growth.html" class="cat-card cat-card-growth">
+        <span class="cat-icon">📈</span>
+        <div class="cat-name">Growth Tactics</div>
+        <div class="cat-desc">Follower growth strategies, engagement loops, collab tactics, and case studies from real client accounts.</div>
+        <div class="cat-count">Case studies included</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-local.html" class="cat-card cat-card-local">
+        <span class="cat-icon">📍</span>
+        <div class="cat-name">Local Business</div>
+        <div class="cat-desc">How brick-and-mortar businesses use social media to drive foot traffic, build community, and compete with chains.</div>
+        <div class="cat-count">Core pillar</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-products.html" class="cat-card cat-card-products">
+        <span class="cat-icon">📦</span>
+        <div class="cat-name">Digital Products</div>
+        <div class="cat-desc">Selling digital products and services through social content — what converts, what doesn't, and why.</div>
+        <div class="cat-count">Sales strategy included</div>
+        <span class="cat-arrow">→</span>
+      </a>
+      <a href="blog-category-instagram.html#setup" class="cat-card cat-card-setup">
+        <span class="cat-icon">⚙️</span>
+        <div class="cat-name">Profile Setup</div>
+        <div class="cat-desc">Step-by-step setup guides for every major platform — Instagram, Facebook, LinkedIn, TikTok, and more.</div>
+        <div class="cat-count">Setup guides for every platform</div>
+        <span class="cat-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ALL ARTICLES (searchable/filterable) -->
+  <section class="all-articles">
+    <div class="section-eyebrow" id="allArticlesLabel">All articles</div>
+    <div class="article-grid" id="articleGrid">
+
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-title="how to build a social media strategy from scratch without hiring an agency">
+        <span class="article-badge badge-strategy">Strategy</span>
+        <h3>How to Build a Social Media Strategy from Scratch</h3>
+        <p>Most small businesses skip strategy and jump straight to posting. A real strategy takes a few hours and changes everything.</p>
+        <div class="article-meta"><span>Jan 15, 2025</span><span>8 min read</span></div>
+      </a>
+
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram" data-title="instagram algorithm 2025 what actually matters reach">
+        <span class="article-badge badge-instagram">Instagram</span>
+        <h3>The Instagram Algorithm in 2025: What Actually Matters</h3>
+        <p>Everyone has opinions about the algorithm. Most are wrong. Here's what Meta engineers actually prioritize.</p>
+        <div class="article-meta"><span>Jan 8, 2025</span><span>6 min read</span></div>
+      </a>
+
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-title="how to set up instagram business profile properly convert">
+        <span class="article-badge badge-instagram">Instagram · Setup</span>
+        <h3>How to Properly Set Up Your Instagram Profile to Convert</h3>
+        <p>Most Instagram profiles are losing leads before anyone sees a post. Here's the exact setup that actually converts visitors into followers and followers into customers.</p>
+        <div class="article-meta"><span>Jan 2, 2025</span><span>7 min read</span></div>
+      </a>
+
+      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok" data-title="why your tiktok not growing algorithm">
+        <span class="article-badge badge-tiktok">TikTok</span>
+        <h3>Why Your TikTok Isn't Growing (And It's Not the Algorithm)</h3>
+        <p>TikTok's algorithm gets blamed for everything. But the real problem is usually one of five things. Let's find yours.</p>
+        <div class="article-meta"><span>Dec 28, 2024</span><span>7 min read</span></div>
+      </a>
+
+      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok setup" data-title="how to set up tiktok business account properly">
+        <span class="article-badge badge-tiktok">TikTok · Setup</span>
+        <h3>How to Set Up a Business TikTok Account That Actually Converts</h3>
+        <p>Step-by-step setup guide covering bio, link, profile photo, business account settings, and the first five videos you should post.</p>
+        <div class="article-meta"><span>Dec 20, 2024</span><span>8 min read</span></div>
+      </a>
+
+      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-title="5 content pillars small business needs">
+        <span class="article-badge badge-content">Content</span>
+        <h3>5 Content Pillars Every Small Business Needs</h3>
+        <p>Without content pillars, you post randomly or repeat yourself. This framework generates 30+ months of varied content from five ideas.</p>
+        <div class="article-meta"><span>Dec 15, 2024</span><span>5 min read</span></div>
+      </a>
+
+      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-title="las vegas restaurant 12k followers 15 days">
+        <span class="article-badge badge-growth">Growth</span>
+        <h3>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h3>
+        <p>800 followers, no strategy. 15 days later: 12K followers and a waitlist. Here's exactly what we did.</p>
+        <div class="article-meta"><span>Dec 2, 2024</span><span>8 min read</span></div>
+      </a>
+
+      <a href="blog-category-local.html" class="article-card reveal" data-cat="local" data-title="local business social media complete guide">
+        <span class="article-badge badge-local">Local Business</span>
+        <h3>Local Business Social Media: The Complete Guide</h3>
+        <p>Local businesses have an unfair advantage most never use. Here's how to win your neighborhood with authenticity.</p>
+        <div class="article-meta"><span>Nov 20, 2024</span><span>9 min read</span></div>
+      </a>
+
+      <a href="blog-category-products.html" class="article-card reveal" data-cat="products" data-title="selling digital products social honest truth">
+        <span class="article-badge badge-products">Digital Products</span>
+        <h3>Selling Digital Products on Social: The Honest Truth</h3>
+        <p>Social sells services poorly. But digital products? Different story. Here's the exact content mix that converts.</p>
+        <div class="article-meta"><span>Nov 5, 2024</span><span>6 min read</span></div>
+      </a>
+
+      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-title="write captions stop scrolling hook">
+        <span class="article-badge badge-content">Content</span>
+        <h3>How to Write Captions That Actually Stop the Scroll</h3>
+        <p>The first line of your caption is the only thing that matters. Here's a system for openers that work every time.</p>
+        <div class="article-meta"><span>Oct 22, 2024</span><span>5 min read</span></div>
+      </a>
+
+      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-title="posting schedule that actually works">
+        <span class="article-badge badge-growth">Growth</span>
+        <h3>The Only Posting Schedule That Actually Works</h3>
+        <p>Every expert has a different answer. Post daily. Post 3x a week. Most of that advice is wrong. Here's what data shows.</p>
+        <div class="article-meta"><span>Oct 8, 2024</span><span>7 min read</span></div>
+      </a>
+
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-title="instagram bio optimization high converting bio template">
+        <span class="article-badge badge-instagram">Instagram · Setup</span>
+        <h3>The High-Converting Instagram Bio Formula</h3>
+        <p>Most bios are vague, forgettable, and don't drive any action. This formula fixes all three problems in under 150 characters.</p>
+        <div class="article-meta"><span>Sep 28, 2024</span><span>4 min read</span></div>
+      </a>
+
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-title="platform mismatch wrong social media platform">
+        <span class="article-badge badge-strategy">Strategy</span>
+        <h3>You're Probably on the Wrong Platform</h3>
+        <p>Most businesses are on the platforms they chose by gut feeling. Here's how to figure out where your audience actually is.</p>
+        <div class="article-meta"><span>Sep 15, 2024</span><span>6 min read</span></div>
+      </a>
+
+      <a href="blog-category-local.html" class="article-card reveal" data-cat="local setup" data-title="facebook page setup local business facebook group">
+        <span class="article-badge badge-local">Local Biz · Setup</span>
+        <h3>How to Set Up a Facebook Page (and Group) That Converts Locally</h3>
+        <p>Facebook is still the most powerful local marketing tool for brick-and-mortar businesses. Here's the complete setup guide.</p>
+        <div class="article-meta"><span>Sep 5, 2024</span><span>8 min read</span></div>
+      </a>
+
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="setup strategy" data-title="linkedin profile setup business b2b linkedin page">
+        <span class="article-badge badge-strategy">Setup · LinkedIn</span>
+        <h3>How to Set Up LinkedIn for Business: Complete Profile Guide</h3>
+        <p>Whether you're a solo consultant or a small team, here's how to set up LinkedIn so it actually brings in leads and opportunities.</p>
+        <div class="article-meta"><span>Aug 20, 2024</span><span>7 min read</span></div>
+      </a>
+
+    </div>
+  </section>
+
+</div><!-- /blog-main -->
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Get strategy in your inbox.<br><em>Once a week. No fluff.</em></h2>
+  <p>Real tactics from Nate — what's working right now, case studies, and stuff you won't find on the blog.</p>
+  <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" action="/thank-you-freebie.html">
+    <input type="hidden" name="form-name" value="newsletter">
+    <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="newsletter-submit">Subscribe →</button>
+  </form>
+  <p class="newsletter-fine">No spam. Unsubscribe anytime. Plain text, no templates.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+      </a>
+      <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>
+      <p class="footer-location">Las Vegas, NV &amp; everywhere else</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="product-audit.html">Social Media Audit</a></li>
+        <li><a href="product-strategy.html">Social Media Strategy</a></li>
+        <li><a href="product-bundle.html">Audit + Strategy Bundle</a></li>
+        <li><a href="shop.html">All Products</a></li>
       </ul>
     </div>
-  </nav>
-
-  <main>
-    <section class="hero">
-      <div class="blog-eyebrow">Written by Nate · Las Vegas</div>
-      <h1>Strategy, not <em>guesswork.</em></h1>
-      <p>Real tactical advice for small businesses growing on social media. No fluff, no trends that will be dead in a week.</p>
-    </section>
-
-    <div class="category-filter">
-      <a href="blog.html" class="category-tag">All</a>
-      <a href="blog-category-strategy.html" class="category-tag">Strategy</a>
-      <a href="blog-category-instagram.html" class="category-tag">Instagram</a>
-      <a href="blog-category-tiktok.html" class="category-tag">TikTok</a>
-      <a href="blog-category-content.html" class="category-tag">Content</a>
-      <a href="blog-category-growth.html" class="category-tag">Growth</a>
-      <a href="blog-category-local.html" class="category-tag">Local Business</a>
-      <a href="blog-category-products.html" class="category-tag">Digital Products</a>
+    <div class="footer-col">
+      <h4>Free Resources</h4>
+      <ul>
+        <li><a href="free-audit.html">Free Audit Tool</a></li>
+        <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+        <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+        <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
+        <li><a href="shop.html">All Free Resources →</a></li>
+      </ul>
     </div>
-
-    <section class="featured-post reveal">
-      <div class="featured-image"></div>
-      <div class="featured-content">
-        <div class="featured-meta">
-          <span class="category-badge badge-strategy">STRATEGY</span>
-          <span class="date">Jan 15, 2025</span>
-          <span class="read-time">8 min read</span>
-        </div>
-        <h2>How to Build a Social Media Strategy from Scratch (Without Hiring an Agency)</h2>
-        <p class="featured-excerpt">Most small businesses skip strategy and jump straight to posting. They wonder why nothing gains traction. A real strategy takes a few hours and changes everything. Here's exactly how to build one.</p>
-        <a href="blog-category-strategy.html" class="read-more">Read Full Article →</a>
-      </div>
-    </section>
-
-    <div class="article-grid">
-      <a href="blog-category-instagram.html" class="article-card reveal">
-        <span class="category-badge badge-instagram">INSTAGRAM</span>
-        <h3>The Instagram Algorithm in 2025: What Actually Matters</h3>
-        <p class="excerpt">Everyone has opinions about the algorithm. Most are wrong. Here's what Meta engineers actually prioritize and what your account should focus on instead of chasing vanity metrics.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Jan 8, 2025</span>
-          <span class="read-time">6 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-tiktok.html" class="article-card reveal">
-        <span class="category-badge badge-tiktok">TIKTOK</span>
-        <h3>Why Your TikTok Isn't Growing (And It's Not the Algorithm)</h3>
-        <p class="excerpt">TikTok's algorithm gets blamed for everything. But the real problem is usually one of these five things. Most accounts fix one and see immediate growth. Let's find yours.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Dec 28, 2024</span>
-          <span class="read-time">7 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-content.html" class="article-card reveal">
-        <span class="category-badge badge-content">CONTENT</span>
-        <h3>5 Content Pillars Every Small Business Needs</h3>
-        <p class="excerpt">Without content pillars, you either post randomly or you post the same thing on repeat. This framework generates 30+ months of consistent, varied content from just five ideas.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Dec 15, 2024</span>
-          <span class="read-time">5 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-growth.html" class="article-card reveal">
-        <span class="category-badge badge-growth">GROWTH</span>
-        <h3>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h3>
-        <p class="excerpt">A local restaurant hired us. They had 800 followers and no strategy. 15 days later, 12K followers and a waitlist. Here's exactly what we did and what you can apply immediately.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Dec 2, 2024</span>
-          <span class="read-time">8 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-local.html" class="article-card reveal">
-        <span class="category-badge badge-local">LOCAL BUSINESS</span>
-        <h3>Local Business Social Media: The Complete Guide</h3>
-        <p class="excerpt">Local businesses have an unfair advantage most never use. You're competing with chain stores with million-dollar budgets. Here's how to win your neighborhood with authenticity.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Nov 20, 2024</span>
-          <span class="read-time">9 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-products.html" class="article-card reveal">
-        <span class="category-badge badge-products">DIGITAL PRODUCTS</span>
-        <h3>Selling Digital Products on Social: The Honest Truth</h3>
-        <p class="excerpt">Social sells services poorly. But digital products? Different story. Here's the exact content mix and positioning that converts followers into customers for digital product businesses.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Nov 5, 2024</span>
-          <span class="read-time">6 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-content.html" class="article-card reveal">
-        <span class="category-badge badge-content">CONTENT</span>
-        <h3>How to Write Captions That Actually Make People Stop Scrolling</h3>
-        <p class="excerpt">The first line of your caption is the only thing that matters. Get it wrong and nobody reads the rest. Here's a system for writing openers that stop the scroll every single time.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Oct 22, 2024</span>
-          <span class="read-time">5 min</span>
-        </div>
-      </a>
-
-      <a href="blog-category-growth.html" class="article-card reveal">
-        <span class="category-badge badge-growth">GROWTH</span>
-        <h3>The Only Posting Schedule That Actually Works (And Why Yours Doesn't)</h3>
-        <p class="excerpt">Every expert has a different answer. Post daily. Post 3x a week. Post when your audience is online. Most of that advice is wrong. Here's what the data actually shows.</p>
-        <div class="meta">
-          <span class="author">Lane</span>
-          <span class="date">Oct 8, 2024</span>
-          <span class="read-time">7 min</span>
-        </div>
-      </a>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-
-    <section class="newsletter-section reveal">
-      <h2>Get strategy in your inbox. Once a week. No fluff.</h2>
-      <p class="newsletter-sub">Real tactics from Nate — what's working right now, case studies, and stuff you won't find on the blog.</p>
-      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" action="/thank-you-freebie.html">
-        <input type="hidden" name="form-name" value="newsletter">
-        <input type="email" name="email" placeholder="your@email.com" required>
-        <button type="submit">Subscribe →</button>
-      </form>
-    </section>
-
-    <div style="text-align: center; margin: 80px 0;">
-      <button class="load-more">Load More Articles</button>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
     </div>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">
-      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
-      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
-    </a>
-        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
-        <p class="footer-loc">LAS VEGAS, NV</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Social Media Audit</a></li>
-          <li><a href="audit-intake.html">Book an Audit</a></li>
-          <li><a href="results.html">Client Results</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Free Resources</h4>
-        <ul>
-          <li><a href="shop-free.html">All Freebies</a></li>
-          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
-          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
-          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
-          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="links.html">Links</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-      </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV · All rights reserved</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.linkedin.com/company/lanesocialco" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener">Threads</a>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
-        <a href="links.html">All Links</a>
-      </div>
-    </div>
-  </footer>
+  </div>
+</footer>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Lane Social Co Blog",
-    "description": "Social media strategy and growth tactics for small businesses",
-    "url": "https://lanesocialco.com/blog.html",
-    "author": {
-      "@type": "Person",
-      "name": "Nate",
-      "url": "https://lanesocialco.com"
+<script>
+  // ── NAV TOGGLE
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    const isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // ── SEARCH + FILTER
+  const searchInput = document.getElementById('searchInput');
+  const articleGrid = document.getElementById('articleGrid');
+  const articleCards = Array.from(articleGrid.querySelectorAll('.article-card'));
+  const countEl = document.getElementById('articleCount');
+  const catBtns = document.querySelectorAll('.search-tag');
+  const labelEl = document.getElementById('allArticlesLabel');
+  let activeCategory = 'all';
+
+  function updateCount(visible) {
+    countEl.textContent = visible + ' article' + (visible !== 1 ? 's' : '');
+  }
+
+  function filterArticles() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    // Remove any existing no-results message
+    const existing = articleGrid.querySelector('.no-results');
+    if (existing) existing.remove();
+
+    articleCards.forEach(card => {
+      const title = card.getAttribute('data-title') || '';
+      const cat = card.getAttribute('data-cat') || '';
+      const matchesCat = activeCategory === 'all' || cat.includes(activeCategory);
+      const matchesQuery = !query || title.includes(query) || card.innerText.toLowerCase().includes(query);
+
+      if (matchesCat && matchesQuery) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    updateCount(visible);
+
+    if (visible === 0) {
+      const noResults = document.createElement('div');
+      noResults.className = 'no-results';
+      noResults.innerHTML = '<div class="no-results-icon">🔍</div><h3>No articles found</h3><p>Try a different search or browse a category above.</p>';
+      articleGrid.appendChild(noResults);
+    }
+
+    // Update label
+    if (activeCategory === 'all' && !query) {
+      labelEl.textContent = 'All articles';
+    } else if (activeCategory !== 'all' && !query) {
+      labelEl.textContent = activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
+    } else {
+      labelEl.textContent = 'Search results';
     }
   }
-  </script>
 
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navLinks.classList.remove('open'); 
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', false);
-    }));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { 
-        if (e.isIntersecting) { 
-          e.target.classList.add('revealed'); 
-          observer.unobserve(e.target); 
-        } 
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  searchInput.addEventListener('input', filterArticles);
 
-<!-- MOUSE GLOW -->
-<div class="mouse-glow" id="mouseGlow"></div>
-<script>
-  (function() {
-    var glow = document.getElementById('mouseGlow');
-    if (!glow) return;
-    var rx = 0, ry = 0;
-    document.addEventListener('mousemove', function(e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      catBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeCategory = this.getAttribute('data-cat');
+      filterArticles();
     });
-  })();
+  });
+
+  // Initial count
+  updateCount(articleCards.length);
+
+  // ── REVEAL ON SCROLL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => { entry.target.classList.add('visible'); }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>

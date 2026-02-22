@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Audit | Lane Social Co</title>
+  <meta name="description" content="A manual review of every social profile you run. Get a scored report with specific, prioritized fixes in 5 business days.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+        --card-shadow: rgba(0,0,0,0.3);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-img-light {
+      display: block;
+    }
+
+    .logo-img-dark {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light {
+        display: none;
+      }
+      .logo-img-dark {
+        display: block;
+      }
+    }
+
+    .logo-text-fallback {
+      display: none;
+    }
+
+    .logo-text-fallback.visible {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo-mark {
+      font-size: 18px;
+      color: var(--purple);
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
+
+    .logo-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    .nav-links a.active {
+      color: var(--purple);
+    }
+
+    .nav-cta {
+      background: var(--purple);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--purple);
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: 5px;
+      padding: 5px;
+    }
+
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+      border-radius: 1px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        gap: 20px;
+        padding: 30px 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        max-height: 400px;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    /* Main content */
+    main {
+      margin-top: 70px;
+      padding-top: 60px;
+    }
+
+    section {
+      padding: 80px 40px;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 50px 20px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--bg);
+      padding-bottom: 60px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 20px 28px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat-pill-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-pill-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+      background: var(--purple);
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(var(--purple-rgb), 0.3);
+    }
+
+    /* Features Grid */
+    .features {
+      background: var(--bg);
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 50px;
+      color: var(--text);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--purple);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .feature-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .feature-content p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: var(--bg);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--bg);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .faq-toggle::before {
+      content: '+';
+      font-size: 20px;
+      color: var(--purple);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-toggle::before {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--ink);
+      color: var(--ink-text);
+    }
+
+    .cta-section h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .cta-button-dark {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cta-button-dark:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(var(--purple-rgb), 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-alt);
+      color: var(--text);
+      padding: 80px 40px 40px;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 50px 20px 30px;
+      }
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-logo {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-logo-light {
+      display: block;
+    }
+
+    .footer-logo-dark {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .footer-logo-light {
+        display: none;
+      }
+      .footer-logo-dark {
+        display: block;
+      }
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .footer-location {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      font-size: 14px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--purple);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social a {
+      font-size: 13px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .cta-section h2 {
+        font-size: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" height="50" onerror="this.style.display='none'">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" height="50" onerror="this.style.display='none'">
+      <span class="logo-text-fallback">
+        <span class="logo-mark">✳</span>
+        <span class="logo-divider"></span>
+        <span class="logo-name">Lane Social Co</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Audit</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#buy" class="nav-cta">Get your audit →</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-eyebrow">Done For You · $97</span>
+        <h1>Know exactly what's broken — and what to fix first.</h1>
+        <p>We manually review every social profile you're running and hand you a written report with specific fixes. Not a checklist you fill out yourself. An actual human review.</p>
+        
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <div class="stat-pill-value">5</div>
+            <div class="stat-pill-label">Business Days</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-value">100%</div>
+            <div class="stat-pill-label">Manual Review</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-value">Scored</div>
+            <div class="stat-pill-label">Report Included</div>
+          </div>
+        </div>
+
+        <a href="#buy" class="cta-button">Get your audit →</a>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">What's Included</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Audit across all active social profiles</h3>
+              <p>We review every platform you're actively using in one comprehensive report.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Bio & profile setup scored element-by-element</h3>
+              <p>Username, photo, bio copy, link placement — everything gets reviewed and scored.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Content consistency & visual brand review</h3>
+              <p>We check if your content aligns with your brand and maintains visual consistency.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Engagement & posting frequency assessment</h3>
+              <p>Analysis of your current engagement levels and how often you should be posting.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Profile conversion optimization notes</h3>
+              <p>Specific recommendations for turning profile visitors into customers or leads.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Competitor positioning spot-check</h3>
+              <p>See how your profiles stack up against your direct competitors.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Prioritized action list</h3>
+              <p>We rank fixes by impact — tackle the highest-leverage changes first.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <div class="feature-content">
+              <h3>Written PDF report</h3>
+              <p>Everything delivered as a comprehensive, easy-to-reference PDF in 5 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="step-number">Step 1</span>
+            <h3>Submit your intake form</h3>
+            <p>Tell us which platforms you're on, your main goals, and any specific concerns. Takes about 5 minutes.</p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">Step 2</span>
+            <h3>We review every profile manually</h3>
+            <p>Our team dives into each profile you shared. We check bios, content, engagement, consistency, and more against what actually converts.</p>
+          </div>
+
+          <div class="step">
+            <span class="step-number">Step 3</span>
+            <h3>You get your report + action list</h3>
+            <p>Delivered as a PDF with scored elements, specific feedback, and a prioritized list of fixes ranked by impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container faq-container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What if I only have one social profile?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">We audit all of your active profiles, whether that's one or ten. The report covers whatever you're actually using. If you're only on Instagram, that's what we review.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is this better than a DIY audit template?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">Yes. A template gives you a checklist to fill out yourself. We do the work for you. We have years of experience knowing what actually moves the needle on social platforms — we review from that perspective, not a generic checklist.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you implement the fixes or just tell me what they are?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">We provide the report and recommendations. You implement them, or you can hire us for the strategy that comes next, which includes a roadmap for moving forward.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I get the audit and strategy together?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> includes both products at $150 — that's $44 off compared to buying them separately. You'll get the diagnosis and the roadmap in one package.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens after I get my report?</span>
+            <div class="faq-toggle"></div>
+          </div>
+          <div class="faq-answer">It's entirely up to you. Many clients implement the fixes themselves. Some use the report to make decisions about hiring a social media manager. Others move forward with our <a href="product-strategy.html" style="color:var(--purple);">Custom Social Media Strategy</a> to get a long-term 90-day roadmap built specifically for their business.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="buy">
+      <div class="container">
+        <h2>Ready to see what's holding your profiles back?</h2>
+        <p>Get your social media audit in 5 business days. Only $97.</p>
+        <a href="#" class="cta-button-dark">Get your audit →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
+          <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
+        </a>
+        <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>
+        <p class="footer-location">Las Vegas, NV &amp; everywhere else</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="product-audit.html">Social Media Audit</a></li>
+          <li><a href="product-strategy.html">Social Media Strategy</a></li>
+          <li><a href="product-bundle.html">Audit + Strategy Bundle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Free Resources</h4>
+        <ul>
+          <li><a href="free-audit.html">Free Audit Tool</a></li>
+          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
+          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
+          <li><a href="shop.html">All Resources →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV · All rights reserved</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/lanesocialco" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', function() {
+      const isOpen = links.classList.toggle('open');
+      toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // FAQ Toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+
+    // Logo fallback visibility
+    window.addEventListener('load', function() {
+      const logoLight = document.querySelector('.logo-img-light');
+      const logoDark = document.querySelector('.logo-img-dark');
+      if (logoLight && logoLight.style.display === 'none' && logoDark && logoDark.style.display === 'none') {
+        document.querySelector('.logo-text-fallback').classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>

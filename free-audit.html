@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Free Social Media Audit | Lane Social Co</title>
+  <meta name="description" content="Run a free 16-point social media audit on your profiles. Find out what's working, what's broken, and exactly what to fix. Instant results — no fluff.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/free-audit.html">
+  <meta property="og:title" content="Free Social Media Audit — Lane Social Co">
+  <meta property="og:description" content="A 10-minute audit across 16 key areas. Find out exactly what's broken and how to fix it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lanesocialco.com/free-audit.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.95);
+      --card-shadow: rgba(0,0,0,0.06);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+      --success: #16a34a;
+      --error: #dc2626;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.95);
+        --card-shadow: rgba(0,0,0,0.3);
+        --ink: #F0F0F0;
+        --ink-text: #0A0A0A;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .logo-img { height: 44px; width: auto; }
+    .logo-img-light { display: block; }
+    .logo-img-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .logo-img-light { display: none; }
+      .logo-img-dark { display: block; }
+    }
+    .logo-fallback {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 18px; font-weight: 800; color: var(--text);
+      letter-spacing: -0.4px;
+    }
+    .logo-mark { color: var(--purple); font-size: 22px; }
+    .nav-right {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .nav-back {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-cta {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { color: var(--text); }
+    .nav-cta-pill {
+      background: var(--ink); color: var(--ink-text) !important;
+      padding: 9px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .nav-cta-pill:hover { background: var(--purple) !important; color: white !important; }
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .logo-img { height: 36px; }
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--purple); }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-sub);
+      margin-bottom: 36px;
+    }
+    .what-youll-get {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .wyg-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .wyg-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wyg-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-sub);
+    }
+    .wyg-check {
+      width: 20px; height: 20px;
+      background: rgba(var(--purple-rgb),0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      color: var(--purple);
+      font-weight: 700;
+    }
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--purple);
+      color: #fff;
+      padding: 18px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 24px rgba(var(--purple-rgb),0.35);
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(var(--purple-rgb),0.45); }
+    @media (max-width: 640px) { .btn-start { width: 100%; justify-content: center; } }
+
+    /* QUIZ WRAPPER */
+    .quiz-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* PROGRESS */
+    .progress-wrap { margin-bottom: 32px; }
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .progress-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--purple);
+    }
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--purple);
+      border-radius: 6px;
+      transition: width 0.35s ease;
+    }
+
+    /* SECTION TABS */
+    .section-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active { border-color: var(--purple); background: rgba(var(--purple-rgb),0.07); color: var(--purple); }
+    .tab-check { font-size: 12px; color: var(--success); }
+
+    /* SECTION TITLE */
+    .section-title-row { margin-bottom: 20px; }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    .section-progress {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* QUESTION CARDS */
+    .questions-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .q-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+    .q-card.pass { border-color: var(--success); }
+    .q-card.fix { border-color: var(--error); }
+    .q-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .q-text {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      flex: 1;
+      min-width: 200px;
+    }
+    .q-btns {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .q-btn {
+      padding: 9px 20px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.15s;
+      min-height: 40px;
+      min-width: 44px;
+    }
+    .q-btn.pass-btn { background: #f0fdf4; color: var(--success); }
+    .q-btn.pass-btn.selected { background: var(--success); color: #fff; }
+    .q-btn.fix-btn { background: #fef2f2; color: var(--error); }
+    .q-btn.fix-btn.selected { background: var(--error); color: #fff; }
+    @media (max-width: 540px) {
+      .q-text { min-width: 100%; margin-bottom: 10px; }
+      .q-btns { width: 100%; }
+      .q-btn { flex: 1; }
+    }
+
+    /* NAV BUTTONS */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .btn-prev, .btn-next {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-prev {
+      background: var(--bg-alt);
+      color: var(--text-sub);
+      border: 2px solid var(--border);
+    }
+    .btn-prev:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-next {
+      background: var(--purple);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(var(--purple-rgb),0.3);
+    }
+    .btn-next:disabled { background: var(--border); color: var(--text-muted); box-shadow: none; cursor: not-allowed; }
+    @media (max-width: 480px) { .btn-prev, .btn-next { flex: 1; } }
+
+    /* EMAIL GATE MODAL */
+    .gate-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    @media (min-width: 600px) {
+      .gate-overlay { align-items: center; padding: 24px; }
+    }
+    .gate-modal {
+      background: var(--surface);
+      border-radius: 20px 20px 0 0;
+      padding: 36px 28px 48px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      animation: slideUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @media (min-width: 600px) {
+      .gate-modal {
+        border-radius: 20px;
+        border-bottom: 1px solid var(--border);
+        padding: 40px 36px;
+      }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .gate-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 14px;
+    }
+    .gate-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+    .gate-sub {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .gate-form { display: flex; flex-direction: column; gap: 12px; }
+    .gate-input {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+    .gate-input:focus { border-color: var(--purple); }
+    .gate-input::placeholder { color: var(--text-muted); }
+    .btn-gate {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px;
+      border-radius: 8px;
+      border: none;
+      background: var(--purple);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(var(--purple-rgb),0.35);
+    }
+    .btn-gate:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(var(--purple-rgb),0.45); }
+    .gate-privacy {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* RESULTS */
+    .results-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .results-score-card {
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-bottom: 36px;
+      border: 2px solid;
+    }
+    .score-number {
+      font-size: clamp(64px, 10vw, 96px);
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .score-badge {
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .score-desc {
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+    .section-breakdown { margin-bottom: 40px; }
+    .breakdown-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .breakdown-rows { display: flex; flex-direction: column; gap: 10px; }
+    .breakdown-row {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .breakdown-left { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--text); font-size: 16px; }
+    .breakdown-right { display: flex; align-items: center; gap: 12px; }
+    .breakdown-score { font-size: 18px; font-weight: 800; }
+    .status-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .fix-items { margin-bottom: 40px; }
+    .fix-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .fix-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; }
+    .fix-section { margin-bottom: 24px; }
+    .fix-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .fix-cards { display: flex; flex-direction: column; gap: 10px; }
+    .fix-card {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 4px solid var(--error);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .fix-card { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.2); }
+    }
+    .fix-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .fix-x { color: var(--error); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+    .fix-card-title { font-weight: 700; font-size: 15px; color: var(--text); }
+    .fix-why-label, .fix-how-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .fix-why-label { color: var(--error); }
+    .fix-how-label { color: var(--success); }
+    .fix-why-text {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.55;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    .fix-how-box {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+    }
+    .fix-how-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .passed-items { margin-bottom: 40px; }
+    .passed-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .passed-chips {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .passed-chips { background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.2); }
+    }
+    .passed-chip {
+      background: var(--surface);
+      border: 1px solid #86efac;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+    @media (prefers-color-scheme: dark) {
+      .passed-chip { color: #4ade80; border-color: rgba(74,222,128,0.3); background: rgba(22,163,74,0.1); }
+    }
+    .passed-chip-check { color: var(--success); font-weight: 800; }
+
+    /* PRO TIP */
+    .pro-tip {
+      background: linear-gradient(135deg, #fefce8, #fef9c3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    @media (prefers-color-scheme: dark) {
+      .pro-tip { background: rgba(234,179,8,0.1); }
+    }
+    .pro-tip-icon { font-size: 22px; flex-shrink: 0; }
+    .pro-tip-title { font-weight: 700; color: #78350f; font-size: 15px; margin-bottom: 4px; }
+    .pro-tip-text { font-size: 14px; color: #92400e; line-height: 1.55; }
+    @media (prefers-color-scheme: dark) {
+      .pro-tip-title { color: #fbbf24; }
+      .pro-tip-text { color: #fde68a; }
+    }
+
+    /* UPSELL CTA */
+    .upsell-block {
+      background: var(--ink);
+      border-radius: 20px;
+      padding: 48px 36px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .upsell-glow {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .upsell-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .upsell-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .upsell-title em { font-style: normal; color: var(--purple); }
+    .upsell-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 500px;
+      position: relative;
+    }
+    .upsell-products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    @media (max-width: 560px) { .upsell-products { grid-template-columns: 1fr; } }
+    .upsell-product-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      display: block;
+    }
+    .upsell-product-card:hover { background: rgba(255,255,255,0.11); border-color: rgba(var(--purple-rgb),0.4); }
+    .upsell-product-icon { font-size: 28px; margin-bottom: 12px; }
+    .upsell-product-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .upsell-product-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .upsell-product-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .upsell-price-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .upsell-price-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .upsell-bundle-pill {
+      position: relative;
+      background: rgba(var(--purple-rgb),0.15);
+      border: 1px solid rgba(var(--purple-rgb),0.3);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .upsell-bundle-pill:hover { background: rgba(var(--purple-rgb),0.22); }
+    .upsell-bundle-left { display: flex; align-items: center; gap: 12px; }
+    .upsell-bundle-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 3px;
+    }
+    .upsell-bundle-name { font-size: 16px; font-weight: 700; color: #fff; }
+    .upsell-bundle-right { display: flex; align-items: center; gap: 8px; }
+    .upsell-bundle-price { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .upsell-bundle-save {
+      background: var(--purple);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* RETAKE */
+    .retake-wrap { text-align: center; margin-top: 20px; }
+    .btn-retake {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: transparent;
+      border: 2px solid var(--border);
+      padding: 12px 28px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-retake:hover { border-color: var(--text-muted); color: var(--text); }
+
+    /* PRINT */
+    @media print {
+      nav, .upsell-block, .retake-wrap, .pro-tip { display: none !important; }
+      body { background: white; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" onerror="this.style.display='none'">
+    <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" onerror="this.style.display='none'">
+  </a>
+  <div class="nav-right">
+    <a href="shop.html" class="nav-back">← All resources</a>
+    <a href="product-audit.html" class="nav-cta nav-cta-pill">Get the full audit →</a>
+  </div>
+</nav>
+
+<div id="app-root"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── DATA ──────────────────────────────────────────────────────────────────
+  var SECTIONS = [
+    {
+      id: 'profile', title: 'Profile Setup', icon: '📱',
+      questions: [
+        { id: 1, text: 'Profile photo is clear and professional',
+          whyMatters: 'Your profile photo is your first impression. A clear, professional image builds trust instantly.',
+          howToFix: 'Use a high-quality headshot with good lighting, or a clean logo. Faces convert better than logos for personal brands. Ensure the image is properly cropped and visible at small sizes.' },
+        { id: 2, text: 'Username is searchable and matches your business name',
+          whyMatters: 'If people can\'t find you, they can\'t follow you. A mismatched username creates confusion.',
+          howToFix: 'Keep it simple: @YourBusinessName or @FirstnameLastname. Avoid numbers or underscores. If your name is taken, add a relevant keyword like @JaneDoeCoach.' },
+        { id: 3, text: 'Bio clearly states what you do and who you help',
+          whyMatters: 'People decide in seconds whether to follow you. A vague bio loses potential followers.',
+          howToFix: 'Use a simple formula: Who you help + what result you deliver. Example: "I help busy moms meal prep in 30 min/week" or "Helping coaches hit $10K months with organic content."' },
+        { id: 4, text: 'Bio has a clear call-to-action',
+          whyMatters: 'Without a CTA, visitors don\'t know what to do next. You lose potential leads.',
+          howToFix: 'End your bio with a clear next step: "DM me AUDIT for a free review," "Shop the link below," or "Grab your free guide."' },
+        { id: 5, text: 'Link in bio is working and leads somewhere relevant',
+          whyMatters: 'A broken or outdated link is a dead end for your warmest leads.',
+          howToFix: 'Use a link-in-bio tool (Linktree, Stan Store, Beacons) to maximize your one link. Test it monthly. Update it to match your current offer.' },
+        { id: 6, text: 'Switched to Business or Creator account',
+          whyMatters: 'Personal accounts can\'t access analytics or contact buttons. You\'re flying blind.',
+          howToFix: 'Go to Settings → Account → Switch account type. Choose Creator for personal brands or Business for companies. You unlock analytics and key features immediately.' }
+      ]
+    },
+    {
+      id: 'content', title: 'Content & Posting', icon: '📊',
+      questions: [
+        { id: 7, text: 'Posted at least 3 times in the last week',
+          whyMatters: 'Inconsistent posting kills reach. The algorithm favors active, consistent creators.',
+          howToFix: 'Aim for 3-5 posts per week minimum. Batch create — dedicate 2-3 hours weekly to create all your posts in advance.' },
+        { id: 8, text: 'Content has a clear mix across topics (content pillars)',
+          whyMatters: 'Random content confuses your audience. They won\'t know what to expect or why to follow.',
+          howToFix: 'Define 3-5 content pillars (educate, inspire, entertain, sell, personal). Plan your week to include a mix. Mon = Tips, Wed = Behind-scenes, Fri = Promo.' },
+        { id: 9, text: 'Using video content — Reels, TikToks, or Shorts',
+          whyMatters: 'Video content gets 2-3x more reach than static posts. Every platform is pushing short-form video.',
+          howToFix: 'Start simple: talking-head videos, quick tutorials, trending audio. You don\'t need fancy editing. Aim for 2 Reels a week using CapCut.' },
+        { id: 10, text: 'Captions lead with a strong hook in the first line',
+          whyMatters: 'Only the first line shows before "...more." A weak hook means nobody reads your caption.',
+          howToFix: 'First line must stop the scroll. Try questions ("Are you making this mistake?"), bold statements ("This changed my business"), or curiosity gaps ("Here\'s what nobody tells you about...").' },
+        { id: 11, text: 'Every post ends with a call-to-action',
+          whyMatters: 'Posts without CTAs are missed opportunities. You need to tell people what to do next.',
+          howToFix: 'Every post needs a next step: "Save this for later," "Comment YES if you agree," "Link in bio for more." Match the CTA to your goal.' },
+        { id: 12, text: 'Visual style is consistent — same colors, fonts, and feel',
+          whyMatters: 'Inconsistent visuals look unprofessional. A cohesive feed builds brand recognition.',
+          howToFix: 'Pick 2-3 brand colors and 1-2 fonts. Use Canva templates to maintain consistency. Your feed should be recognizable at a glance, even without your name visible.' }
+      ]
+    },
+    {
+      id: 'engagement', title: 'Engagement', icon: '💬',
+      questions: [
+        { id: 13, text: 'Responding to comments within 24 hours',
+          whyMatters: 'Late replies kill conversations. Quick responses signal to the algorithm that your content is engaging.',
+          howToFix: 'Respond within 24 hours, ideally within 1 hour of posting. This boosts reach. Set a phone reminder or schedule reply time in your calendar.' },
+        { id: 14, text: 'Responding to DMs promptly',
+          whyMatters: 'DMs are where sales happen. Slow responses lose warm leads to competitors.',
+          howToFix: 'Set aside 15 minutes daily for DMs. Use saved replies for FAQs. Respond within 24 hours maximum.' },
+        { id: 15, text: 'Engaging with other accounts in your niche daily',
+          whyMatters: 'If you only post and never engage, growth stalls. Social media is a two-way street.',
+          howToFix: 'Spend 10-15 minutes daily commenting on 10+ accounts in your niche before you post. Leave meaningful comments, not just emojis.' },
+        { id: 16, text: 'Posting Stories at least 3 times per week',
+          whyMatters: 'Stories keep you top-of-mind with your existing audience. Feed posts attract; Stories nurture.',
+          howToFix: 'Share behind-the-scenes content, polls, Q&As, and daily moments. Stories don\'t need to be polished. Aim for 3-5 story slides daily when possible.' }
+      ]
+    }
+  ];
+
+  var TOTAL_QUESTIONS = SECTIONS.reduce(function(s, sec) { return s + sec.questions.length; }, 0);
+
+  // ── STATE ──────────────────────────────────────────────────────────────────
+  var state = {
+    screen: 'intro',  // intro | quiz | gate | results
+    answers: {},      // { [questionId]: 'pass' | 'fix' }
+    currentSection: 0,
+    userName: '',
+    userEmail: '',
+    unlocked: false
+  };
+
+  // Check if already unlocked
+  try {
+    if (localStorage.getItem('lsc_unlocked') === 'true') {
+      state.unlocked = true;
+    }
+  } catch(e) {}
+
+  // ── HELPERS ────────────────────────────────────────────────────────────────
+  function answeredCount() {
+    return Object.keys(state.answers).length;
+  }
+
+  function sectionAnsweredCount(sectionIdx) {
+    var sec = SECTIONS[sectionIdx];
+    return sec.questions.filter(function(q) { return state.answers[q.id]; }).length;
+  }
+
+  function sectionComplete(sectionIdx) {
+    return sectionAnsweredCount(sectionIdx) === SECTIONS[sectionIdx].questions.length;
+  }
+
+  function getScoreCategory(score) {
+    if (score >= 13) return { label: "You're doing great!", color: '#16a34a', desc: 'Fine-tune the gaps and keep building momentum. You\'ve clearly put in the work.' };
+    if (score >= 7) return { label: 'Good foundation', color: '#d97706', desc: 'You have the basics down, but there\'s real room to grow. A few targeted fixes could make a big difference.' };
+    return { label: 'Time for an overhaul', color: '#dc2626', desc: 'Don\'t worry — everyone starts somewhere. Let\'s fix this together and get your profiles working for you.' };
+  }
+
+  function getSectionStatus(passed, total) {
+    var pct = (passed / total) * 100;
+    if (pct >= 80) return { label: 'Strong', color: '#16a34a' };
+    if (pct >= 50) return { label: 'Needs work', color: '#d97706' };
+    return { label: 'Priority fix', color: '#dc2626' };
+  }
+
+  function calculateResults() {
+    var totalScore = 0;
+    var sectionResults = SECTIONS.map(function(sec) {
+      var passed = [], failed = [];
+      sec.questions.forEach(function(q) {
+        if (state.answers[q.id] === 'pass') { passed.push(q); totalScore++; }
+        else if (state.answers[q.id] === 'fix') { failed.push(q); }
+      });
+      var status = getSectionStatus(passed.length, sec.questions.length);
+      return { id: sec.id, title: sec.title, icon: sec.icon, passed: passed, failed: failed, score: passed.length, total: sec.questions.length, status: status };
+    });
+    return { score: totalScore, category: getScoreCategory(totalScore), sections: sectionResults };
+  }
+
+  // ── RENDER ─────────────────────────────────────────────────────────────────
+  function render() {
+    var root = document.getElementById('app-root');
+    root.innerHTML = '';
+    if (state.screen === 'intro') root.appendChild(renderIntro());
+    if (state.screen === 'quiz') root.appendChild(renderQuiz());
+    if (state.screen === 'gate') {
+      root.appendChild(renderQuiz());
+      root.appendChild(renderGate());
+    }
+    if (state.screen === 'results') root.appendChild(renderResults());
+  }
+
+  function el(tag, attrs, children) {
+    var elem = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function(k) {
+        if (k === 'style' && typeof attrs[k] === 'object') {
+          Object.assign(elem.style, attrs[k]);
+        } else if (k === 'className') {
+          elem.className = attrs[k];
+        } else if (k.startsWith('on') && typeof attrs[k] === 'function') {
+          elem.addEventListener(k.slice(2).toLowerCase(), attrs[k]);
+        } else {
+          elem.setAttribute(k, attrs[k]);
+        }
+      });
+    }
+    if (children) {
+      if (typeof children === 'string') {
+        elem.textContent = children;
+      } else if (Array.isArray(children)) {
+        children.forEach(function(c) { if (c) elem.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+      } else {
+        elem.appendChild(children);
+      }
+    }
+    return elem;
+  }
+
+  function renderIntro() {
+    var wrap = el('div', { className: 'hero' });
+    wrap.innerHTML = [
+      '<div class="hero-eyebrow"><span class="eyebrow-dot"></span>Free tool · 10 minutes</div>',
+      '<h1>Is your social media<br>actually set up to <em>convert?</em></h1>',
+      '<p class="hero-sub">A 16-point audit across profile setup, content strategy, and engagement — with specific fixes for every gap you find.</p>',
+      '<div class="what-youll-get">',
+        '<div class="wyg-label">What you get</div>',
+        '<div class="wyg-items">',
+          '<div class="wyg-item"><span class="wyg-check">✓</span>Instant score across 16 key areas</div>',
+          '<div class="wyg-item"><span class="wyg-check">✓</span>Section-by-section breakdown</div>',
+          '<div class="wyg-item"><span class="wyg-check">✓</span>Specific, actionable fix for every gap</div>',
+          '<div class="wyg-item"><span class="wyg-check">✓</span>Downloadable PDF report</div>',
+        '</div>',
+      '</div>',
+      '<button class="btn-start" id="startBtn">Start your audit →</button>'
+    ].join('');
+
+    setTimeout(function() {
+      var btn = document.getElementById('startBtn');
+      if (btn) btn.addEventListener('click', function() {
+        state.screen = 'quiz';
+        render();
+        window.scrollTo(0, 0);
+      });
+    }, 0);
+
+    return wrap;
+  }
+
+  function renderQuiz() {
+    var wrap = el('div', { className: 'quiz-wrap' });
+    var sec = SECTIONS[state.currentSection];
+    var answered = answeredCount();
+
+    // Progress bar
+    var progressWrap = el('div', { className: 'progress-wrap' });
+    progressWrap.innerHTML = [
+      '<div class="progress-top">',
+        '<span class="progress-label">Progress</span>',
+        '<span class="progress-count">' + answered + ' of ' + TOTAL_QUESTIONS + '</span>',
+      '</div>',
+      '<div class="progress-bar"><div class="progress-fill" style="width:' + Math.round((answered/TOTAL_QUESTIONS)*100) + '%"></div></div>'
+    ].join('');
+    wrap.appendChild(progressWrap);
+
+    // Section tabs
+    var tabsWrap = el('div', { className: 'section-tabs' });
+    SECTIONS.forEach(function(s, idx) {
+      var isActive = idx === state.currentSection;
+      var isDone = sectionComplete(idx);
+      var btn = el('button', {
+        className: 'tab-btn' + (isActive ? ' active' : ''),
+        onclick: function() { state.currentSection = idx; render(); window.scrollTo(0,0); }
+      });
+      btn.innerHTML = s.icon + ' ' + s.title + (isDone ? ' <span class="tab-check">✓</span>' : '');
+      tabsWrap.appendChild(btn);
+    });
+    wrap.appendChild(tabsWrap);
+
+    // Section title
+    var titleRow = el('div', { className: 'section-title-row' });
+    var secAnswered = sectionAnsweredCount(state.currentSection);
+    titleRow.innerHTML = [
+      '<div class="section-title">' + sec.icon + ' ' + sec.title + '</div>',
+      '<div class="section-progress">' + secAnswered + ' of ' + sec.questions.length + ' answered</div>'
+    ].join('');
+    wrap.appendChild(titleRow);
+
+    // Questions
+    var qList = el('div', { className: 'questions-list' });
+    sec.questions.forEach(function(q) {
+      var ans = state.answers[q.id];
+      var card = el('div', { className: 'q-card' + (ans === 'pass' ? ' pass' : ans === 'fix' ? ' fix' : '') });
+      card.innerHTML = [
+        '<div class="q-inner">',
+          '<span class="q-text">' + q.text + '</span>',
+          '<div class="q-btns">',
+            '<button class="q-btn pass-btn' + (ans === 'pass' ? ' selected' : '') + '" data-qid="' + q.id + '" data-val="pass">✓ Pass</button>',
+            '<button class="q-btn fix-btn' + (ans === 'fix' ? ' selected' : '') + '" data-qid="' + q.id + '" data-val="fix">✗ Fix</button>',
+          '</div>',
+        '</div>'
+      ].join('');
+      card.querySelectorAll('.q-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var qid = parseInt(this.getAttribute('data-qid'));
+          var val = this.getAttribute('data-val');
+          state.answers[qid] = val;
+          render();
+        });
+      });
+      qList.appendChild(card);
+    });
+    wrap.appendChild(qList);
+
+    // Navigation buttons
+    var navWrap = el('div', { className: 'quiz-nav' });
+    var canProceed = sectionComplete(state.currentSection);
+    var isLast = state.currentSection === SECTIONS.length - 1;
+
+    var prevBtn = el('button', { className: 'btn-prev' });
+    prevBtn.textContent = '← Previous';
+    if (state.currentSection === 0) prevBtn.disabled = true;
+    prevBtn.addEventListener('click', function() {
+      state.currentSection--;
+      render();
+      window.scrollTo(0, 0);
+    });
+
+    var nextBtn = el('button', { className: 'btn-next' });
+    if (isLast) {
+      nextBtn.textContent = 'See my results →';
+      nextBtn.disabled = !canProceed;
+      nextBtn.addEventListener('click', function() {
+        if (state.unlocked) {
+          state.screen = 'results';
+        } else {
+          state.screen = 'gate';
+        }
+        render();
+        window.scrollTo(0, 0);
+      });
+    } else {
+      nextBtn.textContent = 'Next section →';
+      nextBtn.disabled = !canProceed;
+      nextBtn.addEventListener('click', function() {
+        state.currentSection++;
+        render();
+        window.scrollTo(0, 0);
+      });
+    }
+
+    navWrap.appendChild(prevBtn);
+    navWrap.appendChild(nextBtn);
+    wrap.appendChild(navWrap);
+
+    return wrap;
+  }
+
+  function renderGate() {
+    var overlay = el('div', { className: 'gate-overlay' });
+    overlay.innerHTML = [
+      '<div class="gate-modal">',
+        '<div class="gate-eyebrow">Almost there · Free access</div>',
+        '<h2 class="gate-title">Where should we send your results?</h2>',
+        '<p class="gate-sub">Drop your email and your full audit report unlocks instantly. We\'ll also send you one email per week with real tactics — no fluff, easy to unsubscribe.</p>',
+        '<form class="gate-form" id="gateForm">',
+          '<input class="gate-input" type="text" id="gateName" placeholder="First name" required autocomplete="given-name">',
+          '<input class="gate-input" type="email" id="gateEmail" placeholder="Email address" required autocomplete="email">',
+          '<button class="btn-gate" type="submit">Unlock my results →</button>',
+        '</form>',
+        '<p class="gate-privacy">No spam, ever. Your info stays private.</p>',
+      '</div>'
+    ].join('');
+
+    setTimeout(function() {
+      var form = document.getElementById('gateForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          state.userName = document.getElementById('gateName').value;
+          state.userEmail = document.getElementById('gateEmail').value;
+          state.unlocked = true;
+          try { localStorage.setItem('lsc_unlocked', 'true'); } catch(err) {}
+          state.screen = 'results';
+          render();
+          window.scrollTo(0, 0);
+        });
+      }
+    }, 0);
+
+    return overlay;
+  }
+
+  function renderResults() {
+    var results = calculateResults();
+    var allPassed = [];
+    results.sections.forEach(function(s) { allPassed = allPassed.concat(s.passed); });
+
+    var wrap = el('div', { className: 'results-wrap' });
+
+    // Score card
+    var catColor = results.category.color;
+    var scoreCard = el('div', { className: 'results-score-card' });
+    scoreCard.style.borderColor = catColor + '40';
+    scoreCard.style.background = 'linear-gradient(135deg, ' + catColor + '10, ' + catColor + '04)';
+    scoreCard.innerHTML = [
+      '<div class="score-number" style="color:' + catColor + '">' + results.score + '<span style="font-size:0.45em;opacity:0.4"> / ' + TOTAL_QUESTIONS + '</span></div>',
+      '<div class="score-badge" style="background:' + catColor + '">' + results.category.label + '</div>',
+      '<p class="score-desc" style="color:' + catColor + 'cc">' + results.category.desc + '</p>'
+    ].join('');
+    wrap.appendChild(scoreCard);
+
+    // Breakdown
+    var breakdown = el('div', { className: 'section-breakdown' });
+    var bdHTML = '<div class="breakdown-title">Section breakdown</div><div class="breakdown-rows">';
+    results.sections.forEach(function(s) {
+      var st = s.status;
+      bdHTML += [
+        '<div class="breakdown-row">',
+          '<div class="breakdown-left"><span>' + s.icon + '</span>' + s.title + '</div>',
+          '<div class="breakdown-right">',
+            '<span class="breakdown-score" style="color:' + st.color + '">' + s.score + ' / ' + s.total + '</span>',
+            '<span class="status-pill" style="background:' + st.color + '18;color:' + st.color + '">' + st.label + '</span>',
+          '</div>',
+        '</div>'
+      ].join('');
+    });
+    bdHTML += '</div>';
+    breakdown.innerHTML = bdHTML;
+    wrap.appendChild(breakdown);
+
+    // Fix items
+    var hasAnyFailed = results.sections.some(function(s) { return s.failed.length > 0; });
+    if (hasAnyFailed) {
+      var fixBlock = el('div', { className: 'fix-items' });
+      fixBlock.innerHTML = '<div class="fix-title">🔧 What to fix</div><div class="fix-subtitle">Here\'s exactly what needs attention — and how to fix each one.</div>';
+      results.sections.forEach(function(s) {
+        if (!s.failed.length) return;
+        var sec = el('div', { className: 'fix-section' });
+        sec.innerHTML = '<div class="fix-section-label"><span>' + s.icon + '</span>' + s.title + '</div>';
+        var cards = el('div', { className: 'fix-cards' });
+        s.failed.forEach(function(item) {
+          var card = el('div', { className: 'fix-card' });
+          card.innerHTML = [
+            '<div class="fix-card-header">',
+              '<span class="fix-x">✗</span>',
+              '<span class="fix-card-title">' + item.text + '</span>',
+            '</div>',
+            '<div class="fix-why-label">Why it matters:</div>',
+            '<p class="fix-why-text">' + item.whyMatters + '</p>',
+            '<div class="fix-how-box">',
+              '<div class="fix-how-label">How to fix it:</div>',
+              '<p class="fix-how-text">' + item.howToFix + '</p>',
+            '</div>'
+          ].join('');
+          cards.appendChild(card);
+        });
+        sec.appendChild(cards);
+        fixBlock.appendChild(sec);
+      });
+      wrap.appendChild(fixBlock);
+    }
+
+    // Passed items
+    if (allPassed.length > 0) {
+      var passedBlock = el('div', { className: 'passed-items' });
+      passedBlock.innerHTML = '<div class="passed-title">✅ What you\'re doing right</div>';
+      var chips = el('div', { className: 'passed-chips' });
+      allPassed.forEach(function(item) {
+        var chip = el('div', { className: 'passed-chip' });
+        chip.innerHTML = '<span class="passed-chip-check">✓</span>' + item.text;
+        chips.appendChild(chip);
+      });
+      passedBlock.appendChild(chips);
+      wrap.appendChild(passedBlock);
+    }
+
+    // Pro tip
+    var proTip = el('div', { className: 'pro-tip' });
+    proTip.innerHTML = [
+      '<span class="pro-tip-icon">💡</span>',
+      '<div>',
+        '<div class="pro-tip-title">One thing at a time</div>',
+        '<p class="pro-tip-text">Trying to fix everything at once leads to burnout. Start with Profile — it\'s the fastest win. Then tackle Content, then Engagement. One area at a time.</p>',
+      '</div>'
+    ].join('');
+    wrap.appendChild(proTip);
+
+    // Upsell
+    var upsell = el('div', { className: 'upsell-block' });
+    upsell.innerHTML = [
+      '<div class="upsell-glow"></div>',
+      '<div class="upsell-eyebrow">Ready to go deeper?</div>',
+      '<h2 class="upsell-title">Your audit shows <em>what\'s broken.</em><br>We\'ll show you what to build.</h2>',
+      '<p class="upsell-sub">The self-audit is a great start. But for a done-for-you review or a custom strategy built around your actual business goals, we\'ve got two products built for exactly that.</p>',
+      '<div class="upsell-products">',
+        '<a href="product-audit.html" class="upsell-product-card">',
+          '<div class="upsell-product-icon">🔍</div>',
+          '<div class="upsell-product-name">Social Media Profile Audit</div>',
+          '<div class="upsell-product-desc">We audit every profile you\'re on — manually — and hand you a scored report with specific, prioritized fixes. Done for you in 5 days.</div>',
+          '<div class="upsell-product-price"><span class="upsell-price-num">$97</span><span class="upsell-price-cta">Get the audit →</span></div>',
+        '</a>',
+        '<a href="product-strategy.html" class="upsell-product-card">',
+          '<div class="upsell-product-icon">🗺️</div>',
+          '<div class="upsell-product-name">Custom Social Media Strategy</div>',
+          '<div class="upsell-product-desc">Competitor research, SEO analysis, platform recommendations, content pillars, and a 90-day growth roadmap. Built for your business.</div>',
+          '<div class="upsell-product-price"><span class="upsell-price-num">$97</span><span class="upsell-price-cta">Get the strategy →</span></div>',
+        '</a>',
+      '</div>',
+      '<a href="product-bundle.html" class="upsell-bundle-pill">',
+        '<div class="upsell-bundle-left">',
+          '<span style="font-size:22px">📦</span>',
+          '<div>',
+            '<div class="upsell-bundle-label">Best value</div>',
+            '<div class="upsell-bundle-name">Audit + Strategy Bundle</div>',
+          '</div>',
+        '</div>',
+        '<div class="upsell-bundle-right">',
+          '<span class="upsell-bundle-price">$150</span>',
+          '<span class="upsell-bundle-save">Save $44</span>',
+        '</div>',
+      '</a>'
+    ].join('');
+    wrap.appendChild(upsell);
+
+    // Retake
+    var retake = el('div', { className: 'retake-wrap' });
+    var retakeBtn = el('button', { className: 'btn-retake' }, '↺ Retake the audit');
+    retakeBtn.addEventListener('click', function() {
+      state.answers = {};
+      state.currentSection = 0;
+      state.screen = 'intro';
+      render();
+      window.scrollTo(0, 0);
+    });
+    retake.appendChild(retakeBtn);
+    wrap.appendChild(retake);
+
+    return wrap;
+  }
+
+  // Boot
+  render();
+})();
+</script>
+
+</body>
+</html>

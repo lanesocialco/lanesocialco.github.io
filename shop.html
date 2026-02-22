@@ -215,7 +215,7 @@
     color: var(--text-muted); white-space: nowrap;
     border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px;
   }
-  .freebie-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .freebie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
   /* PRODUCT CARDS */
   .product-card {
@@ -446,7 +446,7 @@
   @media (max-width: 1100px) {
     .freebie-grid { grid-template-columns: repeat(2, 1fr); }
     .featured-product { grid-template-columns: 1fr; }
-    .featured-right { max-width: 420px; }
+    .featured-right { max-width: 480px; }
   }
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -551,12 +551,16 @@
     </div>
     <div class="shop-hero-stats">
       <div class="hero-stat-pill">
-        <div class="num">4<span>×</span></div>
-        <div class="lbl">Free resources available</div>
+        <div class="num">5<span>+</span></div>
+        <div class="lbl">Free resources & tools</div>
       </div>
       <div class="hero-stat-pill">
         <div class="num">$97</div>
-        <div class="lbl">Full audit · 5-day delivery</div>
+        <div class="lbl">Each · 2 paid products</div>
+      </div>
+      <div class="hero-stat-pill">
+        <div class="num">$150</div>
+        <div class="lbl">Bundle · save $44</div>
       </div>
     </div>
   </div>
@@ -577,9 +581,26 @@
       <h2>Start here — for free.</h2>
       <p>Real, usable tools for getting your social media strategy together. Enter your email and get instant access to any of these.</p>
     </div>
-    <div class="section-header-right">4 resources · always free</div>
+    <div class="section-header-right">5 resources · always free</div>
   </div>
   <div class="freebie-grid">
+
+    <div class="product-card" data-type="free">
+      <div class="product-thumb" style="background: linear-gradient(135deg, rgba(123,47,255,0.12) 0%, var(--bg-alt) 100%);">
+        <div class="thumb-glow"></div>
+        <span class="thumb-icon">📱</span>
+        <span class="thumb-label">Interactive tool</span>
+        <span class="free-badge">FREE</span>
+      </div>
+      <div class="product-body">
+        <h3>Free Social Media Audit Tool</h3>
+        <p>Run a 16-point self-audit on your profiles in 10 minutes. Get an instant score with section breakdowns and specific, actionable fixes for every gap you find.</p>
+        <div class="product-footer">
+          <span class="product-price free">Free</span>
+          <a href="free-audit.html" class="btn-card free-btn">Take the audit →</a>
+        </div>
+      </div>
+    </div>
 
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
@@ -654,85 +675,79 @@
 
 <!-- PAID SECTION -->
 <section class="paid-section" id="section-paid">
-  <div class="section-header" style="margin-bottom: 40px;">
+  <div class="section-header" style="margin-bottom: 48px;">
     <div class="section-header-left">
       <div class="section-label">Done For You</div>
       <h2>Ready for the full picture?</h2>
-      <p>The free resources are a great start. The audit is the whole answer.</p>
+      <p>Two separate products. Two different problems solved. Both $97 — or grab both for $150.</p>
     </div>
-    <div class="section-header-right">1 product · $97 · no subscription</div>
+    <div class="section-header-right">2 products · no subscription</div>
   </div>
 
-  <div class="featured-product" data-type="paid">
+  <!-- PRODUCT 1: Audit -->
+  <div class="featured-product" data-type="paid" style="margin-bottom: 24px;">
     <div class="featured-left">
-      <span class="featured-tag">Most popular</span>
-      <h2>Social Media<br><em>Audit</em></h2>
-      <p>We go deep on your entire social presence — every platform, every post type, your bio, your content mix — and come back with a clear, written report that tells you exactly what's wrong and what to do about it.</p>
+      <span class="featured-tag">The diagnosis</span>
+      <h2>Social Media<br>Profile <em>Audit</em></h2>
+      <p>We go through every social profile you're on — manually — and score each element: bio, photo, username, content consistency, visual brand, posting frequency, engagement setup, and more. You get a written report with specific, prioritized fixes.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-top:-16px;margin-bottom:28px;line-height:1.6;">This is the "what's broken" answer. We check everything against what actually converts, flag the gaps, and hand you a clear action list sorted by impact.</p>
       <ul class="featured-includes">
-        <li><span class="check-sm">✓</span> Platform audit across all active channels</li>
-        <li><span class="check-sm">✓</span> Content performance breakdown</li>
-        <li><span class="check-sm">✓</span> Audience targeting assessment</li>
-        <li><span class="check-sm">✓</span> Profile & bio optimization notes</li>
-        <li><span class="check-sm">✓</span> Competitor positioning review</li>
-        <li><span class="check-sm">✓</span> Prioritized action list</li>
+        <li><span class="check-sm">✓</span> Full audit across all active social profiles</li>
+        <li><span class="check-sm">✓</span> Bio & profile setup scored element-by-element</li>
+        <li><span class="check-sm">✓</span> Content consistency & visual brand review</li>
+        <li><span class="check-sm">✓</span> Engagement & posting frequency assessment</li>
+        <li><span class="check-sm">✓</span> Profile conversion optimization notes</li>
+        <li><span class="check-sm">✓</span> Prioritized action list, highest-impact first</li>
       </ul>
     </div>
     <div class="featured-right">
       <div class="featured-card">
         <div class="featured-price-num">$97</div>
         <div class="featured-price-period">One-time · delivered in 5 business days</div>
-        <a href="services.html#get-audit" class="btn-white">Get your audit →</a>
+        <a href="product-audit.html" class="btn-white">Get your audit →</a>
         <div class="featured-note">No subscription. No retainer. Just clarity.</div>
       </div>
     </div>
   </div>
 
-  <!-- Future products placeholder row -->
-  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
-    <div class="product-card" style="opacity: 0.45; pointer-events: none;" data-type="paid">
-      <div class="product-thumb" style="background: var(--bg-alt);">
-        <span class="thumb-icon">📖</span>
-        <span class="thumb-label">Ebook</span>
-        <span class="paid-badge">Coming soon</span>
-      </div>
-      <div class="product-body">
-        <h3>The Social Strategy Playbook</h3>
-        <p>A comprehensive guide to building a social strategy that actually converts. More detail than the freebies, less cost than a full audit.</p>
-        <div class="product-footer">
-          <span class="product-price">$27</span>
-          <span class="btn-card" style="background:var(--border);color:var(--text-muted);cursor:not-allowed;">Coming soon</span>
-        </div>
+  <!-- PRODUCT 2: Strategy -->
+  <div class="featured-product" data-type="paid" style="margin-bottom: 24px;">
+    <div class="featured-left">
+      <span class="featured-tag" style="background: rgba(123,47,255,0.3); color: #c4a6ff;">The roadmap</span>
+      <h2>Custom Social Media<br><em>Strategy</em></h2>
+      <p>Where the audit tells you what's broken, the strategy tells you what to build. This is a custom plan built specifically around your business, your goals, and your market — not a template.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-top:-16px;margin-bottom:28px;line-height:1.6;">Includes competitor research, SEO/keyword analysis for your niche, platform recommendations, custom content pillars, a posting schedule, and a 90-day growth roadmap.</p>
+      <ul class="featured-includes">
+        <li><span class="check-sm">✓</span> Competitor research (3 direct competitors)</li>
+        <li><span class="check-sm">✓</span> Social SEO & keyword analysis for your niche</li>
+        <li><span class="check-sm">✓</span> Platform recommendation with reasoning</li>
+        <li><span class="check-sm">✓</span> Custom content pillars (5 pillars built for you)</li>
+        <li><span class="check-sm">✓</span> Posting schedule & content format breakdown</li>
+        <li><span class="check-sm">✓</span> 90-day growth roadmap with milestones</li>
+      </ul>
+    </div>
+    <div class="featured-right">
+      <div class="featured-card">
+        <div class="featured-price-num">$97</div>
+        <div class="featured-price-period">One-time · delivered in 7 business days</div>
+        <a href="product-strategy.html" class="btn-white">Get your strategy →</a>
+        <div class="featured-note">Built for your business. Not a template.</div>
       </div>
     </div>
-    <div class="product-card" style="opacity: 0.45; pointer-events: none;" data-type="paid">
-      <div class="product-thumb" style="background: var(--bg-alt);">
-        <span class="thumb-icon">📓</span>
-        <span class="thumb-label">Workbook</span>
-        <span class="paid-badge">Coming soon</span>
-      </div>
-      <div class="product-body">
-        <h3>90-Day Growth Workbook</h3>
-        <p>A structured workbook for planning and tracking your social growth over a full quarter. Set goals, track performance, adjust strategy.</p>
-        <div class="product-footer">
-          <span class="product-price">$19</span>
-          <span class="btn-card" style="background:var(--border);color:var(--text-muted);cursor:not-allowed;">Coming soon</span>
-        </div>
-      </div>
+  </div>
+
+  <!-- BUNDLE -->
+  <div style="background: var(--ink); border-radius: 20px; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; border: 1px solid rgba(123,47,255,0.3);" data-type="paid">
+    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(123,47,255,0.25) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Best value · save $44</div>
+      <h3 style="font-size:clamp(24px,3.5vw,36px);font-weight:800;letter-spacing:-0.8px;color:#fff;margin-bottom:10px;">Audit + Strategy Bundle</h3>
+      <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;max-width:500px;">Get both products together. The audit shows what's broken right now. The strategy shows where to go next. Together, they're the complete picture — and you save $44.</p>
     </div>
-    <div class="product-card" style="opacity: 0.45; pointer-events: none;" data-type="paid">
-      <div class="product-thumb" style="background: var(--bg-alt);">
-        <span class="thumb-icon">🎬</span>
-        <span class="thumb-label">Video series</span>
-        <span class="paid-badge">Coming soon</span>
-      </div>
-      <div class="product-body">
-        <h3>Content Creation Mini Course</h3>
-        <p>Short, practical video lessons on creating content that actually performs — shot selection, captions, hooks, and what the algorithm actually rewards.</p>
-        <div class="product-footer">
-          <span class="product-price">$47</span>
-          <span class="btn-card" style="background:var(--border);color:var(--text-muted);cursor:not-allowed;">Coming soon</span>
-        </div>
-      </div>
+    <div style="position:relative;text-align:center;flex-shrink:0;">
+      <div style="font-size:64px;font-weight:800;letter-spacing:-2px;color:#fff;line-height:1;">$150</div>
+      <div style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px;">both products · $194 value</div>
+      <a href="product-bundle.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 20px rgba(123,47,255,0.4);">Get the bundle →</a>
     </div>
   </div>
 </section>
