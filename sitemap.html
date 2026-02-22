@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Map — Lane Social Co</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #7B2FFF;
+      --purple-rgb: 123,47,255;
+      --bg: #FFFFFF;
+      --bg-alt: #F4F3F0;
+      --surface: #FFFFFF;
+      --text: #0A0A0A;
+      --text-sub: #444444;
+      --text-muted: #888888;
+      --border: #E8E6E1;
+      --nav-bg: rgba(255,255,255,0.92);
+      --ink: #0A0A0A;
+      --ink-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0C0C0C;
+        --bg-alt: #141414;
+        --surface: #1A1A1A;
+        --text: #F0F0F0;
+        --text-sub: #AAAAAA;
+        --text-muted: #666666;
+        --border: #262626;
+        --nav-bg: rgba(12,12,12,0.92);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo-img-light { display: block; height: 50px; width: auto; }
+    .logo-img-dark { display: none; height: 50px; width: auto; }
+    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
+    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
+    .logo-fallback { display: none !important; }
+    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta { background: var(--purple); color: #fff !important; padding: 10px 24px; border-radius: 6px; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 100px 80px 120px; }
+
+    .page-header { margin-bottom: 72px; }
+    .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 16px; }
+    .page-header h1 { font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .page-header p { font-size: 17px; color: var(--text-sub); max-width: 520px; line-height: 1.6; }
+
+    .sitemap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+    .sitemap-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 32px 36px; }
+    .sitemap-group h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+
+    .sitemap-group ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .sitemap-group li a {
+      display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none; color: var(--text);
+      font-size: 14px; font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 7px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sitemap-group li a:hover { background: var(--surface); color: var(--purple); }
+    .sitemap-group li a .file { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); }
+    .sitemap-group li a:hover .file { color: rgba(var(--purple-rgb), 0.7); }
+
+    .note { margin-top: 64px; padding: 24px 28px; background: var(--bg-alt); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 10px; font-size: 14px; color: var(--text-sub); line-height: 1.65; }
+    .note strong { color: var(--text); font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .nav-container { padding: 0 24px; }
+      main { padding: 80px 24px 80px; }
+      .sitemap-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="50">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="50">
+      <span class="logo-fallback">Lane Social Co</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Audit</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div class="eyebrow">Site Structure</div>
+    <h1>Full site map</h1>
+    <p>Every page on lanesocialco.com — organized by section. 32 pages total.</p>
+  </div>
+
+  <div class="sitemap-grid">
+
+    <!-- Main Pages -->
+    <div class="sitemap-group">
+      <h2>Main Navigation</h2>
+      <ul>
+        <li><a href="index.html">Home <span class="file">index.html</span></a></li>
+        <li><a href="services.html">Social Audit <span class="file">services.html</span></a></li>
+        <li><a href="shop.html">Shop <span class="file">shop.html</span></a></li>
+        <li><a href="blog.html">Blog <span class="file">blog.html</span></a></li>
+        <li><a href="results.html">Results <span class="file">results.html</span></a></li>
+        <li><a href="about.html">About <span class="file">about.html</span></a></li>
+        <li><a href="contact.html">Contact <span class="file">contact.html</span></a></li>
+        <li><a href="links.html">Links Page <span class="file">links.html</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Blog -->
+    <div class="sitemap-group">
+      <h2>Blog &amp; Categories</h2>
+      <ul>
+        <li><a href="blog.html">All Posts <span class="file">blog.html</span></a></li>
+        <li><a href="blog-category-strategy.html">Strategy <span class="file">blog-category-strategy.html</span></a></li>
+        <li><a href="blog-category-instagram.html">Instagram <span class="file">blog-category-instagram.html</span></a></li>
+        <li><a href="blog-category-tiktok.html">TikTok <span class="file">blog-category-tiktok.html</span></a></li>
+        <li><a href="blog-category-content.html">Content <span class="file">blog-category-content.html</span></a></li>
+        <li><a href="blog-category-growth.html">Growth <span class="file">blog-category-growth.html</span></a></li>
+        <li><a href="blog-category-local.html">Local Business <span class="file">blog-category-local.html</span></a></li>
+        <li><a href="blog-category-products.html">Digital Products <span class="file">blog-category-products.html</span></a></li>
+        <li><a href="blog-post-template.html">Post Template <span class="file">blog-post-template.html</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Shop -->
+    <div class="sitemap-group">
+      <h2>Shop</h2>
+      <ul>
+        <li><a href="shop.html">Shop Home <span class="file">shop.html</span></a></li>
+        <li><a href="shop-free.html">Free Resources <span class="file">shop-free.html</span></a></li>
+        <li><a href="shop-paid.html">Paid Products <span class="file">shop-paid.html</span></a></li>
+        <li><a href="product-audit.html">Social Audit Product <span class="file">product-audit.html</span></a></li>
+        <li><a href="product-bundle.html">Bundle Product <span class="file">product-bundle.html</span></a></li>
+        <li><a href="product-strategy.html">Strategy Product <span class="file">product-strategy.html</span></a></li>
+        <li><a href="free-audit.html">Free Audit Page <span class="file">free-audit.html</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Freebies -->
+    <div class="sitemap-group">
+      <h2>Freebies</h2>
+      <ul>
+        <li><a href="freebie-audit-checklist.html">Audit Checklist <span class="file">freebie-audit-checklist.html</span></a></li>
+        <li><a href="freebie-bio-optimization.html">Bio Cheat Sheet <span class="file">freebie-bio-optimization.html</span></a></li>
+        <li><a href="freebie-content-calendar.html">Content Calendar <span class="file">freebie-content-calendar.html</span></a></li>
+        <li><a href="freebie-content-pillars.html">Content Pillars <span class="file">freebie-content-pillars.html</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Forms & Flows -->
+    <div class="sitemap-group">
+      <h2>Forms &amp; Flows</h2>
+      <ul>
+        <li><a href="audit-intake.html">Audit Intake Form <span class="file">audit-intake.html</span></a></li>
+        <li><a href="thank-you-audit.html">Thank You — Audit <span class="file">thank-you-audit.html</span></a></li>
+        <li><a href="thank-you-freebie.html">Thank You — Freebie <span class="file">thank-you-freebie.html</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Legal & Utility -->
+    <div class="sitemap-group">
+      <h2>Legal &amp; Utility</h2>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy <span class="file">privacy-policy.html</span></a></li>
+        <li><a href="terms.html">Terms of Service <span class="file">terms.html</span></a></li>
+        <li><a href="404.html">404 Page <span class="file">404.html</span></a></li>
+        <li><a href="sitemap.html">Site Map <span class="file">sitemap.html</span></a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <strong>For AI use:</strong> This page lists every HTML file on the site. Each link is a live page. To audit or update a specific section, reference the filename shown on the right of each row. Total: 32 pages across 6 sections.
+  </div>
+
+</main>
+
+</body>
+</html>
