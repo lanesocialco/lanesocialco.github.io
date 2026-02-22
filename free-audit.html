@@ -14,43 +14,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --purple: #7B2FFF;
-      --purple-rgb: 123,47,255;
-      --bg: #FFFFFF;
-      --bg-alt: #F4F3F0;
-      --surface: #FFFFFF;
-      --text: #0A0A0A;
-      --text-sub: #444444;
-      --text-muted: #888888;
-      --border: #E8E6E1;
-      --nav-bg: rgba(255,255,255,0.95);
-      --card-shadow: rgba(0,0,0,0.06);
-      --ink: #0A0A0A;
-      --ink-text: #FFFFFF;
-      --success: #16a34a;
-      --error: #dc2626;
-    }
+    
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0C;
-        --bg-alt: #141414;
-        --surface: #1A1A1A;
-        --text: #F0F0F0;
-        --text-sub: #AAAAAA;
-        --text-muted: #666666;
-        --border: #262626;
-        --nav-bg: rgba(12,12,12,0.95);
-        --card-shadow: rgba(0,0,0,0.3);
-        --ink: #F0F0F0;
-        --ink-text: #0A0A0A;
-      }
-    }
+    
 
     html { scroll-behavior: smooth; }
     body {
@@ -63,65 +34,24 @@
     }
 
     /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .logo-img { height: 44px; width: auto; }
-    .logo-img-light { display: block; }
-    .logo-img-dark { display: none; }
-    @media (prefers-color-scheme: dark) {
-      .logo-img-light { display: none; }
-      .logo-img-dark { display: block; }
-    }
-    .logo-fallback {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 18px; font-weight: 800; color: var(--text);
-      letter-spacing: -0.4px;
-    }
-    .logo-mark { color: var(--purple); font-size: 22px; }
-    .nav-right {
-      display: flex; align-items: center; gap: 20px;
-    }
-    .nav-back {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 13px; font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-back:hover { color: var(--text); }
-    .nav-cta {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 13px; font-weight: 700;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .nav-cta:hover { color: var(--text); }
-    .nav-cta-pill {
-      background: var(--ink); color: var(--ink-text) !important;
-      padding: 9px 18px; border-radius: 6px;
-      font-size: 13px; font-weight: 700;
-      transition: background 0.2s;
-    }
-    .nav-cta-pill:hover { background: var(--purple) !important; color: white !important; }
+    
+    
+    
+    
+    
+    
+    
+    
+    .
+    .
+    .
+    .
+    .
+    .
+    .
     @media (max-width: 640px) {
-      nav { padding: 14px 20px; }
-      .logo-img { height: 36px; }
+      
+      
     }
 
     /* HERO */
@@ -353,11 +283,7 @@
     }
 
     /* NAV BUTTONS */
-    .quiz-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-    }
+    .quiz-
     .btn-prev, .btn-next {
       font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 15px;
@@ -574,9 +500,7 @@
       border-radius: 12px;
       padding: 18px 20px;
     }
-    @media (prefers-color-scheme: dark) {
-      .fix-card { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.2); }
-    }
+    
     .fix-card-header {
       display: flex;
       align-items: flex-start;
@@ -631,9 +555,7 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-    @media (prefers-color-scheme: dark) {
-      .passed-chips { background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.2); }
-    }
+    
     .passed-chip {
       background: var(--surface);
       border: 1px solid #86efac;
@@ -646,9 +568,7 @@
       gap: 6px;
       font-weight: 500;
     }
-    @media (prefers-color-scheme: dark) {
-      .passed-chip { color: #4ade80; border-color: rgba(74,222,128,0.3); background: rgba(22,163,74,0.1); }
-    }
+    
     .passed-chip-check { color: var(--success); font-weight: 800; }
 
     /* PRO TIP */
@@ -661,16 +581,11 @@
       gap: 14px;
       align-items: flex-start;
     }
-    @media (prefers-color-scheme: dark) {
-      .pro-tip { background: rgba(234,179,8,0.1); }
-    }
+    
     .pro-tip-icon { font-size: 22px; flex-shrink: 0; }
     .pro-tip-title { font-weight: 700; color: #78350f; font-size: 15px; margin-bottom: 4px; }
     .pro-tip-text { font-size: 14px; color: #92400e; line-height: 1.55; }
-    @media (prefers-color-scheme: dark) {
-      .pro-tip-title { color: #fbbf24; }
-      .pro-tip-text { color: #fde68a; }
-    }
+    
 
     /* UPSELL CTA */
     .upsell-block {
@@ -820,7 +735,7 @@
 
     /* PRINT */
     @media print {
-      nav, .upsell-block, .retake-wrap, .pro-tip { display: none !important; }
+      
       body { background: white; }
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
     }
@@ -829,16 +744,7 @@
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="logo">
-    <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" onerror="this.style.display='none'">
-    <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" onerror="this.style.display='none'">
-  </a>
-  <div class="nav-right">
-    <a href="shop.html" class="nav-back">← All resources</a>
-    <a href="product-audit.html" class="nav-cta nav-cta-pill">Get the full audit →</a>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <div id="app-root"></div>
 
@@ -1293,7 +1199,7 @@
         '<a href="product-audit.html" class="upsell-product-card">',
           '<div class="upsell-product-icon">🔍</div>',
           '<div class="upsell-product-name">Social Media Profile Audit</div>',
-          '<div class="upsell-product-desc">We audit every profile you\'re on — manually — and hand you a scored report with specific, prioritized fixes. Done for you in 5 days.</div>',
+          '<div class="upsell-product-desc">We audit every profile you\'re on — manually — and hand you a scored report with specific, prioritized fixes. Done for you in 7 days.</div>',
           '<div class="upsell-product-price"><span class="upsell-price-num">$97</span><span class="upsell-price-cta">Get the audit →</span></div>',
         '</a>',
         '<a href="product-strategy.html" class="upsell-product-card">',
@@ -1340,5 +1246,8 @@
 })();
 </script>
 
+<script src="assets/site-components.js"></script>
+
+<div id="site-footer"></div>
 </body>
 </html>

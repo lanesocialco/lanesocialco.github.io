@@ -8,28 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
   <style>
-    /* RESET */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* TOKENS */
-    :root {
-      --purple: #7B2FFF; --purple-rgb: 123,47,255;
-      --bg: #FFFFFF; --bg-alt: #F4F3F0; --surface: #FFFFFF;
-      --text: #0A0A0A; --text-sub: #444444; --text-muted: #888888;
-      --border: #E8E6E1; --nav-bg: rgba(255,255,255,0.92); --card-shadow: rgba(0,0,0,0.06);
-      --ink: #0A0A0A; --ink-text: #FFFFFF;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0C; --bg-alt: #141414; --surface: #1A1A1A;
-        --text: #F0F0F0; --text-sub: #AAAAAA; --text-muted: #666666;
-        --border: #262626; --nav-bg: rgba(12,12,12,0.92); --card-shadow: rgba(0,0,0,0.3);
-      }
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-
     /* LINKS PAGE SPECIFIC */
     .links-container {
       min-height: 100vh;
@@ -213,30 +193,7 @@
         padding: 10px 12px;
       }
     }
-  
-  .footer-logo-light { display: block; height: 88px; width: auto; }
-  .footer-logo-dark { display: none; height: 88px; width: auto; }
-  @media (prefers-color-scheme: dark) {
-    .footer-logo-light { display: none; }
-    .footer-logo-dark { display: block; }
-  }
-
-  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
-  .mouse-glow {
-    display: none;
-    position: fixed;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    will-change: left, top;
-  }
-  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
-    .mouse-glow { display: block; }
-  }
-</style>
+  </style>
 </head>
 <body>
   <div class="links-container">
@@ -283,18 +240,6 @@
     </div>
   </div>
 
-<!-- MOUSE GLOW -->
-<div class="mouse-glow" id="mouseGlow"></div>
-<script>
-  (function() {
-    var glow = document.getElementById('mouseGlow');
-    if (!glow) return;
-    var rx = 0, ry = 0;
-    document.addEventListener('mousemove', function(e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-  })();
-</script>
+  <script src="assets/site-components.js"></script>
 </body>
 </html>

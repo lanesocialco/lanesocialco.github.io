@@ -10,93 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
   <style>
-    :root {
-      --purple: #7B2FFF;
-      --bg: #FFFFFF;
-      --bg-alt: #F4F3F0;
-      --surface: #FFFFFF;
-      --text: #0A0A0A;
-      --text-sub: #444444;
-      --text-muted: #888888;
-      --border: #E8E6E1;
-      --nav-bg: rgba(255,255,255,0.92);
-      --card-shadow: rgba(0,0,0,0.06);
-      --ink: #0A0A0A;
-      --ink-text: #FFFFFF;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0C;
-        --bg-alt: #141414;
-        --surface: #1A1A1A;
-        --text: #F0F0F0;
-        --text-sub: #AAAAAA;
-        --text-muted: #666666;
-        --border: #262626;
-        --nav-bg: rgba(12,12,12,0.92);
-        --card-shadow: rgba(0,0,0,0.3);
-      }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
-    .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
-    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
-    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
-    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
-    .logo-fallback { display: none !important; align-items: center; gap: 8px; }
-    .logo-mark { font-size: 20px; color: var(--purple); }
-    .logo-divider { width: 1px; height: 16px; background: var(--border); }
-    .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
-    .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
-    .nav-toggle span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
-    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
-    .nav-links a:hover { color: var(--purple); }
-    .nav-cta { background: var(--purple); color: var(--ink-text); padding: 10px 24px; border-radius: 6px; transition: all 0.3s ease; }
-    .nav-cta:hover { opacity: 0.9; }
-    @media (max-width: 900px) {
-      .nav-container { padding: 0 24px; }
-      .nav-toggle { display: flex; }
-      .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 16px; padding: 24px; background: var(--surface); border-bottom: 1px solid var(--border); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-      .nav-links.open { max-height: 500px; }
-      .nav-links a { padding: 8px 0; }
-    }
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 60px 80px 40px; margin-top: 100px; }
-    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .footer-brand { grid-column: 1; }
-    .footer-logo { text-decoration: none; color: var(--text); font-weight: 700; margin-bottom: 16px; display: block; }
-    .footer-tagline { font-size: 13px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
-    .footer-loc { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .footer-col h4 { font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); }
-    .footer-col ul { list-style: none; }
-    .footer-col a { text-decoration: none; color: var(--text-sub); font-size: 13px; display: block; margin-bottom: 10px; transition: color 0.3s ease; }
-    .footer-col a:hover { color: var(--purple); }
-    .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
-    .footer-social { display: flex; gap: 24px; }
-    .footer-social a { text-decoration: none; color: var(--text-muted); transition: color 0.3s ease; }
-    .footer-social a:hover { color: var(--purple); }
-    @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .footer-brand { grid-column: 1 / -1; }
-      footer { padding: 40px 24px; }
-      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-social { flex-direction: column; gap: 12px; }
-    }
-    main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
-    @media (max-width: 900px) { main { padding: 0 24px; } }
     .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
-    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,200,80,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #64C850; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(22,163,74,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #4ade80; }
     .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
     @media (max-width: 900px) {
       .category-hero { padding-top: 100px; padding-bottom: 40px; }
@@ -110,7 +28,7 @@
     }
     article { max-width: 720px; margin: 80px auto; }
     article .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
-    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(100,200,80,0.2); color: #64C850; }
+    article .category-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(22,163,74,0.12); color: #4ade80; }
     article h2 { font-size: 52px; font-weight: 800; margin-bottom: 40px; line-height: 1.15; }
     article > p { font-size: 16px; line-height: 1.75; margin-bottom: 24px; color: var(--text-sub); }
     article h3 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
@@ -118,7 +36,8 @@
     article ul, article ol { margin-left: 24px; margin-bottom: 24px; }
     article li { margin-bottom: 10px; line-height: 1.75; }
     article strong { font-weight: 700; color: var(--text); }
-    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #64C850; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
+    article em { font-style: italic; }
+    article .pullquote { font-size: 20px; font-weight: 700; line-height: 1.6; padding: 32px 24px; border-left: 4px solid #4ade80; background: var(--bg-alt); margin: 40px 0; color: var(--text); }
     article .cta-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin: 40px 0; text-align: center; }
     article .cta-card h4 { margin-top: 0; margin-bottom: 12px; }
     article .cta-card p { margin-bottom: 20px; }
@@ -148,54 +67,11 @@
       article > p { font-size: 15px; }
       article .pullquote { font-size: 16px; padding: 24px 16px; }
     }
-    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
-  
-  .footer-logo-light { display: block; height: 88px; width: auto; }
-  .footer-logo-dark { display: none; height: 88px; width: auto; }
-  @media (prefers-color-scheme: dark) {
-    .footer-logo-light { display: none; }
-    .footer-logo-dark { display: block; }
-  }
-
-  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
-  .mouse-glow {
-    display: none;
-    position: fixed;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    will-change: left, top;
-  }
-  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
-    .mouse-glow { display: block; }
-  }
-</style>
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
-        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
-        <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Audit</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="nav-cta">Get Started</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="site-nav"></div>
 
   <main>
     <section class="category-hero">
@@ -338,62 +214,7 @@
     </section>
   </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">
-      <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
-      <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
-    </a>
-        <p class="footer-tagline">Social media strategy and audits for small businesses. Based in Las Vegas.</p>
-        <p class="footer-loc">LAS VEGAS, NV</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Social Media Audit</a></li>
-          <li><a href="audit-intake.html">Book an Audit</a></li>
-          <li><a href="results.html">Client Results</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Free Resources</h4>
-        <ul>
-          <li><a href="shop-free.html">All Freebies</a></li>
-          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
-          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
-          <li><a href="freebie-content-calendar.html">Content Calendar</a></li>
-          <li><a href="freebie-bio-optimization.html">Bio Optimization</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="links.html">Links</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
-        <a href="links.html">All Links</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <script type="application/ld+json">
   {
@@ -407,42 +228,6 @@
   }
   </script>
 
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navLinks.classList.remove('open'); 
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', false);
-    }));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { 
-        if (e.isIntersecting) { 
-          e.target.classList.add('revealed'); 
-          observer.unobserve(e.target); 
-        } 
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-<!-- MOUSE GLOW -->
-<div class="mouse-glow" id="mouseGlow"></div>
-<script>
-  (function() {
-    var glow = document.getElementById('mouseGlow');
-    if (!glow) return;
-    var rx = 0, ry = 0;
-    document.addEventListener('mousemove', function(e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-  })();
-</script>
+  <script src="assets/site-components.js"></script>
 </body>
 </html>

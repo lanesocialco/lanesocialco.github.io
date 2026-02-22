@@ -8,43 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
   <style>
-    :root {
-      --purple: #7B2FFF;
-      --purple-rgb: 123,47,255;
-      --bg: #FFFFFF;
-      --bg-alt: #F4F3F0;
-      --surface: #FFFFFF;
-      --text: #0A0A0A;
-      --text-sub: #444444;
-      --text-muted: #888888;
-      --border: #E8E6E1;
-      --nav-bg: rgba(255,255,255,0.92);
-      --card-shadow: rgba(0,0,0,0.06);
-      --ink: #0A0A0A;
-      --ink-text: #FFFFFF;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0C;
-        --bg-alt: #141414;
-        --surface: #1A1A1A;
-        --text: #F0F0F0;
-        --text-sub: #AAAAAA;
-        --text-muted: #666666;
-        --border: #262626;
-        --nav-bg: rgba(12,12,12,0.92);
-        --card-shadow: rgba(0,0,0,0.3);
-      }
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     html {
       scroll-behavior: smooth;
     }
@@ -54,179 +19,6 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-      z-index: 1000;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .logo-img {
-      height: 50px;
-      width: auto;
-    }
-
-    .logo-img-light {
-      display: block;
-    }
-
-    .logo-img-dark {
-      display: none;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .logo-img-light {
-        display: none;
-      }
-      .logo-img-dark {
-        display: block;
-      }
-    }
-
-    .logo-text-fallback {
-      display: none;
-    }
-
-    .logo-text-fallback.visible {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .logo-mark {
-      font-size: 18px;
-      color: var(--purple);
-    }
-
-    .logo-divider {
-      width: 1px;
-      height: 20px;
-      background: var(--border);
-    }
-
-    .logo-name {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--purple);
-    }
-
-    .nav-links a.active {
-      color: var(--purple);
-    }
-
-    .nav-cta {
-      background: var(--purple);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .nav-cta:hover {
-      background: var(--purple);
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      background: none;
-      border: none;
-      cursor: pointer;
-      gap: 5px;
-      padding: 5px;
-    }
-
-    .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      transition: all 0.3s;
-      border-radius: 1px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 0 20px;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--nav-bg);
-        backdrop-filter: blur(10px);
-        gap: 20px;
-        padding: 30px 20px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.open {
-        max-height: 400px;
-      }
-
-      .nav-toggle.open span:nth-child(1) {
-        transform: rotate(45deg) translate(10px, 10px);
-      }
-
-      .nav-toggle.open span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .nav-toggle.open span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
     }
 
     /* Main content */
@@ -312,27 +104,6 @@
       text-transform: uppercase;
       color: var(--text-muted);
       letter-spacing: 0.3px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: var(--purple);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .cta-button:hover {
-      background: var(--purple);
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(var(--purple-rgb), 0.3);
     }
 
     /* What's Included */
@@ -601,154 +372,6 @@
       line-height: 1.6;
     }
 
-    .cta-button-dark {
-      display: inline-block;
-      background: var(--purple);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .cta-button-dark:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(var(--purple-rgb), 0.4);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--bg-alt);
-      color: var(--text);
-      padding: 80px 40px 40px;
-    }
-
-    @media (max-width: 768px) {
-      footer {
-        padding: 50px 20px 30px;
-      }
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 48px;
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-bottom: 50px;
-    }
-
-    .footer-brand {
-      grid-column: 1;
-    }
-
-    .footer-logo {
-      display: block;
-      margin-bottom: 20px;
-      text-decoration: none;
-    }
-
-    .footer-logo img {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-
-    .footer-logo-light {
-      display: block;
-    }
-
-    .footer-logo-dark {
-      display: none;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .footer-logo-light {
-        display: none;
-      }
-      .footer-logo-dark {
-        display: block;
-      }
-    }
-
-    .footer-tagline {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .footer-location {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .footer-col h4 {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col li {
-      margin-bottom: 12px;
-    }
-
-    .footer-col a {
-      font-size: 14px;
-      color: var(--text-sub);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-col a:hover {
-      color: var(--purple);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-copy {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-social a {
-      font-size: 13px;
-      color: var(--text-sub);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-social a:hover {
-      color: var(--purple);
-    }
-
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 36px;
@@ -765,38 +388,12 @@
       .cta-section h2 {
         font-size: 32px;
       }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img logo-img-light" height="50" onerror="this.style.display='none'">
-      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img logo-img-dark" height="50" onerror="this.style.display='none'">
-      <span class="logo-text-fallback">
-        <span class="logo-mark">✳</span>
-        <span class="logo-divider"></span>
-        <span class="logo-name">Lane Social Co</span>
-      </span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Audit</a></li>
-      <li><a href="shop.html" class="active">Shop</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#buy" class="nav-cta">Get the bundle →</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- Main Content -->
   <main>
@@ -806,7 +403,7 @@
         <span class="hero-eyebrow">Best Value · $150</span>
         <h1>The whole picture for $150.</h1>
         <p>The audit shows you what's broken on your current profiles. The strategy shows you exactly what to build next. Together, they're the most complete answer we offer — and you save $44.</p>
-        
+
         <div class="hero-stats">
           <div class="stat-pill">
             <div class="stat-pill-value">$150</div>
@@ -822,7 +419,7 @@
           </div>
         </div>
 
-        <a href="#buy" class="cta-button">Get the bundle →</a>
+        <a href="#buy" class="btn-primary">Get the bundle →</a>
       </div>
     </section>
 
@@ -844,7 +441,7 @@
               <li><span>Profile conversion optimization notes</span></li>
               <li><span>Competitor positioning spot-check</span></li>
               <li><span>Prioritized action list ranked by impact</span></li>
-              <li><span>Written PDF report in 5 business days</span></li>
+              <li><span>Written PDF report in 7 business days</span></li>
             </ul>
           </div>
 
@@ -884,11 +481,11 @@
         <h2 class="section-title">Timeline & Delivery</h2>
         <div class="timeline">
           <div class="timeline-item">
-            <h4>Days 1-5: Audit</h4>
+            <h4>Days 1-7: Audit</h4>
             <p>Your social media audit is completed and delivered as a scored PDF report with your prioritized action list.</p>
           </div>
           <div class="timeline-item">
-            <h4>Days 5-12: Strategy</h4>
+            <h4>Days 7-12: Strategy</h4>
             <p>While you're reviewing your audit, we're building your custom strategy. You'll get your strategy document plus a 30-minute review call with the team.</p>
           </div>
           <div class="timeline-item">
@@ -917,7 +514,7 @@
             <span>Do I have to do the audit first or can I do the strategy first?</span>
             <div class="faq-toggle"></div>
           </div>
-          <div class="faq-answer">They happen in parallel, not one after the other. Day 1 when you submit your intake form, we start the audit process. While that's happening, we start the strategy work too. By day 5 you get your audit. By day 7 you get your strategy and the review call.</div>
+          <div class="faq-answer">They happen in parallel, not one after the other. Day 1 when you submit your intake form, we start the audit process. While that's happening, we start the strategy work too. By day 7 you get your audit. By day 7 you get your strategy and the review call.</div>
         </div>
 
         <div class="faq-item">
@@ -951,81 +548,15 @@
       <div class="container">
         <h2>Get the diagnosis and the roadmap.</h2>
         <p>The Audit + Strategy Bundle is $150. Save $44 compared to buying separately.</p>
-        <a href="#" class="cta-button-dark">Get the bundle →</a>
+        <a href="#" class="btn-white">Get the bundle →</a>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-light">
-          <img src="assets/logo-dark.png" alt="Lane Social Co" class="footer-logo-dark">
-        </a>
-        <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>
-        <p class="footer-location">Las Vegas, NV &amp; everywhere else</p>
-      </div>
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="product-audit.html">Social Media Audit</a></li>
-          <li><a href="product-strategy.html">Social Media Strategy</a></li>
-          <li><a href="product-bundle.html">Audit + Strategy Bundle</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Free Resources</h4>
-        <ul>
-          <li><a href="free-audit.html">Free Audit Tool</a></li>
-          <li><a href="freebie-audit-checklist.html">Audit Checklist</a></li>
-          <li><a href="freebie-content-pillars.html">Content Pillars</a></li>
-          <li><a href="shop.html">All Resources →</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV · All rights reserved</div>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.linkedin.com/company/lanesocialco" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
   <script>
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', function() {
-      const isOpen = links.classList.toggle('open');
-      toggle.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen);
-    });
-    links.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        links.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-      });
-    });
-
     // FAQ Toggle
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
@@ -1034,15 +565,8 @@
         item.classList.toggle('open');
       });
     });
-
-    // Logo fallback visibility
-    window.addEventListener('load', function() {
-      const logoLight = document.querySelector('.logo-img-light');
-      const logoDark = document.querySelector('.logo-img-dark');
-      if (logoLight && logoLight.style.display === 'none' && logoDark && logoDark.style.display === 'none') {
-        document.querySelector('.logo-text-fallback').classList.add('visible');
-      }
-    });
   </script>
+
+  <script src="assets/site-components.js"></script>
 </body>
 </html>

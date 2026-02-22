@@ -8,49 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
   <style>
-    :root {
-      --purple: #7B2FFF;
-      --purple-rgb: 123,47,255;
-      --bg: #FFFFFF;
-      --bg-alt: #F4F3F0;
-      --surface: #FFFFFF;
-      --text: #0A0A0A;
-      --text-sub: #444444;
-      --text-muted: #888888;
-      --border: #E8E6E1;
-      --nav-bg: rgba(255,255,255,0.92);
-      --ink: #0A0A0A;
-      --ink-text: #FFFFFF;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0C0C0C;
-        --bg-alt: #141414;
-        --surface: #1A1A1A;
-        --text: #F0F0F0;
-        --text-sub: #AAAAAA;
-        --text-muted: #666666;
-        --border: #262626;
-        --nav-bg: rgba(12,12,12,0.92);
-      }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Bricolage Grotesque', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-
-    nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
-    .logo { text-decoration: none; display: flex; align-items: center; }
-    .logo-img-light { display: block; height: 50px; width: auto; }
-    .logo-img-dark { display: none; height: 50px; width: auto; }
-    @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
-    @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
-    .logo-fallback { display: none !important; }
-    .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.3s ease; }
-    .nav-links a:hover { color: var(--purple); }
-    .nav-cta { background: var(--purple); color: #fff !important; padding: 10px 24px; border-radius: 6px; }
-
     main { max-width: 1100px; margin: 0 auto; padding: 100px 80px 120px; }
 
     .page-header { margin-bottom: 72px; }
@@ -80,7 +39,6 @@
     .note strong { color: var(--text); font-weight: 700; }
 
     @media (max-width: 900px) {
-      .nav-container { padding: 0 24px; }
       main { padding: 80px 24px 80px; }
       .sitemap-grid { grid-template-columns: 1fr; }
       .page-header h1 { font-size: 36px; }
@@ -89,22 +47,7 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="50">
-      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="50">
-      <span class="logo-fallback">Lane Social Co</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Audit</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="site-nav"></div>
 
 <main>
   <div class="page-header">
@@ -199,6 +142,10 @@
   </div>
 
 </main>
+
+<div id="site-footer"></div>
+
+<script src="assets/site-components.js"></script>
 
 </body>
 </html>
