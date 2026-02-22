@@ -190,45 +190,74 @@
   .btn-ghost:hover { color: var(--purple); border-color: var(--purple); }
 
   /* WHAT'S INCLUDED */
-  .included { padding: 100px 48px; background: var(--bg-alt); }
+  .included { padding: 100px 48px; background: var(--bg-alt); position: relative; overflow: hidden; }
   .included h2 {
     font-size: clamp(32px, 4vw, 52px); font-weight: 800;
     letter-spacing: -1.2px; margin-bottom: 16px;
-    color: var(--text);
+    color: var(--text); position: relative; z-index: 1;
   }
+  .included > .section-label { position: relative; z-index: 1; }
   .included-sub {
     font-size: 18px; color: var(--text-sub); line-height: 1.65;
-    max-width: 560px; margin-bottom: 64px;
+    max-width: 560px; margin-bottom: 64px; position: relative; z-index: 1;
+  }
+  /* Purple glow near the section title */
+  .included-title-glow {
+    position: absolute; top: -60px; left: -120px;
+    width: 600px; height: 500px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.07) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+  @media (prefers-color-scheme: dark) {
+    .included-title-glow { background: radial-gradient(circle, rgba(var(--purple-rgb),0.13) 0%, transparent 65%); }
   }
   .included-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    position: relative; z-index: 1;
   }
+  /* All cards: gray default, dark on hover */
   .included-card {
     background: var(--surface); border-radius: 14px; padding: 36px;
-    position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+    transition: background 0.28s ease, transform 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid var(--border);
   }
-  .included-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px var(--card-shadow); }
+  .included-card h3 {
+    font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 12px;
+    color: var(--text); transition: color 0.28s ease;
+  }
+  .included-card p {
+    font-size: 15px; line-height: 1.65; color: var(--text-sub);
+    transition: color 0.28s ease;
+  }
   .card-icon {
     width: 48px; height: 48px; border-radius: 12px;
     background: rgba(var(--purple-rgb),0.1); display: flex; align-items: center;
     justify-content: center; margin-bottom: 20px; font-size: 22px;
+    transition: background 0.28s ease;
   }
-  .included-card h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 12px; color: var(--text); }
-  .included-card p { font-size: 15px; line-height: 1.65; color: var(--text-sub); }
-  .included-card.featured {
-    background: var(--ink); color: white;
+  /* Hover: all cards go dark like audience targeting was */
+  .included-card:hover {
+    background: var(--ink);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.28);
   }
-  .included-card.featured .card-icon { background: rgba(var(--purple-rgb),0.3); }
-  .included-card.featured h3 { color: white; }
-  .included-card.featured p { color: rgba(255,255,255,0.6); }
-  .included-card.featured::after {
+  .included-card:hover h3 { color: #ffffff; }
+  .included-card:hover p { color: rgba(255,255,255,0.6); }
+  .included-card:hover .card-icon { background: rgba(var(--purple-rgb),0.3); }
+  .included-card:hover::after {
     content: '';
     position: absolute; top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.4) 0%, transparent 70%);
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.32) 0%, transparent 70%);
     pointer-events: none;
   }
+  /* Reset featured to match all other cards */
+  .included-card.featured { background: var(--surface); }
+  .included-card.featured h3 { color: var(--text); }
+  .included-card.featured p { color: var(--text-sub); }
+  .included-card.featured .card-icon { background: rgba(var(--purple-rgb),0.1); }
+  .included-card.featured::after { display: none; }
 
   /* THE PROCESS */
   .process { padding: 100px 48px; background: var(--bg); }
@@ -513,6 +542,7 @@
 
 <!-- WHAT'S INCLUDED -->
 <section class="included" id="included">
+  <div class="included-title-glow"></div>
   <div class="section-label">What you get</div>
   <h2>Six things we look at. One clear answer.</h2>
   <p class="included-sub">We don't skim the surface. Each section of the audit is a real deep-dive — the kind of honest look at your social presence that most people never get.</p>
