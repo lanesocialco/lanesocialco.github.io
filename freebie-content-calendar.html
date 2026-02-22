@@ -96,7 +96,7 @@
     }
 
     .logo-fallback {
-      display: flex;
+      display: none !important;
       align-items: center;
       gap: 8px;
     }
@@ -755,14 +755,15 @@
 
     <div class="opt-in-card">
       <h2>Get the free calendar</h2>
-      <form onsubmit="event.preventDefault(); window.location.href='thank-you-freebie.html';">
+      <form name="freebie-calendar" method="POST" data-netlify="true" action="/thank-you-freebie.html">
+        <input type="hidden" name="form-name" value="freebie-calendar">
         <div class="form-group">
           <label for="first_name">First Name</label>
           <input type="text" id="first_name" placeholder="John" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
+          <input type="email" name="email" id="email" placeholder="you@example.com" required>
         </div>
         <button type="submit" class="submit-btn">Send Me the Calendar</button>
         <p class="privacy-note">No spam. Unsubscribe anytime.</p>
@@ -820,8 +821,9 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
       <div class="footer-social">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
         <a href="links.html">All Links</a>
       </div>
     </div>

@@ -83,10 +83,11 @@
     nav { position: sticky; top: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
     .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
     .logo { text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
-    .logo-img-light, .logo-img-dark { display: block; height: 38px; width: auto; }
+    .logo-img-light, .logo-img-dark { display: block; height: 50px; width: auto; }
+    .logo-fallback { display: none !important; }
     @media (prefers-color-scheme: dark) { .logo-img-light { display: none !important; } .logo-img-dark { display: block !important; } }
     @media (prefers-color-scheme: light) { .logo-img-dark { display: none !important; } .logo-img-light { display: block !important; } }
-    .logo-fallback { display: flex; align-items: center; gap: 8px; }
+    .logo-fallback { display: none !important; align-items: center; gap: 8px; }
     .logo-mark { font-size: 20px; color: var(--purple); }
     .logo-divider { width: 1px; height: 16px; background: var(--border); }
     .logo-name { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
@@ -211,8 +212,8 @@
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="38" onerror="this.style.display='none'">
-        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="38" onerror="this.style.display='none'">
+        <img src="assets/logo-light.png" alt="Lane Social Co" class="logo-img-light" height="50" onerror="this.style.display='none'">
+        <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img-dark" height="50" onerror="this.style.display='none'">
         <span class="logo-fallback"><span class="logo-mark">✳</span><span class="logo-divider"></span><span class="logo-name">Lane Social Co</span></span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -382,8 +383,9 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
       <div class="footer-social">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
         <a href="links.html">All Links</a>
       </div>
     </div>
@@ -409,7 +411,7 @@
       "name": "Lane Social Co",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lanesocialco.com/assets/images/logo.png"
+        "url": "https://lanesocialco.com/assets/logo-light.png"
       }
     }
   }

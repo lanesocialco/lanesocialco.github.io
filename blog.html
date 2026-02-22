@@ -110,7 +110,7 @@
     }
 
     .logo-fallback {
-      display: flex;
+      display: none !important;
       align-items: center;
       gap: 8px;
     }
@@ -367,10 +367,14 @@
       }
     }
 
+    /* BLOG EDITORIAL HERO — dark full-bleed masthead style */
     .hero {
-      padding-top: 140px;
+      padding-top: 160px;
       padding-bottom: 80px;
-      text-align: center;
+      margin: 0 -80px;
+      padding-left: 80px;
+      padding-right: 80px;
+      background: var(--ink);
       position: relative;
       overflow: hidden;
     }
@@ -378,42 +382,80 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(123,47,255,0.15) 0%, transparent 70%);
+      bottom: -100px;
+      right: -100px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(123,47,255,0.18) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
     }
 
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(123,47,255,0.4), transparent);
+    }
+
+    .blog-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .blog-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--purple);
+    }
+
     .hero h1 {
-      font-size: 72px;
+      font-size: clamp(60px, 7vw, 96px);
       font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.2;
+      margin-bottom: 24px;
+      line-height: 1.05;
+      color: #ffffff;
       position: relative;
       z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 em {
+      color: var(--purple);
+      font-style: normal;
     }
 
     .hero p {
-      font-size: 20px;
-      color: var(--text-sub);
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
       position: relative;
       z-index: 1;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     @media (max-width: 900px) {
       .hero {
-        padding-top: 100px;
+        padding-top: 120px;
         padding-bottom: 60px;
+        margin: 0 -24px;
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
       .hero h1 {
-        font-size: 48px;
+        font-size: 44px;
       }
 
       .hero p {
@@ -423,8 +465,8 @@
 
     @media (max-width: 480px) {
       .hero {
-        padding-top: 80px;
-        padding-bottom: 40px;
+        padding-top: 100px;
+        padding-bottom: 48px;
       }
 
       .hero h1 {
@@ -441,6 +483,7 @@
       gap: 12px;
       overflow-x: auto;
       overflow-y: hidden;
+      padding-top: 64px;
       padding-bottom: 16px;
       margin-bottom: 60px;
       scrollbar-width: none;
@@ -702,7 +745,14 @@
     .newsletter-section h2 {
       font-size: 32px;
       font-weight: 700;
-      margin-bottom: 32px;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-sub {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 28px;
+      line-height: 1.6;
     }
 
     .newsletter-form {
@@ -849,8 +899,9 @@
 
   <main>
     <section class="hero">
-      <h1>Strategy, not guesswork.</h1>
-      <p>Real tactical advice for small businesses growing on social media. Written by Nate. No fluff, no trends that will be dead in a week.</p>
+      <div class="blog-eyebrow">Written by Nate · Las Vegas</div>
+      <h1>Strategy, not <em>guesswork.</em></h1>
+      <p>Real tactical advice for small businesses growing on social media. No fluff, no trends that will be dead in a week.</p>
     </section>
 
     <div class="category-filter">
@@ -944,13 +995,37 @@
           <span class="read-time">6 min</span>
         </div>
       </a>
+
+      <a href="blog-category-content.html" class="article-card reveal">
+        <span class="category-badge badge-content">CONTENT</span>
+        <h3>How to Write Captions That Actually Make People Stop Scrolling</h3>
+        <p class="excerpt">The first line of your caption is the only thing that matters. Get it wrong and nobody reads the rest. Here's a system for writing openers that stop the scroll every single time.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Oct 22, 2024</span>
+          <span class="read-time">5 min</span>
+        </div>
+      </a>
+
+      <a href="blog-category-growth.html" class="article-card reveal">
+        <span class="category-badge badge-growth">GROWTH</span>
+        <h3>The Only Posting Schedule That Actually Works (And Why Yours Doesn't)</h3>
+        <p class="excerpt">Every expert has a different answer. Post daily. Post 3x a week. Post when your audience is online. Most of that advice is wrong. Here's what the data actually shows.</p>
+        <div class="meta">
+          <span class="author">Lane</span>
+          <span class="date">Oct 8, 2024</span>
+          <span class="read-time">7 min</span>
+        </div>
+      </a>
     </div>
 
     <section class="newsletter-section reveal">
       <h2>Get strategy in your inbox. Once a week. No fluff.</h2>
-      <form class="newsletter-form">
-        <input type="email" placeholder="your@email.com" required>
-        <button type="submit">Subscribe</button>
+      <p class="newsletter-sub">Real tactics from Nate — what's working right now, case studies, and stuff you won't find on the blog.</p>
+      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true" action="/thank-you-freebie.html">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe →</button>
       </form>
     </section>
 
@@ -1008,8 +1083,9 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
       <div class="footer-social">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
         <a href="links.html">All Links</a>
       </div>
     </div>

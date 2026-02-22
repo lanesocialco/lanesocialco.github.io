@@ -37,7 +37,7 @@
     .logo-img-light { display: block; height: 38px; width: auto; }
     .logo-img-dark { display: none; height: 38px; width: auto; }
     @media (prefers-color-scheme: dark) { .logo-img-light { display: none; } .logo-img-dark { display: block; } }
-    .logo-fallback { display: flex; align-items: center; gap: 10px; }
+    .logo-fallback { display: none !important; align-items: center; gap: 10px; }
     .logo-mark { color: var(--purple); font-size: 26px; line-height: 1; font-weight: 800; }
     .logo-divider { width: 2px; height: 26px; background: var(--purple); opacity: 0.4; }
     .logo-name { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1.15; letter-spacing: -0.3px; }
@@ -103,27 +103,59 @@
     }
     @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
-    /* CONTACT PAGE SPECIFIC */
+    /* CONTACT PAGE SPECIFIC — left-aligned, asymmetric hero */
     .contact-hero {
-      padding: 140px 48px 80px;
-      text-align: center;
-      margin-top: 60px;
+      padding: 160px 48px 60px;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      left: 48px;
+      top: 120px;
+      width: 3px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--purple), transparent);
+      border-radius: 2px;
+    }
+
+    .contact-hero .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+      padding-left: 20px;
     }
 
     .contact-hero h1 {
-      font-size: clamp(36px, 8vw, 56px);
+      font-size: clamp(40px, 6vw, 68px);
       font-weight: 800;
-      margin: 24px 0 20px 0;
-      letter-spacing: -0.8px;
-      line-height: 1.1;
+      margin: 0 0 20px 0;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      max-width: 700px;
+      padding-left: 20px;
     }
 
     .contact-hero p {
       font-size: 17px;
       color: var(--text-sub);
-      max-width: 620px;
-      margin: 0 auto;
-      line-height: 1.6;
+      max-width: 560px;
+      line-height: 1.65;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero { padding: 120px 24px 40px; }
+      .contact-hero::before { left: 24px; }
+      .contact-hero .section-label,
+      .contact-hero h1,
+      .contact-hero p { padding-left: 16px; }
     }
 
     .contact-content {
@@ -497,7 +529,8 @@
 
     <div class="contact-form-card reveal reveal-d3">
       <h3>Send us a message</h3>
-      <form onsubmit="return handleFormSubmit(event)">
+      <form name="contact" method="POST" data-netlify="true" action="/thank-you-audit.html">
+        <input type="hidden" name="form-name" value="contact">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -615,7 +648,12 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 Lane Social Co · Las Vegas, NV</div>
-      <div class="footer-social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a></div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/lanesocialco" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener">Threads</a>
+      </div>
     </div>
   </footer>
 
@@ -639,25 +677,7 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Form handler
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        brand: formData.get('brand'),
-        website: formData.get('website'),
-        platforms: formData.getAll('platforms'),
-        interest: formData.get('interest'),
-        message: formData.get('message'),
-        timestamp: new Date().toISOString()
-      };
-      console.log('Form submission:', data);
-      alert('Thanks for reaching out! We'll be in touch within 1 business day.');
-      event.target.reset();
-      return false;
-    }
+    // Form handled by Netlify — no JS needed
   </script>
 
 <!-- MOUSE GLOW -->

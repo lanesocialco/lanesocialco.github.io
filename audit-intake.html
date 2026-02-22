@@ -91,7 +91,7 @@
     }
 
     .logo-fallback {
-      display: flex;
+      display: none !important;
       align-items: center;
       gap: 10px;
       font-size: 14px;
@@ -817,7 +817,8 @@
         </div>
       </div>
 
-      <form id="auditForm">
+      <form id="auditForm" name="audit-intake" data-netlify="true">
+        <input type="hidden" name="form-name" value="audit-intake">
         <!-- Section 1: Your Business -->
         <section class="form-section active" data-section="1">
           <h2>Your Business</h2>
@@ -1042,8 +1043,9 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2025 Lane Social Co. All rights reserved.</span>
       <div class="footer-social">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener" aria-label="Threads">Threads</a>
         <a href="links.html">All Links</a>
       </div>
     </div>
@@ -1124,7 +1126,13 @@
       }
 
       if (currentStep === totalSteps) {
-        // Submit form
+        // Submit form data to Netlify
+        const formData = new FormData(form);
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        }).catch(() => { /* Netlify handles it; ignore fetch errors in dev */ });
         form.style.display = 'none';
         document.querySelector('.form-nav').style.display = 'none';
         document.querySelector('.form-note').style.display = 'none';
