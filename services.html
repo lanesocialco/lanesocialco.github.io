@@ -215,44 +215,59 @@
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
     position: relative; z-index: 1;
   }
-  /* All cards: gray default, dark on hover */
+  /* All cards: default state */
   .included-card {
     background: var(--surface); border-radius: 14px; padding: 36px;
     position: relative; overflow: hidden;
-    transition: background 0.28s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.28s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.28s ease;
     border: 1px solid var(--border);
+    box-shadow: 0 0 0 1px rgba(var(--purple-rgb),0.08), 0 0 24px rgba(var(--purple-rgb),0.06);
   }
   .included-card h3 {
     font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 12px;
     color: var(--text); transition: color 0.28s ease;
+    position: relative; z-index: 1;
   }
   .included-card p {
     font-size: 15px; line-height: 1.65; color: var(--text-sub);
     transition: color 0.28s ease;
+    position: relative; z-index: 1;
   }
   .card-icon {
     width: 48px; height: 48px; border-radius: 12px;
     background: rgba(var(--purple-rgb),0.1); display: flex; align-items: center;
     justify-content: center; margin-bottom: 20px; font-size: 22px;
     transition: background 0.28s ease;
+    position: relative; z-index: 1;
   }
-  /* Hover: all cards go dark like audience targeting was */
-  .included-card:hover {
+  /* Purple glow behind the emoji icon (resting state, subtle) */
+  .included-card::before {
+    content: '';
+    position: absolute; top: -10px; left: -10px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.07) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+    transition: opacity 0.28s ease;
+  }
+  /* Hover: all cards go dark */
+  .included-card:hover,
+  .included-card.featured:hover {
     background: var(--ink);
     transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+    box-shadow: 0 0 0 1px rgba(var(--purple-rgb),0.35), 0 16px 48px rgba(0,0,0,0.28), 0 0 32px rgba(var(--purple-rgb),0.12);
   }
-  .included-card:hover h3 { color: #ffffff; }
-  .included-card:hover p { color: rgba(255,255,255,0.6); }
-  .included-card:hover .card-icon { background: rgba(var(--purple-rgb),0.3); }
-  .included-card:hover::after {
-    content: '';
-    position: absolute; top: -60px; right: -60px;
-    width: 220px; height: 220px;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.32) 0%, transparent 70%);
-    pointer-events: none;
+  .included-card:hover h3,
+  .included-card.featured:hover h3 { color: #ffffff; }
+  .included-card:hover p,
+  .included-card.featured:hover p { color: rgba(255,255,255,0.6); }
+  .included-card:hover .card-icon,
+  .included-card.featured:hover .card-icon { background: rgba(var(--purple-rgb),0.3); }
+  /* Glow behind icon gets stronger on hover */
+  .included-card:hover::before,
+  .included-card.featured:hover::before {
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.4) 0%, transparent 70%);
   }
-  /* Reset featured to match all other cards */
+  /* Reset featured card to match all others */
   .included-card.featured { background: var(--surface); }
   .included-card.featured h3 { color: var(--text); }
   .included-card.featured p { color: var(--text-sub); }
