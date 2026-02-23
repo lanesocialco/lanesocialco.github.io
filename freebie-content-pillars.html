@@ -294,17 +294,16 @@
 
     <div class="opt-in-card">
       <h2>Get the free framework</h2>
-      <form name="freebie-pillars" method="POST" data-netlify="true" action="/thank-you-freebie.html">
-        <input type="hidden" name="form-name" value="freebie-pillars">
+      <form id="kit-pillars-form">
         <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input type="text" id="first_name" placeholder="John" required>
+          <label for="kit-pillars-fname">First Name</label>
+          <input type="text" id="kit-pillars-fname" placeholder="John" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="you@example.com" required>
+          <label for="kit-pillars-email">Email</label>
+          <input type="email" id="kit-pillars-email" placeholder="you@example.com" required>
         </div>
-        <button type="submit" class="submit-btn">Send Me the Framework</button>
+        <button type="submit" class="submit-btn" id="kit-pillars-btn">Send Me the Framework</button>
         <p class="privacy-note">No spam. Unsubscribe anytime.</p>
       </form>
       <p class="expectation-text">You'll get the PDF plus weekly strategy emails from Nate about what actually works.</p>
@@ -337,5 +336,32 @@
   <div id="site-footer"></div>
 
   <script src="assets/site-components.js"></script>
+  <script>
+    (function () {
+      var form  = document.getElementById('kit-pillars-form');
+      var fname = document.getElementById('kit-pillars-fname');
+      var email = document.getElementById('kit-pillars-email');
+      var btn   = document.getElementById('kit-pillars-btn');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var emailVal = (email.value || '').trim();
+        var fnameVal = (fname.value || '').trim();
+        if (!emailVal) return;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        fetch('https://app.kit.com/forms/7052f2e342/subscriptions', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'email_address=' + encodeURIComponent(emailVal) + '&first_name=' + encodeURIComponent(fnameVal)
+        }).then(function () {
+          window.location.href = '/thank-you-freebie.html';
+        }).catch(function () {
+          window.location.href = '/thank-you-freebie.html';
+        });
+      });
+    }());
+  </script>
 </body>
 </html>

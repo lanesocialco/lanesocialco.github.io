@@ -329,17 +329,16 @@
 
     <div class="opt-in-card">
       <h2>Get the free checklist</h2>
-      <form name="freebie-checklist" method="POST" data-netlify="true" action="/thank-you-freebie.html">
-        <input type="hidden" name="form-name" value="freebie-checklist">
+      <form id="kit-checklist-form">
         <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input type="text" id="first_name" placeholder="John" required>
+          <label for="kit-checklist-fname">First Name</label>
+          <input type="text" id="kit-checklist-fname" placeholder="John" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="you@example.com" required>
+          <label for="kit-checklist-email">Email</label>
+          <input type="email" id="kit-checklist-email" placeholder="you@example.com" required>
         </div>
-        <button type="submit" class="submit-btn">Send Me the Checklist</button>
+        <button type="submit" class="submit-btn" id="kit-checklist-btn">Send Me the Checklist</button>
         <p class="privacy-note">No spam. Unsubscribe anytime.</p>
       </form>
       <p class="expectation-text">Check your email for the checklist. We'll also send you weekly strategy tips and product updates.</p>
@@ -370,5 +369,32 @@
   <div id="site-footer"></div>
 
   <script src="assets/site-components.js"></script>
+  <script>
+    (function () {
+      var form  = document.getElementById('kit-checklist-form');
+      var fname = document.getElementById('kit-checklist-fname');
+      var email = document.getElementById('kit-checklist-email');
+      var btn   = document.getElementById('kit-checklist-btn');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var emailVal = (email.value || '').trim();
+        var fnameVal = (fname.value || '').trim();
+        if (!emailVal) return;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        fetch('https://app.kit.com/forms/7052f2e342/subscriptions', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'email_address=' + encodeURIComponent(emailVal) + '&first_name=' + encodeURIComponent(fnameVal)
+        }).then(function () {
+          window.location.href = '/thank-you-freebie.html';
+        }).catch(function () {
+          window.location.href = '/thank-you-freebie.html';
+        });
+      });
+    }());
+  </script>
 </body>
 </html>
