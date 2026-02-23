@@ -115,7 +115,17 @@
     color: var(--text-muted); white-space: nowrap;
     border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px;
   }
-  .freebie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  /* ── MASONRY FREEBIE GRID (Task 4) ──────────────────────── */
+  .freebie-grid {
+    columns: 3;
+    column-gap: 20px;
+  }
+  .freebie-grid .product-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    display: inline-flex;    /* keep internal flex layout, work inside columns */
+    width: 100%;
+  }
 
   /* PRODUCT CARDS */
   .product-card {
@@ -309,7 +319,7 @@
   }
 
   @media (max-width: 1100px) {
-    .freebie-grid { grid-template-columns: repeat(2, 1fr); }
+    .freebie-grid { columns: 2; }
     .featured-product { grid-template-columns: 1fr; }
     .featured-right { max-width: 480px; }
   }
@@ -320,11 +330,214 @@
     .shop-filter { padding: 0 24px; top: 65px; overflow-x: auto; }
     .freebies-section, .paid-section, .email-capture { padding: 60px 24px; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .freebie-grid { grid-template-columns: 1fr; }
+    .freebie-grid { columns: 1; }
     .featured-product { padding: 40px 28px; gap: 40px; }
     .featured-right { max-width: 100%; }
   }
   @media (max-width: 480px) {
+  }
+
+  /* ── QUICK-VIEW DRAWER ───────────────────────────────────── */
+  .drawer-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 900;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s;
+    backdrop-filter: blur(2px);
+  }
+  .drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+  .quick-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 400px; max-width: 95vw;
+    background: var(--bg-alt);
+    border-left: 1px solid var(--border);
+    z-index: 901;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .quick-drawer.open { transform: translateX(0); }
+
+  .drawer-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; background: var(--bg-alt); z-index: 1;
+  }
+  .drawer-header-label {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .drawer-close {
+    background: none; border: none; width: 32px; height: 32px;
+    cursor: pointer; color: var(--text-muted); font-size: 20px; line-height: 1;
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    transition: color 0.15s, background 0.15s;
+  }
+  .drawer-close:hover { color: var(--text); background: var(--surface); }
+
+  .drawer-body { padding: 24px 20px; flex: 1; }
+  .drawer-thumb {
+    width: 100%; aspect-ratio: 5/3;
+    background: var(--surface); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; margin-bottom: 20px; overflow: hidden;
+    background: linear-gradient(135deg, rgba(var(--purple-rgb),0.1) 0%, var(--surface) 100%);
+  }
+  .drawer-tag {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;
+  }
+  .drawer-title {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.3px;
+    color: var(--text); margin-bottom: 12px; line-height: 1.25;
+  }
+  .drawer-desc {
+    font-size: 14px; line-height: 1.65; color: var(--text-sub);
+  }
+
+  .drawer-footer {
+    padding: 16px 20px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 14px;
+    position: sticky; bottom: 0; background: var(--bg-alt);
+  }
+  .drawer-price {
+    font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: var(--text);
+  }
+  .drawer-price.free { color: var(--purple); }
+  .drawer-cta {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--purple); color: #fff;
+    border: none; padding: 13px 20px; border-radius: 8px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    font-family: inherit; text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .drawer-cta:hover { opacity: 0.88; }
+
+  /* Quick-view trigger button on card hover */
+  .product-card { position: relative; }
+  .quick-view-btn {
+    position: absolute; top: 10px; left: 10px;
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px;
+    font-size: 11px; font-weight: 600; padding: 5px 10px;
+    cursor: pointer; font-family: inherit;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 0.15s, transform 0.15s, background 0.15s;
+    z-index: 2;
+  }
+  .product-card:hover .quick-view-btn {
+    opacity: 1; transform: translateY(0);
+  }
+  .quick-view-btn:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+
+  /* ── BUNDLE PULSE + SCARCITY ─────────────────────────────── */
+  @keyframes bundle-pulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(var(--purple-rgb),0.35), 0 0 24px rgba(var(--purple-rgb),0.15); }
+    50%       { box-shadow: 0 0 0 2px rgba(var(--purple-rgb),0.6),  0 0 48px rgba(var(--purple-rgb),0.3); }
+  }
+  .bundle-block { animation: bundle-pulse 2.8s ease-in-out infinite; }
+  .bundle-anchor {
+    font-family: var(--font-mono); font-size: 15px;
+    color: rgba(255,255,255,0.32); text-decoration: line-through;
+    display: block; margin-bottom: 2px;
+  }
+  .bundle-scarcity {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(var(--purple-rgb), 0.85); margin-top: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .scarcity-dot {
+    width: 7px; height: 7px; background: var(--purple);
+    border-radius: 50%; animation: bundle-pulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  /* ── SHOP SEARCH ─────────────────────────────────────────── */
+  .shop-search-wrap {
+    margin-left: auto; padding: 10px 0;
+  }
+  .shop-search-box {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 6px 14px;
+    transition: border-color 0.2s;
+  }
+  .shop-search-box:focus-within { border-color: var(--purple); }
+  .shop-search-icon { color: var(--text-muted); display: flex; align-items: center; }
+  .shop-search-input {
+    background: none; border: none; outline: none;
+    font-family: inherit; font-size: 13px; color: var(--text);
+    width: 180px;
+  }
+  .shop-search-input::placeholder { color: var(--text-muted); }
+  .shop-search-clear {
+    background: none; border: none; cursor: pointer;
+    color: var(--text-muted); font-size: 16px; padding: 0; line-height: 1;
+    display: none;
+  }
+  .shop-search-clear.visible { display: block; }
+
+  /* Search spotlight overlay */
+  .search-spotlight {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 80; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+  .search-spotlight.active { opacity: 1; }
+
+  /* ── FORMAT TOOLTIPS (Task 2) ───────────────────────────── */
+  .thumb-icon {
+    position: relative;
+  }
+  .thumb-icon[data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.88);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 5px 11px;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s;
+    z-index: 10;
+  }
+  .thumb-icon[data-tip]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 3px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0,0,0,0.88);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s;
+    z-index: 10;
+  }
+  .thumb-icon[data-tip]:hover::after,
+  .thumb-icon[data-tip]:hover::before { opacity: 1; }
+
+  /* Cards that don't match search */
+  .product-card.search-no-match { opacity: 0.2; transition: opacity 0.2s; }
+  /* Cards that DO match — float above the spotlight */
+  .product-card.search-match {
+    position: relative; z-index: 81;
+    box-shadow: 0 0 0 2px var(--purple), 0 16px 48px rgba(0,0,0,0.28);
+    transform: translateY(-4px);
+    opacity: 1 !important;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   }
 </style>
 <!-- Structured Data -->
@@ -386,6 +599,15 @@
   <button class="filter-btn active" onclick="filterShop('all', this)">All</button>
   <button class="filter-btn" onclick="filterShop('free', this)">Free Resources</button>
   <button class="filter-btn" onclick="filterShop('paid', this)">Paid Products</button>
+  <div class="shop-search-wrap">
+    <div class="shop-search-box">
+      <span class="shop-search-icon" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </span>
+      <input type="search" id="shop-search-input" class="shop-search-input" placeholder='Try "calendar"…' autocomplete="off" aria-label="Search products">
+      <button class="shop-search-clear" id="shop-search-clear" aria-label="Clear search" tabindex="-1">×</button>
+    </div>
+  </div>
 </div>
 
 <!-- FREEBIES -->
@@ -403,7 +625,7 @@
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, rgba(123,47,255,0.12) 0%, var(--bg-alt) 100%);">
         <div class="thumb-glow"></div>
-        <span class="thumb-icon">📱</span>
+        <span class="thumb-icon" data-tip="Interactive self-audit tool · browser-based">📱</span>
         <span class="thumb-label">Interactive tool</span>
         <span class="free-badge">FREE</span>
       </div>
@@ -420,7 +642,7 @@
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
         <div class="thumb-glow"></div>
-        <span class="thumb-icon">📋</span>
+        <span class="thumb-icon" data-tip="PDF — 2 pages · printable checklist">📋</span>
         <span class="thumb-label">PDF · 2 pages</span>
         <span class="free-badge">FREE</span>
       </div>
@@ -437,7 +659,7 @@
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
         <div class="thumb-glow"></div>
-        <span class="thumb-icon">🎯</span>
+        <span class="thumb-icon" data-tip="PDF workbook — guided exercises · printable">🎯</span>
         <span class="thumb-label">PDF · Workbook</span>
         <span class="free-badge">FREE</span>
       </div>
@@ -454,7 +676,7 @@
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
         <div class="thumb-glow"></div>
-        <span class="thumb-icon">📅</span>
+        <span class="thumb-icon" data-tip="PDF template — printable &amp; editable calendar">📅</span>
         <span class="thumb-label">PDF · Template</span>
         <span class="free-badge">FREE</span>
       </div>
@@ -471,7 +693,7 @@
     <div class="product-card" data-type="free">
       <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
         <div class="thumb-glow"></div>
-        <span class="thumb-icon">✍️</span>
+        <span class="thumb-icon" data-tip="PDF cheat sheet — 1-page quick reference">✍️</span>
         <span class="thumb-label">PDF · Cheat sheet</span>
         <span class="free-badge">FREE</span>
       </div>
@@ -551,18 +773,23 @@
     </div>
   </div>
 
-  <!-- BUNDLE -->
-  <div style="background: var(--ink); border-radius: 20px; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; border: 1px solid rgba(123,47,255,0.3);" data-type="paid">
-    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(123,47,255,0.25) 0%,transparent 70%);pointer-events:none;"></div>
+  <!-- BUNDLE (pulse + price anchor + scarcity) -->
+  <div class="bundle-block" style="background: var(--ink); border-radius: 20px; padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; border: 1px solid rgba(var(--purple-rgb),0.35);" data-type="paid">
+    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(var(--purple-rgb),0.25) 0%,transparent 70%);pointer-events:none;"></div>
     <div style="position:relative;">
       <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Best value · save $44</div>
       <h3 style="font-size:clamp(24px,3.5vw,36px);font-weight:800;letter-spacing:-0.8px;color:#fff;margin-bottom:10px;">Audit + Strategy Bundle</h3>
       <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.6;max-width:500px;">Get both products together. The audit shows what's broken right now. The strategy shows where to go next. Together, they're the complete picture — and you save $44.</p>
+      <div class="bundle-scarcity">
+        <span class="scarcity-dot"></span>
+        Only 3 audits available this week
+      </div>
     </div>
     <div style="position:relative;text-align:center;flex-shrink:0;">
+      <span class="bundle-anchor">$194</span>
       <div style="font-size:64px;font-weight:800;letter-spacing:-2px;color:#fff;line-height:1;">$150</div>
-      <div style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px;">both products · $194 value</div>
-      <a href="product-bundle.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 20px rgba(123,47,255,0.4);">Get the bundle →</a>
+      <div style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px;">both products · one-time payment</div>
+      <a href="product-bundle.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 20px rgba(var(--purple-rgb),0.4);">Get the bundle →</a>
     </div>
   </div>
 </section>
@@ -583,23 +810,165 @@
 <!-- FOOTER -->
 <div id="site-footer"></div>
 
+<!-- QUICK-VIEW DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" role="presentation"></div>
+<aside class="quick-drawer" id="quick-drawer" role="dialog" aria-modal="true" aria-label="Product quick view">
+  <div class="drawer-header">
+    <span class="drawer-header-label">Quick view</span>
+    <button class="drawer-close" id="drawer-close" aria-label="Close quick view">×</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-thumb" id="drawer-thumb" aria-hidden="true"></div>
+    <div class="drawer-tag" id="drawer-tag"></div>
+    <div class="drawer-title" id="drawer-title"></div>
+    <div class="drawer-desc"  id="drawer-desc"></div>
+  </div>
+  <div class="drawer-footer">
+    <div class="drawer-price" id="drawer-price"></div>
+    <a href="#" class="drawer-cta" id="drawer-cta">Get it free →</a>
+  </div>
+</aside>
+
+<!-- SEARCH SPOTLIGHT OVERLAY -->
+<div class="search-spotlight" id="search-spotlight" aria-hidden="true"></div>
+
 <script>
+  /* ── LIVE FILTER COUNTS (Task 3) ─────────────────────────── */
+  (function () {
+    'use strict';
+    var freeCount = document.querySelectorAll('[data-type="free"]').length;
+    var paidCount = document.querySelectorAll('[data-type="paid"]').length;
+    var total     = freeCount + paidCount;
+    var btns = document.querySelectorAll('.filter-btn');
+    if (btns[0]) btns[0].textContent = 'All (' + total + ')';
+    if (btns[1]) btns[1].textContent = 'Free Resources (' + freeCount + ')';
+    if (btns[2]) btns[2].textContent = 'Paid Products (' + paidCount + ')';
+  }());
+
+  /* ── FILTER ───────────────────────────────────────────────── */
   function filterShop(type, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
     btn.classList.add('active');
-    const freeSection = document.getElementById('section-free');
-    const paidSection = document.getElementById('section-paid');
-    if (type === 'all') {
-      freeSection.style.display = '';
-      paidSection.style.display = '';
-    } else if (type === 'free') {
-      freeSection.style.display = '';
-      paidSection.style.display = 'none';
-    } else {
-      freeSection.style.display = 'none';
-      paidSection.style.display = '';
-    }
+    var freeSection = document.getElementById('section-free');
+    var paidSection = document.getElementById('section-paid');
+    if (type === 'all')  { freeSection.style.display = ''; paidSection.style.display = ''; }
+    else if (type === 'free') { freeSection.style.display = ''; paidSection.style.display = 'none'; }
+    else { freeSection.style.display = 'none'; paidSection.style.display = ''; }
   }
+
+  /* ── QUICK-VIEW DRAWER ────────────────────────────────────── */
+  (function () {
+    'use strict';
+
+    var overlay   = document.getElementById('drawer-overlay');
+    var drawer    = document.getElementById('quick-drawer');
+    var closeBtn  = document.getElementById('drawer-close');
+    var thumbEl   = document.getElementById('drawer-thumb');
+    var tagEl     = document.getElementById('drawer-tag');
+    var titleEl   = document.getElementById('drawer-title');
+    var descEl    = document.getElementById('drawer-desc');
+    var priceEl   = document.getElementById('drawer-price');
+    var ctaEl     = document.getElementById('drawer-cta');
+
+    function openDrawer(card) {
+      var icon  = (card.querySelector('.thumb-icon') || {}).textContent || '📦';
+      var tag   = (card.querySelector('.thumb-label') || {}).textContent || '';
+      var title = (card.querySelector('h3') || {}).textContent || '';
+      var desc  = (card.querySelector('p') || {}).textContent || '';
+      var price = (card.querySelector('.product-price') || {}).textContent || '';
+      var ctaEl2 = card.querySelector('.btn-card');
+      var href  = ctaEl2 ? ctaEl2.getAttribute('href') : '#';
+      var ctaTxt = ctaEl2 ? ctaEl2.textContent.trim() : 'Get it →';
+      var isFree = card.querySelector('.free-badge') !== null;
+
+      thumbEl.textContent = icon;
+      tagEl.textContent   = tag;
+      titleEl.textContent = title;
+      descEl.textContent  = desc;
+      priceEl.textContent = price;
+      priceEl.className   = 'drawer-price' + (isFree ? ' free' : '');
+      ctaEl.textContent   = ctaTxt;
+      ctaEl.href          = href;
+
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* Inject "Quick view" button into each product card */
+    document.querySelectorAll('.product-card').forEach(function (card) {
+      var btn = document.createElement('button');
+      btn.className   = 'quick-view-btn';
+      btn.textContent = 'Quick view';
+      btn.setAttribute('aria-label', 'Quick view product');
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openDrawer(card);
+      });
+      card.appendChild(btn);
+    });
+
+    overlay.addEventListener('click', closeDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+  }());
+
+  /* ── AUTOCOMPLETE SEARCH (spotlight) ─────────────────────── */
+  (function () {
+    'use strict';
+
+    var input      = document.getElementById('shop-search-input');
+    var clearBtn   = document.getElementById('shop-search-clear');
+    var spotlight  = document.getElementById('search-spotlight');
+    var cards      = document.querySelectorAll('.product-card');
+
+    function reset() {
+      cards.forEach(function (c) { c.classList.remove('search-match', 'search-no-match'); });
+      spotlight.classList.remove('active');
+      clearBtn.classList.remove('visible');
+    }
+
+    function search(q) {
+      clearBtn.classList.toggle('visible', q.length > 0);
+      if (!q) { reset(); return; }
+
+      var hasMatch = false;
+      cards.forEach(function (c) {
+        var title = (c.querySelector('h3') || {}).textContent || '';
+        var desc  = (c.querySelector('p')  || {}).textContent || '';
+        var match = (title + ' ' + desc).toLowerCase().includes(q.toLowerCase());
+        c.classList.toggle('search-match',    match);
+        c.classList.toggle('search-no-match', !match);
+        if (match) hasMatch = true;
+      });
+
+      spotlight.classList.toggle('active', hasMatch);
+    }
+
+    input.addEventListener('input', function () { search(input.value.trim()); });
+
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      reset();
+      input.focus();
+    });
+
+    /* Dismiss spotlight when clicking outside a matched card */
+    spotlight.addEventListener('click', function () {
+      input.value = '';
+      reset();
+    });
+  }());
 </script>
 
 <script src="assets/site-components.js"></script>

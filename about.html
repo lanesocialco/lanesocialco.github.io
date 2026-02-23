@@ -245,6 +245,39 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* ── FLOATING VIOLET ORBS ─────────────────────────── */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--purple-rgb), 0.18) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes drift1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.05); }
+    66% { transform: translate(-25px, 40px) scale(0.97); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(-50px, 25px) scale(1.08); }
+    70% { transform: translate(30px, -40px) scale(0.95); }
+  }
+  @keyframes drift3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(35px, 50px) scale(1.1); }
+  }
+  @keyframes drift4 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    30% { transform: translate(60px, -20px) scale(0.93); }
+    70% { transform: translate(-30px, 30px) scale(1.06); }
+  }
+  .orb-1 { width: 400px; height: 400px; top: -80px; left: -100px; animation: drift1 18s ease-in-out infinite; }
+  .orb-2 { width: 300px; height: 300px; top: 60px; right: -60px; animation: drift2 22s ease-in-out infinite; opacity: 0.7; }
+  .orb-3 { width: 250px; height: 250px; bottom: -40px; left: 40%; animation: drift3 25s ease-in-out infinite; opacity: 0.6; }
+  .orb-4 { width: 200px; height: 200px; bottom: 80px; right: 30%; animation: drift4 20s ease-in-out infinite; opacity: 0.5; }
+
   @media (max-width: 900px) {
     .about-hero { grid-template-columns: 1fr; padding: 110px 24px 60px; gap: 48px; }
     .photo-block { order: -1; }
@@ -258,6 +291,139 @@
   }
   @media (max-width: 480px) {
   }
+
+  /* ── MY JOURNEY TIMELINE ──────────────────────────────── */
+  .journey { padding: 100px 48px; background: var(--bg-alt); }
+  .journey h2 {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+    letter-spacing: -1.2px; margin-bottom: 60px;
+    color: var(--text); max-width: 600px;
+  }
+  .journey-line-wrap {
+    position: relative;
+    display: flex; flex-direction: column;
+    padding-left: 40px; max-width: 680px;
+  }
+  /* Vertical track (background line) */
+  .journey-track {
+    position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px;
+    background: var(--border);
+  }
+  /* Scroll-driven fill bar */
+  .journey-fill {
+    position: absolute; left: 6px; top: 8px; width: 2px; height: 0%;
+    background: var(--purple); transition: height 0.08s linear;
+    border-radius: 0 0 2px 2px;
+  }
+  .journey-item { position: relative; padding-bottom: 52px; }
+  .journey-item:last-child { padding-bottom: 0; }
+  /* Dot connector */
+  .journey-dot {
+    position: absolute; left: -34px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--border); border: 3px solid var(--bg-alt);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .journey-dot.active {
+    background: var(--purple);
+    box-shadow: 0 0 0 4px rgba(var(--purple-rgb), 0.18);
+  }
+  .journey-year {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--purple); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 6px; display: block;
+  }
+  .journey-item h3 {
+    font-size: 18px; font-weight: 700; color: var(--text);
+    margin-bottom: 6px; letter-spacing: -0.3px;
+  }
+  .journey-item p { font-size: 15px; color: var(--text-sub); line-height: 1.65; }
+
+  /* ── CLICK-TO-COPY EMAIL ──────────────────────────────── */
+  .email-copy-wrap { margin-top: 24px; position: relative; }
+  .email-copy-btn {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    cursor: pointer; font-family: 'DM Mono', monospace; font-size: 13px;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.06em;
+    padding: 8px 18px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .email-copy-btn:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+  .email-copy-btn.copied { color: var(--purple); border-color: rgba(var(--purple-rgb),0.5); background: rgba(var(--purple-rgb),0.1); }
+  .email-copy-label { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+  @media (max-width: 900px) {
+    .journey { padding: 80px 24px; }
+    .journey-line-wrap { padding-left: 32px; }
+    .journey-dot { left: -26px; }
+  }
+
+  /* ── BEHIND THE WORK GALLERY ────────────────────────── */
+  .btw-section {
+    padding: 100px 48px;
+    background: var(--bg);
+  }
+  .btw-section h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800; letter-spacing: -1.2px;
+    margin-bottom: 12px; color: var(--text);
+  }
+  .btw-intro {
+    font-size: 17px; color: var(--text-sub);
+    line-height: 1.65; max-width: 520px; margin-bottom: 48px;
+  }
+  .btw-grid {
+    columns: 3;
+    column-gap: 16px;
+  }
+  .btw-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+  }
+  .btw-placeholder {
+    width: 100%;
+    background: var(--surface);
+    filter: grayscale(100%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .btw-item:nth-child(1) .btw-placeholder { aspect-ratio: 4/5; }
+  .btw-item:nth-child(2) .btw-placeholder { aspect-ratio: 1/1; }
+  .btw-item:nth-child(3) .btw-placeholder { aspect-ratio: 3/4; }
+  .btw-item:nth-child(4) .btw-placeholder { aspect-ratio: 16/9; }
+  .btw-item:nth-child(5) .btw-placeholder { aspect-ratio: 4/3; }
+  .btw-item:nth-child(6) .btw-placeholder { aspect-ratio: 1/1; }
+  .btw-placeholder-icon { font-size: 36px; opacity: 0.25; }
+  .btw-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 28px 16px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.78));
+    transform: translateY(100%);
+    transition: transform 0.32s ease;
+    border-radius: 0 0 12px 12px;
+  }
+  .btw-caption span {
+    font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+    display: block; line-height: 1.5;
+  }
+  .btw-item:hover .btw-placeholder { filter: grayscale(0%); transform: scale(1.02); }
+  .btw-item:hover .btw-caption { transform: translateY(0); }
+  @media (max-width: 900px) { .btw-grid { columns: 2; } }
+  @media (max-width: 580px) { .btw-grid { columns: 1; } .btw-section { padding: 80px 24px; } }
 </style>
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -284,6 +450,10 @@
 
 <!-- ABOUT HERO -->
 <section class="about-hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
   <div class="hero-glow"></div>
   <div class="about-hero-left">
     <div class="section-label">About Lane Social Co</div>
@@ -346,9 +516,61 @@
 
       <p>Lane Social Co was built to cut through that. <strong>We started with a simple idea: what if someone just looked at your social presence, told you the truth, and gave you a clear list of what to do?</strong> No fluff. No vague strategy. No ongoing commitment unless you want one.</p>
 
-      <p>The results we've gotten for clients — 12,000 followers in 15 days, two million interactions in a single month, a million accounts reached — didn't come from magic. They came from actually understanding where an audience lives, what makes them stop scrolling, and what makes them trust a brand enough to follow it.</p>
+      <p>The results we've gotten for clients — 12,000 followers in 15 days, <strong>2 Million+ total interactions in 30 days</strong>, a million accounts reached — didn't come from magic. They came from actually understanding where an audience lives, what makes them stop scrolling, and what makes them trust a brand enough to follow it.</p>
 
       <p>We're based in Las Vegas, but we work with businesses everywhere. The problems are usually the same regardless of where you are or what you're selling. And the fixes, once you know what they are, tend to be simpler than you'd expect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MY JOURNEY TIMELINE -->
+<section class="journey" id="journey-section">
+  <div class="section-label">My journey</div>
+  <h2>How we got here.</h2>
+  <div class="journey-line-wrap" id="journey-wrap">
+    <div class="journey-track"></div>
+    <div class="journey-fill" id="journey-fill"></div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="0"></div>
+      <span class="journey-year">2018</span>
+      <h3>First client, first revelation</h3>
+      <p>Took on a local business that was posting every day and going nowhere. That's when I realized the problem wasn't effort — it was that nobody had ever given them an honest review of what was actually working.</p>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="1"></div>
+      <span class="journey-year">2020</span>
+      <h3>The restaurant that changed everything</h3>
+      <p>Built a Las Vegas restaurant's account from 800 to 12,800 followers in 15 days. The playbook that emerged from that engagement became the backbone of every audit we do today.</p>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="2"></div>
+      <span class="journey-year">2021</span>
+      <h3>2 Million+ total interactions in one month</h3>
+      <p>A content strategy hit its stride. A million accounts reached. Engagement numbers that made us rethink what was actually possible for small businesses on social media — without paid ads.</p>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="3"></div>
+      <span class="journey-year">2022</span>
+      <h3>Formalizing the audit process</h3>
+      <p>After seeing the same fixable mistakes repeated across dozens of accounts, I built a repeatable review process: scored, written, actionable. No more guessing what was broken.</p>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="4"></div>
+      <span class="journey-year">2024</span>
+      <h3>Launched Lane Social Co</h3>
+      <p>Moved from freelance to a proper service: done-for-you audits, strategy sessions, and digital products. The goal was to make an expert review affordable for any small business.</p>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot" data-index="5"></div>
+      <span class="journey-year">Now</span>
+      <h3>Still doing it one client at a time</h3>
+      <p>Every audit is still reviewed by me. No outsourcing, no automated reports, no templates. Just an honest look at your accounts and a clear list of what to do next.</p>
     </div>
   </div>
 </section>
@@ -405,6 +627,39 @@
   </div>
 </section>
 
+<!-- BEHIND THE WORK GALLERY -->
+<section class="btw-section">
+  <div class="section-label">Behind the scenes</div>
+  <h2>Behind the work.</h2>
+  <p class="btw-intro">Not every moment makes it to a case study. Here's a look at how the work actually gets done.</p>
+  <div class="btw-grid">
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>Strategy session prep — client onboarding</span></div>
+    </div>
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>Audit in progress — competitor analysis deep dive</span></div>
+    </div>
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>Content framework build — pillar mapping session</span></div>
+    </div>
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>Day one of the Las Vegas restaurant campaign</span></div>
+    </div>
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>12K followers — hitting the milestone</span></div>
+    </div>
+    <div class="btw-item">
+      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
+      <div class="btw-caption"><span>Working remotely from Las Vegas — the usual view</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="about-cta">
   <h2>Ready to get<br>a real <em>answer?</em></h2>
@@ -413,10 +668,89 @@
     Get your social audit
     <span class="price">$97</span>
   </a>
+  <div class="email-copy-wrap">
+    <span class="email-copy-label">Or reach out directly</span>
+    <button class="email-copy-btn" id="email-copy-btn" aria-label="Copy email address">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      hello@lanesocialco.com
+    </button>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <div id="site-footer"></div>
+
+<script>
+  /* ── JOURNEY SCROLL-FILL TIMELINE ───────────────────────── */
+  (function () {
+    'use strict';
+    var wrap    = document.getElementById('journey-wrap');
+    var fill    = document.getElementById('journey-fill');
+    var dots    = wrap ? wrap.querySelectorAll('.journey-dot') : [];
+    var ticking = false;
+
+    function update() {
+      if (!wrap || !fill) return;
+      var rect     = wrap.getBoundingClientRect();
+      var viewH    = window.innerHeight;
+      /* How far down the section we've scrolled — 0..1 */
+      var entered  = Math.max(0, viewH - rect.top);
+      var pct      = Math.min(100, (entered / rect.height) * 100);
+      fill.style.height = pct + '%';
+
+      /* Activate dots as fill passes them */
+      dots.forEach(function (dot) {
+        var dotRect = dot.getBoundingClientRect();
+        var dotPct  = ((dotRect.top - rect.top) / rect.height) * 100;
+        if (pct >= dotPct + 5) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }, { passive: true });
+
+    update(); /* Run once on load in case section is visible */
+  }());
+
+  /* ── CLICK-TO-COPY EMAIL ────────────────────────────────── */
+  (function () {
+    'use strict';
+    var btn   = document.getElementById('email-copy-btn');
+    var EMAIL = 'hello@lanesocialco.com';
+    if (!btn) return;
+
+    btn.addEventListener('click', function () {
+      if (navigator.vibrate) { navigator.vibrate(50); }
+      navigator.clipboard.writeText(EMAIL).then(function () {
+        btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> ' + EMAIL;
+          btn.classList.remove('copied');
+        }, 2500);
+      }).catch(function () {
+        /* Fallback for browsers without clipboard API */
+        var ta = document.createElement('textarea');
+        ta.value = EMAIL; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = EMAIL; btn.classList.remove('copied');
+        }, 2500);
+      });
+    });
+  }());
+</script>
 
 <script src="assets/site-components.js"></script>
 

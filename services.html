@@ -338,6 +338,162 @@
   @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── FEATURE 1: SIX PILLARS HOVER REVEAL ────────────────── */
+  /* Default: hide paragraph; show only icon + title */
+  .included-card p {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    /* Slot into the existing color transition */
+    transition: max-height 0.38s ease, opacity 0.28s ease, color 0.28s ease;
+  }
+  /* Hover: reveal the description */
+  .included-card:hover p,
+  .included-card.featured:hover p {
+    max-height: 160px;
+    opacity: 1;
+    margin-top: 10px;
+  }
+
+  /* ── FEATURE 2: CHECKLIST SCALING ON MOBILE (+25%) ────────── */
+  @media (max-width: 600px) {
+    .audit-check {
+      font-size: 17.5px;   /* 14 × 1.25 */
+      gap: 14px;
+    }
+    .check-icon {
+      width: 27.5px;       /* 22 × 1.25 */
+      height: 27.5px;
+      font-size: 13.75px;  /* 11 × 1.25 */
+      border-radius: 7px;
+    }
+    .card-price-tag { font-size: 24px; }
+  }
+
+  /* ── FEATURE 3: MOBILE URGENCY BAR ──────────────────────── */
+  .mobile-urgency-bar {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 999;
+    background: var(--purple);
+    border-top: none;
+    padding: 14px 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transform: translateY(0);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .mobile-urgency-bar.bar-hidden {
+    transform: translateY(100%);
+    pointer-events: none;
+  }
+  .urgency-label { flex: 1; }
+  .urgency-price {
+    font-size: 20px; font-weight: 800; color: #ffffff;
+    letter-spacing: -0.4px; line-height: 1.1;
+  }
+  .urgency-sub {
+    font-family: var(--font-mono); font-size: 10px;
+    color: rgba(255,255,255,0.65); letter-spacing: 0.05em;
+  }
+  .urgency-btn {
+    display: inline-flex; align-items: center;
+    background: #ffffff; color: var(--purple);
+    border: none; padding: 11px 20px;
+    border-radius: 8px; font-size: 14px; font-weight: 700;
+    cursor: pointer; font-family: inherit; text-decoration: none;
+    white-space: nowrap; flex-shrink: 0;
+    transition: opacity 0.15s;
+  }
+  .urgency-btn:hover { opacity: 0.88; }
+  .urgency-close {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.7); font-size: 22px; line-height: 1;
+    padding: 4px 6px; flex-shrink: 0;
+    transition: color 0.15s;
+  }
+  .urgency-close:hover { color: #ffffff; }
+  @media (max-width: 768px) {
+    .mobile-urgency-bar { display: flex; }
+    /* Push content above fixed bar */
+    #site-footer { padding-bottom: 68px; }
+  }
+
+  /* ── FEATURE 4: SUCCESS SIDEBAR ─────────────────────────── */
+  .price-social-proof {
+    margin-top: 20px;
+    background: rgba(var(--purple-rgb), 0.09);
+    border: 1px solid rgba(var(--purple-rgb), 0.22);
+    border-radius: 14px;
+    padding: 22px 26px;
+  }
+  .proof-eyebrow {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: rgba(var(--purple-rgb), 0.75);
+    margin-bottom: 10px;
+    /* rgba with custom property works in all modern browsers */
+    color: rgba(var(--purple-rgb), 0.75);
+  }
+  .proof-stat {
+    font-size: 38px; font-weight: 800; color: var(--purple);
+    letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px;
+  }
+  .proof-metric {
+    font-family: var(--font-mono); font-size: 12px;
+    color: rgba(255,255,255,0.45); margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .proof-desc {
+    font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.55;
+  }
+  .proof-divider {
+    height: 1px; background: rgba(255,255,255,0.08); margin: 12px 0;
+  }
+  .proof-attribution {
+    font-family: var(--font-mono); font-size: 10px;
+    color: rgba(255,255,255,0.3); letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── FEATURE 5: EXPANDABLE FAQ ───────────────────────────── */
+  .faq-more {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .faq-more.expanded { display: grid; }
+  @media (max-width: 900px) {
+    .faq-more { grid-template-columns: 1fr; }
+  }
+  .faq-toggle-wrap {
+    text-align: center;
+    margin-top: 36px;
+  }
+  .faq-toggle-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .faq-toggle-btn:hover {
+    background: var(--purple); border-color: var(--purple); color: #fff;
+  }
+  .faq-toggle-chevron {
+    display: inline-block; transition: transform 0.25s ease;
+    font-style: normal;
+  }
+  .faq-toggle-btn.open .faq-toggle-chevron { transform: rotate(180deg); }
 </style>
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -496,6 +652,20 @@
         <a href="#" class="btn-white">Get your audit →</a>
         <div class="price-note">No subscription. No retainer. Just clarity.</div>
       </div>
+
+      <!-- FEATURE 4: Success Sidebar -->
+      <div class="price-social-proof" role="complementary" aria-label="Client result spotlight">
+        <div class="proof-eyebrow">Real client result</div>
+        <div class="proof-stat">+113,541%</div>
+        <div class="proof-metric">share increase · TikTok · 30 days</div>
+        <div class="proof-divider"></div>
+        <div class="proof-desc">
+          One post. 13,000+ shares. This client's account had been stuck for months
+          before the audit identified a single positioning shift that changed everything.
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-attribution">Audit client · service industry · Las Vegas</div>
+      </div>
     </div>
   </div>
 </section>
@@ -521,6 +691,10 @@
       <div class="faq-q">Do I get a call or is it all written?</div>
       <div class="faq-a">The $97 audit is a written report delivered to your inbox. It's thorough enough that most people don't need a call — but if you want to talk through the findings, we can arrange that separately.</div>
     </div>
+  </div>
+
+  <!-- FEATURE 5: Additional FAQs (hidden by default) -->
+  <div class="faq-more" id="faq-more" aria-hidden="true">
     <div class="faq-item">
       <div class="faq-q">What do I need to share with you?</div>
       <div class="faq-a">Just your public-facing profiles and some context about your business goals. You don't need to give us account access — everything we need is on the public side of your profiles. The intake form walks you through exactly what to share.</div>
@@ -529,6 +703,38 @@
       <div class="faq-q">Is this right for personal brands or just businesses?</div>
       <div class="faq-a">Both. We've audited accounts for local businesses, content creators, consultants, entertainers, and coaches. If you have a presence you're trying to grow, the audit works regardless of what you're selling or who you are.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the ROI if I actually implement the audit?</div>
+      <div class="faq-a">One new client or customer from clearer positioning more than covers the $97 — by a wide margin. Most business owners who implement even three or four of the recommendations see measurable improvement in engagement or inbound inquiries within 30–60 days. We can't guarantee results, but we can guarantee the recommendations are specific and actionable.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is this different from just running analytics tools myself?</div>
+      <div class="faq-a">Tools like Sprout Social, Later, or native analytics show you numbers. We tell you what those numbers mean for your specific business and what to actually do next. Data is easy to pull — knowing what it's telling you is the hard part. That's what we do.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I've hired social media managers before. Why would this be different?</div>
+      <div class="faq-a">An audit isn't management — it's diagnosis. If you've had social media help before that didn't move the needle, it's usually because no one started with a clear picture of what was actually wrong. This does that. You can take the report to any manager, in-house or freelance, and they'll have an actual roadmap to follow.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I'm already doing "pretty well" on social?</div>
+      <div class="faq-a">Then we'll show you where the ceiling is and how to push through it. "Pretty well" usually means hitting a plateau — and most audits on accounts that feel healthy still surface three to five significant opportunities that were being left on the table. Growth rarely stops because things are working; it stops because people run out of new ideas.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I share the report with my team or VA?</div>
+      <div class="faq-a">Yes — the report is yours to use however you need. Share it with your team, your assistant, your marketing person, or your agency. There are no restrictions. In fact, audits are most effective when the person doing the implementation has actually read the report.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I want help implementing the recommendations after I get the report?</div>
+      <div class="faq-a">If you want ongoing help after the audit, reach out directly through the contact page. Some clients continue working with us after; some take the report and run with it on their own. There's no pressure in either direction — the audit is designed to be self-contained and actionable without any follow-up required.</div>
+    </div>
+  </div>
+
+  <!-- See More toggle -->
+  <div class="faq-toggle-wrap">
+    <button class="faq-toggle-btn" id="faq-toggle" aria-expanded="false" aria-controls="faq-more">
+      See more questions
+      <em class="faq-toggle-chevron" aria-hidden="true">↓</em>
+    </button>
   </div>
 </section>
 
@@ -546,6 +752,74 @@
 
 <!-- FOOTER -->
 <div id="site-footer"></div>
+
+<!-- FEATURE 3: Mobile Urgency Bar -->
+<div class="mobile-urgency-bar" id="mobile-urgency-bar" role="complementary" aria-label="Quick purchase">
+  <div class="urgency-label">
+    <div class="urgency-price">$97</div>
+    <div class="urgency-sub">Social Media Audit · 7-day delivery</div>
+  </div>
+  <a href="audit-intake.html" class="urgency-btn">Get Your Audit →</a>
+  <button class="urgency-close" id="urgency-close" aria-label="Dismiss">×</button>
+</div>
+
+<script>
+  /* ── FAQ TOGGLE (Feature 5) ────────────────────────────── */
+  (function () {
+    'use strict';
+    var btn  = document.getElementById('faq-toggle');
+    var more = document.getElementById('faq-more');
+    if (!btn || !more) return;
+
+    btn.addEventListener('click', function () {
+      var isOpen = more.classList.contains('expanded');
+      more.classList.toggle('expanded', !isOpen);
+      more.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      btn.classList.toggle('open', !isOpen);
+      btn.childNodes[0].textContent = isOpen ? 'See more questions ' : 'Show less ';
+      /* Smooth-scroll back to FAQ heading when collapsing */
+      if (isOpen) {
+        var faqEl = document.getElementById('faq');
+        if (faqEl) faqEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }());
+
+  /* ── MOBILE URGENCY BAR (Feature 3) ───────────────────── */
+  (function () {
+    'use strict';
+    var bar       = document.getElementById('mobile-urgency-bar');
+    var closeBtn  = document.getElementById('urgency-close');
+    var priceEl   = document.getElementById('get-audit');
+    if (!bar) return;
+
+    var dismissed = false;
+    var ticking   = false;
+
+    /* Close button: dismiss permanently for the session */
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        dismissed = true;
+        bar.classList.add('bar-hidden');
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (dismissed || ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        /* Hide bar when price block is in viewport (user can see the real CTA) */
+        if (priceEl) {
+          var rect = priceEl.getBoundingClientRect();
+          var inView = rect.top < window.innerHeight && rect.bottom > 0;
+          bar.classList.toggle('bar-hidden', inView);
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+  }());
+</script>
 
 <script src="assets/site-components.js"></script>
 </body>

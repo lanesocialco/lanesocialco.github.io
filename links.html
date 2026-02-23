@@ -193,6 +193,74 @@
         padding: 10px 12px;
       }
     }
+
+    /* ── Task 1: Audit card pulse ─────────────────────────── */
+    @keyframes auditPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(123,46,255,0.7); }
+      70%  { box-shadow: 0 0 0 12px rgba(123,46,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(123,46,255,0); }
+    }
+    .link-card-audit {
+      animation: auditPulse 2s ease-out infinite;
+    }
+
+    /* ── Task 4: Inline freebie capture ───────────────────── */
+    .freebie-capture {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(var(--purple-rgb), 0.08);
+      border: 1px solid rgba(var(--purple-rgb), 0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: left;
+    }
+    .freebie-capture-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .freebie-capture-form {
+      display: flex;
+      gap: 8px;
+    }
+    .freebie-input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: var(--ink-text);
+      font-size: 14px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .freebie-input:focus { border-color: var(--purple); }
+    .freebie-input::placeholder { color: rgba(255,255,255,0.35); }
+    .freebie-btn {
+      padding: 10px 16px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .freebie-btn:hover { opacity: 0.85; }
+    .freebie-success {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-top: 8px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -207,7 +275,7 @@
     </div>
 
     <div class="links-cards">
-      <a href="services.html" class="link-card">
+      <a href="services.html" class="link-card link-card-audit">
         <span class="link-card-emoji">🔍</span>
         <span class="link-card-text">Get your $97 Social Media Audit</span>
       </a>
@@ -215,6 +283,15 @@
         <span class="link-card-emoji">🆓</span>
         <span class="link-card-text">Free Resources & Downloads</span>
       </a>
+      <!-- Inline freebie capture -->
+      <div class="freebie-capture">
+        <span class="freebie-capture-label">📬 Get the free TikTok Hooks Guide — no page load needed.</span>
+        <form class="freebie-capture-form" id="freebieForm">
+          <input type="email" class="freebie-input" placeholder="Your email" required>
+          <button type="submit" class="freebie-btn">Get It Free →</button>
+        </form>
+        <p class="freebie-success" id="freebieSuccess" style="display:none;">Check your inbox! 🎉</p>
+      </div>
       <a href="blog.html" class="link-card">
         <span class="link-card-emoji">📖</span>
         <span class="link-card-text">Read the Blog</span>
@@ -239,6 +316,29 @@
       © 2025 Lane Social Co
     </div>
   </div>
+
+  <script>
+    /* Task 3 — Haptic feedback on all link buttons */
+    (function () {
+      document.querySelectorAll('.link-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          if (navigator.vibrate) navigator.vibrate(40);
+        });
+      });
+    }());
+
+    /* Task 4 — Inline freebie form submit */
+    (function () {
+      var form    = document.getElementById('freebieForm');
+      var success = document.getElementById('freebieSuccess');
+      if (!form || !success) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        success.style.display = 'block';
+      });
+    }());
+  </script>
 
   <script src="assets/site-components.js"></script>
 </body>

@@ -276,21 +276,102 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 36px;
-      }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 16px; }
+      .section-title { font-size: 24px; }
+      .cta-section h2 { font-size: 32px; }
+    }
 
-      .hero p {
-        font-size: 16px;
-      }
+    /* ── STICKY SIDEBAR LAYOUT ─────────────────────────────── */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 0;
+      align-items: start;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .product-main { min-width: 0; }
+    .product-sidebar {
+      padding: 80px 24px 80px 8px;
+      position: sticky;
+      top: 90px;          /* below fixed nav */
+      align-self: start;
+    }
 
-      .section-title {
-        font-size: 24px;
-      }
+    /* Sticky buy card */
+    .sticky-buy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: sticky;
+      top: 90px;
+    }
+    .sbc-tag {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 12px; display: block;
+    }
+    .sbc-price {
+      font-size: 52px; font-weight: 800; letter-spacing: -2px;
+      color: var(--text); line-height: 1; margin-bottom: 4px;
+    }
+    .sbc-period {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 24px; display: block;
+    }
+    .sbc-features {
+      list-style: none; padding: 0; margin: 0 0 24px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .sbc-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--border-soft);
+      font-size: 13px; color: var(--text-sub); line-height: 1.45;
+    }
+    .sbc-check {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(var(--purple-rgb), 0.15); color: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .sbc-cta {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; background: var(--purple); color: #fff;
+      border: none; padding: 14px 20px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: opacity 0.15s; margin-bottom: 12px;
+    }
+    .sbc-cta:hover { opacity: 0.88; }
+    .sbc-trust {
+      text-align: center; font-family: 'DM Mono', monospace;
+      font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em;
+    }
+    .sbc-divider { height: 1px; background: var(--border-soft); margin: 20px 0; }
+    .sbc-stat {
+      text-align: center; padding: 12px 0;
+    }
+    .sbc-stat-num {
+      font-size: 28px; font-weight: 800; letter-spacing: -0.8px;
+      color: var(--purple); line-height: 1; margin-bottom: 2px;
+    }
+    .sbc-stat-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+    }
 
-      .cta-section h2 {
-        font-size: 32px;
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+        display: block;
       }
+      .product-sidebar {
+        position: static;
+        padding: 0 20px 40px;
+      }
+      .sticky-buy-card { position: static; }
     }
   </style>
 </head>
@@ -326,150 +407,195 @@
       </div>
     </section>
 
-    <!-- What's Included -->
-    <section class="features">
-      <div class="container">
-        <h2 class="section-title">What's Included</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Audit across all active social profiles</h3>
-              <p>We review every platform you're actively using in one comprehensive report.</p>
+    <!-- Two-column product layout (features + how-it-works + faq | sticky buy card) -->
+    <div class="product-layout">
+
+      <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+      <div class="product-main">
+
+        <!-- What's Included -->
+        <section class="features">
+          <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Audit across all active social profiles</h3>
+                  <p>We review every platform you're actively using in one comprehensive report.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Bio &amp; profile setup scored element-by-element</h3>
+                  <p>Username, photo, bio copy, link placement — everything gets reviewed and scored.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Content consistency &amp; visual brand review</h3>
+                  <p>We check if your content aligns with your brand and maintains visual consistency.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Engagement &amp; posting frequency assessment</h3>
+                  <p>Analysis of your current engagement levels and how often you should be posting.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Profile conversion optimization notes</h3>
+                  <p>Specific recommendations for turning profile visitors into customers or leads.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Competitor positioning spot-check</h3>
+                  <p>See how your profiles stack up against your direct competitors.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Prioritized action list</h3>
+                  <p>We rank fixes by impact — tackle the highest-leverage changes first.</p>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-content">
+                  <h3>Written PDF report</h3>
+                  <p>Everything delivered as a comprehensive, easy-to-reference PDF in 7 business days.</p>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Bio & profile setup scored element-by-element</h3>
-              <p>Username, photo, bio copy, link placement — everything gets reviewed and scored.</p>
+        <!-- How It Works -->
+        <section class="how-it-works">
+          <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+              <div class="step">
+                <span class="step-number">Step 1</span>
+                <h3>Submit your intake form</h3>
+                <p>Tell us which platforms you're on, your main goals, and any specific concerns. Takes about 5 minutes.</p>
+              </div>
+
+              <div class="step">
+                <span class="step-number">Step 2</span>
+                <h3>We review every profile manually</h3>
+                <p>Our team dives into each profile you shared. We check bios, content, engagement, consistency, and more against what actually converts.</p>
+              </div>
+
+              <div class="step">
+                <span class="step-number">Step 3</span>
+                <h3>You get your report + action list</h3>
+                <p>Delivered as a PDF with scored elements, specific feedback, and a prioritized list of fixes ranked by impact.</p>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Content consistency & visual brand review</h3>
-              <p>We check if your content aligns with your brand and maintains visual consistency.</p>
+        <!-- FAQ -->
+        <section class="faq">
+          <div class="container faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What if I only have one social profile?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">We audit all of your active profiles, whether that's one or ten. The report covers whatever you're actually using. If you're only on Instagram, that's what we review.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Is this better than a DIY audit template?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">Yes. A template gives you a checklist to fill out yourself. We do the work for you. We have years of experience knowing what actually moves the needle on social platforms — we review from that perspective, not a generic checklist.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Do you implement the fixes or just tell me what they are?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">We provide the report and recommendations. You implement them, or you can hire us for the strategy that comes next, which includes a roadmap for moving forward.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Can I get the audit and strategy together?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> includes both products at $150 — that's $44 off compared to buying them separately. You'll get the diagnosis and the roadmap in one package.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What happens after I get my report?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">It's entirely up to you. Many clients implement the fixes themselves. Some use the report to make decisions about hiring a social media manager. Others move forward with our <a href="product-strategy.html" style="color:var(--purple);">Custom Social Media Strategy</a> to get a long-term 90-day roadmap built specifically for their business.</div>
             </div>
           </div>
+        </section>
 
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Engagement & posting frequency assessment</h3>
-              <p>Analysis of your current engagement levels and how often you should be posting.</p>
+      </div><!-- /.product-main -->
+
+      <!-- ── STICKY BUY CARD ──────────────────────────────── -->
+      <aside class="product-sidebar" aria-label="Purchase details">
+        <div class="sticky-buy-card">
+          <span class="sbc-tag">Social Media Audit</span>
+          <div class="sbc-price">$97</div>
+          <span class="sbc-period">One-time · 7-business-day delivery</span>
+
+          <ul class="sbc-features">
+            <li><span class="sbc-check">✓</span>All active social profiles reviewed</li>
+            <li><span class="sbc-check">✓</span>Bio &amp; profile scored element-by-element</li>
+            <li><span class="sbc-check">✓</span>Content &amp; visual brand check</li>
+            <li><span class="sbc-check">✓</span>Engagement &amp; posting frequency assessed</li>
+            <li><span class="sbc-check">✓</span>Competitor spot-check included</li>
+            <li><span class="sbc-check">✓</span>Prioritized action list by impact</li>
+            <li><span class="sbc-check">✓</span>Written PDF report delivered</li>
+          </ul>
+
+          <a href="audit-intake.html" class="sbc-cta">Get your audit →</a>
+          <p class="sbc-trust">Secure checkout · Delivered in 7 business days</p>
+
+          <div class="sbc-divider"></div>
+
+          <div style="display:flex; justify-content:space-around;">
+            <div class="sbc-stat">
+              <div class="sbc-stat-num">7</div>
+              <div class="sbc-stat-label">Business Days</div>
             </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Profile conversion optimization notes</h3>
-              <p>Specific recommendations for turning profile visitors into customers or leads.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Competitor positioning spot-check</h3>
-              <p>See how your profiles stack up against your direct competitors.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Prioritized action list</h3>
-              <p>We rank fixes by impact — tackle the highest-leverage changes first.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Written PDF report</h3>
-              <p>Everything delivered as a comprehensive, easy-to-reference PDF in 7 business days.</p>
+            <div class="sbc-stat">
+              <div class="sbc-stat-num">100%</div>
+              <div class="sbc-stat-label">Manual Review</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </aside>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-      <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps-grid">
-          <div class="step">
-            <span class="step-number">Step 1</span>
-            <h3>Submit your intake form</h3>
-            <p>Tell us which platforms you're on, your main goals, and any specific concerns. Takes about 5 minutes.</p>
-          </div>
-
-          <div class="step">
-            <span class="step-number">Step 2</span>
-            <h3>We review every profile manually</h3>
-            <p>Our team dives into each profile you shared. We check bios, content, engagement, consistency, and more against what actually converts.</p>
-          </div>
-
-          <div class="step">
-            <span class="step-number">Step 3</span>
-            <h3>You get your report + action list</h3>
-            <p>Delivered as a PDF with scored elements, specific feedback, and a prioritized list of fixes ranked by impact.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-      <div class="container faq-container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What if I only have one social profile?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">We audit all of your active profiles, whether that's one or ten. The report covers whatever you're actually using. If you're only on Instagram, that's what we review.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Is this better than a DIY audit template?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">Yes. A template gives you a checklist to fill out yourself. We do the work for you. We have years of experience knowing what actually moves the needle on social platforms — we review from that perspective, not a generic checklist.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you implement the fixes or just tell me what they are?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">We provide the report and recommendations. You implement them, or you can hire us for the strategy that comes next, which includes a roadmap for moving forward.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can I get the audit and strategy together?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> includes both products at $150 — that's $44 off compared to buying them separately. You'll get the diagnosis and the roadmap in one package.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What happens after I get my report?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">It's entirely up to you. Many clients implement the fixes themselves. Some use the report to make decisions about hiring a social media manager. Others move forward with our <a href="product-strategy.html" style="color:var(--purple);">Custom Social Media Strategy</a> to get a long-term 90-day roadmap built specifically for their business.</div>
-        </div>
-      </div>
-    </section>
+    </div><!-- /.product-layout -->
 
     <!-- CTA Section -->
     <section class="cta-section" id="buy">

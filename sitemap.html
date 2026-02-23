@@ -13,35 +13,220 @@
     main { max-width: 1100px; margin: 0 auto; padding: 100px 80px 120px; }
 
     .page-header { margin-bottom: 72px; }
-    .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 16px; }
+    .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 16px; }
     .page-header h1 { font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 16px; }
     .page-header p { font-size: 17px; color: var(--text-sub); max-width: 520px; line-height: 1.6; }
 
     .sitemap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 
-    .sitemap-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 32px 36px; }
-    .sitemap-group h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-
-    .sitemap-group ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-    .sitemap-group li a {
-      display: flex; align-items: center; justify-content: space-between;
-      text-decoration: none; color: var(--text);
-      font-size: 14px; font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 7px;
-      transition: background 0.15s, color 0.15s;
+    /* ── CARD ────────────────────────────────────────────── */
+    .sitemap-group {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px 28px;
     }
-    .sitemap-group li a:hover { background: var(--surface); color: var(--purple); }
-    .sitemap-group li a .file { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); }
-    .sitemap-group li a:hover .file { color: rgba(var(--purple-rgb), 0.7); }
 
-    .note { margin-top: 64px; padding: 24px 28px; background: var(--bg-alt); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 10px; font-size: 14px; color: var(--text-sub); line-height: 1.65; }
+    /* ── FOLDER HEADING ──────────────────────────────────── */
+    .sitemap-group h2 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* CSS folder icon via pseudo */
+    .sitemap-group h2::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 11px;
+      /* folder shape: tab on top-left corner */
+      background: var(--purple);
+      opacity: 0.7;
+      clip-path: polygon(0 30%, 30% 30%, 40% 0%, 100% 0%, 100% 100%, 0 100%);
+      flex-shrink: 0;
+    }
+
+    /* ── FOLDER TREE: ul ─────────────────────────────────── */
+    .sitemap-group ul {
+      list-style: none;
+      margin: 0 0 0 6px;
+      padding: 0;
+      /* Vertical trunk line */
+      border-left: 1px solid var(--border-soft);
+    }
+
+    /* ── FOLDER TREE: li ─────────────────────────────────── */
+    .sitemap-group li {
+      position: relative;
+      padding-left: 18px;
+      margin: 2px 0;
+    }
+
+    /* Horizontal elbow connector ├─ */
+    .sitemap-group li::before {
+      content: '';
+      position: absolute;
+      left: -1px;   /* sits on top of the ul border-left */
+      top: 50%;
+      width: 14px;
+      height: 1px;
+      background: var(--border-soft);
+    }
+
+    /* Cover trunk below the last item's midpoint to fake └─ */
+    .sitemap-group li:last-child::after {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: calc(50% + 1px);
+      bottom: -4px;   /* extra overshoot covered */
+      width: 5px;
+      background: var(--bg-alt);  /* matches card background */
+      z-index: 1;
+    }
+
+    /* ── LINK STYLES ─────────────────────────────────────── */
+    .sitemap-group li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 10px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      position: relative;   /* needed for tooltip positioning */
+    }
+
+    .sitemap-group li a:hover {
+      background: var(--surface);
+      color: var(--purple);
+    }
+
+    .sitemap-group li a .file {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    .sitemap-group li a:hover .file {
+      color: rgba(var(--purple-rgb), 0.65);
+    }
+
+    /* ── MONEY PAGES ─────────────────────────────────────── */
+    .sitemap-group li a.money-page {
+      color: var(--purple);
+      font-weight: 700;
+    }
+
+    .sitemap-group li a.money-page .file {
+      color: rgba(var(--purple-rgb), 0.6);
+    }
+
+    .sitemap-group li a.money-page:hover {
+      background: rgba(var(--purple-rgb), 0.07);
+    }
+
+    /* Money badge pip */
+    .sitemap-group li a.money-page::before {
+      /* Override the li::before connector — this is on <a>, not <li> */
+      /* Actually ::before on <a> is the tooltip arrow — we'll use a span badge instead */
+    }
+
+    .money-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid var(--purple);
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-left: 6px;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    /* ── CSS TOOLTIPS ────────────────────────────────────── */
+    .sitemap-group li a[data-tooltip] {
+      /* Anchor for tooltip positioning */
+    }
+
+    /* Tooltip box */
+    .sitemap-group li a[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface-2);
+      color: var(--text-sub);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      transform: translateX(-50%) translateY(4px);
+      z-index: 100;
+      letter-spacing: 0.02em;
+    }
+
+    .sitemap-group li a[data-tooltip]:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── NOTE ────────────────────────────────────────────── */
+    .note {
+      margin-top: 64px;
+      padding: 24px 28px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
     .note strong { color: var(--text); font-weight: 700; }
 
+    /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       main { padding: 80px 24px 80px; }
       .sitemap-grid { grid-template-columns: 1fr; }
       .page-header h1 { font-size: 36px; }
+
+      /* Tooltips: reposition to avoid clipping on mobile */
+      .sitemap-group li a[data-tooltip]::after {
+        left: 0;
+        transform: translateX(0) translateY(4px);
+      }
+      .sitemap-group li a[data-tooltip]:hover::after {
+        transform: translateX(0) translateY(0);
+      }
     }
   </style>
 </head>
@@ -53,7 +238,7 @@
   <div class="page-header">
     <div class="eyebrow">Site Structure</div>
     <h1>Full site map</h1>
-    <p>Every page on lanesocialco.com — organized by section. 32 pages total.</p>
+    <p>Every page on lanesocialco.com — organized by section. 33 pages total. Hover any link to see what's there.</p>
   </div>
 
   <div class="sitemap-grid">
@@ -62,14 +247,14 @@
     <div class="sitemap-group">
       <h2>Main Navigation</h2>
       <ul>
-        <li><a href="index.html">Home <span class="file">index.html</span></a></li>
-        <li><a href="services.html">Social Audit <span class="file">services.html</span></a></li>
-        <li><a href="shop.html">Shop <span class="file">shop.html</span></a></li>
-        <li><a href="blog.html">Blog <span class="file">blog.html</span></a></li>
-        <li><a href="results.html">Results <span class="file">results.html</span></a></li>
-        <li><a href="about.html">About <span class="file">about.html</span></a></li>
-        <li><a href="contact.html">Contact <span class="file">contact.html</span></a></li>
-        <li><a href="links.html">Links Page <span class="file">links.html</span></a></li>
+        <li><a href="index.html"    data-tooltip="Home base — start here">Home <span class="file">index.html</span></a></li>
+        <li><a href="services.html" data-tooltip="Book a social media audit — main offer">Social Audit <span class="file">services.html</span></a></li>
+        <li><a href="shop.html"     data-tooltip="Browse all products and freebies">Shop <span class="file">shop.html</span></a></li>
+        <li><a href="blog.html"     data-tooltip="Tips, strategy, and platform guides">Blog <span class="file">blog.html</span></a></li>
+        <li><a href="results.html"  data-tooltip="Client wins and case studies">Results <span class="file">results.html</span></a></li>
+        <li><a href="about.html"    data-tooltip="About Lane and Lane Social Co">About <span class="file">about.html</span></a></li>
+        <li><a href="contact.html"  data-tooltip="Get in touch directly">Contact <span class="file">contact.html</span></a></li>
+        <li><a href="links.html"    data-tooltip="Bio link page for social profiles">Links Page <span class="file">links.html</span></a></li>
       </ul>
     </div>
 
@@ -77,15 +262,15 @@
     <div class="sitemap-group">
       <h2>Blog &amp; Categories</h2>
       <ul>
-        <li><a href="blog.html">All Posts <span class="file">blog.html</span></a></li>
-        <li><a href="blog-category-strategy.html">Strategy <span class="file">blog-category-strategy.html</span></a></li>
-        <li><a href="blog-category-instagram.html">Instagram <span class="file">blog-category-instagram.html</span></a></li>
-        <li><a href="blog-category-tiktok.html">TikTok <span class="file">blog-category-tiktok.html</span></a></li>
-        <li><a href="blog-category-content.html">Content <span class="file">blog-category-content.html</span></a></li>
-        <li><a href="blog-category-growth.html">Growth <span class="file">blog-category-growth.html</span></a></li>
-        <li><a href="blog-category-local.html">Local Business <span class="file">blog-category-local.html</span></a></li>
-        <li><a href="blog-category-products.html">Digital Products <span class="file">blog-category-products.html</span></a></li>
-        <li><a href="blog-post-template.html">Post Template <span class="file">blog-post-template.html</span></a></li>
+        <li><a href="blog.html"                      data-tooltip="All posts in one place">All Posts <span class="file">blog.html</span></a></li>
+        <li><a href="blog-category-strategy.html"    data-tooltip="Strategy and planning posts">Strategy <span class="file">blog-category-strategy.html</span></a></li>
+        <li><a href="blog-category-instagram.html"   data-tooltip="Instagram-specific tips">Instagram <span class="file">blog-category-instagram.html</span></a></li>
+        <li><a href="blog-category-tiktok.html"      data-tooltip="TikTok growth and content">TikTok <span class="file">blog-category-tiktok.html</span></a></li>
+        <li><a href="blog-category-content.html"     data-tooltip="Content creation and batching">Content <span class="file">blog-category-content.html</span></a></li>
+        <li><a href="blog-category-growth.html"      data-tooltip="Organic growth tactics">Growth <span class="file">blog-category-growth.html</span></a></li>
+        <li><a href="blog-category-local.html"       data-tooltip="Local business social media">Local Business <span class="file">blog-category-local.html</span></a></li>
+        <li><a href="blog-category-products.html"    data-tooltip="Digital product creation tips">Digital Products <span class="file">blog-category-products.html</span></a></li>
+        <li><a href="blog-post-template.html"        data-tooltip="Reusable blog post layout">Post Template <span class="file">blog-post-template.html</span></a></li>
       </ul>
     </div>
 
@@ -93,13 +278,25 @@
     <div class="sitemap-group">
       <h2>Shop</h2>
       <ul>
-        <li><a href="shop.html">Shop Home <span class="file">shop.html</span></a></li>
-        <li><a href="shop-free.html">Free Resources <span class="file">shop-free.html</span></a></li>
-        <li><a href="shop-paid.html">Paid Products <span class="file">shop-paid.html</span></a></li>
-        <li><a href="product-audit.html">Social Audit Product <span class="file">product-audit.html</span></a></li>
-        <li><a href="product-bundle.html">Bundle Product <span class="file">product-bundle.html</span></a></li>
-        <li><a href="product-strategy.html">Strategy Product <span class="file">product-strategy.html</span></a></li>
-        <li><a href="free-audit.html">Free Audit Page <span class="file">free-audit.html</span></a></li>
+        <li><a href="shop.html"          data-tooltip="Shop landing and overview">Shop Home <span class="file">shop.html</span></a></li>
+        <li><a href="shop-free.html"     data-tooltip="All free downloads">Free Resources <span class="file">shop-free.html</span></a></li>
+        <li><a href="shop-paid.html"     data-tooltip="All paid products">Paid Products <span class="file">shop-paid.html</span></a></li>
+        <li>
+          <a href="product-audit.html" class="money-page" data-tooltip="Purchase a full social media audit">
+            Social Audit Product
+            <span class="money-badge">$ key</span>
+            <span class="file">product-audit.html</span>
+          </a>
+        </li>
+        <li>
+          <a href="product-bundle.html" class="money-page" data-tooltip="Audit + strategy bundle — best value">
+            Bundle Product
+            <span class="money-badge">$ key</span>
+            <span class="file">product-bundle.html</span>
+          </a>
+        </li>
+        <li><a href="product-strategy.html" data-tooltip="Strategy consultation product">Strategy Product <span class="file">product-strategy.html</span></a></li>
+        <li><a href="free-audit.html"       data-tooltip="DIY free audit checklist">Free Audit Page <span class="file">free-audit.html</span></a></li>
       </ul>
     </div>
 
@@ -107,10 +304,10 @@
     <div class="sitemap-group">
       <h2>Freebies</h2>
       <ul>
-        <li><a href="freebie-audit-checklist.html">Audit Checklist <span class="file">freebie-audit-checklist.html</span></a></li>
-        <li><a href="freebie-bio-optimization.html">Bio Cheat Sheet <span class="file">freebie-bio-optimization.html</span></a></li>
-        <li><a href="freebie-content-calendar.html">Content Calendar <span class="file">freebie-content-calendar.html</span></a></li>
-        <li><a href="freebie-content-pillars.html">Content Pillars <span class="file">freebie-content-pillars.html</span></a></li>
+        <li><a href="freebie-audit-checklist.html"  data-tooltip="Free audit checklist download">Audit Checklist <span class="file">freebie-audit-checklist.html</span></a></li>
+        <li><a href="freebie-bio-optimization.html" data-tooltip="Bio optimization cheat sheet">Bio Cheat Sheet <span class="file">freebie-bio-optimization.html</span></a></li>
+        <li><a href="freebie-content-calendar.html" data-tooltip="Editable content calendar template">Content Calendar <span class="file">freebie-content-calendar.html</span></a></li>
+        <li><a href="freebie-content-pillars.html"  data-tooltip="Content pillars framework guide">Content Pillars <span class="file">freebie-content-pillars.html</span></a></li>
       </ul>
     </div>
 
@@ -118,9 +315,15 @@
     <div class="sitemap-group">
       <h2>Forms &amp; Flows</h2>
       <ul>
-        <li><a href="audit-intake.html">Audit Intake Form <span class="file">audit-intake.html</span></a></li>
-        <li><a href="thank-you-audit.html">Thank You — Audit <span class="file">thank-you-audit.html</span></a></li>
-        <li><a href="thank-you-freebie.html">Thank You — Freebie <span class="file">thank-you-freebie.html</span></a></li>
+        <li>
+          <a href="audit-intake.html" class="money-page" data-tooltip="Client intake form — post-purchase step">
+            Audit Intake Form
+            <span class="money-badge">$ key</span>
+            <span class="file">audit-intake.html</span>
+          </a>
+        </li>
+        <li><a href="thank-you-audit.html"   data-tooltip="Post-audit-purchase thank you page">Thank You — Audit <span class="file">thank-you-audit.html</span></a></li>
+        <li><a href="thank-you-freebie.html" data-tooltip="Post-freebie download thank you page">Thank You — Freebie <span class="file">thank-you-freebie.html</span></a></li>
       </ul>
     </div>
 
@@ -128,17 +331,17 @@
     <div class="sitemap-group">
       <h2>Legal &amp; Utility</h2>
       <ul>
-        <li><a href="privacy-policy.html">Privacy Policy <span class="file">privacy-policy.html</span></a></li>
-        <li><a href="terms.html">Terms of Service <span class="file">terms.html</span></a></li>
-        <li><a href="404.html">404 Page <span class="file">404.html</span></a></li>
-        <li><a href="sitemap.html">Site Map <span class="file">sitemap.html</span></a></li>
+        <li><a href="privacy-policy.html" data-tooltip="Privacy policy and data handling">Privacy Policy <span class="file">privacy-policy.html</span></a></li>
+        <li><a href="terms.html"          data-tooltip="Terms of service and purchase terms">Terms of Service <span class="file">terms.html</span></a></li>
+        <li><a href="404.html"            data-tooltip="You're already here 😅">404 Page <span class="file">404.html</span></a></li>
+        <li><a href="sitemap.html"        data-tooltip="This very page">Site Map <span class="file">sitemap.html</span></a></li>
       </ul>
     </div>
 
   </div>
 
   <div class="note">
-    <strong>For AI use:</strong> This page lists every HTML file on the site. Each link is a live page. To audit or update a specific section, reference the filename shown on the right of each row. Total: 32 pages across 6 sections.
+    <strong>For AI use:</strong> This page lists every HTML file on the site. Each link is a live page. To audit or update a specific section, reference the filename shown on the right of each row. <strong>Money pages</strong> (marked <span style="color: var(--purple); font-weight: 700;">$ key</span>) are the primary revenue-driving pages — prioritize these in any conversion or copy work. Total: 33 pages across 6 sections.
   </div>
 
 </main>

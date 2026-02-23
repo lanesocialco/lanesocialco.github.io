@@ -90,6 +90,47 @@
       .cta-section h2 { font-size: 32px; }
       .cta-section p { font-size: 16px; }
     }
+
+    /* ── BEFORE/AFTER SLIDER ──────────────────────────────── */
+    .ba-wrap {
+      position: relative; width: 100%; aspect-ratio: 1;
+      border-radius: 8px; overflow: hidden;
+      cursor: col-resize; user-select: none; touch-action: pan-y;
+    }
+    .ba-panel {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+    }
+    .ba-before { background: linear-gradient(135deg, rgba(123,46,255,0.06) 0%, rgba(123,46,255,0.18) 100%); }
+    .ba-after  { background: linear-gradient(135deg, rgba(123,46,255,0.55) 0%, rgba(123,46,255,0.88) 100%); clip-path: inset(0 50% 0 0); }
+    .ba-badge  {
+      position: absolute; top: 12px;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .ba-before .ba-badge { left: 12px; background: var(--border); color: var(--text-muted); }
+    .ba-after  .ba-badge { right: 12px; background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.9); }
+    .ba-stat { font-size: 40px; font-weight: 800; letter-spacing: -2px; line-height: 1; color: var(--text); }
+    .ba-after .ba-stat { color: #fff; }
+    .ba-sub { font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .ba-after .ba-sub { color: rgba(255,255,255,0.7); }
+    .ba-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff; transform: translateX(-50%); box-shadow: 0 0 12px rgba(0,0,0,0.22); pointer-events: none; }
+    .ba-knob   { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 36px; height: 36px; border-radius: 50%; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--purple); letter-spacing: -1px; }
+    .ba-hint   { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; letter-spacing: 0.06em; transition: opacity 0.4s; }
+    .ba-hint.gone { opacity: 0; pointer-events: none; }
+
+    /* ── MICRO-CTAs ───────────────────────────────────────── */
+    .case-micro-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px; font-size: 13px; font-weight: 700;
+      color: var(--purple); text-decoration: none;
+      padding-bottom: 2px; border-bottom: 1px solid rgba(123,46,255,0.3);
+      transition: border-color 0.15s, gap 0.15s;
+    }
+    .case-micro-cta:hover { border-color: var(--purple); gap: 10px; }
+    .case-card .case-micro-cta { margin-top: 14px; font-size: 12.5px; }
   </style>
 </head>
 <body>
@@ -104,16 +145,16 @@
 
     <section class="stats-bar reveal">
       <div class="stat">
-        <div class="stat-number">12K</div>
+        <div class="stat-number">1.2M</div>
+        <div class="stat-label">TikTok Views</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">64,000%</div>
+        <div class="stat-label">LinkedIn Reach Increase</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">12K+</div>
         <div class="stat-label">Followers in 15 Days</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">2M+</div>
-        <div class="stat-label">Total Interactions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">1M+</div>
-        <div class="stat-label">Accounts Reached</div>
       </div>
       <div class="stat">
         <div class="stat-number">97%</div>
@@ -122,7 +163,25 @@
     </section>
 
     <section class="featured-case reveal">
-      <div class="case-image"></div>
+      <!-- Before/After drag slider -->
+      <div>
+        <div class="ba-wrap" id="ba-main">
+          <div class="ba-panel ba-before">
+            <span class="ba-badge">Before</span>
+            <div class="ba-stat">800</div>
+            <div class="ba-sub">Followers</div>
+          </div>
+          <div class="ba-panel ba-after">
+            <span class="ba-badge">After</span>
+            <div class="ba-stat">12.8K</div>
+            <div class="ba-sub">Followers · 15 Days</div>
+          </div>
+          <div class="ba-divider" id="ba-divider-main">
+            <div class="ba-knob">◀▶</div>
+          </div>
+        </div>
+        <p class="ba-hint" id="ba-hint-main">← drag to reveal →</p>
+      </div>
       <div class="case-content">
         <h2>Las Vegas Restaurant: 800 to 12.8K Followers in 15 Days</h2>
         <p><strong>The Situation:</strong> A local restaurant with 800 followers, scattered content, and no strategy. They were posting randomly and getting minimal engagement. They thought Instagram was "broken" for restaurants.</p>
@@ -132,6 +191,7 @@
           "We tried Instagram for months and gave up. In two weeks with Lane Social Co, we're busier than we've been in years. People are walking in because they saw us on Instagram. This actually works."
           <div class="quote-attr">Restaurant Owner, Las Vegas</div>
         </div>
+        <a href="audit-intake.html" class="case-micro-cta">I want this exact result for my restaurant →</a>
       </div>
     </section>
 
@@ -140,16 +200,19 @@
         <h3>Local Boutique</h3>
         <div class="result">1.2K to 4.8K followers in 60 days</div>
         <p>Instagram focus. User-generated content strategy. Before/afters from styling sessions. Went from zero new followers per week to 60+ per week. Online sales increased 35 percent.</p>
+        <a href="audit-intake.html" class="case-micro-cta">I want this for my boutique →</a>
       </div>
       <div class="case-card">
         <h3>Las Vegas Realtor</h3>
         <div class="result">0 to 3K TikTok followers + 2 closings</div>
         <p>Started from zero on TikTok. Built niche on "home buyer tips." 3,000 followers in 90 days. Two closings directly attributed to TikTok visibility in local searches.</p>
+        <a href="audit-intake.html" class="case-micro-cta">I want this for my real estate business →</a>
       </div>
       <div class="case-card">
         <h3>Wellness Studio</h3>
         <div class="result">3X booking rate increase</div>
         <p>Instagram Reels + Stories strategy. Behind-the-scenes studio content. Member testimonials. Bookings tripled. Cost per acquisition dropped 40 percent through social-attributed traffic.</p>
+        <a href="audit-intake.html" class="case-micro-cta">I want this for my studio →</a>
       </div>
     </section>
 
@@ -245,6 +308,49 @@
       }
     ]
   }
+  </script>
+
+  <script>
+    /* ── BEFORE/AFTER SLIDERS ────────────────────────────── */
+    (function () {
+      'use strict';
+      document.querySelectorAll('.ba-wrap').forEach(function (wrap) {
+        var afterEl   = wrap.querySelector('.ba-after');
+        var dividerEl = wrap.querySelector('.ba-divider');
+        /* hint sibling — the <p> immediately after the wrap */
+        var hintEl    = wrap.parentNode.querySelector('.ba-hint');
+        var dragging  = false;
+
+        function setPos(pct) {
+          pct = Math.max(5, Math.min(95, pct));
+          afterEl.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+          dividerEl.style.left   = pct + '%';
+          if (hintEl) hintEl.classList.add('gone');
+        }
+
+        function getPct(e) {
+          var rect    = wrap.getBoundingClientRect();
+          var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          return ((clientX - rect.left) / rect.width) * 100;
+        }
+
+        wrap.addEventListener('mousedown', function (e) {
+          dragging = true; setPos(getPct(e)); e.preventDefault();
+        });
+        document.addEventListener('mousemove', function (e) {
+          if (dragging) setPos(getPct(e));
+        });
+        document.addEventListener('mouseup', function () { dragging = false; });
+
+        wrap.addEventListener('touchstart', function (e) {
+          dragging = true; setPos(getPct(e));
+        }, { passive: true });
+        wrap.addEventListener('touchmove', function (e) {
+          if (dragging) setPos(getPct(e));
+        }, { passive: true });
+        wrap.addEventListener('touchend', function () { dragging = false; });
+      });
+    }());
   </script>
 
   <script src="assets/site-components.js"></script>

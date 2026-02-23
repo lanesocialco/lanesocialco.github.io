@@ -80,8 +80,9 @@
       background: #000;
       border-bottom: 1px solid #262626;
       position: sticky;
-      top: 65px;
-      z-index: 50;
+      top: 70px;
+      z-index: 100;
+      transition: box-shadow 0.2s;
     }
     .search-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .search-box {
@@ -493,6 +494,162 @@
     }
     .reveal { opacity: 0; }
     .reveal.visible { animation: fadeUp 0.5s ease forwards; }
+
+    /* ── TASK 1: READING TIME FILTER BAR ─────────────────── */
+    .readtime-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .readtime-filter-bar .rt-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #666; margin-right: 4px;
+    }
+    .rt-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px; letter-spacing: 0.05em;
+      padding: 7px 16px; border-radius: 6px;
+      border: 1.5px solid #262626;
+      color: #888; background: none;
+      cursor: pointer; font-weight: 500;
+      transition: all 0.18s;
+    }
+    .rt-btn:hover { border-color: #7b2eff; color: #7b2eff; }
+    .rt-btn.active { background: #7b2eff; border-color: #7b2eff; color: #fff; }
+
+    /* ── TASK 2: STICKY STUCK STATE ──────────────────────── */
+    .search-section.is-stuck {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5), 0 1px 0 0 rgba(123,46,255,0.15);
+    }
+
+    /* ── TASK 3: RESOURCE INTERSTITIAL ───────────────────── */
+    .resource-interstitial {
+      background: rgba(123,46,255,0.1);
+      border: 1px solid rgba(123,46,255,0.25);
+      border-left: 3px solid #7b2eff;
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .resource-interstitial:hover {
+      background: rgba(123,46,255,0.16);
+      transform: translateY(-2px);
+    }
+    .res-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #7b2eff;
+      font-weight: 700; margin-bottom: 12px;
+    }
+    .resource-interstitial h3 {
+      font-size: 17px; font-weight: 800; color: #F0F0F0;
+      letter-spacing: -0.3px; line-height: 1.3; margin-bottom: 8px;
+    }
+    .resource-interstitial p {
+      font-size: 13px; color: #888; line-height: 1.55; flex: 1; margin-bottom: 12px;
+    }
+    .res-cta {
+      font-size: 13px; font-weight: 700; color: #7b2eff;
+    }
+
+    /* ── TASK 4: CODE BLOCKS ──────────────────────────────── */
+    .code-sample-section {
+      padding: 48px 0 48px;
+      border-bottom: 1px solid #262626;
+      margin-bottom: 12px;
+    }
+    .code-sample-section .cs-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #7b2eff; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .code-sample-section .cs-eyebrow::before { content: ''; width: 20px; height: 1px; background: #7b2eff; display: block; }
+    .code-sample-section h3 {
+      font-size: 20px; font-weight: 800; color: #F0F0F0;
+      letter-spacing: -0.4px; margin-bottom: 8px;
+    }
+    .code-sample-section > p {
+      font-size: 15px; color: #666; margin-bottom: 20px; line-height: 1.6; max-width: 560px;
+    }
+    .code-block-wrap { position: relative; }
+    pre.terminal-block {
+      background: #0d0d0d; color: #e0e0e0;
+      font-family: 'DM Mono', monospace;
+      border-radius: 8px; padding: 20px 16px;
+      white-space: pre-wrap; word-break: break-word;
+      font-size: 13px; line-height: 1.75;
+      border: 1px solid #262626;
+      overflow: auto; margin: 0;
+    }
+    .code-copy-btn {
+      position: absolute; top: 10px; right: 10px;
+      background: #1e1e1e; color: #888;
+      border: 1px solid #333; border-radius: 5px;
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      padding: 4px 12px; cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .code-copy-btn:hover { background: #7b2eff; color: #fff; border-color: #7b2eff; }
+    .code-copy-btn.copied { background: #16a34a; color: #fff; border-color: #16a34a; }
+
+    /* ── TASK 5: HOVER READING PREVIEW ───────────────────── */
+    .article-card { position: relative; }
+    .hover-preview-overlay {
+      position: absolute; inset: 0;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.78);
+      display: flex; align-items: center;
+      justify-content: center;
+      padding: 24px; text-align: center;
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .article-card:hover .hover-preview-overlay { opacity: 1; }
+    .hover-preview-overlay p {
+      font-size: 14px; color: #ffffff;
+      line-height: 1.65; margin: 0;
+    }
+
+    /* ── TASK 6: INFINITE SCROLL / SKELETON ──────────────── */
+    @keyframes skeleton-pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.65; }
+    }
+    .skeleton-card {
+      border: 1px solid #262626; border-radius: 16px;
+      padding: 24px; background: #1A1A1A;
+      opacity: 0; transition: opacity 0.6s;
+      pointer-events: none;
+    }
+    .skeleton-card.sk-visible { opacity: 1; }
+    .skel-badge {
+      width: 64px; height: 20px; border-radius: 4px;
+      background: #262626; margin-bottom: 14px;
+      animation: skeleton-pulse 1.3s ease-in-out infinite;
+    }
+    .skel-line {
+      height: 13px; border-radius: 4px;
+      background: #262626; margin-bottom: 10px;
+      animation: skeleton-pulse 1.3s ease-in-out infinite 0.15s;
+    }
+    .skel-line.skel-short { width: 65%; }
+    .skel-line.skel-xshort { width: 40%; animation-delay: 0.3s; }
+    .sentinel { height: 1px; width: 100%; grid-column: 1/-1; }
+    .blog-end-msg {
+      grid-column: 1/-1; text-align: center;
+      padding: 48px 20px; color: #666;
+      font-family: 'DM Mono', monospace; font-size: 13px;
+      display: none; letter-spacing: 0.03em;
+    }
+    .blog-end-msg a { color: #7b2eff; text-decoration: none; }
+    .blog-end-msg a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -641,115 +798,152 @@
     </div>
   </section>
 
+  <!-- CODE SAMPLE SECTION (Task 4) -->
+  <section class="code-sample-section">
+    <div class="cs-eyebrow">Caption template</div>
+    <h3>Hook formula that actually stops the scroll</h3>
+    <p>Copy this structure for any niche. Swap the brackets for your content and you've got a tested opener.</p>
+    <div class="code-block-wrap">
+      <pre class="terminal-block">[Relatable pain or mistake] — here's what actually fixes it.
+
+Example 1: "Posting every day and still not growing? Here's the real reason."
+Example 2: "Your bio is losing you customers before they see a single post."
+Example 3: "The #1 mistake local businesses make on Instagram (and how to fix it in 10 min)."
+
+Formula breakdown:
+→ Open with the problem your audience is already thinking about
+→ Tease the answer (don't give it — tease it)
+→ Make it specific enough to feel personal, broad enough to apply to many
+→ Keep it under 2 lines. First line is the only one that shows before "more"</pre>
+      <button class="code-copy-btn" id="caption-copy-btn">Copy</button>
+    </div>
+  </section>
+
   <!-- ALL ARTICLES (searchable/filterable) -->
   <section class="all-articles">
     <div class="section-eyebrow" id="allArticlesLabel">All articles</div>
+
+    <!-- Task 1: Reading time filter bar -->
+    <div class="readtime-filter-bar" id="readtimeFilterBar">
+      <span class="rt-label">Read time:</span>
+      <button class="rt-btn active" data-rt="all">All</button>
+      <button class="rt-btn" data-rt="short">Quick Wins (Under 5 min)</button>
+      <button class="rt-btn" data-rt="long">Deep Dives (10+ min)</button>
+    </div>
+
     <div class="article-grid" id="articleGrid">
 
-      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-title="how to build a social media strategy from scratch without hiring an agency">
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-readtime="long" data-title="how to build a social media strategy from scratch without hiring an agency" data-preview="Most businesses start posting before they have a plan — and then blame the algorithm when nothing works. This walks you through building an actual strategy in one sitting, starting with your audience.">
         <span class="article-badge badge-strategy">Strategy</span>
         <h3>How to Build a Social Media Strategy from Scratch</h3>
         <p>Most small businesses skip strategy and jump straight to posting. A real strategy takes a few hours and changes everything.</p>
         <div class="article-meta"><span>Jan 15, 2025</span><span>8 min read</span></div>
       </a>
 
-      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram" data-title="instagram algorithm 2025 what actually matters reach">
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram" data-readtime="short" data-title="instagram algorithm 2025 what actually matters reach" data-preview="Meta's algorithm isn't as mysterious as people make it. It rewards saves, shares, and watch time — not follower counts or post frequency. Here's what that means for your content.">
         <span class="article-badge badge-instagram">Instagram</span>
         <h3>The Instagram Algorithm in 2025: What Actually Matters</h3>
         <p>Everyone has opinions about the algorithm. Most are wrong. Here's what Meta engineers actually prioritize.</p>
         <div class="article-meta"><span>Jan 8, 2025</span><span>6 min read</span></div>
       </a>
 
-      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-title="how to set up instagram business profile properly convert">
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-readtime="short" data-title="how to set up instagram business profile properly convert" data-preview="Your Instagram profile is the first thing a potential customer sees, and most profiles drive people away immediately. This covers bio, link, highlights, and profile photo with specific, actionable fixes.">
         <span class="article-badge badge-instagram">Instagram · Setup</span>
         <h3>How to Properly Set Up Your Instagram Profile to Convert</h3>
         <p>Most Instagram profiles are losing leads before anyone sees a post. Here's the exact setup that actually converts visitors into followers and followers into customers.</p>
         <div class="article-meta"><span>Jan 2, 2025</span><span>7 min read</span></div>
       </a>
 
-      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok" data-title="why your tiktok not growing algorithm">
+      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok" data-readtime="long" data-title="why your tiktok not growing algorithm" data-preview="TikTok accounts stall for five predictable reasons, and algorithm changes are almost never one of them. This breaks down the real culprits and shows you exactly which one applies to you.">
         <span class="article-badge badge-tiktok">TikTok</span>
         <h3>Why Your TikTok Isn't Growing (And It's Not the Algorithm)</h3>
         <p>TikTok's algorithm gets blamed for everything. But the real problem is usually one of five things. Let's find yours.</p>
         <div class="article-meta"><span>Dec 28, 2024</span><span>7 min read</span></div>
       </a>
 
-      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok setup" data-title="how to set up tiktok business account properly">
+      <a href="blog-category-tiktok.html" class="article-card reveal" data-cat="tiktok setup" data-readtime="long" data-title="how to set up tiktok business account properly" data-preview="There's a right way and a wrong way to set up a business TikTok — and most accounts get it wrong from day one. This step-by-step guide covers settings, bio, and the first five videos.">
         <span class="article-badge badge-tiktok">TikTok · Setup</span>
         <h3>How to Set Up a Business TikTok Account That Actually Converts</h3>
         <p>Step-by-step setup guide covering bio, link, profile photo, business account settings, and the first five videos you should post.</p>
         <div class="article-meta"><span>Dec 20, 2024</span><span>8 min read</span></div>
       </a>
 
-      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-title="5 content pillars small business needs">
+      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-readtime="short" data-title="5 content pillars small business needs" data-preview="If you don't have content pillars, you're posting randomly and running out of ideas every week. This framework gives you five pillars that generate months of varied, consistent content.">
         <span class="article-badge badge-content">Content</span>
         <h3>5 Content Pillars Every Small Business Needs</h3>
         <p>Without content pillars, you post randomly or repeat yourself. This framework generates 30+ months of varied content from five ideas.</p>
         <div class="article-meta"><span>Dec 15, 2024</span><span>5 min read</span></div>
       </a>
 
-      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-title="las vegas restaurant 12k followers 15 days">
+      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-readtime="long" data-title="las vegas restaurant 12k followers 15 days" data-preview="This restaurant had 800 followers and no real strategy. In 15 days they hit 12K — not through luck, but through one specific positioning shift identified in the audit. Here's exactly what changed.">
         <span class="article-badge badge-growth">Growth</span>
         <h3>How a Las Vegas Restaurant Got 12K Followers in 15 Days</h3>
         <p>800 followers, no strategy. 15 days later: 12K followers and a waitlist. Here's exactly what we did.</p>
         <div class="article-meta"><span>Dec 2, 2024</span><span>8 min read</span></div>
       </a>
 
-      <a href="blog-category-local.html" class="article-card reveal" data-cat="local" data-title="local business social media complete guide">
+      <a href="blog-category-local.html" class="article-card reveal" data-cat="local" data-readtime="long" data-title="local business social media complete guide" data-preview="Local businesses have a natural advantage online that most never use — people want to support them if they can find them. This covers everything from platform selection to content that drives foot traffic.">
         <span class="article-badge badge-local">Local Business</span>
         <h3>Local Business Social Media: The Complete Guide</h3>
         <p>Local businesses have an unfair advantage most never use. Here's how to win your neighborhood with authenticity.</p>
         <div class="article-meta"><span>Nov 20, 2024</span><span>9 min read</span></div>
       </a>
 
-      <a href="blog-category-products.html" class="article-card reveal" data-cat="products" data-title="selling digital products social honest truth">
+      <a href="blog-category-products.html" class="article-card reveal" data-cat="products" data-readtime="short" data-title="selling digital products social honest truth" data-preview="Most people try to sell digital products the same way they'd sell a service, and it fails. Here's what content actually converts for digital products and why the approach is completely different.">
         <span class="article-badge badge-products">Digital Products</span>
         <h3>Selling Digital Products on Social: The Honest Truth</h3>
         <p>Social sells services poorly. But digital products? Different story. Here's the exact content mix that converts.</p>
         <div class="article-meta"><span>Nov 5, 2024</span><span>6 min read</span></div>
       </a>
 
-      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-title="write captions stop scrolling hook">
+      <a href="blog-category-content.html" class="article-card reveal" data-cat="content" data-readtime="short" data-title="write captions stop scrolling hook" data-preview="The first line of your caption determines whether anyone reads the rest. This gives you a tested system for writing openers that actually work, with real examples across multiple industries.">
         <span class="article-badge badge-content">Content</span>
         <h3>How to Write Captions That Actually Stop the Scroll</h3>
         <p>The first line of your caption is the only thing that matters. Here's a system for openers that work every time.</p>
         <div class="article-meta"><span>Oct 22, 2024</span><span>5 min read</span></div>
       </a>
 
-      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-title="posting schedule that actually works">
+      <a href="blog-category-growth.html" class="article-card reveal" data-cat="growth" data-readtime="long" data-title="posting schedule that actually works" data-preview="The advice about posting frequency varies wildly, and most of it is wrong. The answer is simpler than you think, and this breaks down what data actually shows for different types of accounts.">
         <span class="article-badge badge-growth">Growth</span>
         <h3>The Only Posting Schedule That Actually Works</h3>
         <p>Every expert has a different answer. Post daily. Post 3x a week. Most of that advice is wrong. Here's what data shows.</p>
         <div class="article-meta"><span>Oct 8, 2024</span><span>7 min read</span></div>
       </a>
 
-      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-title="instagram bio optimization high converting bio template">
+      <a href="blog-category-instagram.html" class="article-card reveal" data-cat="instagram setup" data-readtime="short" data-title="instagram bio optimization high converting bio template" data-preview="Your Instagram bio has 150 characters to answer three questions: who you are, who you serve, and what to do next. Most bios fail all three. This formula fixes it.">
         <span class="article-badge badge-instagram">Instagram · Setup</span>
         <h3>The High-Converting Instagram Bio Formula</h3>
         <p>Most bios are vague, forgettable, and don't drive any action. This formula fixes all three problems in under 150 characters.</p>
         <div class="article-meta"><span>Sep 28, 2024</span><span>4 min read</span></div>
       </a>
 
-      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-title="platform mismatch wrong social media platform">
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="strategy" data-readtime="short" data-title="platform mismatch wrong social media platform" data-preview="The platform you're most active on might not be where your customers actually spend time. This gives you a simple framework for figuring out where to focus so you stop wasting effort.">
         <span class="article-badge badge-strategy">Strategy</span>
         <h3>You're Probably on the Wrong Platform</h3>
         <p>Most businesses are on the platforms they chose by gut feeling. Here's how to figure out where your audience actually is.</p>
         <div class="article-meta"><span>Sep 15, 2024</span><span>6 min read</span></div>
       </a>
 
-      <a href="blog-category-local.html" class="article-card reveal" data-cat="local setup" data-title="facebook page setup local business facebook group">
+      <a href="blog-category-local.html" class="article-card reveal" data-cat="local setup" data-readtime="long" data-title="facebook page setup local business facebook group" data-preview="Facebook is still the most powerful local marketing tool available, but most local businesses set it up wrong. This complete guide covers everything from page category to group strategy.">
         <span class="article-badge badge-local">Local Biz · Setup</span>
         <h3>How to Set Up a Facebook Page (and Group) That Converts Locally</h3>
         <p>Facebook is still the most powerful local marketing tool for brick-and-mortar businesses. Here's the complete setup guide.</p>
         <div class="article-meta"><span>Sep 5, 2024</span><span>8 min read</span></div>
       </a>
 
-      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="setup strategy" data-title="linkedin profile setup business b2b linkedin page">
+      <a href="blog-category-strategy.html" class="article-card reveal" data-cat="setup strategy" data-readtime="long" data-title="linkedin profile setup business b2b linkedin page" data-preview="LinkedIn is dramatically underused by small businesses and solopreneurs. This guide covers every element of your profile and page, with specific copy guidance for each section.">
         <span class="article-badge badge-strategy">Setup · LinkedIn</span>
         <h3>How to Set Up LinkedIn for Business: Complete Profile Guide</h3>
         <p>Whether you're a solo consultant or a small team, here's how to set up LinkedIn so it actually brings in leads and opportunities.</p>
         <div class="article-meta"><span>Aug 20, 2024</span><span>7 min read</span></div>
       </a>
+
+      <!-- Sentinel for infinite scroll (Task 6) -->
+      <div class="sentinel" id="loadSentinel" aria-hidden="true"></div>
+      <!-- End message (Task 6) -->
+      <div class="blog-end-msg" id="blogEndMsg">
+        You've seen everything — <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener noreferrer">follow us on Instagram</a> for daily tips.
+      </div>
 
     </div>
   </section>
@@ -772,52 +966,59 @@
 <div id="site-footer"></div>
 
 <script>
-  // ── SEARCH + FILTER
-  const searchInput = document.getElementById('searchInput');
-  const articleGrid = document.getElementById('articleGrid');
-  const articleCards = Array.from(articleGrid.querySelectorAll('.article-card'));
-  const countEl = document.getElementById('articleCount');
-  const catBtns = document.querySelectorAll('.search-tag');
-  const labelEl = document.getElementById('allArticlesLabel');
-  let activeCategory = 'all';
+  /* ── SEARCH + CATEGORY FILTER ────────────────────────────── */
+  var searchInput   = document.getElementById('searchInput');
+  var articleGrid   = document.getElementById('articleGrid');
+  var articleCards  = Array.from(articleGrid.querySelectorAll('.article-card'));
+  var countEl       = document.getElementById('articleCount');
+  var catBtns       = document.querySelectorAll('.search-tag');
+  var labelEl       = document.getElementById('allArticlesLabel');
+  var activeCategory = 'all';
+  var activeReadtime = 'all';
 
-  var topPosts       = document.querySelector('.top-posts');
+  var topPosts          = document.querySelector('.top-posts');
   var categoriesSection = document.querySelector('.categories-section');
 
   function showBigSuggestions() {
-    if (topPosts)        topPosts.style.display = '';
-    if (categoriesSection) categoriesSection.style.display = '';
+    if (topPosts)           topPosts.style.display = '';
+    if (categoriesSection)  categoriesSection.style.display = '';
   }
   function hideBigSuggestions() {
-    if (topPosts)        topPosts.style.display = 'none';
-    if (categoriesSection) categoriesSection.style.display = 'none';
+    if (topPosts)           topPosts.style.display = 'none';
+    if (categoriesSection)  categoriesSection.style.display = 'none';
   }
 
   function filterArticles() {
     var query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-    var filterActive = (activeCategory !== 'all') || (query.length > 0);
+    var filterActive = (activeCategory !== 'all') || (query.length > 0) || (activeReadtime !== 'all');
 
-    if (filterActive) {
-      hideBigSuggestions();
-    } else {
-      showBigSuggestions();
-    }
+    if (filterActive) hideBigSuggestions();
+    else showBigSuggestions();
 
     var visible = 0;
     var existing = articleGrid.querySelector('.no-results');
     if (existing) existing.remove();
 
-    articleCards.forEach(function(card) {
-      var title = (card.getAttribute('data-title') || '').toLowerCase();
-      var cat   = (card.getAttribute('data-cat')   || '').toLowerCase();
-      var matchesCat   = activeCategory === 'all' || cat.indexOf(activeCategory) !== -1;
-      var matchesQuery = !query || title.indexOf(query) !== -1 || card.innerText.toLowerCase().indexOf(query) !== -1;
-      if (matchesCat && matchesQuery) {
+    articleCards.forEach(function (card) {
+      var title    = (card.getAttribute('data-title') || '').toLowerCase();
+      var cat      = (card.getAttribute('data-cat')   || '').toLowerCase();
+      var readtime = (card.getAttribute('data-readtime') || '').toLowerCase();
+
+      var matchesCat      = activeCategory === 'all' || cat.indexOf(activeCategory) !== -1;
+      var matchesQuery    = !query || title.indexOf(query) !== -1 || card.innerText.toLowerCase().indexOf(query) !== -1;
+      var matchesReadtime = activeReadtime === 'all' || readtime === activeReadtime;
+
+      if (matchesCat && matchesQuery && matchesReadtime) {
         card.style.display = '';
         visible++;
       } else {
         card.style.display = 'none';
       }
+    });
+
+    /* Also hide/show interstitials when filtering */
+    articleGrid.querySelectorAll('.resource-interstitial').forEach(function (el) {
+      el.style.display = filterActive ? 'none' : '';
     });
 
     if (countEl) countEl.textContent = visible + ' article' + (visible !== 1 ? 's' : '');
@@ -826,45 +1027,207 @@
       var noResults = document.createElement('div');
       noResults.className = 'no-results';
       noResults.innerHTML = '<div class="no-results-icon">🔍</div><h3>No articles found</h3><p>Try a different search or browse a category above.</p>';
-      articleGrid.appendChild(noResults);
+      articleGrid.insertBefore(noResults, articleGrid.querySelector('.sentinel'));
     }
 
     if (labelEl) {
-      if (!filterActive) {
-        labelEl.textContent = 'All articles';
-      } else if (activeCategory !== 'all' && !query) {
-        labelEl.textContent = activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
-      } else {
-        labelEl.textContent = 'Filtered results';
-      }
+      if (!filterActive) labelEl.textContent = 'All articles';
+      else if (activeCategory !== 'all' && !query) labelEl.textContent = activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
+      else labelEl.textContent = 'Filtered results';
     }
   }
 
-  searchInput.addEventListener('input', filterArticles);
+  if (searchInput) searchInput.addEventListener('input', filterArticles);
 
-  catBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      catBtns.forEach(b => b.classList.remove('active'));
+  catBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      catBtns.forEach(function (b) { b.classList.remove('active'); });
       this.classList.add('active');
       activeCategory = this.getAttribute('data-cat');
       filterArticles();
     });
   });
 
-  // Initial count
   if (countEl) countEl.textContent = articleCards.length + ' article' + (articleCards.length !== 1 ? 's' : '');
 
-  // ── REVEAL ON SCROLL
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+  /* ── TASK 1: READING TIME FILTER ─────────────────────────── */
+  document.querySelectorAll('.rt-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.rt-btn').forEach(function (b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      activeReadtime = this.getAttribute('data-rt');
+      filterArticles();
+    });
+  });
+
+  /* ── TASK 2: STICKY STUCK DETECTION ──────────────────────── */
+  (function () {
+    var stickyEl  = document.getElementById('searchSection');
+    var sentinel2 = document.createElement('div');
+    sentinel2.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+    stickyEl.parentNode.insertBefore(sentinel2, stickyEl);
+
+    var stickyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        stickyEl.classList.toggle('is-stuck', !entry.isIntersecting);
+      });
+    }, { threshold: [1], rootMargin: '-71px 0px 0px 0px' });
+
+    stickyObserver.observe(sentinel2);
+  }());
+
+  /* ── TASK 3: RESOURCE INTERSTITIALS ──────────────────────── */
+  (function () {
+    var grid       = document.getElementById('articleGrid');
+    var cards      = Array.from(grid.querySelectorAll('.article-card'));
+    var insertAfter = [3, 7, 11]; /* after 4th, 8th, 12th cards (0-indexed: 3, 7, 11) */
+
+    var interstitialHTML = [
+      '<a href="freebie-content-calendar.html" class="resource-interstitial"><div class="res-label">Free Resource</div><h3>Grab the Free Content Calendar →</h3><p>Plan a full month of content in one sitting. Download it free — no credit card required.</p><span class="res-cta">Download free →</span></a>',
+      '<a href="free-audit.html" class="resource-interstitial"><div class="res-label">Free Tool</div><h3>Run Your Own Social Audit — Free →</h3><p>16-point self-audit. Instant score. Specific fixes. Takes 10 minutes.</p><span class="res-cta">Take the audit →</span></a>',
+      '<a href="shop.html" class="resource-interstitial"><div class="res-label">Free Resources</div><h3>All Free Downloads in One Place →</h3><p>Checklists, workbooks, templates, and more. All free. All yours.</p><span class="res-cta">Browse free resources →</span></a>'
+    ];
+
+    insertAfter.forEach(function (idx, i) {
+      if (cards[idx]) {
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = interstitialHTML[i] || interstitialHTML[0];
+        var el = wrapper.firstElementChild;
+        cards[idx].parentNode.insertBefore(el, cards[idx].nextSibling);
+      }
+    });
+  }());
+
+  /* ── TASK 4: CODE COPY BUTTON ─────────────────────────────── */
+  (function () {
+    document.querySelectorAll('.code-copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wrap  = btn.closest('.code-block-wrap');
+        var pre   = wrap ? wrap.querySelector('pre, code') : null;
+        if (!pre) return;
+        var text = pre.textContent || '';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(function () {
+              btn.textContent = 'Copy';
+              btn.classList.remove('copied');
+            }, 2000);
+          });
+        }
+      });
+    });
+  }());
+
+  /* ── TASK 5: HOVER READING PREVIEW ──────────────────────── */
+  (function () {
+    document.querySelectorAll('.article-card[data-preview]').forEach(function (card) {
+      var previewText = card.getAttribute('data-preview');
+      if (!previewText) return;
+      var overlay = document.createElement('div');
+      overlay.className = 'hover-preview-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      var p = document.createElement('p');
+      p.textContent = previewText;
+      overlay.appendChild(p);
+      card.appendChild(overlay);
+    });
+  }());
+
+  /* ── TASK 6: INFINITE SCROLL SIMULATION ─────────────────── */
+  (function () {
+    var sentinel  = document.getElementById('loadSentinel');
+    var endMsg    = document.getElementById('blogEndMsg');
+    var grid      = document.getElementById('articleGrid');
+    var batchesDone = 0;
+    var maxBatches  = 2;
+    var loading     = false;
+
+    var skeletonTitles = [
+      'Why Consistency Matters More Than Viral',
+      'How to Batch Content for an Entire Month',
+      'The Real Reason Your Engagement is Dropping',
+      'Understanding Reach vs. Impressions',
+      'Platform-Specific Caption Strategies That Work'
+    ];
+
+    function injectSkeletons(count) {
+      loading = true;
+      var skels = [];
+      for (var i = 0; i < count; i++) {
+        var card = document.createElement('div');
+        card.className = 'skeleton-card';
+        card.innerHTML =
+          '<div class="skel-badge"></div>' +
+          '<div class="skel-line"></div>' +
+          '<div class="skel-line skel-short"></div>' +
+          '<div class="skel-line"></div>' +
+          '<div class="skel-line skel-xshort"></div>';
+        grid.insertBefore(card, sentinel);
+        skels.push(card);
+      }
+
+      /* Fade in after one tick */
+      requestAnimationFrame(function () {
+        skels.forEach(function (s) { s.classList.add('sk-visible'); });
+      });
+
+      /* After 1.4s: replace skeletons with "real" article-like cards */
+      setTimeout(function () {
+        skels.forEach(function (s, idx) {
+          var real = document.createElement('div');
+          real.className = 'article-card sk-visible';
+          real.style.cssText = 'opacity:0;transition:opacity 0.5s;';
+          real.innerHTML =
+            '<span class="article-badge badge-strategy">Strategy</span>' +
+            '<h3 style="font-size:17px;font-weight:800;letter-spacing:-0.3px;line-height:1.3;color:#F0F0F0;margin-bottom:10px;">' +
+            (skeletonTitles[(batchesDone * count + idx) % skeletonTitles.length] || 'Coming soon') +
+            '</h3>' +
+            '<p style="font-size:14px;color:#AAAAAA;line-height:1.6;flex:1;margin-bottom:18px;">More articles are being added regularly. Check back soon or subscribe to the newsletter for updates.</p>' +
+            '<div class="article-meta" style="display:flex;align-items:center;gap:10px;font-family:\'DM Mono\',monospace;font-size:11px;color:#666;letter-spacing:0.03em;"><span>Coming soon</span><span>· 5 min read</span></div>';
+          grid.insertBefore(real, s);
+          s.remove();
+          requestAnimationFrame(function () { real.style.opacity = '1'; });
+        });
+
+        batchesDone++;
+        loading = false;
+
+        if (batchesDone >= maxBatches && endMsg) {
+          endMsg.style.display = 'block';
+          /* Stop observing — nothing more to load */
+          if (sentinelObserver) sentinelObserver.disconnect();
+        }
+      }, 1400);
+    }
+
+    var sentinelObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !loading && batchesDone < maxBatches) {
+          injectSkeletons(5);
+        }
+        if (batchesDone >= maxBatches && endMsg) {
+          endMsg.style.display = 'block';
+          sentinelObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    if (sentinel) sentinelObserver.observe(sentinel);
+  }());
+
+  /* ── REVEAL ON SCROLL ────────────────────────────────────── */
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry, i) {
       if (entry.isIntersecting) {
-        setTimeout(() => { entry.target.classList.add('visible'); }, i * 60);
-        observer.unobserve(entry.target);
+        setTimeout(function () { entry.target.classList.add('visible'); }, i * 60);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.08 });
-  revealEls.forEach(el => observer.observe(el));
+  revealEls.forEach(function (el) { revealObserver.observe(el); });
 </script>
 
 <script src="assets/site-components.js"></script>

@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
   <style>
-    /* 404 PAGE SPECIFIC */
+    /* ── 404 LAYOUT ─────────────────────────────────────────── */
     .not-found-section {
-      min-height: 100vh;
+      min-height: calc(100vh - 60px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 48px;
+      padding: 80px 48px 60px;
       position: relative;
       overflow: hidden;
       margin-top: 60px;
@@ -25,78 +25,264 @@
     .not-found-bg {
       position: absolute;
       font-size: clamp(180px, 30vw, 320px);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       font-weight: 300;
       color: var(--purple);
       opacity: 0.06;
       user-select: none;
       letter-spacing: -10px;
       line-height: 0.9;
+      pointer-events: none;
     }
 
     .not-found-content {
       position: relative;
       z-index: 1;
       text-align: center;
-      max-width: 680px;
+      max-width: 640px;
+      width: 100%;
     }
 
     .not-found-content h1 {
-      font-size: clamp(36px, 8vw, 64px);
+      font-size: clamp(36px, 8vw, 60px);
       font-weight: 800;
-      margin: 24px 0 28px 0;
+      margin: 20px 0 16px;
       letter-spacing: -0.8px;
       line-height: 1.1;
     }
 
-    .not-found-content p {
+    .not-found-content > p {
       font-size: 17px;
       color: var(--text-sub);
       line-height: 1.65;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
-    .not-found-cta {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
+    /* ── GAME ZONE ───────────────────────────────────────────── */
+    .game-zone-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    #game-zone {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      overflow: hidden;
+      margin-bottom: 4px;
+      cursor: crosshair;
+    }
+
+    #strategy-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      white-space: nowrap;
+      /* fast-dodge transition */
+      transition: left 0.07s cubic-bezier(0.22, 1, 0.36, 1),
+                  top  0.07s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.2s;
+      will-change: left, top;
+    }
+
+    #strategy-btn:hover {
+      /* Can't hover — it runs away — but fallback for slow cursors */
+      opacity: 0.9;
+    }
+
+    .game-hint {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      margin-bottom: 28px;
+      min-height: 16px;
+      transition: opacity 0.3s;
+    }
+
+    /* ── COUNTDOWN ───────────────────────────────────────────── */
+    #redirect-section {
       margin-bottom: 32px;
     }
 
-    .not-found-cta .btn-primary {
-      display: inline-flex;
+    .countdown-track {
+      width: 100%;
+      height: 3px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
     }
 
-    .not-found-cta .btn-ghost {
-      display: inline-flex;
+    #countdown-progress {
+      height: 100%;
+      width: 100%;
+      background: var(--purple);
+      border-radius: 999px;
+      transition: width 1s linear;
     }
 
-    .not-found-help {
-      margin-top: 48px;
-      font-family: 'DM Mono', monospace;
+    .countdown-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-mono);
       font-size: 12px;
       color: var(--text-muted);
-      letter-spacing: 0.06em;
     }
 
-    @media (max-width: 768px) {
+    #redirect-count {
+      display: inline-block;
+      min-width: 1ch;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    #cancel-redirect {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      transition: color 0.15s;
+    }
+
+    #cancel-redirect:hover {
+      color: var(--text);
+    }
+
+    /* ── SEARCH BAR ──────────────────────────────────────────── */
+    .search-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .search-divider::before,
+    .search-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .search-divider span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .not-found-search-form {
+      display: flex;
+      gap: 8px;
+      position: relative;
+    }
+
+    .not-found-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .not-found-search-input {
+      flex: 1;
+      padding: 12px 14px 12px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .not-found-search-input:focus {
+      border-color: var(--purple);
+    }
+
+    .not-found-search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .not-found-search-btn {
+      padding: 12px 20px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .not-found-search-btn:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff;
+    }
+
+    .search-sub {
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 600px) {
       .not-found-section {
-        padding: 60px 24px;
-        margin-top: 60px;
+        padding: 60px 20px 40px;
       }
 
-      .not-found-content h1 {
-        margin: 20px 0 24px 0;
+      #game-zone {
+        height: 170px;
       }
 
-      .not-found-cta {
+      #strategy-btn {
+        font-size: 12px;
+        padding: 11px 18px;
+      }
+
+      .not-found-search-form {
         flex-direction: column;
-        gap: 12px;
       }
 
-      .not-found-cta .btn-primary,
-      .not-found-cta .btn-ghost {
+      .not-found-search-btn {
         width: 100%;
       }
     }
@@ -106,29 +292,198 @@
   <div id="site-nav"></div>
 
   <section class="not-found-section reveal">
-    <div class="not-found-bg">404</div>
+    <div class="not-found-bg" aria-hidden="true">404</div>
+
     <div class="not-found-content">
       <div class="section-label">404 · Page not found</div>
       <h1>We lost that page.</h1>
-      <p>It might have moved, or it never existed. Either way, here's where to go instead.</p>
+      <p>It might have moved, or it never existed. Either way — try catching the button below, or search for what you need.</p>
 
-      <div class="not-found-cta">
-        <a href="index.html" class="btn-primary">Go home →</a>
-        <a href="services.html" class="btn-ghost">Get your audit</a>
+      <!-- ── GAME ── -->
+      <p class="game-zone-label">Your strategy is somewhere in here →</p>
+      <div id="game-zone" role="region" aria-label="Interactive button game">
+        <button id="strategy-btn" aria-label="Elusive strategy button">
+          Seems your strategy is lost&hellip;
+        </button>
+      </div>
+      <p class="game-hint" id="game-hint" aria-live="polite"></p>
+
+      <!-- ── COUNTDOWN ── -->
+      <div id="redirect-section">
+        <div class="countdown-track" aria-hidden="true">
+          <div id="countdown-progress"></div>
+        </div>
+        <div class="countdown-label">
+          <span>Sending you home in <span id="redirect-count">5</span>s</span>
+          <button id="cancel-redirect" aria-label="Cancel redirect">stay here</button>
+        </div>
       </div>
 
-      <p class="not-found-help">Looking for something specific? Try the search bar or reach out.</p>
+      <!-- ── SEARCH ── -->
+      <div class="search-divider">
+        <span>or find what you were looking for</span>
+      </div>
+
+      <form class="not-found-search-form" id="not-found-search" role="search" aria-label="Site search">
+        <span class="not-found-search-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          class="not-found-search-input"
+          id="not-found-search-input"
+          placeholder="Search articles, tips, guides…"
+          autocomplete="off"
+          aria-label="Search the blog"
+        >
+        <button type="submit" class="not-found-search-btn">Search</button>
+      </form>
+      <p class="search-sub">Takes you to the blog &rarr; <a href="blog.html" style="color: var(--purple);">browse all posts</a></p>
     </div>
   </section>
 
   <div id="site-footer"></div>
 
   <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    /* ── GAME: JUMPING BUTTON ─────────────────────────────── */
+    (function () {
+      'use strict';
+
+      var btn   = document.getElementById('strategy-btn');
+      var zone  = document.getElementById('game-zone');
+      var hint  = document.getElementById('game-hint');
+      var jumps = 0;
+      var HINTS = [
+        '',
+        '',
+        '',
+        '',
+        'Getting closer… 👀',
+        'Nice try. 😅',
+        'You can\'t catch it.',
+        'It\'s literally running away.',
+        'Have you tried just going home?',
+        'This is the most exercise you\'ve gotten all day.',
+      ];
+      var ticking = false;
+
+      function jumpButton() {
+        var zw  = zone.offsetWidth;
+        var zh  = zone.offsetHeight;
+        var bw  = btn.offsetWidth;
+        var bh  = btn.offsetHeight;
+        var pad = 16;
+
+        /* Clamp so button never clips the edges */
+        var maxLeft = Math.max(pad, zw - bw - pad);
+        var maxTop  = Math.max(pad, zh - bh - pad);
+
+        btn.style.left = (pad + Math.random() * (maxLeft - pad)) + 'px';
+        btn.style.top  = (pad + Math.random() * (maxTop  - pad)) + 'px';
+
+        /* Clear transform so left/top take over after first jump */
+        btn.style.transform = 'none';
+
+        jumps++;
+        if (hint && HINTS[jumps]) hint.textContent = HINTS[jumps];
+      }
+
+      /* Mouse approach detection — throttled with rAF */
+      document.addEventListener('mousemove', function (e) {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var br = btn.getBoundingClientRect();
+          var cx = br.left + br.width  / 2;
+          var cy = br.top  + br.height / 2;
+          var dx = e.clientX - cx;
+          var dy = e.clientY - cy;
+          /* Jump when cursor enters 90px radius */
+          if (dx * dx + dy * dy < 8100) jumpButton();
+          ticking = false;
+        });
+      }, { passive: true });
+
+      /* Touch: jump when tapping near the button */
+      zone.addEventListener('touchstart', function (e) {
+        var touch = e.touches[0];
+        var br    = btn.getBoundingClientRect();
+        var cx    = br.left + br.width  / 2;
+        var cy    = br.top  + br.height / 2;
+        var dx    = touch.clientX - cx;
+        var dy    = touch.clientY - cy;
+        if (dx * dx + dy * dy < 14400) jumpButton(); /* 120px radius on touch */
+      }, { passive: true });
+    }());
+
+    /* ── COUNTDOWN + AUTO-REDIRECT ───────────────────────── */
+    (function () {
+      'use strict';
+
+      var countEl    = document.getElementById('redirect-count');
+      var progressEl = document.getElementById('countdown-progress');
+      var cancelBtn  = document.getElementById('cancel-redirect');
+      var section    = document.getElementById('redirect-section');
+      var seconds    = 5;
+      var cancelled  = false;
+      var timer;
+
+      /* Initialise bar at 100% */
+      if (progressEl) progressEl.style.width = '100%';
+
+      function tick() {
+        if (cancelled) return;
+        if (seconds <= 0) {
+          window.location.href = 'index.html';
+          return;
+        }
+        seconds--;
+        if (countEl)    countEl.textContent   = seconds;
+        if (progressEl) progressEl.style.width = (seconds / 5 * 100) + '%';
+      }
+
+      /* Start after first second */
+      timer = setInterval(tick, 1000);
+
+      cancelBtn.addEventListener('click', function () {
+        cancelled = true;
+        clearInterval(timer);
+        section.innerHTML =
+          '<p style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);">' +
+          'Redirect cancelled. <a href="index.html" style="color: var(--purple);">Go home anyway &rarr;</a>' +
+          '</p>';
+      });
+    }());
+
+    /* ── SEARCH ──────────────────────────────────────────── */
+    (function () {
+      'use strict';
+
+      var form  = document.getElementById('not-found-search');
+      var input = document.getElementById('not-found-search-input');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var q = input.value.trim();
+        /* Redirect to blog page; blog JS handles filtering by query */
+        window.location.href = q
+          ? 'blog.html?q=' + encodeURIComponent(q)
+          : 'blog.html';
+      });
+    }());
+
+    /* ── SCROLL REVEAL ────────────────────────────────────── */
+    (function () {
+      'use strict';
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    }());
   </script>
 
   <script src="assets/site-components.js"></script>

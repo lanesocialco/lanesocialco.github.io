@@ -46,9 +46,10 @@
       margin: 0 0 20px 0;
       letter-spacing: -1.5px;
       line-height: 1.05;
-      max-width: 700px;
+      max-width: 760px;
       padding-left: 20px;
     }
+    .contact-hero h1 em { font-style: normal; color: var(--purple); }
 
     .contact-hero p {
       font-size: 17px;
@@ -353,7 +354,7 @@
 
   <div class="contact-hero reveal">
     <div class="section-label">Get in touch</div>
-    <h1>Let's figure out what's holding you back.</h1>
+    <h1>Ready to be our next <em>64,000%</em> growth story? Drop us a line.</h1>
     <p>Whether you're ready to book an audit, have questions first, or want to explore something bigger — this is the right place to start.</p>
   </div>
 
@@ -465,6 +466,21 @@
         </div>
 
         <div class="form-group">
+          <label for="budget">Monthly marketing budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select a range</option>
+            <option value="none">$0 / No budget right now</option>
+            <option value="under500">Under $500</option>
+            <option value="500to1000">$500 – $1,000</option>
+            <option value="1000to2500">$1,000 – $2,500</option>
+            <option value="2500plus">$2,500+</option>
+          </select>
+          <div id="budget-nudge" style="display:none; margin-top:10px; padding:12px 16px; background:rgba(123,46,255,0.08); border:1px solid rgba(123,46,255,0.2); border-radius:8px; font-size:13px; color:rgba(255,255,255,0.75); line-height:1.55;">
+            Sounds like our free resources are the perfect starting point for you → <a href="shop-free.html" style="color:var(--purple); font-weight:700; text-decoration:none;">Browse free downloads</a>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Tell us a bit more about what you're looking for..." required></textarea>
         </div>
@@ -488,7 +504,15 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Form handled by Netlify — no JS needed
+    // Budget conditional nudge
+    (function () {
+      var budgetSel = document.getElementById('budget');
+      var nudge = document.getElementById('budget-nudge');
+      if (!budgetSel || !nudge) return;
+      budgetSel.addEventListener('change', function () {
+        nudge.style.display = (budgetSel.value === 'none') ? 'block' : 'none';
+      });
+    }());
   </script>
 
   <script src="assets/site-components.js"></script>

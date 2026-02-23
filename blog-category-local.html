@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/global.css">
   <style>
     .category-hero { padding-top: 140px; padding-bottom: 60px; position: relative; overflow: hidden; }
-    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(234,88,12,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .category-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(50,120,255,0.10) 0%, transparent 70%) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
     .category-hero h1 { font-family: 'DM Mono', monospace; font-size: 120px; font-weight: 500; margin-bottom: 16px; line-height: 0.9; position: relative; z-index: 1; color: #fb923c; }
     .category-hero p { font-size: 18px; color: var(--text-sub); max-width: 600px; position: relative; z-index: 1; line-height: 1.6; }
     @media (max-width: 900px) {
@@ -68,10 +68,71 @@
       article .pullquote { font-size: 16px; padding: 24px 16px; }
     }
     @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+  
+    /* ── Task 2: Breadcrumb ───────────────────────────────── */
+    .breadcrumb-nav {
+      max-width: 1400px; margin: 0 auto;
+      padding: 80px 80px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .breadcrumb-nav a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb-nav a:hover { color: var(--purple); }
+    .breadcrumb-nav .bc-sep { margin: 0 6px; opacity: 0.5; }
+    @media (max-width: 900px) { .breadcrumb-nav { padding: 60px 24px 0; font-size: 12px; } }
+
+    /* ── Task 3: Sidebar layout ───────────────────────────── */
+    @media (min-width: 1024px) {
+      main {
+        max-width: 1280px; margin: 0 auto; padding: 0 80px;
+        display: grid;
+        grid-template-columns: minmax(0,720px) 280px;
+        column-gap: 60px;
+        justify-content: center;
+        align-items: start;
+      }
+      .category-hero, .breadcrumb-nav, .more-posts { grid-column: 1 / -1; }
+      .article-sidebar { grid-column: 2; grid-row: 3 / 6; align-self: start; }
+      article  { margin-top: 80px; margin-bottom: 0; }
+      .faq-section { max-width: none; margin-bottom: 80px; }
+    }
+    .sidebar-top-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      position: sticky; top: 90px;
+    }
+    @media (max-width: 1024px) {
+      .article-sidebar { display: none; }
+    }
+    .sidebar-top-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--purple); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+    .sidebar-top-card h4 { font-size: 15px; font-weight: 700; margin: 0 0 8px; line-height: 1.4; color: var(--text); }
+    .sidebar-top-card p { font-size: 13px; color: var(--text-sub); line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-top-card a.read-now { font-size: 13px; font-weight: 700; color: var(--purple); text-decoration: none; }
+    .sidebar-top-card a.read-now:hover { text-decoration: underline; }
+
+    /* ── Task 5: Number badges on first 3 post-cards ─────── */
+    .more-posts-grid .post-card { position: relative; }
+    .card-num-badge {
+      position: absolute; top: -10px; left: -10px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--purple); color: #fff;
+      font-weight: 700; font-size: 12px;
+      display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
+
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="blog.html">Blog</a>
+    <span class="bc-sep">›</span>
+    <span>Local</span>
+  </nav>
 
   <main>
     <section class="category-hero">
@@ -169,9 +230,9 @@
       <p>Host local events and promote them on social. "Free wine tasting Thursday night." Get followers to show up. Once they visit, some become regulars.</p>
 
       <div class="cta-card">
-        <h4>Get a local social audit</h4>
+        <h4>Grab the Free Local Business Audit Checklist</h4>
         <p>We analyze how local businesses in your area are winning on social. We show you the gaps and opportunities unique to your neighborhood and business.</p>
-        <a href="audit-intake.html">Book an Audit</a>
+        <a href="freebie-audit-checklist.html">Get the Checklist →</a>
       </div>
     </article>
 
@@ -216,7 +277,16 @@
         </a>
       </div>
     </section>
-  </main>
+  
+  <aside class="article-sidebar">
+    <div class="sidebar-top-card">
+      <span class="sidebar-top-label">📌 Top read this month</span>
+      <h4>How local businesses win on social without going viral</h4>
+      <p>You don't need a million views. You need 500 people in your zip code to know you exist.</p>
+      <a href="#" class="read-now">Read now →</a>
+    </div>
+  </aside>
+</main>
 
   <div id="site-footer"></div>
 

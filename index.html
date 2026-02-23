@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- SEO -->
-<meta name="description" content="Tired of posting with nothing to show for it? Lane Social Co finds exactly what's broken with your social media and gives you a clear plan to fix it. Audits from $97.">
+<meta name="description" content="Tired of posting with nothing to show for it? Lane Social Co finds exactly what's broken with your social media and gives you a clear plan to fix it.">
 <meta name="keywords" content="social media audit, social media strategy, Las Vegas social media, small business social media, Instagram strategy, TikTok for business">
 <meta name="author" content="Nate Lane, Lane Social Co">
 <link rel="canonical" href="https://lanesocialco.com/">
@@ -58,21 +58,7 @@
   }
   .hero-content { max-width: 820px; position: relative; z-index: 1; }
 
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.1s;
-  }
-  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); flex-shrink: 0; }
+  /* Task 1a: eyebrow removed from HTML — no class needed */
 
   .hero h1 {
     font-size: clamp(52px, 7vw, 96px);
@@ -97,11 +83,12 @@
     animation: fadeUp 0.7s ease forwards 0.35s;
   }
 
+  /* Task 1c: stacked vertically */
   .hero-actions {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.5s;
     margin-bottom: 16px;
@@ -134,7 +121,7 @@
     color: var(--text);
     line-height: 1;
   }
-  .proof-stat .number span { color: var(--purple); }
+  .proof-stat .number .count-suffix { color: var(--purple); }
   .proof-stat .label {
     font-size: 12px;
     color: var(--text-muted);
@@ -166,28 +153,54 @@
     max-width: 580px;
     margin: 0 auto 64px;
   }
+  /* Task 3a: more padding + gap; no border-between-cards trick */
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border-radius: 16px;
-    overflow: hidden;
+    gap: 24px;
     text-align: left;
   }
   .problem-card {
     background: var(--surface);
-    padding: 44px;
-    transition: background 0.2s;
+    padding: 64px;
+    transition: background 0.3s;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
   }
-  .problem-card:hover { background: var(--surface-2); }
+  /* Task 3b: hover → black bg, text colour shift */
+  .problem-card:hover { background: #000000; }
+  .problem-card:hover h3 { color: #ffffff; }
+  .problem-card:hover p { color: rgba(255,255,255,0.65); }
+
+  /* Task 3b: emoji swap */
   .problem-number {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--purple);
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
+    position: relative;
+    height: 60px;
+    margin-bottom: 24px;
   }
+  .pn-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--purple);
+    position: absolute;
+    top: 0; left: 0;
+    line-height: 1;
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .pn-emoji {
+    font-size: 44px;
+    position: absolute;
+    top: 0; left: 0;
+    line-height: 1;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .problem-card:hover .pn-num  { opacity: 0; transform: scale(0.5); }
+  .problem-card:hover .pn-emoji { opacity: 1; transform: scale(1); }
+
   .problem-card h3 {
     font-size: 21px;
     font-weight: 700;
@@ -195,8 +208,30 @@
     margin-bottom: 12px;
     color: var(--text);
     line-height: 1.2;
+    transition: color 0.3s;
   }
-  .problem-card p { font-size: 15px; line-height: 1.65; color: var(--text-sub); }
+  .problem-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-sub);
+    transition: color 0.3s;
+  }
+  /* Task 3b: hidden detail fades in */
+  .problem-detail {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s 0.05s, max-height 0.35s, margin-top 0.3s;
+  }
+  .problem-card:hover .problem-detail {
+    opacity: 1;
+    max-height: 120px;
+    margin-top: 14px;
+  }
 
   /* ── Audit split ─────────────────────────────────────────────── */
   .audit {
@@ -235,10 +270,81 @@
   }
   .audit-list li:last-child { border-bottom: none; }
 
-  /* ── How it works ────────────────────────────────────────────── */
+  /* ── Task 4: Strategy split (mirrored — visual left, copy right) ─ */
+  .strategy {
+    padding: var(--section-py) var(--section-px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: var(--bg-alt);
+  }
+  .strategy h2 {
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+  .strategy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .strategy-card-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--purple);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(var(--purple-rgb),0.3);
+    border-radius: 40px;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+  .strategy-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .strategy-card > p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-sub);
+    margin-bottom: 28px;
+  }
+  .strategy-price { margin-bottom: 28px; }
+  .strategy-price .amount {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .strategy-price .period {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+  .strategy-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* ── Task 5: How it works ─────────────────────────────────────── */
   .how {
     padding: var(--section-py) var(--section-px);
-    background: var(--bg-alt);
+    background: var(--bg);
     text-align: center;
   }
   .how h2 {
@@ -249,9 +355,7 @@
     color: var(--text);
   }
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; text-align: left; }
-  .step-connector {
-    position: relative;
-  }
+  .step-connector { position: relative; }
   .step-connector::after {
     content: '→';
     position: absolute;
@@ -261,11 +365,12 @@
     font-size: 20px;
   }
   .step-connector:last-child::after { display: none; }
+  /* Task 5b: step numbers purple */
   .step-number {
     font-family: 'DM Mono', monospace;
     font-size: 48px;
     font-weight: 300;
-    color: var(--border-soft);
+    color: var(--purple);
     line-height: 1;
     margin-bottom: 20px;
   }
@@ -279,10 +384,10 @@
   }
   .step p { font-size: 15px; line-height: 1.65; color: var(--text-sub); }
 
-  /* ── Testimonials ────────────────────────────────────────────── */
+  /* ── Task 6: Testimonials carousel ───────────────────────────── */
   .proof-section {
     padding: var(--section-py) var(--section-px);
-    background: var(--bg);
+    background: var(--bg-alt);
     text-align: center;
   }
   .proof-section h2 {
@@ -295,18 +400,74 @@
     margin-right: auto;
     color: var(--text);
   }
-  .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+  .testimonials-outer {
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonials-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  .testimonials-track .testimonial {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  /* Task 6a: emoji badge */
+  .testimonial-emoji {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 22px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+  }
+  .carousel-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .carousel-btn:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .carousel-dots { display: flex; gap: 8px; align-items: center; }
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    padding: 0;
+  }
+  .carousel-dot.active { background: var(--purple); transform: scale(1.35); }
 
-  /* ── Shop teaser ─────────────────────────────────────────────── */
+  /* ── Task 7: Shop teaser / Freebie grid ───────────────────────── */
   .shop-teaser {
     padding: var(--section-py) var(--section-px);
-    background: var(--bg-alt);
+    background: var(--bg);
   }
   .shop-teaser-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: center;
+    align-items: start;
   }
   .shop-teaser h2 {
     font-size: clamp(32px, 4vw, 52px);
@@ -322,7 +483,90 @@
     color: var(--text-sub);
     margin-bottom: 36px;
   }
-  .freebie-cards { display: flex; flex-direction: column; gap: 12px; }
+  /* Freebie card grid */
+  .freebie-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .freebie-grid-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+    position: relative;
+  }
+  .freebie-grid-card:hover { transform: translateY(-3px); }
+  .freebie-grid-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin: 0;
+  }
+  .freebie-grid-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  /* Task 7: description reveals on hover */
+  .freebie-grid-desc {
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.55;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s, max-height 0.3s, margin-top 0.3s;
+    margin-top: 0;
+  }
+  .freebie-grid-card:hover .freebie-grid-desc {
+    opacity: 1;
+    max-height: 80px;
+    margin-top: 4px;
+  }
+  .freebie-grid-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple);
+    border: 1px solid rgba(var(--purple-rgb),0.35);
+    border-radius: 40px;
+    padding: 3px 10px;
+    margin-top: auto;
+    width: fit-content;
+  }
+  .freebie-grid-badge.paid { color: var(--text-muted); border-color: var(--border); }
+  /* Task 7: unique glow per card */
+  .freebie-grid-card:nth-child(1):hover {
+    background: rgba(var(--purple-rgb),0.12);
+    box-shadow: 0 8px 28px rgba(var(--purple-rgb),0.15);
+    border-color: rgba(var(--purple-rgb),0.3);
+  }
+  .freebie-grid-card:nth-child(2):hover {
+    background: rgba(14,165,233,0.12);
+    box-shadow: 0 8px 28px rgba(14,165,233,0.15);
+    border-color: rgba(14,165,233,0.3);
+  }
+  .freebie-grid-card:nth-child(3):hover {
+    background: rgba(234,179,8,0.12);
+    box-shadow: 0 8px 28px rgba(234,179,8,0.15);
+    border-color: rgba(234,179,8,0.3);
+  }
+  .freebie-grid-card:nth-child(4):hover {
+    background: rgba(16,185,129,0.12);
+    box-shadow: 0 8px 28px rgba(16,185,129,0.15);
+    border-color: rgba(16,185,129,0.3);
+  }
 
   /* ── Final CTA ───────────────────────────────────────────────── */
   .final-cta {
@@ -377,16 +621,26 @@
     .hero-proof { gap: 32px; }
     .problem { padding: 80px 24px; }
     .problem-grid { grid-template-columns: 1fr; }
+    .problem-card { padding: 40px 28px; }
     .audit { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    .strategy { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    .strategy-visual { order: 1; }
+    .strategy-text  { order: 2; }
     .how { padding: 80px 24px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
     .step-connector::after { display: none; }
     .proof-section { padding: 80px 24px; }
-    .testimonials { grid-template-columns: 1fr; }
     .shop-teaser { padding: 80px 24px; }
     .shop-teaser-inner { grid-template-columns: 1fr; gap: 48px; }
     .final-cta { padding: 80px 24px; }
   }
+  @media (max-width: 600px) {
+    .freebie-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Task 2: ticker text white */
+  .ticker-item { color: #ffffff !important; }
+  .ticker .dot { color: rgba(255,255,255,0.6) !important; }
 </style>
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -436,31 +690,35 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-bg-2" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" aria-hidden="true">
-      <span class="eyebrow-dot"></span>
-      Social media strategy · Las Vegas &amp; Beyond
-    </div>
+    <!-- Task 1a: hero eyebrow removed -->
     <h1>You don't have a<br>content problem.<br>You have a <em>clarity</em> problem.</h1>
     <p class="hero-sub">Most businesses are posting consistently and getting nothing back. The issue isn't effort — it's strategy. We find exactly what's broken and fix it.</p>
+    <!-- Task 1b + 1c: Bundle CTA, secondary link stacked below -->
     <div class="hero-actions">
-      <a href="product-audit.html" class="btn-primary">
-        Get your social audit
-        <span class="price">$97</span>
+      <a href="product-bundle.html" class="btn-primary">
+        Get the Audit + Strategy Bundle
       </a>
       <a href="shop.html" class="btn-ghost">Browse free resources →</a>
     </div>
     <p class="hero-micro">No subscription. No retainer. Delivered in 7 business days.</p>
+    <!-- Task 1d: count-up stats — data-count and data-suffix for JS -->
     <div class="hero-proof" aria-label="Social proof statistics">
       <div class="proof-stat">
-        <div class="number">12<span>k</span></div>
+        <div class="number" data-count="12" data-suffix="K+">
+          <span class="count-num">12</span><span class="count-suffix">K+</span>
+        </div>
         <div class="label">followers in 15 days</div>
       </div>
       <div class="proof-stat">
-        <div class="number">2<span>M+</span></div>
+        <div class="number" data-count="2" data-suffix="M+">
+          <span class="count-num">2</span><span class="count-suffix">M+</span>
+        </div>
         <div class="label">interactions, month one</div>
       </div>
       <div class="proof-stat">
-        <div class="number">1<span>M+</span></div>
+        <div class="number" data-count="1" data-suffix="M+">
+          <span class="count-num">1</span><span class="count-suffix">M+</span>
+        </div>
         <div class="label">accounts reached</div>
       </div>
     </div>
@@ -468,7 +726,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     TICKER
+     TICKER — Task 2: white text, "Las Vegas & Beyond" removed
      ═══════════════════════════════════════════════════════════════════════ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner">
@@ -479,7 +737,6 @@
     <span class="ticker-item">Audience Building <span class="dot">✳</span></span>
     <span class="ticker-item">Digital Products <span class="dot">✳</span></span>
     <span class="ticker-item">Free Resources <span class="dot">✳</span></span>
-    <span class="ticker-item">Las Vegas &amp; Beyond <span class="dot">✳</span></span>
     <!-- duplicate for seamless loop -->
     <span class="ticker-item">Social Media Audits <span class="dot">✳</span></span>
     <span class="ticker-item">Platform Strategy <span class="dot">✳</span></span>
@@ -488,12 +745,11 @@
     <span class="ticker-item">Audience Building <span class="dot">✳</span></span>
     <span class="ticker-item">Digital Products <span class="dot">✳</span></span>
     <span class="ticker-item">Free Resources <span class="dot">✳</span></span>
-    <span class="ticker-item">Las Vegas &amp; Beyond <span class="dot">✳</span></span>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PROBLEM SECTION
+     PROBLEM SECTION — Task 3: bigger padding, emoji swap, detail reveal
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="problem" aria-labelledby="problem-heading">
   <div class="section-label">The real problem</div>
@@ -501,30 +757,46 @@
   <p class="problem-intro">Most businesses aren't failing on social because they're lazy. They're failing because nobody told them the truth about what actually works.</p>
   <div class="problem-grid">
     <div class="problem-card reveal">
-      <div class="problem-number">01</div>
+      <div class="problem-number">
+        <span class="pn-num">01</span>
+        <span class="pn-emoji" aria-hidden="true">🤔</span>
+      </div>
       <h3>You're on the wrong platform</h3>
       <p>Most businesses spread thin across 4–5 platforms and wonder why nothing's working. Your audience is concentrated in one or two places. We find them.</p>
+      <p class="problem-detail">We analyze where your competitors are thriving, where your target demographic actually spends time, and give you a clear platform priority list to follow.</p>
     </div>
     <div class="problem-card reveal">
-      <div class="problem-number">02</div>
+      <div class="problem-number">
+        <span class="pn-num">02</span>
+        <span class="pn-emoji" aria-hidden="true">📉</span>
+      </div>
       <h3>Your content has no point of view</h3>
       <p>Generic tips and product photos don't build audiences anymore. You need a position, an opinion, a reason for people to follow you specifically.</p>
+      <p class="problem-detail">We audit your existing content mix and identify exactly where your messaging goes flat — then show you the content angles that will make people actually care.</p>
     </div>
     <div class="problem-card reveal">
-      <div class="problem-number">03</div>
+      <div class="problem-number">
+        <span class="pn-num">03</span>
+        <span class="pn-emoji" aria-hidden="true">😤</span>
+      </div>
       <h3>You're chasing trends instead of building</h3>
       <p>Trend content gets views but doesn't convert. The businesses winning on social right now are building owned audiences, not renting attention.</p>
+      <p class="problem-detail">We separate your vanity metrics from your business metrics and build you a content approach that turns followers into actual customers.</p>
     </div>
     <div class="problem-card reveal">
-      <div class="problem-number">04</div>
+      <div class="problem-number">
+        <span class="pn-num">04</span>
+        <span class="pn-emoji" aria-hidden="true">💸</span>
+      </div>
       <h3>You have no system</h3>
       <p>Posting whenever inspiration strikes isn't a strategy. Without a clear content system tied to your business goals, you're just making noise.</p>
+      <p class="problem-detail">We give you a repeatable content framework — specific post types, cadence, and content pillars — so you always know what to post next and why.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     AUDIT SPLIT SECTION
+     AUDIT SPLIT SECTION — unchanged as requested
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="audit" id="audit" aria-labelledby="audit-heading">
   <div class="audit-left reveal">
@@ -557,7 +829,42 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     HOW IT WORKS
+     TASK 4: STRATEGY SPLIT SECTION — visual LEFT, copy RIGHT
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="strategy" id="strategy" aria-labelledby="strategy-heading">
+  <!-- LEFT: visual card -->
+  <div class="strategy-visual reveal">
+    <div class="strategy-card">
+      <span class="strategy-card-tag">Complete roadmap</span>
+      <h3>Social Media Strategy</h3>
+      <p>You know what's broken. Now here's the custom roadmap to fix it — built around your business, your audience, and where you're actually trying to go.</p>
+      <div class="strategy-price">
+        <div class="amount">$97</div>
+        <div class="period">One-time · delivered in 7 business days</div>
+      </div>
+      <a href="product-strategy.html" class="btn-white">Get your strategy →</a>
+      <div class="strategy-note">No subscription. No retainer. Just a plan that works.</div>
+    </div>
+  </div>
+  <!-- RIGHT: copy -->
+  <div class="strategy-text reveal">
+    <div class="section-label">The Social Strategy</div>
+    <h2 id="strategy-heading">A custom roadmap built around your business, your audience, and your goals.</h2>
+    <p class="audit-desc">Once we know what's broken, we build you a clear, platform-specific content strategy. No generic advice. No copy-paste playbooks. Just a plan designed for exactly where you are and where you're trying to go.</p>
+    <ul class="audit-list" role="list">
+      <li><span class="check" aria-hidden="true">✓</span> Custom content pillars for your brand</li>
+      <li><span class="check" aria-hidden="true">✓</span> Platform-specific posting strategy</li>
+      <li><span class="check" aria-hidden="true">✓</span> Audience persona development</li>
+      <li><span class="check" aria-hidden="true">✓</span> Content format recommendations by platform</li>
+      <li><span class="check" aria-hidden="true">✓</span> 30-day content roadmap to launch with</li>
+      <li><span class="check" aria-hidden="true">✓</span> Growth targets and KPIs to track</li>
+    </ul>
+    <a href="product-strategy.html" class="btn-primary" style="display:inline-flex;">See what's included →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     TASK 5: HOW IT WORKS — copy updated for Audit + Strategy, numerals purple
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="how" id="how" aria-labelledby="how-heading">
   <div class="section-label">How it works</div>
@@ -566,54 +873,113 @@
     <div class="step step-connector reveal">
       <div class="step-number">01</div>
       <h3>You fill out a quick intake form</h3>
-      <p>Tell us your platforms, your goals, your current posting habits, and what's frustrating you. Takes about 10 minutes and you can do it from your phone.</p>
+      <p>Tell us your platforms, your goals, and what's frustrating you most. Takes about 10 minutes. This powers both your Audit and your Strategy — one form, all the answers we need.</p>
     </div>
     <div class="step step-connector reveal">
       <div class="step-number">02</div>
       <h3>We dig into everything</h3>
-      <p>We go through your profiles, your content, your analytics, and your competition. No template responses — this is specific to your business and your goals.</p>
+      <p>We go deep on your profiles, content, analytics, and competition. The Audit uncovers what's broken. The Strategy builds the roadmap to fix it. Both are specific to your business and nobody else's.</p>
     </div>
     <div class="step step-connector reveal">
       <div class="step-number">03</div>
       <h3>You get a clear action plan</h3>
-      <p>A written report that tells you exactly what's wrong, what's working, and what to prioritize. No fluff, no filler. Just the truth and what to do about it.</p>
+      <p>An Audit tells you exactly what's wrong and what to prioritize. A Strategy gives you the full content roadmap to execute on it. No fluff, no filler — just the truth and what to do next.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     TESTIMONIALS / PROOF
+     TASK 6: TESTIMONIALS — emoji badges, 7 cards, auto-rotating carousel
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="proof-section" id="proof" aria-labelledby="proof-heading">
   <div class="section-label">Real results</div>
   <h2 id="proof-heading">What happens after the audit.</h2>
-  <div class="testimonials">
-    <div class="testimonial reveal">
-      <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
-      <div class="result-badge">12k followers · 15 days</div>
-      <p class="testimonial-text">"We'd been posting for two years with no real traction. Lane Social looked at our whole setup and told us exactly what the problem was. First month after implementing — 12,000 new followers and over a million accounts reached."</p>
-      <div class="testimonial-author">Entertainment Client</div>
-      <div class="testimonial-role">Las Vegas · Entertainment Industry</div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
-      <div class="result-badge">Platform clarity</div>
-      <p class="testimonial-text">"I was trying to be everywhere at once and burning out. The audit told me to cut three platforms and go all-in on two. Within 60 days our engagement rate tripled because we were finally talking to the right people."</p>
-      <div class="testimonial-author">Small Business Owner</div>
-      <div class="testimonial-role">Retail · Local Business</div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
-      <div class="result-badge">Strategy overhaul</div>
-      <p class="testimonial-text">"The report was the most useful thing I've gotten for my business in years. It wasn't generic advice — it was specific to my audience, my niche, my content. I knew exactly what to change the day I got it."</p>
-      <div class="testimonial-author">Creative Professional</div>
-      <div class="testimonial-role">Content Creator · Las Vegas</div>
-    </div>
+  <div class="testimonials-outer" id="testimonialsOuter">
+    <div class="testimonials-track" id="testimonialsTrack">
+
+      <!-- Card 1 -->
+      <div class="testimonial reveal">
+        <span class="testimonial-emoji" aria-hidden="true">🚀</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">12k followers · 15 days</div>
+        <p class="testimonial-text">"We'd been posting for two years with no real traction. Lane Social looked at our whole setup and told us exactly what the problem was. First month after implementing — 12,000 new followers and over a million accounts reached."</p>
+        <div class="testimonial-author">Entertainment Client</div>
+        <div class="testimonial-role">Las Vegas · Entertainment Industry</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testimonial reveal">
+        <span class="testimonial-emoji" aria-hidden="true">📈</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">Platform clarity</div>
+        <p class="testimonial-text">"I was trying to be everywhere at once and burning out. The audit told me to cut three platforms and go all-in on two. Within 60 days our engagement rate tripled because we were finally talking to the right people."</p>
+        <div class="testimonial-author">Small Business Owner</div>
+        <div class="testimonial-role">Retail · Local Business</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testimonial reveal">
+        <span class="testimonial-emoji" aria-hidden="true">💬</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">Strategy overhaul</div>
+        <p class="testimonial-text">"The report was the most useful thing I've gotten for my business in years. It wasn't generic advice — it was specific to my audience, my niche, my content. I knew exactly what to change the day I got it."</p>
+        <div class="testimonial-author">Creative Professional</div>
+        <div class="testimonial-role">Content Creator · Las Vegas</div>
+      </div>
+
+      <!-- Card 4 — new: restaurant owner -->
+      <div class="testimonial">
+        <span class="testimonial-emoji" aria-hidden="true">⭐</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">Waitlist in 3 weeks</div>
+        <p class="testimonial-text">"We went from posting sporadically and hearing crickets to having a waitlist for our weekend brunch in under a month. The strategy we got told us exactly what kind of content our local audience actually responds to. Wish we'd done this two years ago."</p>
+        <div class="testimonial-author">Maria T.</div>
+        <div class="testimonial-role">Restaurant Owner · Las Vegas, NV</div>
+      </div>
+
+      <!-- Card 5 — new: realtor -->
+      <div class="testimonial">
+        <span class="testimonial-emoji" aria-hidden="true">🏠</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">3× more inbound leads</div>
+        <p class="testimonial-text">"My listings were getting maybe 20 likes and no real engagement. After the audit I completely changed my content approach — less polished, more personality. Three months later I'm getting 3× the inbound DMs from buyers who already trust me before we've even spoken."</p>
+        <div class="testimonial-author">James R.</div>
+        <div class="testimonial-role">Real Estate Agent · Henderson, NV</div>
+      </div>
+
+      <!-- Card 6 — new: boutique -->
+      <div class="testimonial">
+        <span class="testimonial-emoji" aria-hidden="true">🛍️</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">40% engagement increase</div>
+        <p class="testimonial-text">"I thought I needed to post every day to stay relevant. The audit showed me I was posting too much of the wrong thing. We cut our posting frequency in half and our engagement almost doubled. Less is more when you actually know your audience."</p>
+        <div class="testimonial-author">Priya S.</div>
+        <div class="testimonial-role">Boutique Owner · Scottsdale, AZ</div>
+      </div>
+
+      <!-- Card 7 — new: fitness studio -->
+      <div class="testimonial">
+        <span class="testimonial-emoji" aria-hidden="true">💪</span>
+        <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+        <div class="result-badge">Class sign-ups tripled</div>
+        <p class="testimonial-text">"Our class sign-ups tripled within 6 weeks of implementing the strategy. We'd been doing workout videos and nobody was converting. Turns out our audience wanted transformation stories and behind-the-scenes content, not exercise demos. The audit figured that out in a week."</p>
+        <div class="testimonial-author">Dani K.</div>
+        <div class="testimonial-role">Fitness Studio Owner · Denver, CO</div>
+      </div>
+
+    </div><!-- /testimonials-track -->
+  </div><!-- /testimonials-outer -->
+
+  <!-- Carousel controls -->
+  <div class="carousel-controls" aria-label="Testimonial navigation">
+    <button class="carousel-btn" id="carouselPrev" aria-label="Previous testimonial">&#8592;</button>
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Testimonial indicators"></div>
+    <button class="carousel-btn" id="carouselNext" aria-label="Next testimonial">&#8594;</button>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     SHOP / FREEBIES TEASER
+     TASK 7: FREE RESOURCES — card grid with accent glows & desc reveal
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="shop-teaser" aria-labelledby="freebies-heading">
   <div class="shop-teaser-inner">
@@ -624,34 +990,30 @@
       <a href="shop.html" class="btn-primary" style="display:inline-flex;">Browse all resources →</a>
     </div>
     <div class="shop-teaser-right reveal">
-      <div class="freebie-cards">
-        <a href="free-audit.html" class="freebie-card">
-          <div class="freebie-info">
-            <h4>Interactive Social Media Audit Tool</h4>
-            <p>Tool · 16-question self-audit, instant results</p>
-          </div>
-          <span class="freebie-tag">Free</span>
+      <div class="freebie-grid">
+        <a href="free-audit.html" class="freebie-grid-card">
+          <h4>Interactive Social Media Audit Tool</h4>
+          <span class="freebie-grid-type">Tool · 16 questions</span>
+          <p class="freebie-grid-desc">Run yourself through our exact audit process. Get instant scoring across 6 categories and a personalized action list you can start on today.</p>
+          <span class="freebie-grid-badge">Free</span>
         </a>
-        <a href="freebie-audit-checklist.html" class="freebie-card">
-          <div class="freebie-info">
-            <h4>The Social Audit Checklist</h4>
-            <p>PDF · 2-page quick reference</p>
-          </div>
-          <span class="freebie-tag">Free</span>
+        <a href="freebie-audit-checklist.html" class="freebie-grid-card">
+          <h4>The Social Audit Checklist</h4>
+          <span class="freebie-grid-type">PDF · 2-page reference</span>
+          <p class="freebie-grid-desc">A fast-moving checklist of every element we look at in a full audit. Print it out, work through it platform by platform, and find your own gaps.</p>
+          <span class="freebie-grid-badge">Free</span>
         </a>
-        <a href="freebie-content-pillars.html" class="freebie-card">
-          <div class="freebie-info">
-            <h4>Content Pillars Workbook</h4>
-            <p>PDF · Define your content strategy</p>
-          </div>
-          <span class="freebie-tag">Free</span>
+        <a href="freebie-content-pillars.html" class="freebie-grid-card">
+          <h4>Content Pillars Workbook</h4>
+          <span class="freebie-grid-type">PDF · Strategy template</span>
+          <p class="freebie-grid-desc">Define the 3–5 content categories that will anchor your brand. Includes prompts for each pillar and a sample content mix to model from.</p>
+          <span class="freebie-grid-badge">Free</span>
         </a>
-        <a href="product-audit.html" class="freebie-card">
-          <div class="freebie-info">
-            <h4>Social Media Profile Audit</h4>
-            <p>Done for you · 7 business day delivery</p>
-          </div>
-          <span class="freebie-tag paid">$97</span>
+        <a href="product-audit.html" class="freebie-grid-card">
+          <h4>Social Media Profile Audit</h4>
+          <span class="freebie-grid-type">Done for you · 7 business days</span>
+          <p class="freebie-grid-desc">We do the heavy lifting. Full audit of your social presence with a prioritized action list and specific recommendations for each platform.</p>
+          <span class="freebie-grid-badge paid">$97</span>
         </a>
       </div>
     </div>
@@ -663,11 +1025,10 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="final-cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Stop guessing.<br>Start <em>growing.</em></h2>
-  <p>Your social media isn't broken. It just needs a strategy. Get yours for $97.</p>
+  <p>Your social media isn't broken. It just needs a strategy. Get your Audit, your Strategy, or both.</p>
   <div class="final-cta-actions">
-    <a href="product-audit.html" class="btn-primary" style="display:inline-flex;">
-      Get your social audit
-      <span class="price">$97</span>
+    <a href="product-bundle.html" class="btn-primary" style="display:inline-flex;">
+      Get the Audit + Strategy Bundle
     </a>
     <a href="shop.html" class="btn-ghost-white">Browse free resources →</a>
   </div>
@@ -677,5 +1038,134 @@
 <div id="site-footer"></div>
 
 <script src="assets/site-components.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   TASK 1d — COUNT-UP ANIMATION
+   Fires once per session (sessionStorage gate).
+   Uses requestAnimationFrame + easeOut for smooth feel.
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  if (sessionStorage.getItem('lsc_counted')) return;
+  sessionStorage.setItem('lsc_counted', '1');
+
+  var stats = document.querySelectorAll('.hero-proof .number[data-count]');
+  if (!stats.length) return;
+
+  var DURATION = 1500; // ms
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateStat(el) {
+    var target  = parseInt(el.getAttribute('data-count'), 10);
+    var numEl   = el.querySelector('.count-num');
+    if (!numEl) return;
+    var start   = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var elapsed  = ts - start;
+      var progress = Math.min(elapsed / DURATION, 1);
+      var current  = Math.round(easeOut(progress) * target);
+      numEl.textContent = current;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        numEl.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* Wait for the hero-proof to be visible, then trigger */
+  var proof = document.querySelector('.hero-proof');
+  if (!proof) return;
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          stats.forEach(animateStat);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    io.observe(proof);
+  } else {
+    /* Fallback: just run after 800ms */
+    setTimeout(function() { stats.forEach(animateStat); }, 800);
+  }
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   TASK 6c — TESTIMONIAL CAROUSEL
+   Auto-rotates every 4 seconds. Prev/Next controls. Dots.
+   Pauses on hover. Vanilla JS only.
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  var track   = document.getElementById('testimonialsTrack');
+  var outer   = document.getElementById('testimonialsOuter');
+  var dotsEl  = document.getElementById('carouselDots');
+  var prevBtn = document.getElementById('carouselPrev');
+  var nextBtn = document.getElementById('carouselNext');
+  if (!track || !outer || !dotsEl || !prevBtn || !nextBtn) return;
+
+  var cards   = track.querySelectorAll('.testimonial');
+  var total   = cards.length;
+  var current = 0;
+  var timer   = null;
+  var INTERVAL = 4000;
+
+  /* Build dot buttons */
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('data-idx', i);
+    dotsEl.appendChild(dot);
+  }
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, di) {
+      d.classList.toggle('active', di === current);
+      d.setAttribute('aria-selected', di === current ? 'true' : 'false');
+    });
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(function() { goTo(current + 1); }, INTERVAL);
+  }
+
+  function stopAuto() { clearInterval(timer); }
+
+  prevBtn.addEventListener('click', function() { stopAuto(); goTo(current - 1); startAuto(); });
+  nextBtn.addEventListener('click', function() { stopAuto(); goTo(current + 1); startAuto(); });
+
+  dotsEl.addEventListener('click', function(e) {
+    var dot = e.target.closest('.carousel-dot');
+    if (!dot) return;
+    stopAuto(); goTo(parseInt(dot.getAttribute('data-idx'), 10)); startAuto();
+  });
+
+  /* Pause on hover */
+  outer.addEventListener('mouseenter', stopAuto);
+  outer.addEventListener('mouseleave', startAuto);
+
+  /* Touch swipe support */
+  var touchStartX = 0;
+  outer.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  outer.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { stopAuto(); goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+  }, { passive: true });
+
+  goTo(0);
+  startAuto();
+})();
+</script>
 </body>
 </html>

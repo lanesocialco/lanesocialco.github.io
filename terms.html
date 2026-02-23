@@ -10,10 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Base ────────────────────────────────────────────────── */
+    html {
+      scroll-behavior: smooth; /* internal anchor links scroll smoothly */
     }
 
     html, body {
@@ -21,10 +23,8 @@
       color: var(--text);
       font-family: 'Bricolage Grotesque', sans-serif;
       line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Main content */
     main {
       background-color: var(--bg);
       padding: 140px 80px;
@@ -35,6 +35,7 @@
       margin: 0 auto;
     }
 
+    /* ── Page title ──────────────────────────────────────────── */
     h1 {
       font-size: 44px;
       font-weight: 800;
@@ -42,111 +43,217 @@
       margin-bottom: 16px;
     }
 
+    /* ── "Last Updated" pill + effective date ───────────────── */
     .meta {
-      color: var(--text-sub);
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--purple);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ── TL;DR summary box (Terms only) ─────────────────────── */
+    .tldr-box {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 24px 28px;
       margin-bottom: 48px;
     }
 
-    h2 {
-      font-size: 24px;
+    .tldr-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tldr-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
       font-weight: 700;
-      margin-top: 48px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--surface-2);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .tldr-subtitle {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .tldr-list {
+      list-style: none;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tldr-list li {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .tldr-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* ── Section headings: DM Mono gives legal-doc authority ── */
+    h2 {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-top: 52px;
       margin-bottom: 20px;
       color: var(--text);
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
-    h2:first-of-type {
-      margin-top: 0;
-    }
+    h2:first-of-type { margin-top: 0; }
 
     h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       margin-top: 24px;
       margin-bottom: 12px;
       color: var(--text);
     }
 
+    /* ── Prose paragraphs ────────────────────────────────────── */
     p {
       color: var(--text-sub);
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.85;
       margin-bottom: 16px;
+      padding: 4px 8px;
+      margin-left: -8px;
+      border-radius: 4px;
+      transition: background-color 0.15s ease;
     }
 
+    p:hover { background-color: var(--surface-2); }
+
+    /* ── Legal clause lists: mono for precision ──────────────── */
     ul, ol {
       margin-left: 24px;
       margin-bottom: 16px;
     }
 
     li {
+      font-family: var(--font-mono);
+      font-size: 13px;
       color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    strong { color: var(--text); font-weight: 700; }
+
+    /* ── Support CTA ─────────────────────────────────────────── */
+    .support-cta {
+      margin-top: 64px;
+      padding: 28px 32px;
+      border: 1px solid var(--border-soft);
+      border-top: 3px solid var(--purple);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .support-cta p {
+      margin: 0;
       font-size: 15px;
-      line-height: 1.8;
-      margin-bottom: 8px;
+      padding: 0;
+      margin-left: 0;
     }
 
-    a {
-      color: var(--purple);
-      text-decoration: none;
-    }
+    .support-cta p:hover { background: none; }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
-    .mouse-glow {
-      display: none;
+    /* ── Floating back-to-top button ─────────────────────────── */
+    #back-to-top {
       position: fixed;
-      width: 200px; height: 200px;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
       pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      will-change: left, top;
-    }
-    @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
-      .mouse-glow { display: block; }
+      transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 200;
+      box-shadow: 0 4px 20px rgba(var(--purple-rgb), 0.4);
     }
 
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 900px) {
-      main {
-        padding: 100px 24px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      h2 {
-        font-size: 20px;
-      }
+      main { padding: 100px 24px; }
+      h1   { font-size: 32px; }
+      h2   { font-size: 13px; }
+      #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
     }
 
     @media (max-width: 480px) {
-      main {
-        padding: 60px 16px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      p, li {
-        font-size: 14px;
-      }
+      main      { padding: 60px 16px; }
+      h1        { font-size: 24px; }
+      p, li     { font-size: 14px; }
+      .tldr-box { padding: 18px 20px; }
+      .support-cta { padding: 20px 22px; }
     }
   </style>
 </head>
@@ -156,14 +263,34 @@
   <main>
     <div class="container">
       <h1>Terms of Service</h1>
-      <div class="meta">Last updated: January 2025 | Effective date: January 1, 2025</div>
 
-      <h2>1. Acceptance of Terms</h2>
+      <!-- Last Updated pill badge + effective date -->
+      <div class="meta">
+        <span class="date-badge">Last Updated: January 2025</span>
+        Effective date: January 1, 2025
+      </div>
+
+      <!-- TL;DR summary box -->
+      <div class="tldr-box" role="note" aria-label="Summary of key terms">
+        <div class="tldr-header">
+          <span class="tldr-tag">TL;DR</span>
+          <span class="tldr-subtitle">The short version — read the full terms below</span>
+        </div>
+        <ul class="tldr-list">
+          <li>All purchases are final and non-refundable — audits, digital products, and consultations</li>
+          <li>Our recommendations are strategy, not guarantees — results depend on your implementation</li>
+          <li>Any feedback or content you share with us may be used in our future services or marketing</li>
+          <li>Disputes are handled under Nevada law, in Las Vegas courts</li>
+          <li>You must be 18 or older to purchase or use our services</li>
+        </ul>
+      </div>
+
+      <h2 id="section-1">1. Acceptance of Terms</h2>
       <p>By accessing and using this website and the services offered by Lane Social Co ("we," "us," "our," or "Lane Social Co"), you agree to be bound by these Terms of Service. If you do not agree to abide by the above, please do not use this service.</p>
 
-      <h2>2. Description of Services</h2>
+      <h2 id="section-2">2. Description of Services</h2>
       <p>Lane Social Co provides social media strategy, audits, and digital products for small businesses. Our primary services include:</p>
-      
+
       <h3>Social Media Audit ($97)</h3>
       <p>A one-time comprehensive analysis of your social media accounts, including strategy recommendations. This is a digital service delivered as a written report with an optional 30-minute consultation call. Once purchased, the audit cannot be refunded.</p>
 
@@ -173,7 +300,7 @@
       <h3>Service Limitations</h3>
       <p>Our services are provided on an "as-is" basis. Results vary based on implementation and market conditions. We do not guarantee specific outcomes, follower growth, or financial returns. Past client results do not guarantee your future results.</p>
 
-      <h2>3. Payment and Non-Refundable Services</h2>
+      <h2 id="section-3">3. Payment and Non-Refundable Services</h2>
       <p>All purchases of our audit services and digital products are final and non-refundable. This includes:</p>
       <ul>
         <li>The $97 Social Media Audit</li>
@@ -182,11 +309,11 @@
       </ul>
       <p>Refunds will only be issued if payment was processed in error or if technical issues prevent you from accessing purchased content. Contact us at notnathanlane@gmail.com within 7 days of purchase for such requests.</p>
 
-      <h2>4. Payment Processing</h2>
+      <h2 id="section-4">4. Payment Processing</h2>
       <p>We use Gumroad to process payments. By making a purchase, you authorize us to charge the payment method on file. You are responsible for maintaining accurate payment information. We are not liable for failed transactions due to outdated or incorrect payment details.</p>
 
-      <h2>5. Intellectual Property Rights</h2>
-      
+      <h2 id="section-5">5. Intellectual Property Rights</h2>
+
       <h3>Content Ownership</h3>
       <p>All content on this website, including text, graphics, logos, images, audio, and video, are the property of Lane Social Co or licensed to us. This content is protected by copyright law.</p>
 
@@ -203,7 +330,7 @@
       <h3>Your Content</h3>
       <p>Any feedback, suggestions, or information you provide to us becomes our property and may be used without restriction, including in our future services, marketing, or content.</p>
 
-      <h2>6. User Conduct</h2>
+      <h2 id="section-6">6. User Conduct</h2>
       <p>You agree not to:</p>
       <ul>
         <li>Violate any applicable laws or regulations</li>
@@ -216,10 +343,10 @@
         <li>Collect or track personal information of others</li>
       </ul>
 
-      <h2>7. Limitation of Liability</h2>
+      <h2 id="section-7">7. Limitation of Liability</h2>
       <p>To the fullest extent permitted by law, Lane Social Co shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, even if we have been advised of the possibility of such damages.</p>
 
-      <h2>8. No Guarantee of Results</h2>
+      <h2 id="section-8">8. No Guarantee of Results</h2>
       <p>Our services provide analysis and recommendations based on industry best practices. We do not guarantee:</p>
       <ul>
         <li>Specific growth in followers or engagement</li>
@@ -229,25 +356,25 @@
       </ul>
       <p>Results depend on your implementation, market conditions, audience receptiveness, and numerous external factors beyond our control.</p>
 
-      <h2>9. Third-Party Links and Services</h2>
+      <h2 id="section-9">9. Third-Party Links and Services</h2>
       <p>Our website may contain links to third-party websites and services. We are not responsible for the content, accuracy, or practices of external sites. Your use of third-party services is subject to their terms and conditions.</p>
 
-      <h2>10. Disclaimer of Warranties</h2>
+      <h2 id="section-10">10. Disclaimer of Warranties</h2>
       <p>This website and all services are provided on an "as-is" and "as-available" basis. We make no warranties, express or implied, regarding the website, content, or services. We disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement.</p>
 
-      <h2>11. Governing Law and Dispute Resolution</h2>
+      <h2 id="section-11">11. Governing Law and Dispute Resolution</h2>
       <p>These Terms of Service are governed by and construed in accordance with the laws of the State of Nevada, without regard to its conflict of law provisions. Any legal action or dispute arising under these terms shall be resolved exclusively in the state or federal courts located in Las Vegas, Nevada.</p>
 
-      <h2>12. Indemnification</h2>
+      <h2 id="section-12">12. Indemnification</h2>
       <p>You agree to indemnify, defend, and hold harmless Lane Social Co, its owners, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of our services, violation of these terms, or infringement of any rights.</p>
 
-      <h2>13. Termination of Access</h2>
+      <h2 id="section-13">13. Termination of Access</h2>
       <p>We reserve the right to terminate or suspend your access to our website and services at any time, with or without cause. Termination of access does not entitle you to a refund of any payments made.</p>
 
-      <h2>14. Changes to Terms</h2>
+      <h2 id="section-14">14. Changes to Terms</h2>
       <p>We may update these Terms of Service at any time. Changes become effective immediately upon posting to the website. Your continued use of our services constitutes acceptance of the updated terms. We encourage you to review these terms periodically.</p>
 
-      <h2>15. Contact Information</h2>
+      <h2 id="section-15">15. Contact Information</h2>
       <p>For questions about these Terms of Service, to report violations, or to discuss disputes:</p>
       <p>
         <strong>Lane Social Co</strong><br>
@@ -255,31 +382,47 @@
         Location: Las Vegas, Nevada
       </p>
 
-      <h2>16. Severability</h2>
+      <h2 id="section-16">16. Severability</h2>
       <p>If any provision of these Terms of Service is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
 
-      <h2>17. Entire Agreement</h2>
+      <h2 id="section-17">17. Entire Agreement</h2>
       <p>These Terms of Service, along with our Privacy Policy, constitute the entire agreement between you and Lane Social Co regarding your use of our website and services. This agreement supersedes all prior negotiations, representations, and agreements.</p>
 
-      <h2>18. Age Requirement</h2>
+      <h2 id="section-18">18. Age Requirement</h2>
       <p>By using our website and services, you represent that you are at least 18 years old and capable of entering into a legally binding contract. If you are under 18, you must have parental consent to use our services.</p>
+
+      <!-- Support CTA -->
+      <div class="support-cta">
+        <p>Have a question about these terms? <a href="contact.html">Reach out here →</a></p>
+      </div>
     </div>
   </main>
 
   <div id="site-footer"></div>
 
-  <div class="mouse-glow" id="mouseGlow"></div>
-  <script>
-    (function() {
-      var glow = document.getElementById('mouseGlow');
-      if (!glow) return;
-      var rx = 0, ry = 0;
-      document.addEventListener('mousemove', function(e) {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-      });
-    })();
-  </script>
   <script src="assets/site-components.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Floating back-to-top button ───────────────────────── */
+      var btn = document.createElement('button');
+      btn.id = 'back-to-top';
+      btn.setAttribute('aria-label', 'Back to top');
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+      document.body.appendChild(btn);
+
+      window.addEventListener('scroll', function () {
+        var scrolled = window.scrollY;
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        btn.classList.toggle('visible', total > 0 && scrolled / total >= 0.5);
+      }, { passive: true });
+
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+    }());
+  </script>
 </body>
 </html>

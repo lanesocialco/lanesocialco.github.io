@@ -267,6 +267,66 @@
         width: 100%;
       }
     }
+
+    /* ── ONE-TIME OFFER (OTO) ─────────────────────────────── */
+    .oto-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--purple);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .oto-badge {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple);
+      border: 1px solid rgba(123,46,255,0.35); padding: 4px 10px;
+      border-radius: 4px; display: inline-block; margin-bottom: 16px;
+    }
+    .oto-headline { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .oto-subhead {
+      font-size: 15px; color: var(--text-sub); line-height: 1.7;
+      margin: 0 auto 32px; max-width: 480px;
+    }
+    /* Timer */
+    .oto-timer {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 28px;
+    }
+    .oto-digit-group { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .oto-digit {
+      font-size: 60px; font-weight: 800; letter-spacing: -3px; line-height: 1;
+      color: var(--purple); font-variant-numeric: tabular-nums; min-width: 80px;
+    }
+    .oto-digit-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .oto-sep {
+      font-size: 52px; font-weight: 800; color: var(--purple);
+      opacity: 0.35; align-self: flex-start; padding-top: 4px; line-height: 1;
+    }
+    .oto-btn {
+      display: inline-block; background: var(--purple); color: #fff;
+      padding: 16px 36px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; font-size: 15px; margin-bottom: 12px;
+      transition: opacity 0.15s; display: block; max-width: 320px; margin: 0 auto 12px;
+    }
+    .oto-btn:hover { opacity: 0.88; }
+    .oto-fine {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--text-muted); letter-spacing: 0.04em;
+    }
+    .oto-expired-msg {
+      font-size: 15px; color: var(--text-muted); margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .oto-card { padding: 32px 20px; }
+      .oto-digit { font-size: 44px; min-width: 60px; }
+    }
   </style>
 </head>
 <body>
@@ -283,6 +343,28 @@
       <div class="message-box">
         <p><strong>Didn't get the email?</strong> No problem. It usually arrives within a few minutes, but sometimes it likes to hide.</p>
         <p>Still waiting? Feel free to reach out at hello@lanesocialco.com</p>
+      </div>
+
+      <!-- ── ONE-TIME OFFER ──────────────────────────────── -->
+      <div class="oto-card" id="oto-card">
+        <span class="oto-badge">⏱ One-Time Offer</span>
+        <h2 class="oto-headline">Wait — this offer expires soon.</h2>
+        <p class="oto-subhead">You just grabbed a freebie. Now get the full picture. For the next 15 minutes, claim your <strong>$97 Social Media Audit</strong> and find out exactly what's holding your accounts back.</p>
+
+        <div class="oto-timer" id="oto-timer" aria-live="polite" aria-label="Offer countdown timer">
+          <div class="oto-digit-group">
+            <div class="oto-digit" id="oto-min">15</div>
+            <div class="oto-digit-label">min</div>
+          </div>
+          <div class="oto-sep" aria-hidden="true">:</div>
+          <div class="oto-digit-group">
+            <div class="oto-digit" id="oto-sec">00</div>
+            <div class="oto-digit-label">sec</div>
+          </div>
+        </div>
+
+        <a href="product-audit.html" class="oto-btn" id="oto-btn">Claim My Audit — $97 →</a>
+        <p class="oto-fine" id="oto-fine">Offer disappears when the timer hits zero.</p>
       </div>
 
       <section class="explore-section">
@@ -323,6 +405,45 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── OTO COUNTDOWN TIMER ───────────────────────────────── */
+    (function () {
+      'use strict';
+      var SESSION_KEY  = 'lsc_oto_freebie_end';
+      var DURATION_MS  = 15 * 60 * 1000;
+      var minEl        = document.getElementById('oto-min');
+      var secEl        = document.getElementById('oto-sec');
+      var timerEl      = document.getElementById('oto-timer');
+      var btnEl        = document.getElementById('oto-btn');
+      var fineEl       = document.getElementById('oto-fine');
+      if (!minEl || !secEl) return;
+
+      /* Persist end time across refreshes (session only) */
+      var stored  = sessionStorage.getItem(SESSION_KEY);
+      var endTime = stored ? parseInt(stored, 10) : Date.now() + DURATION_MS;
+      if (!stored) sessionStorage.setItem(SESSION_KEY, endTime);
+
+      function tick() {
+        var remaining = endTime - Date.now();
+        if (remaining <= 0) {
+          /* Offer expired */
+          if (timerEl) timerEl.style.display = 'none';
+          if (btnEl)   btnEl.style.display   = 'none';
+          if (fineEl) {
+            fineEl.textContent = 'This offer has expired. Regular pricing is available in the shop.';
+            fineEl.style.fontSize = '14px';
+          }
+          return;
+        }
+        var totalSec = Math.ceil(remaining / 1000);
+        var mins     = Math.floor(totalSec / 60);
+        var secs     = totalSec % 60;
+        minEl.textContent = mins;
+        secEl.textContent = (secs < 10 ? '0' : '') + secs;
+        setTimeout(tick, 500);
+      }
+      tick();
+    }());
   </script>
 
   <script src="assets/site-components.js"></script>

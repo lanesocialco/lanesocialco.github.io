@@ -207,6 +207,320 @@
         font-size: 32px;
       }
     }
+
+    /* ── Task 2: Download scarcity text ── */
+    .download-count {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 4px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.85;
+    }
+
+    /* ── Task 4: Thumbnail area + shimmer ── */
+    .freebie-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .freebie-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.18) 50%, transparent 65%);
+      transform: translateX(-130%);
+    }
+
+    .freebie-card:hover .freebie-thumb::after {
+      animation: shimmerSlide 0.65s ease forwards;
+    }
+
+    @keyframes shimmerSlide {
+      0%   { transform: translateX(-130%); }
+      100% { transform: translateX(200%); }
+    }
+
+    .thumb-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      opacity: 0.35;
+      user-select: none;
+    }
+
+    /* ── Task 5: Star overlay ── */
+    .freebie-stars {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.58);
+      border-radius: 6px;
+      padding: 4px 10px;
+    }
+
+    .freebie-stars .stars {
+      color: #f5a623;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .freebie-stars .star-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+
+    /* ── Task 6: Time-to-value pill ── */
+    .tv-pill {
+      display: inline-block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Task 3: Add All button ── */
+    #add-all-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(123,46,255,0.4);
+      z-index: 300;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+
+    #add-all-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(123,46,255,0.5);
+    }
+
+    /* ── Shared modal styles (Task 1 + Task 3) ── */
+    .sf-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sf-modal-overlay.open {
+      display: flex;
+    }
+
+    .sf-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 48px;
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+      text-align: center;
+    }
+
+    .sf-modal h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .sf-modal p  { font-size: 15px; color: var(--text-sub); margin-bottom: 24px; }
+
+    .sf-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .sf-modal-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    .sf-modal-input:focus {
+      outline: none;
+      border-color: var(--purple);
+    }
+
+    .sf-modal-submit {
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .sf-modal-submit:hover { opacity: 0.9; }
+
+    .sf-modal-success {
+      display: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--purple);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* ── Task 1: Gated Strategy Tool section ── */
+    .strategy-tool-section {
+      padding: 80px;
+      background: var(--bg-alt);
+      position: relative;
+    }
+
+    .st-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .st-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      color: var(--purple);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .strategy-tool-section h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .st-sub {
+      color: var(--text-sub);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .st-quiz {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .st-question label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .st-question select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .st-quiz-btn {
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+
+    .st-quiz-btn:hover { opacity: 0.9; }
+
+    .st-result {
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .st-result h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--purple); }
+    .st-result p  { font-size: 15px; color: var(--text-sub); line-height: 1.6; }
+
+    /* Strategy tool blurred gate */
+    .st-gate {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.08);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .st-gate-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 40px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .st-gate-card .lock-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+    .st-gate-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .st-gate-card p  { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; }
+
+    @media (max-width: 900px) {
+      .strategy-tool-section { padding: 48px 24px; }
+      #add-all-btn { bottom: 20px; right: 16px; padding: 12px 18px; font-size: 13px; }
+      .sf-modal { padding: 32px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -221,33 +535,126 @@
 
   <div class="freebies-grid">
     <div class="freebie-card reveal">
+      <div class="freebie-thumb">
+        <span class="thumb-icon">📋</span>
+        <div class="freebie-stars">
+          <span class="stars">★★★★★</span>
+          <span class="star-label">Based on 40+ downloads</span>
+        </div>
+      </div>
       <span class="freebie-badge">27 PAGES</span>
       <h3>Social Media Audit Checklist</h3>
+      <div class="download-count">📥 Downloaded 2,100+ times this month</div>
+      <span class="tv-pill">⏱ 5-min self-audit</span>
       <p>Score your own accounts before bringing in a pro. 27 questions across content, consistency, engagement, and profile optimization.</p>
       <a href="freebie-audit-checklist.html">Download Free →</a>
     </div>
 
     <div class="freebie-card reveal">
+      <div class="freebie-thumb">
+        <span class="thumb-icon">🧩</span>
+        <div class="freebie-stars">
+          <span class="stars">★★★★★</span>
+          <span class="star-label">Based on 40+ downloads</span>
+        </div>
+      </div>
       <span class="freebie-badge">INSTANT DOWNLOAD</span>
       <h3>Content Pillar Framework</h3>
+      <div class="download-count">📥 Downloaded 1,200+ times this month</div>
+      <span class="tv-pill">🛠 10-min exercise</span>
       <p>Stop guessing what to post. This framework helps you define 3-5 content themes that attract your ideal customer.</p>
       <a href="freebie-content-pillars.html">Download Free →</a>
     </div>
 
     <div class="freebie-card reveal">
+      <div class="freebie-thumb">
+        <span class="thumb-icon">📅</span>
+        <div class="freebie-stars">
+          <span class="stars">★★★★★</span>
+          <span class="star-label">Based on 40+ downloads</span>
+        </div>
+      </div>
       <span class="freebie-badge">30 DAYS</span>
       <h3>30-Day Content Calendar</h3>
+      <div class="download-count">📥 Downloaded 847+ times this month</div>
+      <span class="tv-pill">📅 Done-for-you 30 days</span>
       <p>A done-for-you posting schedule with prompts for every day of the month. Never stare at a blank caption box again.</p>
       <a href="freebie-content-calendar.html">Download Free →</a>
     </div>
 
     <div class="freebie-card reveal">
+      <div class="freebie-thumb">
+        <span class="thumb-icon">✍️</span>
+        <div class="freebie-stars">
+          <span class="stars">★★★★★</span>
+          <span class="star-label">Based on 40+ downloads</span>
+        </div>
+      </div>
       <span class="freebie-badge">QUICK WIN</span>
       <h3>Bio Optimization Guide</h3>
+      <div class="download-count">📥 Downloaded 640+ times this month</div>
+      <span class="tv-pill">⚡ Quick win</span>
       <p>Your bio is working or it isn't. This guide shows you exactly how to fix it so the right people follow and stay.</p>
       <a href="freebie-bio-optimization.html">Download Free →</a>
     </div>
   </div>
+
+  <!-- Task 1: Gated Strategy Tool -->
+  <section class="strategy-tool-section">
+    <div class="st-inner">
+      <div class="st-label">Free Interactive Tool</div>
+      <h2>What's your social media strategy score?</h2>
+      <p class="st-sub">Answer 3 quick questions and get an instant recommendation tailored to your business.</p>
+      <div class="st-quiz">
+        <div class="st-question">
+          <label for="st-q1">What's your biggest content challenge?</label>
+          <select id="st-q1">
+            <option value="">Select one…</option>
+            <option value="ideas">Running out of ideas</option>
+            <option value="time">Not enough time to post</option>
+            <option value="engagement">Low engagement / no comments</option>
+            <option value="followers">Stuck follower count</option>
+          </select>
+        </div>
+        <div class="st-question">
+          <label for="st-q2">How often do you post right now?</label>
+          <select id="st-q2">
+            <option value="">Select one…</option>
+            <option value="daily">Daily or more</option>
+            <option value="few">A few times a week</option>
+            <option value="weekly">Once a week or less</option>
+            <option value="rarely">Barely at all</option>
+          </select>
+        </div>
+        <div class="st-question">
+          <label for="st-q3">Which platform matters most to your business?</label>
+          <select id="st-q3">
+            <option value="">Select one…</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="facebook">Facebook</option>
+          </select>
+        </div>
+        <button class="st-quiz-btn" id="st-submit">Get My Score →</button>
+        <div class="st-result" id="st-result">
+          <h4 id="st-result-title"></h4>
+          <p id="st-result-body"></p>
+        </div>
+      </div>
+    </div>
+    <!-- Gate overlay — blurs tool until email entered -->
+    <div class="st-gate" id="st-gate">
+      <div class="st-gate-card">
+        <span class="lock-icon">🔒</span>
+        <h3>Unlock the Strategy Analyzer</h3>
+        <p>Drop your email and we'll send your personalized results + a free strategy tip sheet.</p>
+        <input type="email" class="sf-modal-input" id="st-gate-email" placeholder="Your email address" style="margin-bottom:10px;">
+        <button class="sf-modal-submit" id="st-gate-unlock">Unlock Free →</button>
+        <p style="font-size:11px;margin-top:10px;color:var(--text-muted);">No spam. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="cta-section">
     <h2>Want the full picture?</h2>
@@ -255,13 +662,108 @@
     <a href="contact.html" class="cta-button">Schedule Your Audit</a>
   </section>
 
+  <!-- Task 3: Add All Freebies button -->
+  <button id="add-all-btn">📬 Send all freebies to my inbox</button>
+
+  <!-- Task 3: Add All modal -->
+  <div class="sf-modal-overlay" id="add-all-modal">
+    <div class="sf-modal">
+      <button class="sf-modal-close" id="add-all-close" aria-label="Close">&times;</button>
+      <h3>Get all 4 freebies in one go</h3>
+      <p>Drop your email and we'll send all four resources straight to your inbox — no separate downloads needed.</p>
+      <form id="add-all-form">
+        <input type="email" class="sf-modal-input" id="add-all-email" placeholder="Your email address" required>
+        <button type="submit" class="sf-modal-submit">Send Everything →</button>
+      </form>
+      <div class="sf-modal-success" id="add-all-success">Done! Check your inbox for all 4 freebies. 🎉</div>
+    </div>
+  </div>
+
   <div id="site-footer"></div>
 
   <script>
+    // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Task 1: Strategy Tool Gate ──
+    var stGate    = document.getElementById('st-gate');
+    var stUnlock  = document.getElementById('st-gate-unlock');
+    var stGateEmail = document.getElementById('st-gate-email');
+
+    stUnlock.addEventListener('click', function () {
+      var email = (stGateEmail.value || '').trim();
+      if (!email || !email.includes('@')) {
+        stGateEmail.style.borderColor = 'red';
+        return;
+      }
+      stGateEmail.style.borderColor = '';
+      stGate.style.transition = 'opacity 0.4s';
+      stGate.style.opacity = '0';
+      setTimeout(function () { stGate.style.display = 'none'; }, 400);
+    });
+
+    // Strategy tool result logic
+    var stSubmit = document.getElementById('st-submit');
+    var stResult = document.getElementById('st-result');
+    var stResultTitle = document.getElementById('st-result-title');
+    var stResultBody  = document.getElementById('st-result-body');
+
+    var recommendations = {
+      ideas:      { title: '🧩 Start with the Content Pillar Framework', body: 'You\'re not running out of ideas — you\'re missing a system. The Content Pillar Framework gives you 5 content themes you can pull from any time, on any platform. Download it free above.' },
+      time:       { title: '📅 The 30-Day Calendar is made for you', body: 'If time is your blocker, you need prompts already written. The 30-Day Content Calendar hands you a full month of posts so you spend 10 minutes scheduling, not 2 hours staring at a blank page.' },
+      engagement: { title: '📋 Run the Audit Checklist first', body: 'Low engagement usually has a root cause — inconsistent posting, weak hooks, or a profile that doesn\'t convert. The Audit Checklist pinpoints exactly where you\'re losing people in 5 minutes.' },
+      followers:  { title: '✍️ Fix your profile before your content', body: 'If you\'re posting and not growing, your bio and profile might be sending people away. The Bio Optimization Guide shows you what\'s broken and how to fix it in under an hour.' }
+    };
+
+    stSubmit.addEventListener('click', function () {
+      var challenge = document.getElementById('st-q1').value;
+      var frequency = document.getElementById('st-q2').value;
+      var platform  = document.getElementById('st-q3').value;
+
+      if (!challenge || !frequency || !platform) {
+        return;
+      }
+
+      var rec = recommendations[challenge] || recommendations.ideas;
+      stResultTitle.textContent = rec.title;
+      stResultBody.textContent  = rec.body;
+      stResult.style.display = 'block';
+      stResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    // ── Task 3: Add All modal ──
+    var addAllBtn   = document.getElementById('add-all-btn');
+    var addAllModal = document.getElementById('add-all-modal');
+    var addAllClose = document.getElementById('add-all-close');
+    var addAllForm  = document.getElementById('add-all-form');
+    var addAllSuccess = document.getElementById('add-all-success');
+
+    addAllBtn.addEventListener('click', function () {
+      addAllModal.classList.add('open');
+    });
+
+    addAllClose.addEventListener('click', function () {
+      addAllModal.classList.remove('open');
+    });
+
+    addAllModal.addEventListener('click', function (e) {
+      if (e.target === addAllModal) addAllModal.classList.remove('open');
+    });
+
+    addAllForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      addAllForm.style.display = 'none';
+      addAllSuccess.style.display = 'block';
+      setTimeout(function () {
+        addAllModal.classList.remove('open');
+        addAllForm.style.display = 'block';
+        addAllSuccess.style.display = 'none';
+        document.getElementById('add-all-email').value = '';
+      }, 3500);
+    });
   </script>
 
   <script src="assets/site-components.js"></script>

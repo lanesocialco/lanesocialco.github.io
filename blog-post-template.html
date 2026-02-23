@@ -102,10 +102,46 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
     .reveal.revealed { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal, .post-card, .faq-item h4 { transition: none; } }
+
+    /* ── Task 2: Breadcrumb ───────────────────────────────── */
+    .breadcrumb-nav {
+      max-width: 1400px; margin: 0 auto;
+      padding: 80px 80px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .breadcrumb-nav a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb-nav a:hover { color: var(--purple); }
+    .breadcrumb-nav .bc-sep { margin: 0 6px; opacity: 0.5; }
+    @media (max-width: 900px) { .breadcrumb-nav { padding: 60px 24px 0; font-size: 12px; } }
+
+    /* ── Task 6: Reading progress bar ────────────────────────*/
+    #reading-progress {
+      position: fixed;
+      top: 65px;
+      left: 0;
+      z-index: 200;
+      height: 3px;
+      width: 0%;
+      background: var(--purple);
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <!-- Task 6: Reading progress bar -->
+  <div id="reading-progress"></div>
+
   <div id="site-nav"></div>
+
+  <!-- Task 2: Breadcrumb — ✏️ EDIT category and post title below -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="blog.html">Blog</a>
+    <span class="bc-sep">›</span>
+    <a href="blog-category-strategy.html">✏️ EDIT: Category</a>
+    <span class="bc-sep">›</span>
+    <span>✏️ EDIT: Post Title</span>
+  </nav>
 
   <main>
     <!-- ✏️ EDIT: Change the h1 to your post title. Make it compelling and keyword-rich. -->
@@ -242,14 +278,32 @@
 
   <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { 
-        if (e.isIntersecting) { 
-          e.target.classList.add('revealed'); 
-          observer.unobserve(e.target); 
-        } 
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          observer.unobserve(e.target);
+        }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Task 6 — Reading progress bar */
+    (function () {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var scrollY  = window.scrollY || window.pageYOffset;
+          var maxScroll = document.body.scrollHeight - window.innerHeight;
+          var pct = maxScroll > 0 ? Math.min(100, (scrollY / maxScroll) * 100) : 0;
+          bar.style.width = pct + '%';
+          ticking = false;
+        });
+      }, { passive: true });
+    }());
   </script>
 
   <script src="assets/site-components.js"></script>

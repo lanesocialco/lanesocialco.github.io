@@ -27,7 +27,7 @@
       right: -200px;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(193,53,132,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(225,48,108,0.12) 0%, transparent 70%) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -324,10 +324,71 @@
         transition: none;
       }
     }
+  
+    /* ── Task 2: Breadcrumb ───────────────────────────────── */
+    .breadcrumb-nav {
+      max-width: 1400px; margin: 0 auto;
+      padding: 80px 80px 0;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .breadcrumb-nav a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb-nav a:hover { color: var(--purple); }
+    .breadcrumb-nav .bc-sep { margin: 0 6px; opacity: 0.5; }
+    @media (max-width: 900px) { .breadcrumb-nav { padding: 60px 24px 0; font-size: 12px; } }
+
+    /* ── Task 3: Sidebar layout ───────────────────────────── */
+    @media (min-width: 1024px) {
+      main {
+        max-width: 1280px; margin: 0 auto; padding: 0 80px;
+        display: grid;
+        grid-template-columns: minmax(0,720px) 280px;
+        column-gap: 60px;
+        justify-content: center;
+        align-items: start;
+      }
+      .category-hero, .breadcrumb-nav, .more-posts { grid-column: 1 / -1; }
+      .article-sidebar { grid-column: 2; grid-row: 3 / 6; align-self: start; }
+      article  { margin-top: 80px; margin-bottom: 0; }
+      .faq-section { max-width: none; margin-bottom: 80px; }
+    }
+    .sidebar-top-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      position: sticky; top: 90px;
+    }
+    @media (max-width: 1024px) {
+      .article-sidebar { display: none; }
+    }
+    .sidebar-top-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--purple); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+    .sidebar-top-card h4 { font-size: 15px; font-weight: 700; margin: 0 0 8px; line-height: 1.4; color: var(--text); }
+    .sidebar-top-card p { font-size: 13px; color: var(--text-sub); line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-top-card a.read-now { font-size: 13px; font-weight: 700; color: var(--purple); text-decoration: none; }
+    .sidebar-top-card a.read-now:hover { text-decoration: underline; }
+
+    /* ── Task 5: Number badges on first 3 post-cards ─────── */
+    .more-posts-grid .post-card { position: relative; }
+    .card-num-badge {
+      position: absolute; top: -10px; left: -10px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--purple); color: #fff;
+      font-weight: 700; font-size: 12px;
+      display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
+
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="blog.html">Blog</a>
+    <span class="bc-sep">›</span>
+    <span>Instagram</span>
+  </nav>
 
   <main>
     <section class="category-hero">
@@ -427,9 +488,9 @@
       <p><strong>Mistake three:</strong> They give up after two months. Instagram growth isn't linear. Some weeks are flat. Some weeks are explosive. Most accounts see real traction after three to four months of consistent posting. Most accounts quit before that.</p>
 
       <div class="cta-card">
-        <h4>Get a full audit of your Instagram account.</h4>
+        <h4>Get the Free Bio Optimization Template</h4>
         <p>We analyze your content, engagement patterns, and audience to create a custom growth plan. See exactly what's working and what's not.</p>
-        <a href="audit-intake.html">Book an Audit</a>
+        <a href="freebie-bio-optimization.html">Get the Free Template →</a>
       </div>
     </article>
 
@@ -479,7 +540,16 @@
         </a>
       </div>
     </section>
-  </main>
+  
+  <aside class="article-sidebar">
+    <div class="sidebar-top-card">
+      <span class="sidebar-top-label">📌 Top read this month</span>
+      <h4>The Instagram bio that converts visitors to followers</h4>
+      <p>Your bio has 3 seconds. Most bios waste all of them. Here's the fix.</p>
+      <a href="#" class="read-now">Read now →</a>
+    </div>
+  </aside>
+</main>
 
   <div id="site-footer"></div>
 

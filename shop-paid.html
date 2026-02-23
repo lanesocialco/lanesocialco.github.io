@@ -356,19 +356,477 @@
         flex-direction: column;
       }
     }
+
+    /* ── Task 2: Sticky pill sub-navigation ── */
+    .products-pill-nav {
+      position: sticky;
+      top: 65px;
+      z-index: 200;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+    }
+
+    .pill-nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-sub);
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .pill-nav-btn:hover,
+    .pill-nav-btn.active {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff;
+    }
+
+    /* ── Task 5: Availability badge ── */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 160, 50, 0.12);
+      border: 1px solid rgba(255, 160, 50, 0.35);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f59e0b;
+      margin-bottom: 20px;
+    }
+
+    /* ── Task 4: Frequently Bought Together ── */
+    .fbt-section {
+      padding: 0 80px 60px;
+    }
+
+    .fbt-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .fbt-label-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .fbt-products {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .fbt-product-chip {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      min-width: 130px;
+    }
+
+    .fbt-product-chip .chip-price {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .fbt-plus {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .fbt-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .fbt-save-badge {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #16a34a;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .fbt-buy-btn {
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    }
+
+    .fbt-buy-btn:hover { opacity: 0.9; }
+
+    /* ── Strategy + Bundle product cards section ── */
+    .more-products-section {
+      padding: 0 80px 40px;
+    }
+
+    .more-products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 20px 40px var(--card-shadow);
+    }
+
+    .product-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .product-card .pc-sub {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .product-card .pc-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .product-card .pc-features li {
+      font-size: 14px;
+      color: var(--text-sub);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .product-card .pc-features li::before {
+      content: '✓';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Task 6: Bundle price anchoring ── */
+    .bundle-price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .price-original {
+      font-size: 20px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-weight: 500;
+    }
+
+    .price-actual {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+    }
+
+    .price-save-badge {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #16a34a;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── Task 1: Compare Modal ── */
+    #compare-btn {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 20px var(--card-shadow);
+      z-index: 300;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    }
+
+    #compare-btn:hover {
+      border-color: var(--purple);
+      box-shadow: 0 8px 24px var(--card-shadow);
+    }
+
+    .compare-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 600;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+
+    .compare-overlay.open { display: flex; }
+
+    .compare-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+    }
+
+    .compare-modal h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 32px;
+    }
+
+    .compare-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .compare-table th {
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 15px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .compare-table th.bundle-col {
+      background: rgba(123,46,255,0.08);
+      border-radius: 8px 8px 0 0;
+      color: var(--purple);
+    }
+
+    .compare-table td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-sub);
+    }
+
+    .compare-table td.feature-name {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .compare-table td.bundle-col {
+      background: rgba(123,46,255,0.04);
+    }
+
+    .compare-table .check   { color: #16a34a; font-size: 16px; }
+    .compare-table .no-check { color: var(--text-muted); font-size: 14px; }
+
+    .compare-price-row th {
+      padding-top: 20px;
+      font-size: 18px;
+    }
+
+    .compare-price-row th.bundle-col { color: var(--purple); }
+
+    /* ── Task 3: Exit-Intent modal ── */
+    .exit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 700;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .exit-overlay.open { display: flex; }
+
+    .exit-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .exit-modal .exit-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .exit-modal .exit-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+
+    .exit-modal h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .exit-modal p {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .exit-code-box {
+      background: var(--bg-alt);
+      border: 2px dashed var(--purple);
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--purple);
+      margin-bottom: 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .exit-code-box:hover { background: rgba(123,46,255,0.08); }
+
+    .exit-copy-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .exit-cta-btn {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      transition: opacity 0.2s;
+    }
+
+    .exit-cta-btn:hover { opacity: 0.9; }
+
+    @media (max-width: 900px) {
+      .fbt-section { padding: 0 24px 48px; }
+      .fbt-inner { flex-direction: column; align-items: flex-start; }
+      .fbt-cta { margin-left: 0; }
+      .more-products-section { padding: 0 24px 32px; }
+      .more-products-grid { grid-template-columns: 1fr; }
+      .compare-modal { padding: 32px 24px; }
+      .exit-modal { padding: 36px 24px; }
+      #compare-btn { bottom: 16px; left: 16px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
   <div id="site-nav"></div>
+
+  <!-- Task 2: Sticky pill sub-navigation -->
+  <nav class="products-pill-nav" id="products-pill-nav" aria-label="Products navigation">
+    <a href="#section-audits" class="pill-nav-btn active">🔍 Audits</a>
+    <a href="#section-strategy" class="pill-nav-btn">📋 Strategy</a>
+    <a href="#section-bundles" class="pill-nav-btn">📦 Bundles</a>
+  </nav>
 
   <header>
     <h1>Tools built from real strategy.</h1>
     <p class="subheading">Not guesses or templates from the internet. Every resource is built from working with real small businesses, solving real problems.</p>
   </header>
 
-  <section class="featured-product">
+  <section class="featured-product" id="section-audits">
     <div class="featured-product-content">
       <span class="product-badge">AVAILABLE NOW</span>
+      <!-- Task 5: Real-time availability -->
+      <div class="availability-badge">⚡ Only 3 audit slots available this week</div>
       <h2>Social Media Audit</h2>
       <p class="price">$97</p>
       <div class="product-features">
@@ -383,6 +841,74 @@
         </ul>
       </div>
       <a href="contact.html" class="buy-button">Get Your Audit</a>
+    </div>
+  </section>
+
+  <!-- Task 4: Frequently Bought Together -->
+  <div class="fbt-section">
+    <div class="fbt-inner">
+      <div>
+        <div class="fbt-label-text">Frequently Bought Together</div>
+        <div class="fbt-products">
+          <div class="fbt-product-chip">
+            Social Media Audit
+            <span class="chip-price">$97</span>
+          </div>
+          <span class="fbt-plus">+</span>
+          <div class="fbt-product-chip">
+            Content Strategy Plan
+            <span class="chip-price">$97</span>
+          </div>
+        </div>
+      </div>
+      <div class="fbt-cta">
+        <span class="fbt-save-badge">Save $44 together</span>
+        <a href="product-bundle.html" class="fbt-buy-btn">Get the Bundle — $150 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategy + Bundle product cards -->
+  <div class="section-label" id="section-strategy">MORE PRODUCTS</div>
+
+  <section class="more-products-section">
+    <div class="more-products-grid">
+      <!-- Strategy -->
+      <div class="product-card reveal">
+        <span class="product-badge">AVAILABLE NOW</span>
+        <h3>Content Strategy Plan</h3>
+        <p class="pc-sub">A fully custom 90-day content strategy mapped to your goals, audience, and platforms. No guessing, no generic advice.</p>
+        <ul class="pc-features">
+          <li>Platform-specific content pillars</li>
+          <li>90-day posting roadmap</li>
+          <li>Audience personas &amp; messaging guide</li>
+          <li>Competitor positioning analysis</li>
+          <li>Monthly content themes</li>
+        </ul>
+        <p class="price">$97</p>
+        <a href="product-strategy.html" class="buy-button">Get Your Strategy</a>
+      </div>
+
+      <!-- Bundle — Task 6: Price anchoring -->
+      <div class="product-card reveal" id="section-bundles">
+        <span class="product-badge">BEST VALUE</span>
+        <h3>Audit + Strategy Bundle</h3>
+        <p class="pc-sub">Everything in the Social Media Audit plus a full Content Strategy Plan — the complete picture, start to finish.</p>
+        <ul class="pc-features">
+          <li>Full social media audit</li>
+          <li>Platform-specific content pillars</li>
+          <li>90-day roadmap + content calendar</li>
+          <li>Two 30-min walkthrough calls</li>
+          <li>Priority delivery (48-hour turnaround)</li>
+        </ul>
+        <!-- Task 6: Price anchoring with strikethrough + save badge -->
+        <div class="bundle-price-row">
+          <span class="price-original">$194</span>
+          <span class="price-actual">$150</span>
+          <span class="price-save-badge">Save $44</span>
+        </div>
+        <a href="product-bundle.html" class="buy-button">Get the Bundle</a>
+      </div>
     </div>
   </section>
 
@@ -425,13 +951,184 @@
     </form>
   </section>
 
+  <!-- Task 1: Compare Products fixed button -->
+  <button id="compare-btn" aria-label="Compare products">⚖️ Compare Products</button>
+
+  <!-- Task 1: Compare Modal -->
+  <div class="compare-overlay" id="compare-overlay">
+    <div class="compare-modal">
+      <button class="compare-close" id="compare-close" aria-label="Close">&times;</button>
+      <h3>Compare Products</h3>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Feature</th>
+            <th>Audit<br><small style="font-weight:400;color:var(--text-sub)">$97</small></th>
+            <th>Strategy<br><small style="font-weight:400;color:var(--text-sub)">$97</small></th>
+            <th class="bundle-col">Bundle<br><small>$150 — Best Value</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-name">Platform-by-platform breakdown</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="no-check">—</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Competitor gap analysis</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="no-check">—</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">90-day content roadmap</td>
+            <td><span class="no-check">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Content pillars + messaging guide</td>
+            <td><span class="no-check">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">30-min walkthrough call</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td class="bundle-col"><span class="check">✓ ✓ (two calls)</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">30-day action plan</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="no-check">—</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Priority 48-hr delivery</td>
+            <td><span class="no-check">—</span></td>
+            <td><span class="no-check">—</span></td>
+            <td class="bundle-col"><span class="check">✓</span></td>
+          </tr>
+          <tr class="compare-price-row">
+            <th style="text-align:left;">Total</th>
+            <th>$97</th>
+            <th>$97</th>
+            <th class="bundle-col">$150 <small style="color:#16a34a;font-size:12px;">Save $44</small></th>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:28px;text-align:center;">
+        <a href="product-bundle.html" class="buy-button">Get the Bundle — Best Value →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task 3: Exit-Intent modal -->
+  <div class="exit-overlay" id="exit-overlay">
+    <div class="exit-modal">
+      <button class="exit-close" id="exit-close" aria-label="Close">&times;</button>
+      <span class="exit-emoji">👋</span>
+      <h3>Before you go — here's 10% off.</h3>
+      <p>You were <em>this close</em>. Use the code below on any product and save 10% on your first order.</p>
+      <div class="exit-code-box" id="exit-code" title="Click to copy">BUNDLE10</div>
+      <p class="exit-copy-hint">👆 Click to copy the code</p>
+      <a href="product-bundle.html" class="exit-cta-btn">Claim My 10% Off →</a>
+    </div>
+  </div>
+
   <div id="site-footer"></div>
 
   <script>
+    // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Task 2: Sticky pill nav active state on scroll ──
+    var pillBtns = document.querySelectorAll('.pill-nav-btn');
+    var sections = [
+      document.getElementById('section-audits'),
+      document.getElementById('section-strategy'),
+      document.getElementById('section-bundles')
+    ];
+
+    function updateActivePill() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      var offset  = 130;
+      var current = 0;
+      sections.forEach(function (sec, i) {
+        if (sec && sec.getBoundingClientRect().top + scrollY - offset <= scrollY) {
+          current = i;
+        }
+      });
+      pillBtns.forEach(function (btn, i) {
+        btn.classList.toggle('active', i === current);
+      });
+    }
+
+    window.addEventListener('scroll', updateActivePill, { passive: true });
+
+    pillBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href    = btn.getAttribute('href');
+        var target  = document.querySelector(href);
+        if (!target) return;
+        var y = target.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - 120;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
+
+    // ── Task 1: Compare modal ──
+    var compareBtn     = document.getElementById('compare-btn');
+    var compareOverlay = document.getElementById('compare-overlay');
+    var compareClose   = document.getElementById('compare-close');
+
+    compareBtn.addEventListener('click', function () {
+      compareOverlay.classList.add('open');
+    });
+
+    compareClose.addEventListener('click', function () {
+      compareOverlay.classList.remove('open');
+    });
+
+    compareOverlay.addEventListener('click', function (e) {
+      if (e.target === compareOverlay) compareOverlay.classList.remove('open');
+    });
+
+    // ── Task 3: Exit-Intent modal ──
+    var exitOverlay = document.getElementById('exit-overlay');
+    var exitClose   = document.getElementById('exit-close');
+    var exitCode    = document.getElementById('exit-code');
+    var exitShown   = sessionStorage.getItem('exitShown');
+
+    if (!exitShown) {
+      document.addEventListener('mouseleave', function handler(e) {
+        if (e.clientY <= 0) {
+          exitOverlay.classList.add('open');
+          sessionStorage.setItem('exitShown', '1');
+          document.removeEventListener('mouseleave', handler);
+        }
+      });
+    }
+
+    exitClose.addEventListener('click', function () {
+      exitOverlay.classList.remove('open');
+    });
+
+    exitOverlay.addEventListener('click', function (e) {
+      if (e.target === exitOverlay) exitOverlay.classList.remove('open');
+    });
+
+    exitCode.addEventListener('click', function () {
+      navigator.clipboard.writeText('BUNDLE10').then(function () {
+        exitCode.textContent = 'Copied!';
+        setTimeout(function () { exitCode.textContent = 'BUNDLE10'; }, 2000);
+      }).catch(function () {});
+    });
   </script>
 
   <script src="assets/site-components.js"></script>
