@@ -172,6 +172,7 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     display: flex; align-items: center; gap: 10px;
     white-space: nowrap;
+    z-index: 10;
   }
   .hv-float-emoji { font-size: 20px; line-height: 1; }
   .hv-float-text { }
@@ -185,11 +186,11 @@
     letter-spacing: 0.06em;
   }
   .hv-float-1 {
-    top: -20px; right: -24px;
+    top: 16px; right: -52px;
     animation: hv-float-a 3.5s ease-in-out infinite;
   }
   .hv-float-2 {
-    bottom: 24px; left: -28px;
+    bottom: 90px; left: -68px;
     animation: hv-float-b 4s ease-in-out infinite;
   }
   @keyframes hv-float-a {
@@ -712,7 +713,7 @@
     font-size: clamp(36px, 5.5vw, 76px);
     font-weight: 800;
     letter-spacing: -2.5px;
-    color: var(--text);
+    color: #ffffff;
     line-height: 1.0;
     margin-bottom: 20px;
     position: relative;
@@ -721,7 +722,7 @@
   .final-cta h2 em { font-style: normal; color: var(--purple); }
   .final-cta p {
     font-size: 19px;
-    color: var(--text-sub);
+    color: rgba(255,255,255,0.78);
     max-width: 480px;
     margin: 0 auto 48px;
     line-height: 1.6;
@@ -834,8 +835,8 @@
     <!-- Task 1d: count-up stats — data-count and data-suffix for JS -->
     <div class="hero-proof" aria-label="Social proof statistics">
       <div class="proof-stat">
-        <div class="number" data-count="12" data-suffix="K+">
-          <span class="count-num">12</span><span class="count-suffix">K+</span>
+        <div class="number" data-count="13" data-suffix="K+">
+          <span class="count-num">13</span><span class="count-suffix">K+</span>
         </div>
         <div class="label">followers in 15 days</div>
       </div>
@@ -846,8 +847,8 @@
         <div class="label">interactions, month one</div>
       </div>
       <div class="proof-stat">
-        <div class="number" data-count="1" data-suffix="M+">
-          <span class="count-num">1</span><span class="count-suffix">M+</span>
+        <div class="number" data-count="3" data-suffix="M+">
+          <span class="count-num">3</span><span class="count-suffix">M+</span>
         </div>
         <div class="label">accounts reached</div>
       </div>
@@ -862,7 +863,7 @@
       <div class="hv-float hv-float-1">
         <span class="hv-float-emoji">🚀</span>
         <div class="hv-float-text">
-          <strong>+12,000</strong>
+          <strong>+13,000</strong>
           <span>Followers · 15 days</span>
         </div>
       </div>
@@ -873,7 +874,7 @@
           <div class="hv-title">Analytics Overview</div>
           <div class="hv-badge">↑ Live</div>
         </div>
-        <div class="hv-big-number"><em>+847</em>%</div>
+        <div class="hv-big-number"><em>+1,847</em>%</div>
         <div class="hv-sub-label">Engagement rate · last 30 days</div>
         <div class="hv-bars">
           <div class="hv-bar" style="--h:32%"></div>
@@ -896,11 +897,11 @@
       <!-- Stat row -->
       <div class="hv-card hv-divider">
         <div class="hv-stat">
-          <div class="hv-stat-num">1.2M+</div>
+          <div class="hv-stat-num">2.8M+</div>
           <div class="hv-stat-label">Accounts Reached</div>
         </div>
         <div class="hv-stat">
-          <div class="hv-stat-num">3×</div>
+          <div class="hv-stat-num">10×</div>
           <div class="hv-stat-label">Avg. Engagement</div>
         </div>
         <div class="hv-stat">
