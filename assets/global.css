@@ -986,13 +986,13 @@ footer {
 
 /* ── Audit card (dark promo card) ────────────────────────────────────────── */
 .audit-card {
-  background: var(--bg-raised);
+  background: #111111;
   border-radius: var(--radius-xl);
   padding: 48px;
-  color: var(--ink-text);
+  color: #ffffff;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border-soft);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 .audit-card::before {
   content: '';
@@ -1034,7 +1034,7 @@ footer {
   font-weight: 800;
   letter-spacing: -2px;
   line-height: 1;
-  color: var(--text);
+  color: #ffffff;
 }
 .audit-price .period {
   font-size: 13px;
