@@ -873,10 +873,9 @@
   <div class="section-label">Get free access</div>
   <h2>Grab all four free resources.</h2>
   <p>Drop your email and we'll send you all four downloads instantly. No spam. Just the stuff.</p>
-  <form class="email-form" name="shop-freebie" method="POST" data-netlify="true" action="/thank-you-freebie.html">
-    <input type="hidden" name="form-name" value="shop-freebie">
-    <input type="email" name="email" class="email-input" placeholder="your@email.com" required>
-    <button type="submit" class="btn-submit">Send it →</button>
+  <form class="email-form" id="kit-free-form">
+    <input type="email" id="kit-free-email" class="email-input" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="btn-submit" id="kit-free-btn">Send it →</button>
   </form>
   <div class="email-fine">We don't share your info. Unsubscribe anytime.</div>
 </section>
@@ -1041,6 +1040,33 @@
     spotlight.addEventListener('click', function () {
       input.value = '';
       reset();
+    });
+  }());
+</script>
+
+<script>
+  /* ── Kit: Free Resources form ── */
+  (function () {
+    var form  = document.getElementById('kit-free-form');
+    var input = document.getElementById('kit-free-email');
+    var btn   = document.getElementById('kit-free-btn');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email) return;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch('https://app.kit.com/forms/7052f2e342/subscriptions', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email_address=' + encodeURIComponent(email)
+      }).then(function () {
+        window.location.href = '/thank-you-freebie.html';
+      }).catch(function () {
+        window.location.href = '/thank-you-freebie.html';
+      });
     });
   }());
 </script>

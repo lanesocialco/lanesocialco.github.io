@@ -620,6 +620,13 @@
         return;
       }
       stGateEmail.style.borderColor = '';
+      /* ── Send to Kit: Free Resources ── */
+      fetch('https://app.kit.com/forms/7052f2e342/subscriptions', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email_address=' + encodeURIComponent(email)
+      });
       stGate.style.transition = 'opacity 0.4s';
       stGate.style.opacity = '0';
       setTimeout(function () { stGate.style.display = 'none'; }, 400);
@@ -675,6 +682,16 @@
 
     addAllForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      var email = (document.getElementById('add-all-email').value || '').trim();
+      /* ── Send to Kit: Free Resources ── */
+      if (email) {
+        fetch('https://app.kit.com/forms/7052f2e342/subscriptions', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'email_address=' + encodeURIComponent(email)
+        });
+      }
       addAllForm.style.display = 'none';
       addAllSuccess.style.display = 'block';
       setTimeout(function () {
