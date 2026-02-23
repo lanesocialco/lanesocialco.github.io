@@ -1,8 +1,8 @@
 /* ==========================================================================
    LANE SOCIAL CO — GLOBAL STYLESHEET
-   True Dark Mode Only. No light mode. Background: #000 / #0a0a0a.
+   Light + Dark Mode. Defaults to dark; adapts via prefers-color-scheme.
    Brand Purple: #7b2eff  |  Purple RGB: 123,46,255
-   Version: 2.0 (post-audit)
+   Version: 3.0 (light/dark mode)
    ========================================================================== */
 
 /* ── Reset & Box Model ──────────────────────────────────────────────────── */
@@ -37,7 +37,9 @@ input, button, textarea, select { font: inherit; }
   --card-shadow: rgba(0,0,0,0.5);
 
   /* Navigation */
-  --nav-bg:      rgba(0,0,0,0.88);
+  --nav-bg:          rgba(0,0,0,0.88);
+  --nav-scrolled-bg: rgba(0,0,0,0.97);
+  --mobile-nav-bg:   rgba(0,0,0,0.97);
 
   /* Ink (used for dark-on-dark sections) */
   --ink:         #0a0a0a;
@@ -55,6 +57,37 @@ input, button, textarea, select { font: inherit; }
   --radius-md:   10px;
   --radius-lg:   16px;
   --radius-xl:   24px;
+}
+
+/* ── Light Mode Overrides ────────────────────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Backgrounds */
+    --bg:          #ffffff;
+    --bg-alt:      #f5f5f5;
+    --bg-raised:   #eeeeee;
+    --surface:     #f2f2f2;
+    --surface-2:   #e8e8e8;
+
+    /* Text */
+    --text:        #0a0a0a;
+    --text-sub:    #444444;
+    --text-muted:  #888888;
+
+    /* Borders & Shadows */
+    --border:      #e0e0e0;
+    --border-soft: #cccccc;
+    --card-shadow: rgba(0,0,0,0.08);
+
+    /* Navigation */
+    --nav-bg:          rgba(255,255,255,0.88);
+    --nav-scrolled-bg: rgba(255,255,255,0.97);
+    --mobile-nav-bg:   rgba(255,255,255,0.97);
+
+    /* Purple tint — slightly lighter for light bg */
+    --purple-dim:  rgba(123,46,255,0.10);
+    --purple-glow: rgba(123,46,255,0.25);
+  }
 }
 
 /* ── Base Body ──────────────────────────────────────────────────────────── */
@@ -261,7 +294,7 @@ nav {
   width: auto;
   display: block;
 }
-/* Logo — respects OS color scheme preference */
+/* Logo — light mode shows logo-light.png, dark mode shows logo-dark.png */
 .logo-img-light { display: block; }
 .logo-img-dark  { display: none; }
 @media (prefers-color-scheme: dark) {
@@ -367,7 +400,7 @@ nav {
     top: 65px; left: 0; right: 0;
     flex-direction: column;
     align-items: flex-start;
-    background: rgba(0,0,0,0.97);
+    background: var(--mobile-nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 12px 24px 28px;
@@ -403,16 +436,16 @@ nav {
 
 /* Nav scroll shadow */
 nav.scrolled {
-  background: rgba(0,0,0,0.97);
+  background: var(--nav-scrolled-bg);
   border-bottom-color: var(--border-soft);
-  box-shadow: 0 1px 32px rgba(0,0,0,0.6);
+  box-shadow: 0 1px 32px rgba(0,0,0,0.15);
 }
 
 /* ==========================================================================
    FOOTER — GLOBAL
    ========================================================================== */
 footer {
-  background: #000;
+  background: var(--bg);
   border-top: 1px solid var(--border);
 }
 
@@ -472,7 +505,7 @@ footer {
   width: auto;
   display: block;
 }
-/* Footer logo — respects OS color scheme preference */
+/* Footer logo — light mode shows logo-light.png, dark mode shows logo-dark.png */
 .footer-logo-light { display: block; }
 .footer-logo-dark  { display: none; }
 @media (prefers-color-scheme: dark) {
@@ -730,7 +763,7 @@ footer {
 /* ==========================================================================
    TICKER / MARQUEE
    ========================================================================== */
-.ticker { background: #0a0a0a; padding: 14px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.ticker { background: var(--bg-alt); padding: 14px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .ticker-inner { display: inline-flex; animation: ticker 30s linear infinite; }
 .ticker-item {
   display: inline-flex;
