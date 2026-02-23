@@ -3,343 +3,530 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Social media strategy, audits, and free resources. Book your $97 audit or grab free downloads.">
   <title>Lane Social Co · Links</title>
+  <meta name="description" content="Social media strategy, audits, and free resources from Lane Social Co. Grab the free tools or get your $97 audit.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/global.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* LINKS PAGE SPECIFIC */
-    .links-container {
+
+    /* ── RESET + BASE ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #000000;
+      --surface:   #141414;
+      --border:    #1e1e1e;
+      --purple:    #7b2eff;
+      --purple-rgb: 123,46,255;
+      --text:      #ffffff;
+      --text-sub:  #888888;
+      --text-muted:#555555;
+      --font:      'Bricolage Grotesque', sans-serif;
+      --mono:      'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      background: var(--ink);
-      color: var(--ink-text);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 48px 24px;
-      text-align: center;
+      padding: 52px 20px 64px;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    .links-header {
-      margin-bottom: 40px;
-      margin-top: 20px;
+    /* ── AMBIENT BACKGROUND GLOWS ──────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -220px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -150px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.06) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .links-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 32px;
-      color: var(--ink-text);
-      text-decoration: none;
-    }
-
-    .links-logo span {
-      color: var(--purple);
-      font-size: 32px;
-    }
-
-    .avatar-circle {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: rgba(var(--purple-rgb), 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      margin: 0 auto 24px;
-      border: 2px solid rgba(var(--purple-rgb), 0.3);
-    }
-
-    .links-name {
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.6px;
-    }
-
-    .links-bio {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      color: rgba(var(--ink-text), 0.65);
-      letter-spacing: 0.08em;
-      margin-bottom: 48px;
-      text-transform: uppercase;
-    }
-
-    .links-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    /* ── WRAPPER ───────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 400px;
-      margin-bottom: 64px;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
     }
 
-    .link-card {
+    /* ── HEADER ────────────────────────────────────────────── */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+      margin-bottom: 28px;
+    }
+
+    .logo-wrap {
+      margin-bottom: 20px;
+    }
+    .logo-wrap img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    /* Fallback text logo if image doesn't load */
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 16px;
-      background: var(--ink-text);
-      color: var(--ink);
-      padding: 24px 28px;
-      border-radius: 14px;
+      gap: 8px;
+    }
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--purple);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .profile-name {
+      font-size: clamp(26px, 7vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .profile-bio {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* ── SOCIAL ICONS ROW ──────────────────────────────────── */
+    .socials {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      color: var(--text);
       text-decoration: none;
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .social-btn svg {
+      width: 16px; height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+    .social-btn:hover {
+      background: rgba(var(--purple-rgb), 0.15);
+      border-color: rgba(var(--purple-rgb), 0.5);
+      color: #fff;
+    }
+    .social-btn.instagram:hover { background: rgba(225,48,108,0.12); border-color: rgba(225,48,108,0.4); }
+    .social-btn.tiktok:hover    { background: rgba(0,242,234,0.08); border-color: rgba(0,242,234,0.35); }
+
+    /* ── SECTION LABELS ─────────────────────────────────────── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 12px;
+      margin-top: 8px;
+    }
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARD STACK ─────────────────────────────────────────── */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    /* ── BASE CARD ──────────────────────────────────────────── */
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      text-decoration: none;
       transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
-      border: 2px solid var(--ink-text);
-      min-height: 72px;
       position: relative;
       overflow: hidden;
     }
 
-    .link-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--purple);
-      z-index: -1;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    .card:hover {
+      background: #1c1c1c;
+      border-color: rgba(var(--purple-rgb), 0.35);
+      transform: translateY(-1px);
     }
 
-    .link-card:hover::before {
-      transform: scaleX(1);
+    .card-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(var(--purple-rgb), 0.1);
+      border-radius: 10px;
     }
 
-    .link-card:hover {
-      color: var(--ink-text);
-      border-color: var(--purple);
+    .card-body {
+      flex: 1;
+      text-align: left;
+      min-width: 0;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .card-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
     }
 
-    .link-card-emoji {
-      font-size: 24px;
+    .card-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-free {
+      background: rgba(0, 200, 120, 0.1);
+      color: #22c77a;
+      border: 1px solid rgba(0, 200, 120, 0.2);
+    }
+
+    /* ── FREEBIE CARDS (slightly tinted green) ─────────────── */
+    .card-free .card-icon {
+      background: rgba(0, 200, 120, 0.08);
+    }
+
+    /* ── PAID CARDS ─────────────────────────────────────────── */
+    .card-price {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
       flex-shrink: 0;
     }
 
-    .link-card-text {
-      text-align: left;
-      font-size: 15px;
-      font-weight: 700;
-      flex: 1;
+    /* Audit card – purple pulse glow */
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(var(--purple-rgb), 0.0); }
+      50%       { box-shadow: 0 0 18px 2px rgba(var(--purple-rgb), 0.25); }
+    }
+    .card-audit {
+      border-color: rgba(var(--purple-rgb), 0.3);
+      animation: glow 2.8s ease-in-out infinite;
+    }
+    .card-audit .card-icon {
+      background: rgba(var(--purple-rgb), 0.15);
     }
 
-    .links-stats {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 40px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: rgba(var(--ink-text), 0.5);
-      letter-spacing: 0.08em;
+    /* Strategy card */
+    .card-strategy {
+      border-color: rgba(100,100,200, 0.2);
     }
 
-    .stat-item {
-      padding: 12px 16px;
-      border: 1px solid rgba(var(--ink-text), 0.1);
-      border-radius: 8px;
-      text-transform: uppercase;
+    /* Bundle card – best value */
+    .card-bundle {
+      border-color: rgba(var(--purple-rgb), 0.4);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(var(--purple-rgb),0.07) 100%);
+    }
+    .card-bundle:hover {
+      background: linear-gradient(135deg, #1c1c1c 0%, rgba(var(--purple-rgb),0.12) 100%);
+    }
+    .card-bundle .card-icon { background: rgba(var(--purple-rgb), 0.18); }
+
+    .badge-best {
+      background: rgba(var(--purple-rgb), 0.15);
+      color: #a36bff;
+      border: 1px solid rgba(var(--purple-rgb), 0.3);
     }
 
-    .links-footer {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: rgba(var(--ink-text), 0.4);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .badge-save {
+      background: rgba(var(--purple-rgb), 0.2);
+      color: #bb88ff;
+      border: 1px solid rgba(var(--purple-rgb), 0.35);
+      font-size: 10px;
     }
 
-    @media (max-width: 600px) {
-      .links-container {
-        padding: 32px 20px;
-      }
-
-      .links-cards {
-        max-width: 100%;
-      }
-
-      .link-card {
-        padding: 20px 24px;
-        min-height: 68px;
-      }
-
-      .link-card-emoji {
-        font-size: 20px;
-      }
-
-      .link-card-text {
-        font-size: 14px;
-      }
-
-      .links-stats {
-        gap: 12px;
-        font-size: 11px;
-      }
-
-      .stat-item {
-        padding: 10px 12px;
-      }
+    /* ── HOMEPAGE CARD ──────────────────────────────────────── */
+    .card-home {
+      border-style: dashed;
     }
+    .card-home .card-icon { background: rgba(255,255,255,0.05); }
 
-    /* ── Task 1: Audit card pulse ─────────────────────────── */
-    @keyframes auditPulse {
-      0%   { box-shadow: 0 0 0 0 rgba(123,46,255,0.7); }
-      70%  { box-shadow: 0 0 0 12px rgba(123,46,255,0); }
-      100% { box-shadow: 0 0 0 0 rgba(123,46,255,0); }
-    }
-    .link-card-audit {
-      animation: auditPulse 2s ease-out infinite;
-    }
-
-    /* ── Task 4: Inline freebie capture ───────────────────── */
-    .freebie-capture {
-      width: 100%;
-      max-width: 400px;
-      background: rgba(var(--purple-rgb), 0.08);
-      border: 1px solid rgba(var(--purple-rgb), 0.25);
-      border-radius: 12px;
-      padding: 16px 20px;
-      text-align: left;
-    }
-    .freebie-capture-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .freebie-capture-form {
+    /* ── STATS STRIP ────────────────────────────────────────── */
+    .stats {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+      margin-bottom: 28px;
+      width: 100%;
     }
-    .freebie-input {
-      flex: 1;
-      min-width: 0;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.08);
-      color: var(--ink-text);
-      font-size: 14px;
-      font-family: 'Bricolage Grotesque', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
+    .stat {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
     }
-    .freebie-input:focus { border-color: var(--purple); }
-    .freebie-input::placeholder { color: rgba(255,255,255,0.35); }
-    .freebie-btn {
-      padding: 10px 16px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: 'Bricolage Grotesque', sans-serif;
-      white-space: nowrap;
-      transition: opacity 0.2s;
+    .stat strong {
+      color: var(--text-sub);
+      font-weight: 500;
     }
-    .freebie-btn:hover { opacity: 0.85; }
-    .freebie-success {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--purple);
-      margin-top: 8px;
-      text-align: center;
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .foot {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
+
+    /* ── MOBILE ─────────────────────────────────────────────── */
+    @media (max-width: 420px) {
+      body { padding: 40px 16px 52px; }
+      .card { padding: 14px 16px; gap: 12px; }
+      .card-title { font-size: 13px; }
+      .social-btn { padding: 9px 14px; font-size: 12px; }
+    }
+
   </style>
 </head>
 <body>
-  <div class="links-container">
-    <div class="links-header">
-      <a href="index.html" class="links-logo">
-        <span>✳</span> Lane Social Co
-      </a>
-      <div class="avatar-circle">✳</div>
-      <h1 class="links-name">Lane Social Co</h1>
-      <p class="links-bio">Social media strategy · Las Vegas</p>
-    </div>
 
-    <div class="links-cards">
-      <a href="services.html" class="link-card link-card-audit">
-        <span class="link-card-emoji">🔍</span>
-        <span class="link-card-text">Get your $97 Social Media Audit</span>
-      </a>
-      <a href="shop-free.html" class="link-card">
-        <span class="link-card-emoji">🆓</span>
-        <span class="link-card-text">Free Resources & Downloads</span>
-      </a>
-      <!-- Inline freebie capture -->
-      <div class="freebie-capture">
-        <span class="freebie-capture-label">📬 Get the free TikTok Hooks Guide — no page load needed.</span>
-        <form class="freebie-capture-form" id="freebieForm">
-          <input type="email" class="freebie-input" placeholder="Your email" required>
-          <button type="submit" class="freebie-btn">Get It Free →</button>
-        </form>
-        <p class="freebie-success" id="freebieSuccess" style="display:none;">Check your inbox! 🎉</p>
-      </div>
-      <a href="blog.html" class="link-card">
-        <span class="link-card-emoji">📖</span>
-        <span class="link-card-text">Read the Blog</span>
-      </a>
-      <a href="contact.html" class="link-card">
-        <span class="link-card-emoji">🤝</span>
-        <span class="link-card-text">Work With Us</span>
-      </a>
-      <a href="results.html" class="link-card">
-        <span class="link-card-emoji">📊</span>
-        <span class="link-card-text">See Real Results</span>
+<div class="page">
+
+  <!-- ── PROFILE HEADER ────────────────────────────────────── -->
+  <div class="profile">
+
+    <div class="logo-wrap">
+      <!-- Uses site logo; falls back to styled text mark -->
+      <a href="index.html" class="logo-text">
+        <div class="logo-mark">L</div>
+        Lane Social Co
       </a>
     </div>
 
-    <div class="links-stats">
-      <div class="stat-item">12k followers</div>
-      <div class="stat-item">2M+ interactions</div>
-      <div class="stat-item">1M+ accounts reached</div>
+    <h1 class="profile-name">Lane Social Co</h1>
+    <p class="profile-bio">Social media strategy · Las Vegas</p>
+
+    <!-- Social icons -->
+    <div class="socials">
+      <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener" class="social-btn instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener" class="social-btn tiktok">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.18 8.18 0 004.77 1.52V7.01a4.85 4.85 0 01-1-.32z"/></svg>
+        TikTok
+      </a>
     </div>
 
-    <div class="links-footer">
-      © 2025 Lane Social Co
-    </div>
   </div>
 
-  <script>
-    /* Task 3 — Haptic feedback on all link buttons */
-    (function () {
-      document.querySelectorAll('.link-card').forEach(function (card) {
-        card.addEventListener('click', function () {
-          if (navigator.vibrate) navigator.vibrate(40);
-        });
-      });
-    }());
+  <!-- ── FREE STUFF ─────────────────────────────────────────── -->
+  <div class="section-label">Free downloads</div>
 
-    /* Task 4 — Inline freebie form submit */
-    (function () {
-      var form    = document.getElementById('freebieForm');
-      var success = document.getElementById('freebieSuccess');
-      if (!form || !success) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        form.style.display = 'none';
-        success.style.display = 'block';
-      });
-    }());
-  </script>
+  <div class="stack">
 
-  <script src="assets/site-components.js"></script>
+    <a href="free-audit.html" class="card card-free">
+      <div class="card-icon">🔍</div>
+      <div class="card-body">
+        <div class="card-title">Free Social Media Audit</div>
+        <div class="card-sub">16-point interactive checklist · instant results</div>
+      </div>
+      <span class="card-badge badge-free">Free</span>
+    </a>
+
+    <a href="freebie-audit-checklist.html" class="card card-free">
+      <div class="card-icon">📋</div>
+      <div class="card-body">
+        <div class="card-title">Social Media Audit Checklist</div>
+        <div class="card-sub">Printable · done-for-you checklist</div>
+      </div>
+      <span class="card-badge badge-free">Free</span>
+    </a>
+
+    <a href="freebie-content-calendar.html" class="card card-free">
+      <div class="card-icon">📅</div>
+      <div class="card-body">
+        <div class="card-title">Content Calendar Template</div>
+        <div class="card-sub">Plan a full month in under an hour</div>
+      </div>
+      <span class="card-badge badge-free">Free</span>
+    </a>
+
+    <a href="freebie-content-pillars.html" class="card card-free">
+      <div class="card-icon">📌</div>
+      <div class="card-body">
+        <div class="card-title">Content Pillars Guide</div>
+        <div class="card-sub">Build the foundation of your content strategy</div>
+      </div>
+      <span class="card-badge badge-free">Free</span>
+    </a>
+
+    <a href="freebie-bio-optimization.html" class="card card-free">
+      <div class="card-icon">✍️</div>
+      <div class="card-body">
+        <div class="card-title">Bio Optimization Guide</div>
+        <div class="card-sub">Turn your bio into a conversion machine</div>
+      </div>
+      <span class="card-badge badge-free">Free</span>
+    </a>
+
+  </div>
+
+  <!-- ── PAID PRODUCTS ─────────────────────────────────────── -->
+  <div class="section-label" style="margin-top:20px;">Work with me</div>
+
+  <div class="stack">
+
+    <a href="product-audit.html" class="card card-audit">
+      <div class="card-icon">🔎</div>
+      <div class="card-body">
+        <div class="card-title">Social Media Audit</div>
+        <div class="card-sub">Manual review · scored report · 7-day delivery</div>
+      </div>
+      <span class="card-price">$97</span>
+    </a>
+
+    <a href="product-strategy.html" class="card card-strategy">
+      <div class="card-icon">🗺️</div>
+      <div class="card-body">
+        <div class="card-title">Social Media Strategy</div>
+        <div class="card-sub">Custom 90-day roadmap · competitor research</div>
+      </div>
+      <span class="card-price">$147</span>
+    </a>
+
+    <a href="product-bundle.html" class="card card-bundle">
+      <div class="card-icon">🔥</div>
+      <div class="card-body">
+        <div class="card-title">Audit + Strategy Bundle</div>
+        <div class="card-sub">The full diagnosis and roadmap · add a 30-min call for $25</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0;">
+        <span class="card-price">$200</span>
+        <span class="card-badge badge-save">Save $44</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ── HOMEPAGE ───────────────────────────────────────────── -->
+  <div class="section-label" style="margin-top:20px;">Explore</div>
+
+  <div class="stack">
+    <a href="index.html" class="card card-home">
+      <div class="card-icon">🌐</div>
+      <div class="card-body">
+        <div class="card-title">Visit our website</div>
+        <div class="card-sub">lanesocialco.com</div>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.3; flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- ── STATS ──────────────────────────────────────────────── -->
+  <div class="stats">
+    <div class="stat"><strong>12K</strong> followers</div>
+    <div class="stat"><strong>2M+</strong> interactions</div>
+    <div class="stat"><strong>1M+</strong> accounts reached</div>
+  </div>
+
+  <div class="foot">© 2025 Lane Social Co</div>
+
+</div>
+
+<script>
+  /* Haptic feedback on mobile tap */
+  document.querySelectorAll('.card').forEach(function(c) {
+    c.addEventListener('click', function() {
+      if (navigator.vibrate) navigator.vibrate(30);
+    });
+  });
+</script>
+
 </body>
 </html>

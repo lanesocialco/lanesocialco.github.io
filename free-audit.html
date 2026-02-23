@@ -280,12 +280,14 @@
       font-weight: 700;
       transition: all 0.15s;
       min-height: 40px;
-      min-width: 44px;
+      min-width: 80px;
     }
-    .q-btn.pass-btn { background: #f0fdf4; color: var(--success); }
-    .q-btn.pass-btn.selected { background: var(--success); color: #fff; }
-    .q-btn.fix-btn { background: #fef2f2; color: var(--error); }
-    .q-btn.fix-btn.selected { background: var(--error); color: #fff; }
+    .q-btn.pass-btn { background: rgba(34,197,94,0.1); color: #4ade80; border: 1.5px solid rgba(34,197,94,0.25); }
+    .q-btn.pass-btn:hover { background: rgba(34,197,94,0.18); border-color: rgba(34,197,94,0.5); }
+    .q-btn.pass-btn.selected { background: #16a34a; color: #fff; border-color: #16a34a; }
+    .q-btn.fix-btn { background: rgba(239,68,68,0.1); color: #f87171; border: 1.5px solid rgba(239,68,68,0.25); }
+    .q-btn.fix-btn:hover { background: rgba(239,68,68,0.18); border-color: rgba(239,68,68,0.5); }
+    .q-btn.fix-btn.selected { background: #dc2626; color: #fff; border-color: #dc2626; }
     @media (max-width: 540px) {
       .q-text { min-width: 100%; margin-bottom: 10px; }
       .q-btns { width: 100%; }
@@ -293,7 +295,7 @@
     }
 
     /* NAV BUTTONS */
-    .quiz-
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .btn-prev, .btn-next {
       font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 15px;
