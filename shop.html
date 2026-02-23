@@ -259,7 +259,7 @@
   }
   .btn-white:hover { background: var(--purple); color: var(--ink-text); }
   .featured-note {
-    text-align: center; font-size: 12px; color: rgba(255,255,255,0.3);
+    text-align: center; font-size: 12px; color: rgba(255,255,255,0.6);
     margin-top: 14px; font-family: 'DM Mono', monospace;
   }
 
@@ -323,6 +323,10 @@
     .featured-product { grid-template-columns: 1fr; }
     .featured-right { max-width: 480px; }
   }
+  @media (max-width: 960px) {
+    .paid-duo { grid-template-columns: 1fr; }
+    .duo-card { padding: 36px 28px; }
+  }
   @media (max-width: 900px) {
     .shop-hero { padding: 110px 24px 60px; }
     .shop-hero-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -333,6 +337,7 @@
     .freebie-grid { columns: 1; }
     .featured-product { padding: 40px 28px; gap: 40px; }
     .featured-right { max-width: 100%; }
+    .duo-price { font-size: 48px; }
   }
   @media (max-width: 480px) {
   }
@@ -435,12 +440,111 @@
   }
   .quick-view-btn:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
 
+  /* ── PAID DUO (Audit left · Strategy right) ─────────────── */
+  .paid-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .duo-card {
+    background: var(--ink);
+    border: 1px solid rgba(var(--purple-rgb),0.35);
+    border-radius: 20px;
+    padding: 44px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: box-shadow 0.2s;
+  }
+  .duo-card:hover {
+    box-shadow: 0 0 0 2px rgba(var(--purple-rgb),0.5), 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .duo-card-glow {
+    position: absolute;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .duo-glow-right { top: -80px; right: -80px; }
+  .duo-glow-left  { top: -80px; left: -80px; }
+  .duo-content { position: relative; flex: 1; }
+  .duo-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--purple); margin-bottom: 12px;
+  }
+  .duo-title {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 800; letter-spacing: -0.5px;
+    color: #fff; margin-bottom: 14px; line-height: 1.15;
+  }
+  .duo-title em { font-style: normal; color: var(--purple); }
+  .duo-desc {
+    font-size: 15px; color: rgba(255,255,255,0.55);
+    line-height: 1.65; margin-bottom: 20px;
+  }
+  .duo-includes {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .duo-includes li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: rgba(255,255,255,0.72);
+  }
+  .duo-check {
+    width: 17px; height: 17px; border-radius: 50%;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: #fff; flex-shrink: 0;
+  }
+  .duo-purchase { position: relative; }
+  .duo-price {
+    font-size: 58px; font-weight: 800;
+    letter-spacing: -2px; color: #fff;
+    line-height: 1; margin-bottom: 4px;
+  }
+  .duo-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 20px;
+  }
+  .duo-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: #fff; color: #0a0a0a;
+    padding: 15px 28px; border-radius: 8px;
+    font-size: 15px; font-weight: 700; text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    width: 100%; box-sizing: border-box;
+  }
+  .duo-btn:hover { background: var(--purple); color: #fff; }
+  .duo-note {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 10px;
+  }
+
   /* ── BUNDLE PULSE + SCARCITY ─────────────────────────────── */
   @keyframes bundle-pulse {
-    0%, 100% { box-shadow: 0 0 0 1px rgba(var(--purple-rgb),0.35), 0 0 24px rgba(var(--purple-rgb),0.15); }
-    50%       { box-shadow: 0 0 0 2px rgba(var(--purple-rgb),0.6),  0 0 48px rgba(var(--purple-rgb),0.3); }
+    0%, 100% {
+      box-shadow: 0 0 0 1px rgba(var(--purple-rgb),0.5),
+                  0 0 50px rgba(var(--purple-rgb),0.22),
+                  0 8px 32px rgba(0,0,0,0.35);
+    }
+    50% {
+      box-shadow: 0 0 0 3px rgba(var(--purple-rgb),1),
+                  0 0 90px rgba(var(--purple-rgb),0.55),
+                  0 0 160px rgba(var(--purple-rgb),0.22),
+                  0 8px 40px rgba(0,0,0,0.4);
+    }
   }
-  .bundle-block { animation: bundle-pulse 2.8s ease-in-out infinite; }
+  @keyframes scarcity-flash {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.6); }
+  }
+  .bundle-block { animation: bundle-pulse 1.8s ease-in-out infinite; }
   .bundle-anchor {
     font-family: var(--font-mono); font-size: 15px;
     color: rgba(255,255,255,0.32); text-decoration: line-through;
@@ -453,9 +557,10 @@
     display: flex; align-items: center; gap: 6px;
   }
   .scarcity-dot {
-    width: 7px; height: 7px; background: var(--purple);
-    border-radius: 50%; animation: bundle-pulse 1.5s ease-in-out infinite;
+    width: 8px; height: 8px; background: var(--purple);
+    border-radius: 50%; animation: scarcity-flash 1.1s ease-in-out infinite;
     flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(var(--purple-rgb),0.8);
   }
 
   /* ── SHOP SEARCH ─────────────────────────────────────────── */
@@ -623,12 +728,6 @@
   <div class="freebie-grid">
 
     <div class="product-card" data-type="free">
-      <div class="product-thumb" style="background: linear-gradient(135deg, rgba(123,47,255,0.12) 0%, var(--bg-alt) 100%);">
-        <div class="thumb-glow"></div>
-        <span class="thumb-icon" data-tip="Interactive self-audit tool · browser-based">📱</span>
-        <span class="thumb-label">Interactive tool</span>
-        <span class="free-badge">FREE</span>
-      </div>
       <div class="product-body">
         <h3>Free Social Media Audit Tool</h3>
         <p>Run a 16-point self-audit on your profiles in 10 minutes. Get an instant score with section breakdowns and specific, actionable fixes for every gap you find.</p>
@@ -640,12 +739,6 @@
     </div>
 
     <div class="product-card" data-type="free">
-      <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
-        <div class="thumb-glow"></div>
-        <span class="thumb-icon" data-tip="PDF — 2 pages · printable checklist">📋</span>
-        <span class="thumb-label">PDF · 2 pages</span>
-        <span class="free-badge">FREE</span>
-      </div>
       <div class="product-body">
         <h3>The Social Audit Checklist</h3>
         <p>A quick-reference checklist that walks you through everything to look at when auditing your own social presence. Print it, use it, share it.</p>
@@ -657,12 +750,6 @@
     </div>
 
     <div class="product-card" data-type="free">
-      <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
-        <div class="thumb-glow"></div>
-        <span class="thumb-icon" data-tip="PDF workbook — guided exercises · printable">🎯</span>
-        <span class="thumb-label">PDF · Workbook</span>
-        <span class="free-badge">FREE</span>
-      </div>
       <div class="product-body">
         <h3>Content Pillars Workbook</h3>
         <p>A guided workbook for defining the four to five content pillars your account should be built around. One of the most common missing pieces for stalled accounts.</p>
@@ -674,12 +761,6 @@
     </div>
 
     <div class="product-card" data-type="free">
-      <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
-        <div class="thumb-glow"></div>
-        <span class="thumb-icon" data-tip="PDF template — printable &amp; editable calendar">📅</span>
-        <span class="thumb-label">PDF · Template</span>
-        <span class="free-badge">FREE</span>
-      </div>
       <div class="product-body">
         <h3>30-Day Content Calendar Template</h3>
         <p>Plan a full month of content in one sitting. Built around your content pillars with space to map post type, format, caption angle, and publishing time.</p>
@@ -691,12 +772,6 @@
     </div>
 
     <div class="product-card" data-type="free">
-      <div class="product-thumb" style="background: linear-gradient(135deg, #f0ebff 0%, var(--bg-alt) 100%);">
-        <div class="thumb-glow"></div>
-        <span class="thumb-icon" data-tip="PDF cheat sheet — 1-page quick reference">✍️</span>
-        <span class="thumb-label">PDF · Cheat sheet</span>
-        <span class="free-badge">FREE</span>
-      </div>
       <div class="product-body">
         <h3>Bio Optimization Cheat Sheet</h3>
         <p>Your bio is a sales page most people ignore. This cheat sheet breaks down every element of a high-converting social bio — with before/after examples.</p>
@@ -721,56 +796,55 @@
     <div class="section-header-right">2 products · no subscription</div>
   </div>
 
-  <!-- PRODUCT 1: Audit -->
-  <div class="featured-product" data-type="paid" style="margin-bottom: 24px;">
-    <div class="featured-left">
-      <span class="featured-tag">The diagnosis</span>
-      <h2>Social Media<br>Profile <em>Audit</em></h2>
-      <p>We go through every social profile you're on — manually — and score each element: bio, photo, username, content consistency, visual brand, posting frequency, engagement setup, and more. You get a written report with specific, prioritized fixes.</p>
-      <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-top:-16px;margin-bottom:28px;line-height:1.6;">This is the "what's broken" answer. We check everything against what actually converts, flag the gaps, and hand you a clear action list sorted by impact.</p>
-      <ul class="featured-includes">
-        <li><span class="check-sm">✓</span> Full audit across all active social profiles</li>
-        <li><span class="check-sm">✓</span> Bio & profile setup scored element-by-element</li>
-        <li><span class="check-sm">✓</span> Content consistency & visual brand review</li>
-        <li><span class="check-sm">✓</span> Engagement & posting frequency assessment</li>
-        <li><span class="check-sm">✓</span> Profile conversion optimization notes</li>
-        <li><span class="check-sm">✓</span> Prioritized action list, highest-impact first</li>
-      </ul>
-    </div>
-    <div class="featured-right">
-      <div class="featured-card">
-        <div class="featured-price-num">$97</div>
-        <div class="featured-price-period">One-time · delivered in 7 business days</div>
-        <a href="product-audit.html" class="btn-white">Get your audit →</a>
-        <div class="featured-note">No subscription. No retainer. Just clarity.</div>
-      </div>
-    </div>
-  </div>
+  <!-- PRODUCT DUO: Audit (left) · Strategy (right) -->
+  <div class="paid-duo">
 
-  <!-- PRODUCT 2: Strategy -->
-  <div class="featured-product" data-type="paid" style="margin-bottom: 24px;">
-    <div class="featured-left">
-      <span class="featured-tag" style="background: rgba(123,47,255,0.3); color: #c4a6ff;">The roadmap</span>
-      <h2>Custom Social Media<br><em>Strategy</em></h2>
-      <p>Where the audit tells you what's broken, the strategy tells you what to build. This is a custom plan built specifically around your business, your goals, and your market — not a template.</p>
-      <p style="font-size:15px;color:rgba(255,255,255,0.45);margin-top:-16px;margin-bottom:28px;line-height:1.6;">Includes competitor research, SEO/keyword analysis for your niche, platform recommendations, custom content pillars, a posting schedule, and a 90-day growth roadmap.</p>
-      <ul class="featured-includes">
-        <li><span class="check-sm">✓</span> Competitor research (3 direct competitors)</li>
-        <li><span class="check-sm">✓</span> Social SEO & keyword analysis for your niche</li>
-        <li><span class="check-sm">✓</span> Platform recommendation with reasoning</li>
-        <li><span class="check-sm">✓</span> Custom content pillars (5 pillars built for you)</li>
-        <li><span class="check-sm">✓</span> Posting schedule & content format breakdown</li>
-        <li><span class="check-sm">✓</span> 90-day growth roadmap with milestones</li>
-      </ul>
-    </div>
-    <div class="featured-right">
-      <div class="featured-card">
-        <div class="featured-price-num">$97</div>
-        <div class="featured-price-period">One-time · delivered in 7 business days</div>
-        <a href="product-strategy.html" class="btn-white">Get your strategy →</a>
-        <div class="featured-note">Built for your business. Not a template.</div>
+    <!-- Audit Card -->
+    <div class="duo-card" data-type="paid">
+      <div class="duo-card-glow duo-glow-right"></div>
+      <div class="duo-content">
+        <div class="duo-tag">The diagnosis</div>
+        <h3 class="duo-title">Social Media<br>Profile <em>Audit</em></h3>
+        <p class="duo-desc">Every profile scored manually — bio, content, visual brand, engagement setup, and conversion optimization. You get a written report with specific, prioritized fixes.</p>
+        <ul class="duo-includes">
+          <li><span class="duo-check">✓</span> Full audit across all active social profiles</li>
+          <li><span class="duo-check">✓</span> Bio & profile scored element-by-element</li>
+          <li><span class="duo-check">✓</span> Content consistency & visual brand review</li>
+          <li><span class="duo-check">✓</span> Engagement & posting frequency assessment</li>
+          <li><span class="duo-check">✓</span> Prioritized action list, highest-impact first</li>
+        </ul>
+      </div>
+      <div class="duo-purchase">
+        <div class="duo-price">$97</div>
+        <div class="duo-period">One-time · delivered in 7 business days</div>
+        <a href="product-audit.html" class="duo-btn">Get your audit →</a>
+        <div class="duo-note">No subscription. No retainer. Just clarity.</div>
       </div>
     </div>
+
+    <!-- Strategy Card -->
+    <div class="duo-card" data-type="paid">
+      <div class="duo-card-glow duo-glow-left"></div>
+      <div class="duo-content">
+        <div class="duo-tag" style="color: #c4a6ff;">The roadmap</div>
+        <h3 class="duo-title">Custom Social<br>Media <em>Strategy</em></h3>
+        <p class="duo-desc">A fully custom plan built around your business, goals, and market. Competitor research, platform picks, content pillars, and a 90-day growth roadmap — not a template.</p>
+        <ul class="duo-includes">
+          <li><span class="duo-check">✓</span> Competitor research (3 direct competitors)</li>
+          <li><span class="duo-check">✓</span> Social SEO & keyword analysis for your niche</li>
+          <li><span class="duo-check">✓</span> Custom content pillars (5 built for you)</li>
+          <li><span class="duo-check">✓</span> Posting schedule & content format breakdown</li>
+          <li><span class="duo-check">✓</span> 90-day growth roadmap with milestones</li>
+        </ul>
+      </div>
+      <div class="duo-purchase">
+        <div class="duo-price">$97</div>
+        <div class="duo-period">One-time · delivered in 7 business days</div>
+        <a href="product-strategy.html" class="duo-btn">Get your strategy →</a>
+        <div class="duo-note">Built for your business. Not a template.</div>
+      </div>
+    </div>
+
   </div>
 
   <!-- BUNDLE (pulse + price anchor + scarcity) -->

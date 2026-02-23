@@ -219,68 +219,12 @@
       opacity: 0.85;
     }
 
-    /* ── Task 4: Thumbnail area + shimmer ── */
-    .freebie-thumb {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
-      border: 1px solid var(--border);
-    }
-
-    .freebie-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.18) 50%, transparent 65%);
-      transform: translateX(-130%);
-    }
-
-    .freebie-card:hover .freebie-thumb::after {
-      animation: shimmerSlide 0.65s ease forwards;
-    }
-
-    @keyframes shimmerSlide {
-      0%   { transform: translateX(-130%); }
-      100% { transform: translateX(200%); }
-    }
-
-    .thumb-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 36px;
-      opacity: 0.35;
-      user-select: none;
-    }
-
-    /* ── Task 5: Star overlay ── */
-    .freebie-stars {
-      position: absolute;
-      bottom: 8px;
-      left: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0,0,0,0.58);
-      border-radius: 6px;
-      padding: 4px 10px;
-    }
-
-    .freebie-stars .stars {
-      color: #f5a623;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    .freebie-stars .star-label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.9);
-      white-space: nowrap;
+    /* ── Resource icon ── */
+    .freebie-icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
     }
 
     /* ── Task 6: Time-to-value pill ── */
@@ -535,13 +479,7 @@
 
   <div class="freebies-grid">
     <div class="freebie-card reveal">
-      <div class="freebie-thumb">
-        <span class="thumb-icon">📋</span>
-        <div class="freebie-stars">
-          <span class="stars">★★★★★</span>
-          <span class="star-label">Based on 40+ downloads</span>
-        </div>
-      </div>
+      <span class="freebie-icon">📋</span>
       <span class="freebie-badge">27 PAGES</span>
       <h3>Social Media Audit Checklist</h3>
       <div class="download-count">📥 Downloaded 2,100+ times this month</div>
@@ -551,13 +489,7 @@
     </div>
 
     <div class="freebie-card reveal">
-      <div class="freebie-thumb">
-        <span class="thumb-icon">🧩</span>
-        <div class="freebie-stars">
-          <span class="stars">★★★★★</span>
-          <span class="star-label">Based on 40+ downloads</span>
-        </div>
-      </div>
+      <span class="freebie-icon">🧩</span>
       <span class="freebie-badge">INSTANT DOWNLOAD</span>
       <h3>Content Pillar Framework</h3>
       <div class="download-count">📥 Downloaded 1,200+ times this month</div>
@@ -567,13 +499,7 @@
     </div>
 
     <div class="freebie-card reveal">
-      <div class="freebie-thumb">
-        <span class="thumb-icon">📅</span>
-        <div class="freebie-stars">
-          <span class="stars">★★★★★</span>
-          <span class="star-label">Based on 40+ downloads</span>
-        </div>
-      </div>
+      <span class="freebie-icon">📅</span>
       <span class="freebie-badge">30 DAYS</span>
       <h3>30-Day Content Calendar</h3>
       <div class="download-count">📥 Downloaded 847+ times this month</div>
@@ -583,13 +509,7 @@
     </div>
 
     <div class="freebie-card reveal">
-      <div class="freebie-thumb">
-        <span class="thumb-icon">✍️</span>
-        <div class="freebie-stars">
-          <span class="stars">★★★★★</span>
-          <span class="star-label">Based on 40+ downloads</span>
-        </div>
-      </div>
+      <span class="freebie-icon">✍️</span>
       <span class="freebie-badge">QUICK WIN</span>
       <h3>Bio Optimization Guide</h3>
       <div class="download-count">📥 Downloaded 640+ times this month</div>
