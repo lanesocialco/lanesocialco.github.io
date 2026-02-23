@@ -4,497 +4,887 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Media Strategy | Lane Social Co</title>
-  <meta name="description" content="A custom social media roadmap built for your business. Competitor research, platform recommendations, content pillars, and a 90-day plan in 7 business days.">
+  <meta name="description" content="A custom social media plan built for your actual business. Competitor research, platform recommendations, content pillars, and a 90-day roadmap delivered in 7 business days.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Bricolage Grotesque', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
+    main { margin-top: 70px; }
 
-    /* Main content */
-    main {
-      margin-top: 70px;
-      padding-top: 60px;
-    }
-
-    section {
-      padding: 80px 40px;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 50px 20px;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Hero Section */
+    /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
-      background: var(--bg);
-      padding-bottom: 60px;
+      min-height: 96svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 140px 48px 100px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-alt);
     }
-
+    .hero-bg {
+      position: absolute;
+      top: -180px; right: -160px;
+      width: 760px; height: 760px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.11) 0%, transparent 68%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-bg-2 {
+      position: absolute;
+      bottom: -80px; left: -100px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 20px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 24px; display: block;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
     }
-
     .hero h1 {
-      font-size: 56px;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 20px;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -2px; margin-bottom: 24px;
       color: var(--text);
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
     }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 40px;
-      max-width: 600px;
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero-sub {
+      font-size: 18px; color: var(--text-sub);
+      line-height: 1.65; max-width: 520px; margin-bottom: 44px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
     }
-
-    .hero-stats {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
+    .hero-actions {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 14px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
     }
-
-    .stat-pill {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      padding: 20px 28px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .hero-micro {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--text-muted); letter-spacing: 0.08em;
     }
-
-    .stat-pill-value {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text);
+    .hero-proof {
+      margin-top: 64px; padding-top: 36px;
+      border-top: 1px solid var(--border);
+      display: flex; gap: 48px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.65s;
     }
-
-    .stat-pill-label {
+    .proof-stat .number {
+      font-size: 34px; font-weight: 800;
+      letter-spacing: -1px; color: var(--text); line-height: 1;
+    }
+    .proof-stat .number em { font-style: normal; color: var(--purple); }
+    .proof-stat .label {
+      font-size: 11px; color: var(--text-muted); margin-top: 6px;
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 400;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 0.3px;
+      letter-spacing: 0.06em; text-transform: uppercase;
     }
 
-    /* Features Grid */
-    .features {
-      background: var(--bg);
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .section-title {
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 50px;
-      color: var(--text);
+    /* ── HERO VISUAL ──────────────────────────────────────────── */
+    .hero-visual {
+      position: relative; z-index: 1;
+      height: 560px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
     }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+    .hero-visual-wrap {
+      position: relative; width: 100%; max-width: 400px;
     }
-
-    .feature-card {
-      padding: 32px;
+    .hv-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      display: flex;
-      gap: 16px;
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+    .hv-main { padding: 28px; position: relative; }
+    .hv-main::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hv-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 24px;
+    }
+    .hv-title {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hv-badge-ready {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: #22c55e; background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 20px; padding: 3px 10px;
     }
 
-    .feature-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      color: var(--purple);
-      font-size: 24px;
-      line-height: 1;
+    /* Roadmap phases */
+    .hv-phases { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .hv-phase {
+      background: var(--bg-raised);
+      border-radius: 10px; padding: 12px 14px;
     }
-
-    .feature-content h3 {
-      font-size: 16px;
-      font-weight: 700;
+    .hv-phase-header {
+      display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 8px;
-      color: var(--text);
+    }
+    .hv-phase-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--purple); font-weight: 500;
+    }
+    .hv-phase-status {
+      font-family: 'DM Mono', monospace; font-size: 9px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hv-phase h4 {
+      font-size: 13px; font-weight: 700; color: var(--text);
+      margin-bottom: 8px; letter-spacing: -0.2px;
+    }
+    .hv-phase-tasks {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .hv-task-chip {
+      font-size: 11px; color: var(--text-sub);
+      background: var(--surface-2); border-radius: 6px;
+      padding: 3px 8px; white-space: nowrap;
+    }
+    .hv-task-chip.purple {
+      color: var(--purple);
+      background: rgba(var(--purple-rgb),0.1);
     }
 
-    .feature-content p {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.6;
+    /* Pillar strip */
+    .hv-pillars {
+      margin-bottom: 0;
+    }
+    .hv-pillars-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .hv-pillar-row {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .hv-pillar-chip {
+      font-size: 11px; font-weight: 500;
+      border-radius: 20px; padding: 4px 10px;
+      border: 1px solid rgba(var(--purple-rgb),0.3);
+      color: var(--purple); white-space: nowrap;
+      background: rgba(var(--purple-rgb),0.07);
     }
 
-    /* How It Works */
-    .how-it-works {
-      background: var(--bg);
+    .hv-divider {
+      border-top: 1px solid var(--border);
+      padding: 14px 28px; display: flex; gap: 24px;
+    }
+    .hv-stat { flex: 1; }
+    .hv-stat-num {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .hv-stat-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--text-muted); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-top: 2px;
     }
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+    /* Floating badges */
+    .hv-float {
+      position: absolute;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 12px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 10px;
+      white-space: nowrap; z-index: 10;
     }
-
-    .step {
-      position: relative;
+    .hv-float-emoji { font-size: 18px; line-height: 1; }
+    .hv-float-text strong {
+      display: block; font-size: 13px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.3px;
     }
+    .hv-float-text span {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hv-float-1 { top: -18px; right: -52px; animation: floatA 3.5s ease-in-out infinite; }
+    .hv-float-2 { bottom: 70px; left: -66px; animation: floatB 4s ease-in-out infinite; }
+    @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
 
-    .step-number {
+    /* ── PAIN POINTS ──────────────────────────────────────────── */
+    .pain {
+      padding: 100px 48px; background: var(--bg); text-align: center;
+    }
+    .pain h2 {
+      font-size: clamp(32px, 4.5vw, 56px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.05;
+      max-width: 680px; margin: 0 auto 16px;
+    }
+    .pain-intro {
+      font-size: 17px; color: var(--text-sub);
+      line-height: 1.65; max-width: 560px;
+      margin: 0 auto 56px;
+    }
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px; max-width: 900px; margin: 0 auto; text-align: left;
+    }
+    .pain-card {
+      background: var(--surface); padding: 36px;
+      border-radius: 16px; position: relative;
+      overflow: hidden; transition: background 0.3s;
+    }
+    .pain-card:hover { background: #0d0d0d; }
+    .pain-num { position: relative; height: 52px; margin-bottom: 20px; }
+    .pn-num {
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 16px;
+      font-size: 44px; font-weight: 300; color: var(--purple);
+      position: absolute; top: 0; left: 0; line-height: 1;
+      transition: opacity 0.25s, transform 0.25s;
     }
-
-    .step h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text);
+    .pn-emoji {
+      font-size: 40px; position: absolute; top: 0; left: 0; line-height: 1;
+      opacity: 0; transform: scale(0.5);
+      transition: opacity 0.25s, transform 0.25s;
     }
-
-    .step p {
-      font-size: 15px;
-      color: var(--text-sub);
-      line-height: 1.6;
+    .pain-card:hover .pn-num  { opacity: 0; transform: scale(0.5); }
+    .pain-card:hover .pn-emoji { opacity: 1; transform: scale(1); }
+    .pain-card h3 {
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      margin-bottom: 10px; line-height: 1.2; transition: color 0.3s;
     }
+    .pain-card:hover h3 { color: #ffffff; }
+    .pain-card p {
+      font-size: 14px; line-height: 1.65; color: var(--text-sub);
+      transition: color 0.3s;
+    }
+    .pain-card:hover p { color: rgba(255,255,255,0.55); }
 
-    /* FAQ */
-    .faq {
+    /* ── WHAT'S INCLUDED ─────────────────────────────────────── */
+    .features { padding: 100px 48px; background: var(--bg-alt); }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 16px; display: block;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--text-sub);
+      line-height: 1.65; max-width: 540px; margin-bottom: 56px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      padding: 28px 32px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 14px;
+    }
+    .feature-icon-wrap {
+      width: 40px; height: 40px; background: var(--purple-dim);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 18px; margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 15px; font-weight: 700; margin-bottom: 8px;
+      color: var(--text); letter-spacing: -0.2px;
+    }
+    .feature-card p { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ────────────────────────────────────────── */
+    .how-it-works { padding: 100px 48px; background: var(--bg); }
+    .how-inner { max-width: 1000px; margin: 0 auto; }
+    .steps-timeline {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; position: relative; margin-top: 56px;
+    }
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(16.66% + 8px); right: calc(16.66% + 8px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple), rgba(var(--purple-rgb),0.3), var(--purple));
+    }
+    .step { padding: 0 24px; text-align: center; position: relative; }
+    .step-dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 500;
+      color: var(--purple); position: relative; z-index: 1;
       background: var(--bg);
     }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .step p { font-size: 14px; color: var(--text-sub); line-height: 1.65; }
+    .step-time {
+      display: inline-block;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--purple); letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--purple-dim); border-radius: 20px;
+      padding: 3px 10px; margin-bottom: 12px;
     }
 
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 28px 0;
+    /* ── TRUST STRIP ─────────────────────────────────────────── */
+    .trust-strip {
+      padding: 48px; background: var(--bg-alt);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
-
-    .faq-item:last-child {
-      border-bottom: none;
+    .trust-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; gap: 48px; flex-wrap: wrap;
+      align-items: center; justify-content: center;
     }
+    .trust-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: var(--text-sub);
+    }
+    .trust-icon { font-size: 20px; }
 
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .faq { padding: 100px 48px; background: var(--bg-alt); }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+    .faq-item:last-child { border-bottom: none; }
     .faq-question {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+      font-size: 16px; font-weight: 600; color: var(--text);
+      cursor: pointer; display: flex;
+      justify-content: space-between; align-items: center; gap: 20px;
+      line-height: 1.4;
     }
-
     .faq-toggle {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 24px; height: 24px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
     }
-
     .faq-toggle::before {
-      content: '+';
-      font-size: 20px;
-      color: var(--purple);
+      content: '+'; font-size: 20px; color: var(--purple);
       transition: transform 0.3s;
     }
-
-    .faq-item.open .faq-toggle::before {
-      transform: rotate(45deg);
-    }
-
+    .faq-item.open .faq-toggle::before { transform: rotate(45deg); }
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-top: 16px;
+      max-height: 0; overflow: hidden; transition: max-height 0.3s;
+      color: var(--text-sub); line-height: 1.65; margin-top: 0; font-size: 15px;
     }
+    .faq-item.open .faq-answer { max-height: 500px; margin-top: 14px; }
 
-    .faq-item.open .faq-answer {
-      max-height: 500px;
-    }
-
-    /* CTA Section */
+    /* ── CTA ─────────────────────────────────────────────────── */
     .cta-section {
-      background: var(--ink);
-      color: var(--ink-text);
+      padding: 100px 48px; background: var(--ink); text-align: center;
     }
-
     .cta-section h2 {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.2;
+      font-size: clamp(32px, 4.5vw, 56px); font-weight: 800;
+      letter-spacing: -1.5px; color: var(--ink-text); margin-bottom: 16px;
     }
-
     .cta-section p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      max-width: 600px;
-      line-height: 1.6;
+      font-size: 17px; color: rgba(255,255,255,0.6);
+      margin-bottom: 40px; line-height: 1.65;
+    }
+    .cta-meta {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.35); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-top: 20px;
     }
 
+    /* ── STICKY SIDEBAR LAYOUT ───────────────────────────────── */
+    .product-layout {
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 0; align-items: start; max-width: 1440px; margin: 0 auto;
+    }
+    .product-main { min-width: 0; }
+    .product-sidebar {
+      padding: 80px 24px 80px 8px;
+      position: sticky; top: 90px; align-self: start;
+    }
+    .sticky-buy-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      position: sticky; top: 90px;
+    }
+    .sbc-tag {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 12px; display: block;
+    }
+    .sbc-price {
+      font-size: 52px; font-weight: 800; letter-spacing: -2px;
+      color: var(--text); line-height: 1; margin-bottom: 4px;
+    }
+    .sbc-period {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: var(--text-muted); letter-spacing: 0.04em;
+      margin-bottom: 24px; display: block;
+    }
+    .sbc-features {
+      list-style: none; padding: 0; margin: 0 0 24px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .sbc-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--border-soft);
+      font-size: 13px; color: var(--text-sub); line-height: 1.45;
+    }
+    .sbc-check {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(var(--purple-rgb), 0.15); color: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .sbc-cta {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; background: var(--purple); color: #fff;
+      border: none; padding: 14px 20px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: inherit; text-decoration: none;
+      transition: opacity 0.15s; margin-bottom: 12px;
+    }
+    .sbc-cta:hover { opacity: 0.88; }
+    .sbc-trust {
+      text-align: center; font-family: 'DM Mono', monospace;
+      font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em;
+    }
+    .sbc-divider { height: 1px; background: var(--border-soft); margin: 20px 0; }
+    .sbc-urgency {
+      background: rgba(var(--purple-rgb), 0.08);
+      border: 1px solid rgba(var(--purple-rgb), 0.2);
+      border-radius: 10px; padding: 14px;
+      font-size: 12px; color: var(--text-sub);
+      line-height: 1.5; text-align: center; margin-bottom: 16px;
+    }
+    .sbc-urgency strong { color: var(--purple); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr; padding: 120px 32px 60px; min-height: auto;
+      }
+      .hero-visual { height: 480px; }
+      .hv-float-1 { right: -20px; top: -10px; }
+      .hv-float-2 { display: none; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .steps-timeline { grid-template-columns: 1fr; gap: 40px; }
+      .steps-timeline::before { display: none; }
+      .product-layout { display: block; }
+      .product-sidebar { position: static; padding: 0 20px 40px; }
+      .sticky-buy-card { position: static; }
+    }
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 24px;
-      }
-
-      .cta-section h2 {
-        font-size: 32px;
-      }
+      .hero, .pain, .features, .how-it-works, .faq, .cta-section { padding-left: 24px; padding-right: 24px; }
+      .trust-strip { padding: 36px 24px; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <div id="site-nav"></div>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
+    <!-- ── HERO ──────────────────────────────────────────────────── -->
     <section class="hero">
-      <div class="container">
-        <span class="hero-eyebrow">Custom Built · $97</span>
-        <h1>A social media plan built around your actual business.</h1>
-        <p>Competitor research, platform recommendations, custom content pillars, and a 90-day growth roadmap — all built specifically for you. Not a template.</p>
+      <div class="hero-bg"></div>
+      <div class="hero-bg-2"></div>
 
-        <div class="hero-stats">
-          <div class="stat-pill">
-            <div class="stat-pill-value">7</div>
-            <div class="stat-pill-label">Business Days</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-value">Custom</div>
-            <div class="stat-pill-label">For Your Business</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-value">90 Days</div>
-            <div class="stat-pill-label">Roadmap Included</div>
-          </div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Custom Built for You · $97 · 7 Business Days</span>
+        <h1>Stop winging it. Get a <em>real plan</em> for your social media.</h1>
+        <p class="hero-sub">Competitor research, platform recommendations, custom content pillars, and a 90-day roadmap built specifically for your business. Not a template someone filled in your name on.</p>
+
+        <div class="hero-actions">
+          <a href="audit-intake.html" class="btn-primary">Get your strategy for $97 →</a>
+          <span class="hero-micro">Includes a 30-minute review call. 7-business-day delivery.</span>
         </div>
 
-        <a href="#buy" class="btn-primary">Get your strategy →</a>
-      </div>
-    </section>
-
-    <!-- What's Included -->
-    <section class="features">
-      <div class="container">
-        <h2 class="section-title">What's Included</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Competitor research</h3>
-              <p>We analyze 3 direct competitors in your niche to understand the competitive landscape.</p>
-            </div>
+        <div class="hero-proof">
+          <div class="proof-stat">
+            <div class="number">90<em>d</em></div>
+            <div class="label">Roadmap included</div>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Social SEO & keyword analysis</h3>
-              <p>Discovery of high-opportunity keywords and search terms your audience is actually using.</p>
-            </div>
+          <div class="proof-stat">
+            <div class="number">5</div>
+            <div class="label">Custom pillars</div>
           </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Platform recommendation with reasoning</h3>
-              <p>Specific platforms chosen for your business with detailed rationale for each choice.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>5 custom content pillars</h3>
-              <p>Unique content themes built specifically around your business, goals, and audience.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Content format breakdown</h3>
-              <p>Exactly what to post, how often, and what formats work best for your platforms.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>90-day growth roadmap</h3>
-              <p>Clear milestones and actionable steps to grow your following and engagement over 3 months.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>30-minute review call</h3>
-              <p>We walk through your strategy with you and answer any questions about implementation.</p>
-            </div>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <div class="feature-content">
-              <h3>Written strategy document</h3>
-              <p>Everything delivered as a comprehensive guide you can reference anytime.</p>
-            </div>
+          <div class="proof-stat">
+            <div class="number">$97</div>
+            <div class="label">One-time · No fluff</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-      <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps-grid">
-          <div class="step">
-            <span class="step-number">Step 1</span>
-            <h3>Complete the intake form</h3>
-            <p>Tell us about your business, your goals, current challenges, and who your competitors are. This takes about 10 minutes.</p>
+      <!-- Right column: 90-day roadmap mockup -->
+      <div class="hero-visual">
+        <div class="hero-visual-wrap">
+          <!-- Floating badges -->
+          <div class="hv-float hv-float-1">
+            <span class="hv-float-emoji">🔍</span>
+            <div class="hv-float-text">
+              <strong>3 competitors analyzed</strong>
+              <span>In your niche</span>
+            </div>
+          </div>
+          <div class="hv-float hv-float-2">
+            <span class="hv-float-emoji">📞</span>
+            <div class="hv-float-text">
+              <strong>Review call included</strong>
+              <span>30 minutes, 1:1</span>
+            </div>
           </div>
 
-          <div class="step">
-            <span class="step-number">Step 2</span>
-            <h3>We research and build your strategy</h3>
-            <p>Our team dives into competitor analysis, keyword research, and platform evaluation. We then develop your custom content pillars and roadmap.</p>
-          </div>
+          <div class="hv-card">
+            <div class="hv-main">
+              <div class="hv-header">
+                <span class="hv-title">Your 90-Day Roadmap</span>
+                <span class="hv-badge-ready">Custom Built</span>
+              </div>
 
-          <div class="step">
-            <span class="step-number">Step 3</span>
-            <h3>You get your strategy doc + review call</h3>
-            <p>Delivered as a written document plus a 30-minute call where we walk through everything and make sure you're ready to implement.</p>
+              <!-- Roadmap phases -->
+              <div class="hv-phases">
+                <div class="hv-phase">
+                  <div class="hv-phase-header">
+                    <span class="hv-phase-label">Month 1</span>
+                    <span class="hv-phase-status">Foundation</span>
+                  </div>
+                  <h4>Profile &amp; positioning setup</h4>
+                  <div class="hv-phase-tasks">
+                    <span class="hv-task-chip purple">Optimize profiles</span>
+                    <span class="hv-task-chip">Define voice</span>
+                    <span class="hv-task-chip">Content templates</span>
+                  </div>
+                </div>
+
+                <div class="hv-phase">
+                  <div class="hv-phase-header">
+                    <span class="hv-phase-label">Month 2</span>
+                    <span class="hv-phase-status">Growth</span>
+                  </div>
+                  <h4>Content cadence &amp; audience building</h4>
+                  <div class="hv-phase-tasks">
+                    <span class="hv-task-chip purple">Post schedule</span>
+                    <span class="hv-task-chip">Engage community</span>
+                    <span class="hv-task-chip">Test formats</span>
+                  </div>
+                </div>
+
+                <div class="hv-phase">
+                  <div class="hv-phase-header">
+                    <span class="hv-phase-label">Month 3</span>
+                    <span class="hv-phase-status">Convert</span>
+                  </div>
+                  <h4>Leads, sales &amp; optimization</h4>
+                  <div class="hv-phase-tasks">
+                    <span class="hv-task-chip purple">Sales content</span>
+                    <span class="hv-task-chip">Analyze results</span>
+                    <span class="hv-task-chip">Scale what works</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content pillars -->
+              <div class="hv-pillars">
+                <div class="hv-pillars-label">5 custom content pillars</div>
+                <div class="hv-pillar-row">
+                  <span class="hv-pillar-chip">Education</span>
+                  <span class="hv-pillar-chip">Behind the scenes</span>
+                  <span class="hv-pillar-chip">Social proof</span>
+                  <span class="hv-pillar-chip">Offers</span>
+                  <span class="hv-pillar-chip">Community</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-divider">
+              <div class="hv-stat">
+                <div class="hv-stat-num">90d</div>
+                <div class="hv-stat-label">Roadmap</div>
+              </div>
+              <div class="hv-stat">
+                <div class="hv-stat-num">5</div>
+                <div class="hv-stat-label">Pillars</div>
+              </div>
+              <div class="hv-stat">
+                <div class="hv-stat-num">30m</div>
+                <div class="hv-stat-label">Review call</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq">
-      <div class="container faq-container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
+    <!-- Two-column layout: content + sticky buy card -->
+    <div class="product-layout">
+      <div class="product-main">
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How is this different from the Audit?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">The Audit tells you what's broken RIGHT NOW on your existing profiles. The Strategy tells you where to go from here. You might have a perfect profile but no idea what to post or who to target. The Strategy answers all of that — it's your business plan for social media.</div>
-        </div>
+        <!-- ── PAIN POINTS ──────────────────────────────────────── -->
+        <section class="pain">
+          <h2>Hoping and posting is not a strategy.</h2>
+          <p class="pain-intro">You need a plan that's actually built for your business — not a generic content calendar someone made for every industry at once.</p>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do I need to have an existing presence?</span>
-            <div class="faq-toggle"></div>
+          <div class="pain-grid">
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">01</span>
+                <span class="pn-emoji">🤷</span>
+              </div>
+              <h3>You don't know what to post — or how often</h3>
+              <p>Not because you're bad at social media, but because no one has ever told you what content actually makes sense for your specific business and audience. That's what this fixes.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">02</span>
+                <span class="pn-emoji">🎯</span>
+              </div>
+              <h3>You're not sure which platforms are worth your time</h3>
+              <p>TikTok? Instagram? LinkedIn? Facebook? The answer is different depending on your business, your audience, and your goals — and guessing wrong is expensive.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">03</span>
+                <span class="pn-emoji">💸</span>
+              </div>
+              <h3>You've paid someone to manage social and got nothing from it</h3>
+              <p>Bad social media management often comes from starting without a clear strategy. When the person running your accounts doesn't have a real plan, you get pretty posts that don't convert.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">04</span>
+                <span class="pn-emoji">🗺️</span>
+              </div>
+              <h3>You're starting fresh and have no idea where to begin</h3>
+              <p>Starting from zero is actually the perfect time to build this right. We'll tell you exactly which platforms to start on, what to post, and what your first 90 days should look like.</p>
+            </div>
           </div>
-          <div class="faq-answer">No. The Strategy works whether you're starting from scratch or scaling existing profiles. We'll recommend the right platforms for your business and tell you exactly how to build your presence on them.</div>
-        </div>
+        </section>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can I get both the Audit and Strategy?</span>
-            <div class="faq-toggle"></div>
-          </div>
-          <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> gets you both at $150 — saving $44 versus buying them separately. You'll get the diagnosis of what's currently broken AND the roadmap for what to build next.</div>
-        </div>
+        <!-- ── WHAT'S INCLUDED ──────────────────────────────────── -->
+        <section class="features">
+          <div class="features-inner">
+            <span class="section-eyebrow">What you get</span>
+            <h2 class="section-title">A strategy that's actually yours. Not a template.</h2>
+            <p class="section-sub">Every deliverable is built specifically for your business, your audience, and your goals. We start from scratch each time.</p>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What happens after the strategy call?</span>
-            <div class="faq-toggle"></div>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon-wrap">🔍</div>
+                <h3>Competitor research (3 competitors)</h3>
+                <p>We analyze 3 direct competitors in your niche to find gaps you can win, what they're doing well, and where they're dropping the ball.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">🔑</div>
+                <h3>Social SEO &amp; keyword analysis</h3>
+                <p>We find the high-opportunity keywords and search terms your audience is actually using — so the right people can actually find you.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">📱</div>
+                <h3>Platform recommendation with reasoning</h3>
+                <p>Not "be everywhere." We tell you exactly which 1-3 platforms are worth your time and explain why, so you're not spreading yourself thin for no reason.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">🏛️</div>
+                <h3>5 custom content pillars</h3>
+                <p>Five unique content themes built around your business. Not generic "educational content" — specific pillars with angles that match your audience and goals.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">📅</div>
+                <h3>Content format breakdown</h3>
+                <p>What to post, how often, and which formats (Reels, carousels, Stories, etc.) make the most sense for your platforms and bandwidth.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">🗺️</div>
+                <h3>90-day growth roadmap</h3>
+                <p>Clear milestones for months 1, 2, and 3 — so you're not just "posting more," you're building toward something specific with measurable outcomes.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">📞</div>
+                <h3>30-minute review call</h3>
+                <p>We walk through your strategy with you live, answer every question you have about implementation, and make sure you feel confident executing it.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon-wrap">📄</div>
+                <h3>Written strategy document</h3>
+                <p>Everything in one comprehensive guide you can hand to a VA, a social media manager, or just reference yourself whenever you need it.</p>
+              </div>
+            </div>
           </div>
-          <div class="faq-answer">You have a complete roadmap and detailed strategy document. You can implement it yourself, hire someone to manage it, or reach out to us if you want help executing the plan.</div>
-        </div>
+        </section>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Is the 90-day roadmap realistic?</span>
-            <div class="faq-toggle"></div>
+        <!-- ── HOW IT WORKS ────────────────────────────────────── -->
+        <section class="how-it-works">
+          <div class="how-inner">
+            <span class="section-eyebrow">The process</span>
+            <h2 class="section-title">Three steps to your complete social media plan.</h2>
+            <p class="section-sub" style="margin-bottom:0">You give us 10 minutes. We give you a full strategy in 7 business days.</p>
+
+            <div class="steps-timeline">
+              <div class="step">
+                <div class="step-dot">01</div>
+                <span class="step-time">Takes ~10 min</span>
+                <h3>Complete the intake form</h3>
+                <p>Tell us your business, goals, target audience, current challenges, and who you see as competitors. This is where your custom strategy starts.</p>
+              </div>
+              <div class="step">
+                <div class="step-dot">02</div>
+                <span class="step-time">We do the heavy lifting</span>
+                <h3>We research and build your strategy</h3>
+                <p>We run competitor analysis, keyword research, and platform evaluation. Then we develop your content pillars and build out your full 90-day roadmap.</p>
+              </div>
+              <div class="step">
+                <div class="step-dot">03</div>
+                <span class="step-time">Within 7 business days</span>
+                <h3>Strategy doc + review call</h3>
+                <p>You get a written strategy document and a 30-minute call where we walk through everything, answer your questions, and make sure you're ready to run.</p>
+              </div>
+            </div>
           </div>
-          <div class="faq-answer">Yes. We build our roadmaps based on what actually works in your industry, not hype. The milestones are specific, achievable, and tracked. You'll know exactly what to expect.</div>
+        </section>
+
+        <!-- ── FAQ ────────────────────────────────────────────────── -->
+        <section class="faq">
+          <div class="faq-inner">
+            <span class="section-eyebrow">Questions</span>
+            <h2 class="section-title" style="margin-bottom:40px;">Things people ask before buying</h2>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>How is this different from the Audit?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">The Audit tells you what's broken with your profiles right now. The Strategy tells you where to go from here — what to post, who to target, which platforms to focus on, and what your next 90 days should look like. They solve different problems. The Audit is diagnostic; the Strategy is directional. Many clients get both, which is why we offer the <a href="product-bundle.html" style="color:var(--purple);">bundle at a discount</a>.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Do I need to already be on social media?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">No. The Strategy works whether you're starting from zero or scaling what you already have. If you're starting fresh, we'll recommend the exact platforms to focus on and tell you how to build your presence on them efficiently. Starting right is a lot easier than fixing a mess later.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What if I don't implement the strategy myself?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">The strategy document is built to hand off. If you have a VA, an in-house team member, or a social media manager, they can execute directly from the document. The review call also helps them understand the reasoning behind each decision so they're not just following steps blindly.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Is the 90-day roadmap realistic for a small business?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">Yes, and we factor that in. We don't build roadmaps that assume you have a full-time content team. The milestones are built around your capacity and your goals — not an imaginary ideal scenario. You'll know exactly what's achievable and what to expect.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Can I get the Strategy and the Audit together?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> is $150 — saving $44 versus buying both separately. You get the full diagnostic of what's wrong right now AND the roadmap for what to build next. Most people who want one end up needing both.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What happens after the review call?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">You walk away with a complete written strategy and a clear head about how to move forward. Some clients implement it themselves. Some hand it to their team. Some come back to us for ongoing help. The strategy is yours to keep and use however you need to.</div>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /.product-main -->
+
+      <!-- ── STICKY BUY CARD ──────────────────────────────────── -->
+      <aside class="product-sidebar" aria-label="Purchase details">
+        <div class="sticky-buy-card" id="buy">
+          <span class="sbc-tag">Custom Social Media Strategy</span>
+          <div class="sbc-price">$97</div>
+          <span class="sbc-period">One-time · 7-business-day delivery</span>
+
+          <div class="sbc-urgency">
+            <strong>Built from scratch for you.</strong> Not a template with your name on it — every deliverable is specific to your business and goals.
+          </div>
+
+          <ul class="sbc-features">
+            <li><span class="sbc-check">✓</span>Competitor research (3 competitors)</li>
+            <li><span class="sbc-check">✓</span>Social SEO &amp; keyword analysis</li>
+            <li><span class="sbc-check">✓</span>Platform recommendation with reasoning</li>
+            <li><span class="sbc-check">✓</span>5 custom content pillars</li>
+            <li><span class="sbc-check">✓</span>Content format breakdown</li>
+            <li><span class="sbc-check">✓</span>90-day growth roadmap</li>
+            <li><span class="sbc-check">✓</span>30-minute review call included</li>
+            <li><span class="sbc-check">✓</span>Written strategy document</li>
+          </ul>
+
+          <a href="audit-intake.html" class="sbc-cta">Get your strategy →</a>
+          <p class="sbc-trust">Secure checkout · 7-business-day delivery</p>
+
+          <div class="sbc-divider"></div>
+
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.55;text-align:center;">
+            Want the Audit too? The <a href="product-bundle.html" style="color:var(--purple);text-decoration:underline;">bundle saves you $44</a> and includes both.
+          </p>
         </div>
+      </aside>
+
+    </div><!-- /.product-layout -->
+
+    <!-- Trust strip -->
+    <div class="trust-strip">
+      <div class="trust-inner">
+        <div class="trust-item"><span class="trust-icon">🏛️</span> 5 content pillars built for your business</div>
+        <div class="trust-item"><span class="trust-icon">🗺️</span> Full 90-day growth roadmap</div>
+        <div class="trust-item"><span class="trust-icon">📞</span> 30-minute review call included</div>
+        <div class="trust-item"><span class="trust-icon">⚡</span> Delivered in 7 business days</div>
       </div>
-    </section>
+    </div>
 
     <!-- CTA Section -->
-    <section class="cta-section" id="buy">
-      <div class="container">
-        <h2>Ready to stop guessing about your social media?</h2>
-        <p>Get your custom strategy in 7 business days. Only $97.</p>
-        <a href="#" class="btn-white">Get your strategy →</a>
-      </div>
+    <section class="cta-section">
+      <h2>You don't need more content. You need a plan.</h2>
+      <p>$97 for a custom strategy built around your business, your audience, and your goals — delivered in 7 days.</p>
+      <a href="audit-intake.html" class="btn-white">Get your strategy for $97 →</a>
+      <p class="cta-meta">Includes 30-min review call · One-time payment · No recurring fees</p>
     </section>
   </main>
 
-  <!-- Footer -->
   <div id="site-footer"></div>
 
   <script>
-    // FAQ Toggle
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
         item.classList.toggle('open');
       });
     });
   </script>
-
   <script src="assets/site-components.js"></script>
 </body>
 </html>

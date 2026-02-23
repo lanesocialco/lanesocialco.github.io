@@ -4,285 +4,514 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Media Audit | Lane Social Co</title>
-  <meta name="description" content="A manual review of every social profile you run. Get a scored report with specific, prioritized fixes in 7 business days.">
+  <meta name="description" content="Stop guessing why your social media isn't working. We manually review every profile you run and hand you a scored report with specific, prioritized fixes in 7 business days.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Bricolage Grotesque', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
+    main { margin-top: 70px; }
 
-    /* Main content */
-    main {
-      margin-top: 70px;
-      padding-top: 60px;
-    }
-
-    section {
-      padding: 80px 40px;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 50px 20px;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Hero Section */
+    /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
+      min-height: 96svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 140px 48px 100px;
+      position: relative;
+      overflow: hidden;
       background: var(--bg);
-      padding-bottom: 60px;
     }
-
+    .hero-bg {
+      position: absolute;
+      top: -200px; right: -180px;
+      width: 820px; height: 820px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 68%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-bg-2 {
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--purple);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
     }
-
     .hero h1 {
-      font-size: 56px;
+      font-size: clamp(44px, 6vw, 80px);
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 20px;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
       color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
     }
-
-    .hero p {
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero-sub {
       font-size: 18px;
       color: var(--text-sub);
-      line-height: 1.6;
-      margin-bottom: 40px;
-      max-width: 600px;
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.35s;
     }
-
-    .hero-stats {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .stat-pill {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      padding: 20px 28px;
-      border-radius: 12px;
+    .hero-actions {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.5s;
     }
-
-    .stat-pill-value {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .stat-pill-label {
+    .hero-micro {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      font-weight: 400;
-      text-transform: uppercase;
       color: var(--text-muted);
-      letter-spacing: 0.3px;
+      letter-spacing: 0.08em;
     }
-
-    /* Features Grid */
-    .features {
-      background: var(--bg);
-    }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 50px;
-      color: var(--text);
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .feature-card {
-      padding: 32px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+    .hero-proof {
+      margin-top: 64px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
       display: flex;
-      gap: 16px;
+      gap: 48px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.65s;
     }
-
-    .feature-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      color: var(--purple);
-      font-size: 24px;
+    .proof-stat .number {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text);
       line-height: 1;
     }
-
-    .feature-content h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    .feature-content p {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
-
-    /* How It Works */
-    .how-it-works {
-      background: var(--bg);
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-    }
-
-    .step {
-      position: relative;
-    }
-
-    .step-number {
+    .proof-stat .number em { font-style: normal; color: var(--purple); }
+    .proof-stat .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
-      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 16px;
     }
 
-    .step h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text);
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .step p {
-      font-size: 15px;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
-
-    /* FAQ */
-    .faq {
-      background: var(--bg);
-    }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 28px 0;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-question {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .faq-toggle {
-      width: 24px;
-      height: 24px;
+    /* ── HERO VISUAL (right col) ──────────────────────────────── */
+    .hero-visual {
+      position: relative; z-index: 1;
+      height: 520px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .hero-visual-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+    .hv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+    .hv-main { padding: 28px; position: relative; }
+    .hv-main::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hv-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 24px;
+    }
+    .hv-title {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hv-badge-critical {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: #ef4444; background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: 20px; padding: 3px 10px;
     }
 
-    .faq-toggle::before {
-      content: '+';
-      font-size: 20px;
+    /* Circular score ring */
+    .hv-score-wrap {
+      display: flex; align-items: center; gap: 20px;
+      margin-bottom: 24px;
+    }
+    .hv-ring { flex-shrink: 0; }
+    .hv-ring-track {
+      fill: none;
+      stroke: var(--surface-2);
+      stroke-width: 6;
+    }
+    .hv-ring-fill {
+      fill: none;
+      stroke: var(--purple);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 264;
+      stroke-dashoffset: 152;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      animation: ringFill 1.4s cubic-bezier(0.4,0,0.2,1) forwards 0.8s;
+    }
+    @keyframes ringFill {
+      from { stroke-dashoffset: 264; }
+      to   { stroke-dashoffset: 152; }
+    }
+    .hv-ring-text {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      fill: var(--text); dominant-baseline: central; text-anchor: middle;
+    }
+    .hv-ring-sub {
+      font-size: 8px; font-family: 'DM Mono', monospace;
+      fill: var(--text-muted); letter-spacing: 0.05em;
+      text-transform: uppercase; dominant-baseline: central; text-anchor: middle;
+    }
+    .hv-score-meta {}
+    .hv-score-label {
+      font-size: 13px; font-weight: 700; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .hv-score-desc {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'DM Mono', monospace; letter-spacing: 0.03em;
+    }
+
+    /* Audit item rows */
+    .hv-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+    .hv-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 10px;
+      background: var(--bg-raised);
+      border-radius: 8px;
+      font-size: 12px; color: var(--text-sub);
+    }
+    .hv-item-name { font-weight: 500; color: var(--text); }
+    .hv-status {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      border-radius: 20px; padding: 2px 8px; font-weight: 500;
+    }
+    .hv-status.red { color: #ef4444; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.2); }
+    .hv-status.yellow { color: #f59e0b; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.2); }
+    .hv-status.green { color: #22c55e; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.2); }
+
+    .hv-divider {
+      border-top: 1px solid var(--border);
+      padding: 14px 28px;
+      display: flex; gap: 24px;
+    }
+    .hv-stat { flex: 1; }
+    .hv-stat-num {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .hv-stat-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--text-muted); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-top: 2px;
+    }
+
+    /* Floating badges */
+    .hv-float {
+      position: absolute;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 10px;
+      white-space: nowrap; z-index: 10;
+    }
+    .hv-float-emoji { font-size: 18px; line-height: 1; }
+    .hv-float-text strong {
+      display: block; font-size: 13px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.3px;
+    }
+    .hv-float-text span {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hv-float-1 { top: -20px; right: -48px; animation: floatA 3.5s ease-in-out infinite; }
+    .hv-float-2 { bottom: 60px; left: -62px; animation: floatB 4s ease-in-out infinite; }
+    @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+    /* ── PAIN POINTS ──────────────────────────────────────────── */
+    .pain {
+      padding: 100px 48px;
+      background: var(--bg-alt);
+      text-align: center;
+    }
+    .pain h2 {
+      font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+    .pain-intro {
+      font-size: 17px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto 56px;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .pain-card {
+      background: var(--surface);
+      padding: 36px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .pain-card:hover { background: #0d0d0d; }
+    .pain-num {
+      position: relative; height: 52px; margin-bottom: 20px;
+    }
+    .pn-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 44px; font-weight: 300; color: var(--purple);
+      position: absolute; top: 0; left: 0; line-height: 1;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .pn-emoji {
+      font-size: 40px; position: absolute; top: 0; left: 0; line-height: 1;
+      opacity: 0; transform: scale(0.5);
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .pain-card:hover .pn-num  { opacity: 0; transform: scale(0.5); }
+    .pain-card:hover .pn-emoji { opacity: 1; transform: scale(1); }
+    .pain-card h3 {
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      margin-bottom: 10px; line-height: 1.2;
+      transition: color 0.3s;
+    }
+    .pain-card:hover h3 { color: #ffffff; }
+    .pain-card p {
+      font-size: 14px; line-height: 1.65; color: var(--text-sub);
+      transition: color 0.3s;
+    }
+    .pain-card:hover p { color: rgba(255,255,255,0.55); }
+
+    /* ── WHAT'S INCLUDED ─────────────────────────────────────── */
+    .features {
+      padding: 100px 48px;
+      background: var(--bg);
+    }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 16px; display: block;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--text-sub);
+      line-height: 1.65; max-width: 540px;
+      margin-bottom: 56px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      padding: 28px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .feature-icon-wrap {
+      width: 40px; height: 40px;
+      background: var(--purple-dim);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 15px; font-weight: 700;
+      margin-bottom: 8px; color: var(--text);
+      letter-spacing: -0.2px;
+    }
+    .feature-card p {
+      font-size: 13px; color: var(--text-sub); line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ────────────────────────────────────────── */
+    .how-it-works {
+      padding: 100px 48px;
+      background: var(--bg-alt);
+    }
+    .how-inner { max-width: 1000px; margin: 0 auto; }
+    .steps-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+      margin-top: 56px;
+    }
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(16.66% + 8px); right: calc(16.66% + 8px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple), rgba(var(--purple-rgb),0.3), var(--purple));
+    }
+    .step {
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+    }
+    .step-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--purple-dim);
+      border: 2px solid var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'DM Mono', monospace;
+      font-size: 14px; font-weight: 500;
       color: var(--purple);
+      position: relative; z-index: 1;
+      background: var(--bg-alt);
+    }
+    .step h3 {
+      font-size: 17px; font-weight: 700; margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .step p { font-size: 14px; color: var(--text-sub); line-height: 1.65; }
+    .step-time {
+      display: inline-block;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: var(--purple); letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--purple-dim);
+      border-radius: 20px; padding: 3px 10px;
+      margin-bottom: 12px;
+    }
+
+    /* ── TRUST STRIP ─────────────────────────────────────────── */
+    .trust-strip {
+      padding: 48px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; gap: 48px; flex-wrap: wrap;
+      align-items: center; justify-content: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: var(--text-sub);
+    }
+    .trust-icon { font-size: 20px; }
+
+    /* ── FAQ ─────────────────────────────────────────────────── */
+    .faq { padding: 100px 48px; background: var(--bg); }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      font-size: 16px; font-weight: 600; color: var(--text);
+      cursor: pointer; display: flex;
+      justify-content: space-between; align-items: center; gap: 20px;
+      line-height: 1.4;
+    }
+    .faq-toggle {
+      width: 24px; height: 24px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .faq-toggle::before {
+      content: '+'; font-size: 20px; color: var(--purple);
       transition: transform 0.3s;
     }
-
-    .faq-item.open .faq-toggle::before {
-      transform: rotate(45deg);
-    }
-
+    .faq-item.open .faq-toggle::before { transform: rotate(45deg); }
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s;
-      color: var(--text-sub);
-      line-height: 1.6;
-      margin-top: 16px;
+      max-height: 0; overflow: hidden; transition: max-height 0.3s;
+      color: var(--text-sub); line-height: 1.65; margin-top: 0;
+      font-size: 15px;
     }
+    .faq-item.open .faq-answer { max-height: 500px; margin-top: 14px; }
 
-    .faq-item.open .faq-answer {
-      max-height: 500px;
-    }
-
-    /* CTA Section */
+    /* ── CTA ─────────────────────────────────────────────────── */
     .cta-section {
+      padding: 100px 48px;
       background: var(--ink);
-      color: var(--ink-text);
+      text-align: center;
     }
-
     .cta-section h2 {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.2;
+      font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: 800; letter-spacing: -1.5px;
+      color: var(--ink-text); margin-bottom: 16px;
     }
-
     .cta-section p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      max-width: 600px;
-      line-height: 1.6;
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px; line-height: 1.65;
+    }
+    .cta-meta {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.35); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-top: 20px;
     }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 36px; }
-      .hero p { font-size: 16px; }
-      .section-title { font-size: 24px; }
-      .cta-section h2 { font-size: 32px; }
-    }
-
-    /* ── STICKY SIDEBAR LAYOUT ─────────────────────────────── */
+    /* ── STICKY SIDEBAR LAYOUT ───────────────────────────────── */
     .product-layout {
       display: grid;
       grid-template-columns: 1fr 320px;
@@ -295,11 +524,9 @@
     .product-sidebar {
       padding: 80px 24px 80px 8px;
       position: sticky;
-      top: 90px;          /* below fixed nav */
+      top: 90px;
       align-self: start;
     }
-
-    /* Sticky buy card */
     .sticky-buy-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -319,7 +546,8 @@
     }
     .sbc-period {
       font-family: 'DM Mono', monospace; font-size: 11px;
-      color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 24px; display: block;
+      color: var(--text-muted); letter-spacing: 0.04em;
+      margin-bottom: 24px; display: block;
     }
     .sbc-features {
       list-style: none; padding: 0; margin: 0 0 24px;
@@ -350,277 +578,421 @@
       font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em;
     }
     .sbc-divider { height: 1px; background: var(--border-soft); margin: 20px 0; }
-    .sbc-stat {
-      text-align: center; padding: 12px 0;
+    .sbc-urgency {
+      background: rgba(var(--purple-rgb), 0.08);
+      border: 1px solid rgba(var(--purple-rgb), 0.2);
+      border-radius: 10px; padding: 14px;
+      font-size: 12px; color: var(--text-sub);
+      line-height: 1.5; text-align: center;
+      margin-bottom: 16px;
     }
-    .sbc-stat-num {
-      font-size: 28px; font-weight: 800; letter-spacing: -0.8px;
-      color: var(--purple); line-height: 1; margin-bottom: 2px;
-    }
-    .sbc-stat-label {
-      font-family: 'DM Mono', monospace; font-size: 10px;
-      color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
-    }
+    .sbc-urgency strong { color: var(--purple); }
 
-    @media (max-width: 900px) {
-      .product-layout {
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero {
         grid-template-columns: 1fr;
-        display: block;
+        padding: 120px 32px 60px;
+        min-height: auto;
       }
-      .product-sidebar {
-        position: static;
-        padding: 0 20px 40px;
-      }
+      .hero-visual { height: 400px; }
+      .hv-float-1 { right: -20px; top: -10px; }
+      .hv-float-2 { display: none; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .steps-timeline { grid-template-columns: 1fr; gap: 40px; }
+      .steps-timeline::before { display: none; }
+      .product-layout { display: block; }
+      .product-sidebar { position: static; padding: 0 20px 40px; }
       .sticky-buy-card { position: static; }
+    }
+    @media (max-width: 768px) {
+      .hero, .pain, .features, .how-it-works, .faq, .cta-section { padding-left: 24px; padding-right: 24px; }
+      .trust-strip { padding: 36px 24px; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <div id="site-nav"></div>
 
-  <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
+    <!-- ── HERO ──────────────────────────────────────────────────── -->
     <section class="hero">
-      <div class="container">
-        <span class="hero-eyebrow">Done For You · $97</span>
-        <h1>Know exactly what's broken — and what to fix first.</h1>
-        <p>We manually review every social profile you're running and hand you a written report with specific fixes. Not a checklist you fill out yourself. An actual human review.</p>
+      <div class="hero-bg"></div>
+      <div class="hero-bg-2"></div>
 
-        <div class="hero-stats">
-          <div class="stat-pill">
-            <div class="stat-pill-value">7</div>
-            <div class="stat-pill-label">Business Days</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-value">100%</div>
-            <div class="stat-pill-label">Manual Review</div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-pill-value">Scored</div>
-            <div class="stat-pill-label">Report Included</div>
-          </div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Done-For-You Audit · $97 · 7 Business Days</span>
+        <h1>Find out exactly <em>why</em> your social isn't working.</h1>
+        <p class="hero-sub">You're posting. You're trying. Nothing's moving. We manually review every profile you're running and hand you a written report with the exact fixes — ranked by what'll actually move the needle first.</p>
+
+        <div class="hero-actions">
+          <a href="audit-intake.html" class="btn-primary">Get your audit for $97 →</a>
+          <span class="hero-micro">No templates. No AI. A real human reviews your profiles.</span>
         </div>
 
-        <a href="#buy" class="btn-primary">Get your audit →</a>
+        <div class="hero-proof">
+          <div class="proof-stat">
+            <div class="number">7<em>d</em></div>
+            <div class="label">Delivery time</div>
+          </div>
+          <div class="proof-stat">
+            <div class="number">100<em>%</em></div>
+            <div class="label">Manual review</div>
+          </div>
+          <div class="proof-stat">
+            <div class="number">$97</div>
+            <div class="label">One-time · No upsells</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Audit report mockup -->
+      <div class="hero-visual">
+        <div class="hero-visual-wrap">
+          <!-- Floating badges -->
+          <div class="hv-float hv-float-1">
+            <span class="hv-float-emoji">📋</span>
+            <div class="hv-float-text">
+              <strong>12 items reviewed</strong>
+              <span>Per profile</span>
+            </div>
+          </div>
+          <div class="hv-float hv-float-2">
+            <span class="hv-float-emoji">🎯</span>
+            <div class="hv-float-text">
+              <strong>Prioritized fixes</strong>
+              <span>Ranked by impact</span>
+            </div>
+          </div>
+
+          <div class="hv-card">
+            <div class="hv-main">
+              <div class="hv-header">
+                <span class="hv-title">Profile Audit Report</span>
+                <span class="hv-badge-critical">8 Critical Issues</span>
+              </div>
+
+              <!-- Score ring -->
+              <div class="hv-score-wrap">
+                <div class="hv-ring">
+                  <svg width="90" height="90" viewBox="0 0 90 90">
+                    <circle class="hv-ring-track" cx="45" cy="45" r="42"/>
+                    <circle class="hv-ring-fill" cx="45" cy="45" r="42"/>
+                    <text class="hv-ring-text" x="45" y="42">47</text>
+                    <text class="hv-ring-sub" x="45" y="55">/100</text>
+                  </svg>
+                </div>
+                <div class="hv-score-meta">
+                  <div class="hv-score-label">Overall Profile Score</div>
+                  <div class="hv-score-desc">Needs significant work</div>
+                  <div style="margin-top:10px;">
+                    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Score breakdown</div>
+                    <div style="height:4px;border-radius:4px;background:var(--surface-2);overflow:hidden;">
+                      <div style="width:47%;height:100%;background:var(--purple);border-radius:4px;animation:scoreBar 1.2s ease forwards 0.9s;transform:scaleX(0);transform-origin:left;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Audit item rows -->
+              <div class="hv-items">
+                <div class="hv-item">
+                  <span class="hv-item-name">Bio optimization</span>
+                  <span class="hv-status red">Critical</span>
+                </div>
+                <div class="hv-item">
+                  <span class="hv-item-name">Visual consistency</span>
+                  <span class="hv-status yellow">Fair</span>
+                </div>
+                <div class="hv-item">
+                  <span class="hv-item-name">Call to action</span>
+                  <span class="hv-status red">Missing</span>
+                </div>
+                <div class="hv-item">
+                  <span class="hv-item-name">Posting frequency</span>
+                  <span class="hv-status yellow">Inconsistent</span>
+                </div>
+                <div class="hv-item">
+                  <span class="hv-item-name">Profile SEO</span>
+                  <span class="hv-status green">Good</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hv-divider">
+              <div class="hv-stat">
+                <div class="hv-stat-num">+12</div>
+                <div class="hv-stat-label">Fixes identified</div>
+              </div>
+              <div class="hv-stat">
+                <div class="hv-stat-num">3</div>
+                <div class="hv-stat-label">Quick wins</div>
+              </div>
+              <div class="hv-stat">
+                <div class="hv-stat-num">7d</div>
+                <div class="hv-stat-label">Delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Two-column product layout (features + how-it-works + faq | sticky buy card) -->
-    <div class="product-layout">
+    <style>
+      @keyframes scoreBar {
+        from { transform: scaleX(0); }
+        to   { transform: scaleX(1); }
+      }
+    </style>
 
-      <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+    <!-- Two-column layout: content + sticky buy card -->
+    <div class="product-layout">
       <div class="product-main">
 
-        <!-- What's Included -->
+        <!-- ── PAIN POINTS ──────────────────────────────────────── -->
+        <section class="pain">
+          <h2>Posting into the void gets exhausting.</h2>
+          <p class="pain-intro">You already know something's off. You just don't know what — or where to even start fixing it. That's exactly what the audit is for.</p>
+
+          <div class="pain-grid">
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">01</span>
+                <span class="pn-emoji">😮‍💨</span>
+              </div>
+              <h3>You're posting consistently and still not growing</h3>
+              <p>Consistency alone doesn't guarantee growth. If your profiles aren't set up to convert — or you're on the wrong platform entirely — more posting just means more wasted effort.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">02</span>
+                <span class="pn-emoji">🔍</span>
+              </div>
+              <h3>You have no idea what's actually broken</h3>
+              <p>Is it the bio? The content? The frequency? Without a real diagnosis, you're just guessing. And guessing is expensive when your time is worth something.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">03</span>
+                <span class="pn-emoji">👀</span>
+              </div>
+              <h3>Your competitors look more polished and you don't know why</h3>
+              <p>They might just have a better bio structure. Or a clearer call to action. Small things that make a big first impression — and we can tell you exactly what's making the difference.</p>
+            </div>
+            <div class="pain-card">
+              <div class="pain-num">
+                <span class="pn-num">04</span>
+                <span class="pn-emoji">📚</span>
+              </div>
+              <h3>Generic tips and free templates haven't helped</h3>
+              <p>You've Googled it. You've watched the YouTube videos. What you need isn't more generic advice — it's someone looking at YOUR actual profiles and telling you what's wrong with them specifically.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── WHAT'S INCLUDED ──────────────────────────────────── -->
         <section class="features">
-          <div class="container">
-            <h2 class="section-title">What's Included</h2>
+          <div class="features-inner">
+            <span class="section-eyebrow">What you get</span>
+            <h2 class="section-title">A real review. Not a checklist you fill out yourself.</h2>
+            <p class="section-sub">We do the work. You get a written report with specific findings, a score on each element, and a prioritized action list so you know exactly what to fix first.</p>
+
             <div class="features-grid">
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Audit across all active social profiles</h3>
-                  <p>We review every platform you're actively using in one comprehensive report.</p>
-                </div>
+                <div class="feature-icon-wrap">🔎</div>
+                <h3>Every active profile, fully reviewed</h3>
+                <p>Whether you're on one platform or five, we review all of them in a single report. No extra charges per platform.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Bio &amp; profile setup scored element-by-element</h3>
-                  <p>Username, photo, bio copy, link placement — everything gets reviewed and scored.</p>
-                </div>
+                <div class="feature-icon-wrap">📊</div>
+                <h3>Bio and profile scored element-by-element</h3>
+                <p>Username, profile photo, bio copy, link placement, story highlights — every element gets its own score so you know exactly what's costing you followers.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Content consistency &amp; visual brand review</h3>
-                  <p>We check if your content aligns with your brand and maintains visual consistency.</p>
-                </div>
+                <div class="feature-icon-wrap">🎨</div>
+                <h3>Visual brand and content consistency check</h3>
+                <p>We assess whether your content looks intentional and on-brand — because first impressions happen in seconds, and inconsistency kills credibility.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Engagement &amp; posting frequency assessment</h3>
-                  <p>Analysis of your current engagement levels and how often you should be posting.</p>
-                </div>
+                <div class="feature-icon-wrap">📈</div>
+                <h3>Engagement and posting frequency assessment</h3>
+                <p>We look at what's actually getting engagement versus what's being ignored, and give you honest feedback on your posting cadence.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Profile conversion optimization notes</h3>
-                  <p>Specific recommendations for turning profile visitors into customers or leads.</p>
-                </div>
+                <div class="feature-icon-wrap">💰</div>
+                <h3>Profile conversion optimization notes</h3>
+                <p>Most profiles leak potential customers every single day. We identify exactly where yours is losing people — and what to add to fix it.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Competitor positioning spot-check</h3>
-                  <p>See how your profiles stack up against your direct competitors.</p>
-                </div>
+                <div class="feature-icon-wrap">🏆</div>
+                <h3>Competitor positioning spot-check</h3>
+                <p>We look at 2-3 of your direct competitors so you can see exactly where you're falling behind — and where you can actually pull ahead.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Prioritized action list</h3>
-                  <p>We rank fixes by impact — tackle the highest-leverage changes first.</p>
-                </div>
+                <div class="feature-icon-wrap">⚡</div>
+                <h3>Prioritized action list ranked by impact</h3>
+                <p>Not a 47-item to-do list. We rank everything by what'll move the needle most so you know what to tackle first, second, and third.</p>
               </div>
-
               <div class="feature-card">
-                <div class="feature-icon">✓</div>
-                <div class="feature-content">
-                  <h3>Written PDF report</h3>
-                  <p>Everything delivered as a comprehensive, easy-to-reference PDF in 7 business days.</p>
-                </div>
+                <div class="feature-icon-wrap">📄</div>
+                <h3>Written PDF report delivered in 7 business days</h3>
+                <p>Everything documented in one clean, easy-to-reference PDF you can actually use. Not a Loom video you'll never rewatch.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- How It Works -->
+        <!-- ── HOW IT WORKS ────────────────────────────────────── -->
         <section class="how-it-works">
-          <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps-grid">
+          <div class="how-inner">
+            <span class="section-eyebrow">The process</span>
+            <h2 class="section-title">Three steps. Zero guesswork.</h2>
+            <p class="section-sub" style="margin-bottom:0">You spend 5 minutes. We spend hours. That's kind of the whole point.</p>
+
+            <div class="steps-timeline">
               <div class="step">
-                <span class="step-number">Step 1</span>
+                <div class="step-dot">01</div>
+                <span class="step-time">Takes 5 min</span>
                 <h3>Submit your intake form</h3>
-                <p>Tell us which platforms you're on, your main goals, and any specific concerns. Takes about 5 minutes.</p>
+                <p>Tell us which platforms you're on, your goals, and any specific areas you're worried about. That's it. We take it from there.</p>
               </div>
-
               <div class="step">
-                <span class="step-number">Step 2</span>
-                <h3>We review every profile manually</h3>
-                <p>Our team dives into each profile you shared. We check bios, content, engagement, consistency, and more against what actually converts.</p>
+                <div class="step-dot">02</div>
+                <span class="step-time">We do the work</span>
+                <h3>We dig into every profile</h3>
+                <p>Our team manually reviews each profile against what actually converts in your space. No bots. No templates. Real eyes on your actual accounts.</p>
               </div>
-
               <div class="step">
-                <span class="step-number">Step 3</span>
-                <h3>You get your report + action list</h3>
-                <p>Delivered as a PDF with scored elements, specific feedback, and a prioritized list of fixes ranked by impact.</p>
+                <div class="step-dot">03</div>
+                <span class="step-time">Within 7 business days</span>
+                <h3>You get your report</h3>
+                <p>A written PDF with scores, specific findings, and a prioritized action list. You'll know exactly what's broken and what to fix first.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- FAQ -->
+        <!-- ── FAQ ────────────────────────────────────────────────── -->
         <section class="faq">
-          <div class="container faq-container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-inner">
+            <span class="section-eyebrow">Questions</span>
+            <h2 class="section-title" style="margin-bottom:40px;">Things people ask before buying</h2>
 
             <div class="faq-item">
               <div class="faq-question">
                 <span>What if I only have one social profile?</span>
                 <div class="faq-toggle"></div>
               </div>
-              <div class="faq-answer">We audit all of your active profiles, whether that's one or ten. The report covers whatever you're actually using. If you're only on Instagram, that's what we review.</div>
+              <div class="faq-answer">Totally fine. We audit whatever you're actively using — one profile or ten. The price is the same either way. If you're only on Instagram, that's exactly what we review.</div>
             </div>
 
             <div class="faq-item">
               <div class="faq-question">
-                <span>Is this better than a DIY audit template?</span>
+                <span>How is this different from doing a DIY audit myself?</span>
                 <div class="faq-toggle"></div>
               </div>
-              <div class="faq-answer">Yes. A template gives you a checklist to fill out yourself. We do the work for you. We have years of experience knowing what actually moves the needle on social platforms — we review from that perspective, not a generic checklist.</div>
+              <div class="faq-answer">A DIY audit is a checklist you fill out yourself. You already know what you're doing, so you'll probably miss the blind spots — which are exactly what's hurting you. We bring outside eyes and years of knowing what actually works on each platform. You can't audit your own profiles objectively. We can.</div>
             </div>
 
             <div class="faq-item">
               <div class="faq-question">
-                <span>Do you implement the fixes or just tell me what they are?</span>
+                <span>Do you implement the fixes, or just identify them?</span>
                 <div class="faq-toggle"></div>
               </div>
-              <div class="faq-answer">We provide the report and recommendations. You implement them, or you can hire us for the strategy that comes next, which includes a roadmap for moving forward.</div>
+              <div class="faq-answer">We give you the full picture — what's broken, why it matters, and what to do about it. You implement the fixes yourself, or you can pair the audit with the <a href="product-strategy.html" style="color:var(--purple);">Custom Strategy</a> for a complete roadmap. Most clients find the fixes are more straightforward than they expected once they know what they're looking at.</div>
             </div>
 
             <div class="faq-item">
               <div class="faq-question">
-                <span>Can I get the audit and strategy together?</span>
+                <span>I'm just starting out. Is this still useful?</span>
                 <div class="faq-toggle"></div>
               </div>
-              <div class="faq-answer">Absolutely. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> includes both products at $150 — that's $44 off compared to buying them separately. You'll get the diagnosis and the roadmap in one package.</div>
+              <div class="faq-answer">Honestly, it's one of the best things you can do early on. Getting your profile set up correctly from the start is way easier than trying to fix bad habits six months in. We'll catch everything that would have hurt you before it has a chance to.</div>
             </div>
 
             <div class="faq-item">
               <div class="faq-question">
-                <span>What happens after I get my report?</span>
+                <span>Can I bundle this with the Strategy?</span>
                 <div class="faq-toggle"></div>
               </div>
-              <div class="faq-answer">It's entirely up to you. Many clients implement the fixes themselves. Some use the report to make decisions about hiring a social media manager. Others move forward with our <a href="product-strategy.html" style="color:var(--purple);">Custom Social Media Strategy</a> to get a long-term 90-day roadmap built specifically for their business.</div>
+              <div class="faq-answer">Yes. The <a href="product-bundle.html" style="color:var(--purple);">Audit + Strategy Bundle</a> gets you both for $150 — saving $44 versus buying separately. You get the diagnosis of what's broken now and the roadmap for what to build next. Most people who get the audit end up wanting the strategy, so the bundle just makes sense.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>What happens after I receive my report?</span>
+                <div class="faq-toggle"></div>
+              </div>
+              <div class="faq-answer">That's entirely up to you. Some people implement everything themselves in a weekend. Others use the report to guide what they hand off to a social media manager. Some move forward with the <a href="product-strategy.html" style="color:var(--purple);">Custom Strategy</a> to get a full 90-day growth plan. The report works as a standalone resource either way.</div>
             </div>
           </div>
         </section>
 
       </div><!-- /.product-main -->
 
-      <!-- ── STICKY BUY CARD ──────────────────────────────── -->
+      <!-- ── STICKY BUY CARD ──────────────────────────────────── -->
       <aside class="product-sidebar" aria-label="Purchase details">
-        <div class="sticky-buy-card">
+        <div class="sticky-buy-card" id="buy">
           <span class="sbc-tag">Social Media Audit</span>
           <div class="sbc-price">$97</div>
           <span class="sbc-period">One-time · 7-business-day delivery</span>
 
+          <div class="sbc-urgency">
+            <strong>Real human review.</strong> Not an automated tool or AI report — we manually look at every profile you run.
+          </div>
+
           <ul class="sbc-features">
             <li><span class="sbc-check">✓</span>All active social profiles reviewed</li>
             <li><span class="sbc-check">✓</span>Bio &amp; profile scored element-by-element</li>
-            <li><span class="sbc-check">✓</span>Content &amp; visual brand check</li>
+            <li><span class="sbc-check">✓</span>Content &amp; visual brand consistency check</li>
             <li><span class="sbc-check">✓</span>Engagement &amp; posting frequency assessed</li>
-            <li><span class="sbc-check">✓</span>Competitor spot-check included</li>
-            <li><span class="sbc-check">✓</span>Prioritized action list by impact</li>
-            <li><span class="sbc-check">✓</span>Written PDF report delivered</li>
+            <li><span class="sbc-check">✓</span>Profile conversion optimization notes</li>
+            <li><span class="sbc-check">✓</span>Competitor positioning spot-check</li>
+            <li><span class="sbc-check">✓</span>Prioritized action list ranked by impact</li>
+            <li><span class="sbc-check">✓</span>Written PDF report delivered in 7 days</li>
           </ul>
 
           <a href="audit-intake.html" class="sbc-cta">Get your audit →</a>
-          <p class="sbc-trust">Secure checkout · Delivered in 7 business days</p>
+          <p class="sbc-trust">Secure checkout · 7-business-day delivery</p>
 
           <div class="sbc-divider"></div>
 
-          <div style="display:flex; justify-content:space-around;">
-            <div class="sbc-stat">
-              <div class="sbc-stat-num">7</div>
-              <div class="sbc-stat-label">Business Days</div>
-            </div>
-            <div class="sbc-stat">
-              <div class="sbc-stat-num">100%</div>
-              <div class="sbc-stat-label">Manual Review</div>
-            </div>
-          </div>
+          <p style="font-size:12px;color:var(--text-muted);line-height:1.55;text-align:center;">
+            Want the audit AND a custom 90-day roadmap? The <a href="product-bundle.html" style="color:var(--purple);text-decoration:underline;">bundle saves you $44</a>.
+          </p>
         </div>
       </aside>
 
     </div><!-- /.product-layout -->
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="buy">
-      <div class="container">
-        <h2>Ready to see what's holding your profiles back?</h2>
-        <p>Get your social media audit in 7 business days. Only $97.</p>
-        <a href="#" class="btn-white">Get your audit →</a>
+    <!-- Trust strip -->
+    <div class="trust-strip">
+      <div class="trust-inner">
+        <div class="trust-item"><span class="trust-icon">📋</span> 100% manual review — no AI shortcuts</div>
+        <div class="trust-item"><span class="trust-icon">⚡</span> Delivered in 7 business days</div>
+        <div class="trust-item"><span class="trust-icon">🎯</span> Fixes ranked by actual impact</div>
+        <div class="trust-item"><span class="trust-icon">📄</span> PDF you can reference anytime</div>
       </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Stop guessing. Start fixing.</h2>
+      <p>$97 to know exactly what's holding your profiles back — and what to do about it first.</p>
+      <a href="audit-intake.html" class="btn-white">Get your audit for $97 →</a>
+      <p class="cta-meta">Delivered in 7 business days · One-time payment · No recurring fees</p>
     </section>
   </main>
 
-  <!-- Footer -->
   <div id="site-footer"></div>
 
   <script>
-    // FAQ Toggle
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
         item.classList.toggle('open');
       });
     });
   </script>
-
   <script src="assets/site-components.js"></script>
 </body>
 </html>
