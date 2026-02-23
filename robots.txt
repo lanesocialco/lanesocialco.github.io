@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Block internal/utility pages from indexing
+Disallow: /test-write.html
+Disallow: /audit-intake.html
+Disallow: /shop-free.html
+Disallow: /shop-paid.html
+Disallow: /blog-post-template.html
+Disallow: /404.html
+Disallow: /push-update.sh
+
+# Allow all crawlers to key pages
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /product-audit.html
+Allow: /product-strategy.html
+Allow: /product-bundle.html
+Allow: /shop.html
+Allow: /free-audit.html
+Allow: /blog.html
+Allow: /results.html
+Allow: /contact.html
+Allow: /links.html
+
+Sitemap: https://lanesocialco.com/sitemap.xml
