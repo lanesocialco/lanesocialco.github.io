@@ -60,40 +60,127 @@
     position: relative;
     opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
   }
-  .photo-placeholder {
-    width: 100%; aspect-ratio: 4/5;
-    background: var(--bg-alt); border-radius: 20px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
+  /* ── IMPACT DASHBOARD GRAPHIC ─────────────────────────── */
+  .impact-card {
+    width: 100%;
+    background: #111111;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
   }
-  .photo-placeholder::before {
+  .impact-card::before {
     content: '';
-    position: absolute; top: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.15) 0%, transparent 70%);
+    position: absolute; top: -100px; right: -80px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.2) 0%, transparent 70%);
+    pointer-events: none;
   }
-  @media (prefers-color-scheme: dark) {
-    .photo-placeholder::before { background: radial-gradient(circle, rgba(var(--purple-rgb),0.25) 0%, transparent 70%); }
+  .ic-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; position: relative;
   }
-  .photo-placeholder-text {
-    font-family: 'DM Mono', monospace; font-size: 12px;
-    color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
-    text-align: center; position: relative; z-index: 1;
+  .ic-title {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
   }
-  .photo-placeholder-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .ic-live {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: #22c55e; letter-spacing: 0.06em;
+  }
+  .ic-live-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  /* Chart */
+  .ic-chart { position: relative; margin-bottom: 20px; }
+  .ic-chart svg { width: 100%; height: 120px; overflow: visible; }
+  .ic-chart-path {
+    fill: none; stroke: var(--purple); stroke-width: 2.5;
+    stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 400; stroke-dashoffset: 400;
+    animation: drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards 0.5s;
+  }
+  .ic-chart-fill {
+    fill: url(#chartGrad); opacity: 0;
+    animation: fadeIn 0.6s ease forwards 2.3s;
+  }
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .ic-chart-dot {
+    fill: var(--purple); stroke: #111; stroke-width: 3;
+    opacity: 0; animation: fadeIn 0.3s ease forwards 2.4s;
+  }
+  .ic-chart-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    fill: rgba(255,255,255,0.35); letter-spacing: 0.06em;
+  }
+  .ic-chart-spike {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    fill: var(--purple); font-weight: 700;
+    opacity: 0; animation: fadeIn 0.4s ease forwards 2.5s;
+  }
+
+  /* Stats rows */
+  .ic-stats { display: flex; flex-direction: column; gap: 12px; position: relative; }
+  .ic-stat-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+  }
+  .ic-stat-icon {
+    font-size: 16px; width: 32px; height: 32px;
+    border-radius: 8px; display: flex;
+    align-items: center; justify-content: center;
+    background: rgba(var(--purple-rgb),0.15); flex-shrink: 0;
+  }
+  .ic-stat-body { flex: 1; }
+  .ic-stat-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: rgba(255,255,255,0.35); letter-spacing: 0.06em; margin-bottom: 2px;
+  }
+  .ic-stat-val {
+    font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1;
+  }
+  .ic-stat-bar-wrap {
+    width: 60px; height: 4px; background: rgba(255,255,255,0.08);
+    border-radius: 2px; overflow: hidden; flex-shrink: 0;
+  }
+  .ic-stat-bar {
+    height: 100%; background: var(--purple); border-radius: 2px;
+    width: 0%;
+  }
+  .ic-stat-bar.b1 { animation: grow1 1s ease forwards 1s; }
+  .ic-stat-bar.b2 { animation: grow2 1s ease forwards 1.2s; }
+  .ic-stat-bar.b3 { animation: grow3 1s ease forwards 1.4s; }
+  @keyframes grow1 { to { width: 100%; } }
+  @keyframes grow2 { to { width: 75%; } }
+  @keyframes grow3 { to { width: 55%; } }
+
+  /* floating badge */
   .photo-badge {
     position: absolute; bottom: -20px; left: -20px;
     background: var(--ink); color: var(--ink-text);
-    border-radius: 12px; padding: 20px 24px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border-radius: 12px; padding: 16px 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    animation: floatBadge 5s ease-in-out infinite;
   }
+  @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
   .photo-badge-num {
-    font-size: 32px; font-weight: 800; letter-spacing: -1px;
+    font-size: 28px; font-weight: 800; letter-spacing: -1px;
     color: var(--purple); line-height: 1;
   }
   .photo-badge-label {
-    font-family: 'DM Mono', monospace; font-size: 11px;
-    color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.08em;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.08em;
   }
 
   /* STATS BAR */
@@ -464,15 +551,68 @@
     </div>
   </div>
   <div class="photo-block">
-    <div class="photo-placeholder">
-      <div class="photo-placeholder-text">
-        <span class="photo-placeholder-icon">✳</span>
-        Add your photo here
+    <div class="impact-card">
+      <div class="ic-header">
+        <div class="ic-title">Real client results</div>
+        <div class="ic-live"><span class="ic-live-dot"></span>Organic only</div>
+      </div>
+
+      <!-- Growth chart -->
+      <div class="ic-chart">
+        <svg viewBox="0 0 280 120" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(123,46,255,0.25)"/>
+              <stop offset="100%" stop-color="rgba(123,46,255,0)"/>
+            </linearGradient>
+          </defs>
+          <!-- X axis labels -->
+          <text class="ic-chart-label" x="0" y="118">Day 1</text>
+          <text class="ic-chart-label" x="108" y="118">Day 7</text>
+          <text class="ic-chart-label" x="228" y="118">Day 15</text>
+          <!-- Area fill -->
+          <path class="ic-chart-fill" d="M0,100 C40,98 60,90 80,80 C100,70 110,55 140,35 C160,20 200,10 280,5 L280,110 L0,110 Z"/>
+          <!-- Line -->
+          <path class="ic-chart-path" d="M0,100 C40,98 60,90 80,80 C100,70 110,55 140,35 C160,20 200,10 280,5"/>
+          <!-- Endpoint dot -->
+          <circle class="ic-chart-dot" cx="280" cy="5" r="5"/>
+          <!-- Spike label -->
+          <text class="ic-chart-spike" x="198" y="18">+12K ↑</text>
+        </svg>
+      </div>
+
+      <!-- Stat rows -->
+      <div class="ic-stats">
+        <div class="ic-stat-row">
+          <div class="ic-stat-icon">📈</div>
+          <div class="ic-stat-body">
+            <div class="ic-stat-label">Followers gained</div>
+            <div class="ic-stat-val">12,000 <span style="font-size:11px;color:var(--purple);font-weight:600;">in 15 days</span></div>
+          </div>
+          <div class="ic-stat-bar-wrap"><div class="ic-stat-bar b1"></div></div>
+        </div>
+        <div class="ic-stat-row">
+          <div class="ic-stat-icon">⚡</div>
+          <div class="ic-stat-body">
+            <div class="ic-stat-label">Total interactions</div>
+            <div class="ic-stat-val">2M+ <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:400;">month one</span></div>
+          </div>
+          <div class="ic-stat-bar-wrap"><div class="ic-stat-bar b2"></div></div>
+        </div>
+        <div class="ic-stat-row">
+          <div class="ic-stat-icon">👁️</div>
+          <div class="ic-stat-body">
+            <div class="ic-stat-label">Accounts reached</div>
+            <div class="ic-stat-val">1M+ <span style="font-size:11px;color:rgba(255,255,255,0.4);font-weight:400;">organic</span></div>
+          </div>
+          <div class="ic-stat-bar-wrap"><div class="ic-stat-bar b3"></div></div>
+        </div>
       </div>
     </div>
+
     <div class="photo-badge">
-      <div class="photo-badge-num">12k</div>
-      <div class="photo-badge-label">followers · 15 days</div>
+      <div class="photo-badge-num">$0</div>
+      <div class="photo-badge-label">paid ads · 100% organic</div>
     </div>
   </div>
 </section>
