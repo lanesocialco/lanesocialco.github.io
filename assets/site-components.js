@@ -45,11 +45,19 @@
     return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" class="footer-bottom-social" aria-label="' + label + '">' + SVG[platform] + '</a>';
   }
 
+  function socialTextLink(href, label) {
+    return '<a href="' + href + '" target="_blank" rel="noopener noreferrer" class="footer-social-text">' + label + '</a>';
+  }
+
   /* ─────────────────────────────────────────────────────────
      3. NAV HTML
      Logo: both light + dark imgs, CSS toggles via prefers-color-scheme.
-     CTA: points to shop.html (the main shop page).
+     Shop: dropdown with Audit, Strategy, Bundle, Free Tools.
+     CTA: purple button → product-bundle.html (the upsell).
      ───────────────────────────────────────────────────────── */
+  var isShopActive = page.indexOf('shop') !== -1 || page.indexOf('product') !== -1 || page === 'services.html';
+  var shopDropdownClass = isShopActive ? 'nav-has-dropdown active' : 'nav-has-dropdown';
+
   var NAV_HTML = [
     '<nav id="mainNav">',
     '  <a href="index.html" class="logo" aria-label="Lane Social Co — Home">',
@@ -64,13 +72,23 @@
     '    </span>',
     '  </a>',
     '  <ul class="nav-links" id="navLinks" role="list">',
-    navLink('index.html',   'Home'),
-    navLink('services.html','Audit'),
-    navLink('shop.html',    'Shop'),
+    navLink('index.html', 'Home'),
+    '    <li class="' + shopDropdownClass + '">',
+    '      <a href="shop.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">',
+    '        Shop <span class="dropdown-caret" aria-hidden="true">&#9662;</span>',
+    '      </a>',
+    '      <ul class="nav-dropdown-menu" role="list">',
+    '        <li><a href="product-audit.html">Social Media Audit <span class="nav-price-tag">$97</span></a></li>',
+    '        <li><a href="product-strategy.html">Social Media Strategy <span class="nav-price-tag">$97</span></a></li>',
+    '        <li><a href="product-bundle.html">Audit + Strategy Bundle <span class="nav-price-tag">$150</span></a></li>',
+    '        <li class="dropdown-divider" role="separator"></li>',
+    '        <li><a href="shop-free.html">Free Tools &amp; Resources</a></li>',
+    '      </ul>',
+    '    </li>',
     navLink('blog.html',    'Blog'),
     navLink('results.html', 'Results'),
     navLink('about.html',   'About'),
-    navLink('shop.html',    'Shop &amp; Resources', 'nav-cta'),
+    '    <li><a href="product-bundle.html" class="nav-cta">Get the Bundle</a></li>',
     '  </ul>',
     '  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">',
     '    <span aria-hidden="true"></span>',
@@ -103,23 +121,19 @@
     '    <!-- Brand + email capture -->',
     '    <div class="footer-brand">',
     '      <a href="index.html" class="footer-logo" aria-label="Lane Social Co">',
-    '        <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-img footer-logo-light" height="56"',
+    '        <img src="assets/logo-light.png" alt="Lane Social Co" class="footer-logo-img footer-logo-light" height="80"',
     '             onerror="this.style.display=\'none\'">',
-    '        <img src="assets/logo-dark.png"  alt="Lane Social Co" class="footer-logo-img footer-logo-dark"  height="56"',
+    '        <img src="assets/logo-dark.png"  alt="Lane Social Co" class="footer-logo-img footer-logo-dark"  height="80"',
     '             onerror="this.style.display=\'none\'">',
     '      </a>',
-    '      <p class="footer-tagline">Social media strategy and audits for businesses tired of posting into the void.</p>',
-    '      <p class="footer-location">Las Vegas, NV &amp; everywhere else</p>',
 
-    '      <!-- Email capture (Netlify form) -->',
-    '      <form class="footer-email-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">',
-    '        <input type="hidden" name="form-name" value="newsletter">',
-    '        <input type="text"  name="bot-field" style="display:none" aria-hidden="true" tabindex="-1" autocomplete="off">',
+    '      <!-- Email capture (Kit newsletter) -->',
+    '      <form class="footer-email-form" id="kit-footer-form">',
     '        <label class="footer-email-label" for="footer-email-input">Get social media tips in your inbox</label>',
     '        <div class="footer-email-row">',
-    '          <input type="email" id="footer-email-input" name="email" placeholder="your@email.com" required',
+    '          <input type="email" id="footer-email-input" placeholder="your@email.com" required',
     '                 class="footer-email-input" aria-label="Email address">',
-    '          <button type="submit" class="footer-email-btn">Subscribe</button>',
+    '          <button type="submit" class="footer-email-btn" id="kit-footer-btn">Subscribe</button>',
     '        </div>',
     '        <p class="footer-email-fine">No spam. Unsubscribe anytime.</p>',
     '      </form>',
@@ -173,39 +187,18 @@
 
     '  </div>',
 
-    '  <!-- Bottom bar: copyright | social icons + legal links -->',
+    '  <!-- Bottom bar: copyright | social text links (centered) -->',
     '  <div class="footer-bottom">',
-    '    <div class="footer-copy">&copy; 2026 Lane Social Co &middot; Las Vegas, NV &middot; All rights reserved</div>',
-    '    <div class="footer-bottom-right">',
-    '      <div class="footer-bottom-socials">',
-    socialLink('https://www.instagram.com/lanesocialco',           'instagram', 'Instagram'),
-    socialLink('https://www.tiktok.com/@lanesocialco',             'tiktok',    'TikTok'),
-    socialLink('https://www.linkedin.com/company/lanesocialco',    'linkedin',  'LinkedIn'),
-    socialLink('https://www.threads.net/@lanesocialco',            'threads',   'Threads'),
-    '      </div>',
-    '      <div class="footer-bottom-links">',
-    '        <a href="privacy-policy.html">Privacy</a>',
-    '        <a href="terms.html">Terms</a>',
-    '        <a href="contact.html">Contact</a>',
-    '      </div>',
+    '    <div class="footer-copy">&copy; 2026 Lane Social Co &middot; All rights reserved</div>',
+    '    <div class="footer-bottom-center">',
+    socialTextLink('https://www.instagram.com/lanesocialco',        'Instagram'),
+    '      <span aria-hidden="true">&middot;</span>',
+    socialTextLink('https://www.tiktok.com/@lanesocialco',          'TikTok'),
+    '      <span aria-hidden="true">&middot;</span>',
+    socialTextLink('https://www.linkedin.com/company/lanesocialco', 'LinkedIn'),
+    '      <span aria-hidden="true">&middot;</span>',
+    socialTextLink('https://www.threads.net/@lanesocialco',         'Threads'),
     '    </div>',
-    '  </div>',
-
-    '  <!-- Centered bottom link row -->',
-    '  <div class="footer-bottom-linkrow">',
-    '    <a href="https://www.instagram.com/lanesocialco" target="_blank" rel="noopener noreferrer">Instagram</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="https://www.tiktok.com/@lanesocialco" target="_blank" rel="noopener noreferrer">TikTok</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="https://www.linkedin.com/company/lanesocialco" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="https://www.threads.net/@lanesocialco" target="_blank" rel="noopener noreferrer">Threads</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="privacy-policy.html">Privacy</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="terms.html">Terms</a>',
-    '    <span aria-hidden="true">&middot;</span>',
-    '    <a href="contact.html">Contact</a>',
     '  </div>',
 
     '</footer>'
@@ -236,6 +229,30 @@
       toggle.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    /* Shop dropdown — mobile: tap trigger toggles; desktop: CSS hover handles it */
+    links.querySelectorAll('.nav-has-dropdown').forEach(function (item) {
+      var trigger = item.querySelector('.nav-dropdown-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function (e) {
+        if (window.innerWidth <= 860) {
+          e.preventDefault();
+          var isOpen = item.classList.toggle('open');
+          trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      });
+    });
+
+    /* Close dropdown when clicking outside */
+    document.addEventListener('click', function (e) {
+      links.querySelectorAll('.nav-has-dropdown.open').forEach(function (item) {
+        if (!item.contains(e.target)) {
+          item.classList.remove('open');
+          var t = item.querySelector('.nav-dropdown-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
 
     /* Close on link click */
@@ -305,13 +322,43 @@
   }
 
   /* ─────────────────────────────────────────────────────────
-     9. BOOT
+     9. FOOTER KIT FORM
+     ───────────────────────────────────────────────────────── */
+  function initFooterKit() {
+    var form  = document.getElementById('kit-footer-form');
+    var input = document.getElementById('footer-email-input');
+    var btn   = document.getElementById('kit-footer-btn');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!email) return;
+      btn.textContent = 'Subscribing…';
+      btn.disabled = true;
+      fetch('https://app.kit.com/forms/3235235af8/subscriptions', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email_address=' + encodeURIComponent(email)
+      }).then(function () {
+        btn.textContent = 'Done ✓';
+        input.value = '';
+      }).catch(function () {
+        btn.textContent = 'Done ✓';
+        input.value = '';
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     10. BOOT
      ───────────────────────────────────────────────────────── */
   function boot() {
     inject();
     initNav();
     initReveal();
     initGlow();
+    initFooterKit();
   }
 
   if (document.readyState === 'loading') {
