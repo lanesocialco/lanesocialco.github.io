@@ -85,16 +85,25 @@
       margin-bottom: 28px;
     }
 
-    .logo-text {
+    .logo-link {
+      display: block;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    /* Fallback if image fails */
+    .logo-fallback {
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.5px;
       color: var(--text);
-      text-decoration: none;
-      display: flex;
+      display: none;
       align-items: center;
       gap: 10px;
-      margin-bottom: 10px;
     }
     .logo-mark {
       width: 36px; height: 36px;
@@ -388,9 +397,13 @@
 
   <!-- ── PROFILE HEADER ────────────────────────────────────── -->
   <div class="profile">
-    <a href="index.html" class="logo-text">
-      <div class="logo-mark">L</div>
-      Lane Social Co
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo-dark.png" alt="Lane Social Co" class="logo-img"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="logo-fallback">
+        <span class="logo-mark">L</span>
+        Lane Social Co
+      </span>
     </a>
     <p class="profile-bio">Social Media Agency</p>
 
