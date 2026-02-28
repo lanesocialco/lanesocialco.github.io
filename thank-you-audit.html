@@ -39,13 +39,29 @@
       pointer-events: none;
     }
 
+    .hero-section .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--purple);
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
     .hero-section h1 {
-      font-size: 56px;
+      font-size: clamp(36px, 6vw, 60px);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
       margin-bottom: 16px;
       position: relative;
       z-index: 2;
+    }
+
+    .hero-section h1 em {
+      color: var(--purple);
+      font-style: normal;
     }
 
     .hero-section .subheading {
@@ -245,10 +261,6 @@
         padding: 100px 24px;
       }
 
-      .hero-section h1 {
-        font-size: 42px;
-      }
-
       .timeline {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -270,10 +282,6 @@
     @media (max-width: 480px) {
       .container {
         padding: 60px 16px;
-      }
-
-      .hero-section h1 {
-        font-size: 32px;
       }
 
       .hero-section .subheading {
@@ -345,6 +353,146 @@
       .cal-options { flex-direction: column; align-items: center; }
       .cal-option { width: 100%; justify-content: center; max-width: 280px; }
     }
+
+    /* ── BUNDLE UPSELL ─────────────────────────────────────── */
+    .bundle-upsell-ty {
+      background: #0d0d0d;
+      border: 1px solid rgba(123,47,255,0.25);
+      border-radius: 16px;
+      padding: 60px 56px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bundle-upsell-ty::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(123,47,255,0.14), transparent 65%);
+      pointer-events: none;
+    }
+    .bu-ty-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .bu-ty-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--purple);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .bu-ty-inner h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .bu-ty-inner h2 em {
+      color: var(--purple);
+      font-style: normal;
+    }
+    .bu-ty-inner p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+    .bu-ty-right {
+      text-align: center;
+      min-width: 200px;
+    }
+    .bu-ty-was {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: line-through;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .bu-ty-amount {
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: -3px;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .bu-ty-amount span {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      vertical-align: super;
+    }
+    .bu-ty-savings {
+      display: inline-block;
+      background: rgba(34,197,94,0.15);
+      color: #22c55e;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .bu-ty-btn {
+      display: block;
+      background: var(--purple);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 15px 28px;
+      border-radius: 8px;
+      transition: opacity 0.18s;
+      white-space: nowrap;
+    }
+    .bu-ty-btn:hover { opacity: 0.88; }
+    .bu-ty-skip {
+      display: block;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 780px) {
+      .bundle-upsell-ty { padding: 40px 28px; }
+      .bu-ty-inner { grid-template-columns: 1fr; gap: 32px; }
+      .bu-ty-right { text-align: left; }
+      .bu-ty-amount { font-size: 48px; }
+    }
+    @media (max-width: 480px) {
+      .bundle-upsell-ty { padding: 32px 20px; }
+    }
+
+    /* ── TIMELINE SECTION LABEL ────────────────────────────── */
+    .timeline-section .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      display: block;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .timeline-section h2 {
+      margin-bottom: 40px;
+    }
   </style>
 </head>
 <body>
@@ -354,7 +502,8 @@
     <div class="container">
       <section class="hero-section">
         <div class="envelope-icon">📬</div>
-        <h1>You're in.</h1>
+        <div class="section-label">Order confirmed</div>
+        <h1>You're in. <em>We've got it from here.</em></h1>
         <p class="subheading">Your audit request has been received. Here's what happens next.</p>
       </section>
 
@@ -376,6 +525,7 @@
       </div>
 
       <section class="timeline-section">
+        <span class="section-label">What happens next</span>
         <h2>Your Audit Timeline</h2>
         <div class="timeline">
           <div class="timeline-item">
@@ -430,11 +580,23 @@
         </div>
       </section>
 
-      <section class="cta-section">
-        <h2>Ready for more?</h2>
-        <p>Check out all our free resources and services.</p>
-        <a href="shop-free.html" class="cta-button">Explore Free Resources →</a>
-      </section>
+      <!-- BUNDLE UPSELL - post-purchase offer -->
+      <div class="bundle-upsell-ty">
+        <div class="bu-ty-inner">
+          <div class="bu-ty-left">
+            <span class="bu-ty-eyebrow">Best value — limited time</span>
+            <h2>Want the full roadmap <em>while we work?</em></h2>
+            <p>Most people come back for the 90-Day Custom Strategy after seeing their audit. You can skip that wait and add it now for $200 total — saving $44 and making sure your strategy is built directly around your findings the moment they land.</p>
+          </div>
+          <div class="bu-ty-right">
+            <div class="bu-ty-was">$244 separately</div>
+            <div class="bu-ty-amount"><span>$</span>200</div>
+            <div class="bu-ty-savings">You save $44</div>
+            <a href="product-bundle.html" class="bu-ty-btn">Upgrade to the Bundle →</a>
+            <span class="bu-ty-skip">No thanks — audit only is fine</span>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

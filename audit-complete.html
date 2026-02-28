@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're All Set — Lane Social Co</title>
+  <meta name="description" content="Your social media audit intake is complete. Here's what happens next.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Inter:wght@400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+/* ── Tokens ─────────────────────────────────────────── */
+:root {
+  --purple: #7b2eff;
+  --purple-rgb: 123,46,255;
+  --purple-dim: rgba(123,46,255,0.12);
+  --magenta: #E040FB;
+  --teal: #00BCD4;
+  --coral: #FF6B6B;
+  --gold: #FFD700;
+  --bg: #0a0a0a;
+  --bg-alt: #111111;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --border: #1e1e1e;
+  --border-soft: #2a2a2a;
+  --text: #f0f0f0;
+  --text-sub: #aaaaaa;
+  --text-muted: #5a5a5a;
+  --card-shadow: rgba(0,0,0,0.5);
+  --font-heading: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f5f5f5;
+    --surface: #f2f2f2;
+    --surface-2: #e8e8e8;
+    --border: #e0e0e0;
+    --border-soft: #cccccc;
+    --text: #0a0a0a;
+    --text-sub: #444444;
+    --text-muted: #888888;
+    --card-shadow: rgba(0,0,0,0.08);
+  }
+}
+
+/* ── Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+
+/* ── Container ──────────────────────────────────────── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 80px 48px 100px;
+}
+@media (max-width: 640px) {
+  .container { padding: 60px 20px 80px; }
+}
+
+/* ── Ambient glow ───────────────────────────────────── */
+.ambient-glow {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--purple-rgb), 0.08) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Hero ────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+.hero-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.hero .pill {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  color: var(--purple);
+  font-style: normal;
+}
+.hero .sub {
+  font-size: 17px;
+  color: var(--text-sub);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── Timeline cards ─────────────────────────────────── */
+.timeline-section {
+  margin-bottom: 56px;
+}
+.timeline-section h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .timeline-grid { grid-template-columns: 1fr; }
+}
+.tl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.tl-card:hover { border-color: var(--border-soft); }
+.tl-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 16px;
+  margin: 0 auto 16px;
+}
+.tl-card h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tl-card p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.55;
+}
+.tl-card .time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════════════════
+   COACHING UPSELL
+   ══════════════════════════════════════════════════════ */
+.upsell-card {
+  background: var(--bg-alt);
+  border: 1.5px solid rgba(var(--purple-rgb), 0.3);
+  border-radius: var(--radius-xl);
+  padding: 56px 48px;
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.upsell-card::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(var(--purple-rgb), 0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.upsell-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--purple);
+  margin-bottom: 20px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.upsell-card h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.upsell-card h2 em {
+  color: var(--purple);
+  font-style: normal;
+}
+.upsell-card .desc {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  position: relative;
+  z-index: 1;
+}
+.upsell-features {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.upsell-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+.upsell-feature .check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.upsell-price {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 28px;
+}
+.upsell-amount {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.upsell-amount span {
+  font-size: 24px;
+  font-weight: 700;
+  vertical-align: super;
+}
+.upsell-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+.btn-upsell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--purple), var(--magenta));
+  color: #fff;
+  border: none;
+  padding: 18px 44px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 28px rgba(var(--purple-rgb), 0.4);
+  position: relative;
+  z-index: 1;
+}
+.btn-upsell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(var(--purple-rgb), 0.55);
+}
+.upsell-skip {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+.upsell-skip:hover { color: var(--text-sub); }
+@media (max-width: 640px) {
+  .upsell-card { padding: 40px 24px; }
+  .upsell-features { flex-direction: column; align-items: center; }
+}
+
+/* ══════════════════════════════════════════════════════
+   FREE RESOURCES
+   ══════════════════════════════════════════════════════ */
+.resources-section {
+  margin-bottom: 56px;
+}
+.resources-section h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.resources-section .sub {
+  font-size: 14px;
+  color: var(--text-sub);
+  text-align: center;
+  margin-bottom: 32px;
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 540px) {
+  .resource-grid { grid-template-columns: 1fr; }
+}
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.resource-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--card-shadow);
+}
+.resource-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.icon-purple { background: var(--purple-dim); }
+.icon-teal   { background: rgba(0,188,212,0.12); }
+.icon-coral  { background: rgba(255,107,107,0.12); }
+.icon-gold   { background: rgba(255,215,0,0.12); }
+.resource-info h3 {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.resource-info p {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.5;
+}
+.resource-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+.tag-free { background: rgba(34,197,94,0.12); color: #22c55e; }
+.tag-tool { background: var(--purple-dim); color: var(--purple); }
+
+/* ── Placeholder for future tools ───────────────────── */
+.tools-placeholder {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.tools-placeholder p {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════════════════════
+   FOOTER / CLOSE
+   ══════════════════════════════════════════════════════ */
+.close-section {
+  text-align: center;
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.close-section p {
+  font-size: 15px;
+  color: var(--text-sub);
+  margin-bottom: 8px;
+}
+.close-section .brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text);
+}
+.close-section .tagline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+  </style>
+</head>
+<body>
+
+<div class="ambient-glow"></div>
+
+<div class="container">
+
+  <!-- ══════ HERO ══════ -->
+  <section class="hero">
+    <div class="hero-icon">🎉</div>
+    <div class="pill">Intake complete</div>
+    <h1>You're <em>all set.</em></h1>
+    <p class="sub">Your audit is officially in the queue. We'll have your full report delivered to your inbox within 5-7 business days. Sit tight, we're on it.</p>
+  </section>
+
+  <!-- ══════ TIMELINE ══════ -->
+  <section class="timeline-section">
+    <h2>What happens from here</h2>
+    <div class="timeline-grid">
+      <div class="tl-card">
+        <div class="tl-num">1</div>
+        <h3>We review your intake</h3>
+        <p>We go through everything you submitted and get familiar with your business.</p>
+        <div class="time">Within 24 hours</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-num">2</div>
+        <h3>We audit your accounts</h3>
+        <p>Deep analysis of your profiles, content, competitors, and engagement patterns.</p>
+        <div class="time">5-7 business days</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-num">3</div>
+        <h3>You get your report</h3>
+        <p>Full written audit delivered to your email with clear, actionable next steps.</p>
+        <div class="time">Check your inbox</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ COACHING UPSELL ══════ -->
+  <section class="upsell-card" id="upsellCard">
+    <span class="upsell-eyebrow">While you wait — add this</span>
+    <h2>Want a 1-on-1 call to <em>walk through your results?</em></h2>
+    <p class="desc">When your audit lands, you'll have questions. Instead of figuring it out alone, book a 30-minute strategy call where we walk through every finding together, plus give you personalized guidance for your business based on what we see. Think of it as your audit, explained.</p>
+
+    <div class="upsell-features">
+      <div class="upsell-feature"><span class="check">✓</span>30-minute 1-on-1 video call</div>
+      <div class="upsell-feature"><span class="check">✓</span>Full audit walkthrough</div>
+      <div class="upsell-feature"><span class="check">✓</span>Custom strategy guidance</div>
+      <div class="upsell-feature"><span class="check">✓</span>Q&A on your specific business</div>
+    </div>
+
+    <div class="upsell-price">
+      <div class="upsell-amount"><span>$</span>50</div>
+      <div class="upsell-note">One-time. No subscription. Just a call.</div>
+    </div>
+
+    <!-- Replace this href with your Stripe checkout link for the $50 coaching call -->
+    <a href="#" class="btn-upsell" id="upsellBtn">Book My Strategy Call →</a>
+    <button class="upsell-skip" onclick="document.getElementById('upsellCard').style.display='none';">No thanks, I'll review it on my own</button>
+  </section>
+
+  <!-- ══════ FREE RESOURCES ══════ -->
+  <section class="resources-section">
+    <h2>Great resources to use while you wait</h2>
+    <p class="sub">Free tools and guides to start improving today.</p>
+
+    <div class="resource-grid">
+      <a href="freebie-audit-checklist.html" class="resource-card">
+        <div class="resource-icon icon-purple">✓</div>
+        <div class="resource-info">
+          <h3>Social Audit Checklist</h3>
+          <p>Self-check your accounts before your full report arrives.</p>
+          <span class="resource-tag tag-free">Free</span>
+        </div>
+      </a>
+      <a href="freebie-content-pillars.html" class="resource-card">
+        <div class="resource-icon icon-teal">📍</div>
+        <div class="resource-info">
+          <h3>Content Pillars Workbook</h3>
+          <p>Define the 3-5 themes your brand should post about consistently.</p>
+          <span class="resource-tag tag-free">Free</span>
+        </div>
+      </a>
+      <a href="freebie-content-calendar.html" class="resource-card">
+        <div class="resource-icon icon-coral">📅</div>
+        <div class="resource-info">
+          <h3>30-Day Content Calendar</h3>
+          <p>A ready-to-use calendar with 30 caption starters.</p>
+          <span class="resource-tag tag-free">Free</span>
+        </div>
+      </a>
+      <a href="freebie-bio-optimization.html" class="resource-card">
+        <div class="resource-icon icon-gold">🔤</div>
+        <div class="resource-info">
+          <h3>Bio Optimization Cheat Sheet</h3>
+          <p>Write a bio that actually converts visitors into followers.</p>
+          <span class="resource-tag tag-free">Free</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Expandable space for future tools -->
+    <div class="tools-placeholder" id="futureTools">
+      <p>🚀 More free tools coming soon. Check back for calculators, generators, and more.</p>
+    </div>
+  </section>
+
+  <!-- ══════ CLOSE ══════ -->
+  <section class="close-section">
+    <p>Thanks for trusting us with your social media.</p>
+    <div class="brand">Lane Social Co.</div>
+    <div class="tagline">Real strategy. No fluff.</div>
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -251,6 +251,32 @@
     margin-bottom: 0;
   }
 
+  /* ── Activity indicator ── */
+  .hero-activity {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.58s;
+  }
+  .hero-activity-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    animation: activity-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes activity-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+    50% { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+  }
+  .hero-activity-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
   .hero-proof {
     margin-top: 72px;
     padding-top: 40px;
@@ -379,6 +405,19 @@
     max-height: 120px;
     margin-top: 14px;
   }
+
+  /* ── GlowingEffect — vanilla port (21st.dev) ─────────────────── */
+  /* Outer wrapper replaces problem-card as the grid item */
+  .glow-wrap {
+    position: relative;
+    border-radius: 19px;          /* slightly outside inner card's 16px + 2px pad */
+    border: 0.75px solid var(--border);
+    padding: 2px;
+    box-shadow: 0 0 0 0 rgba(123, 46, 255, 0);
+    transition: box-shadow 0.5s ease;
+  }
+  /* Purple glow — box-shadow approach keeps it contained to each card */
+  .glow-el, .glow-track { display: none; }
 
   /* ── Audit split ─────────────────────────────────────────────── */
   .audit {
@@ -947,7 +986,11 @@
       </a>
       <a href="shop.html" class="btn-ghost">Browse free resources →</a>
     </div>
-    <p class="hero-micro">No subscription. No retainer. Delivered in 7 business days.</p>
+    <div class="hero-activity">
+      <span class="hero-activity-dot" aria-hidden="true"></span>
+      <span class="hero-activity-text">Audits currently open — 7-day turnaround</span>
+    </div>
+    <p class="hero-micro">No subscription. No retainer. No ongoing commitment.</p>
     <!-- Task 1d: count-up stats — data-count and data-suffix for JS -->
     <div class="hero-proof" aria-label="Social proof statistics">
       <div class="proof-stat">
@@ -1071,42 +1114,59 @@
   <h2 id="problem-heading">Posting more isn't the answer.<br>Posting smarter is.</h2>
   <p class="problem-intro">Most businesses aren't failing on social because they're lazy. They're failing because nobody told them the truth about what actually works.</p>
   <div class="problem-grid">
-    <div class="problem-card reveal">
-      <div class="problem-number">
-        <span class="pn-num">01</span>
-        <span class="pn-emoji" aria-hidden="true">🤔</span>
+
+    <div class="glow-wrap">
+      <div class="glow-el" aria-hidden="true"><div class="glow-track"></div></div>
+      <div class="problem-card reveal">
+        <div class="problem-number">
+          <span class="pn-num">01</span>
+          <span class="pn-emoji" aria-hidden="true">🤔</span>
+        </div>
+        <h3>You're on the wrong platform</h3>
+        <p>Most businesses spread thin across 4–5 platforms and wonder why nothing's working. Your audience is concentrated in one or two places. We find them.</p>
+        <p class="problem-detail">We analyze where your competitors are thriving, where your target demographic actually spends time, and give you a clear platform priority list to follow.</p>
       </div>
-      <h3>You're on the wrong platform</h3>
-      <p>Most businesses spread thin across 4–5 platforms and wonder why nothing's working. Your audience is concentrated in one or two places. We find them.</p>
-      <p class="problem-detail">We analyze where your competitors are thriving, where your target demographic actually spends time, and give you a clear platform priority list to follow.</p>
     </div>
-    <div class="problem-card reveal">
-      <div class="problem-number">
-        <span class="pn-num">02</span>
-        <span class="pn-emoji" aria-hidden="true">📉</span>
+
+    <div class="glow-wrap">
+      <div class="glow-el" aria-hidden="true"><div class="glow-track"></div></div>
+      <div class="problem-card reveal">
+        <div class="problem-number">
+          <span class="pn-num">02</span>
+          <span class="pn-emoji" aria-hidden="true">📉</span>
+        </div>
+        <h3>Your content has no point of view</h3>
+        <p>Generic tips and product photos don't build audiences anymore. You need a position, an opinion, a reason for people to follow you specifically.</p>
+        <p class="problem-detail">We audit your existing content mix and identify exactly where your messaging goes flat — then show you the content angles that will make people actually care.</p>
       </div>
-      <h3>Your content has no point of view</h3>
-      <p>Generic tips and product photos don't build audiences anymore. You need a position, an opinion, a reason for people to follow you specifically.</p>
-      <p class="problem-detail">We audit your existing content mix and identify exactly where your messaging goes flat — then show you the content angles that will make people actually care.</p>
     </div>
-    <div class="problem-card reveal">
-      <div class="problem-number">
-        <span class="pn-num">03</span>
-        <span class="pn-emoji" aria-hidden="true">😤</span>
+
+    <div class="glow-wrap">
+      <div class="glow-el" aria-hidden="true"><div class="glow-track"></div></div>
+      <div class="problem-card reveal">
+        <div class="problem-number">
+          <span class="pn-num">03</span>
+          <span class="pn-emoji" aria-hidden="true">😤</span>
+        </div>
+        <h3>You're chasing trends instead of building</h3>
+        <p>Trend content gets views but doesn't convert. The businesses winning on social right now are building owned audiences, not renting attention.</p>
+        <p class="problem-detail">We separate your vanity metrics from your business metrics and build you a content approach that turns followers into actual customers.</p>
       </div>
-      <h3>You're chasing trends instead of building</h3>
-      <p>Trend content gets views but doesn't convert. The businesses winning on social right now are building owned audiences, not renting attention.</p>
-      <p class="problem-detail">We separate your vanity metrics from your business metrics and build you a content approach that turns followers into actual customers.</p>
     </div>
-    <div class="problem-card reveal">
-      <div class="problem-number">
-        <span class="pn-num">04</span>
-        <span class="pn-emoji" aria-hidden="true">💸</span>
+
+    <div class="glow-wrap">
+      <div class="glow-el" aria-hidden="true"><div class="glow-track"></div></div>
+      <div class="problem-card reveal">
+        <div class="problem-number">
+          <span class="pn-num">04</span>
+          <span class="pn-emoji" aria-hidden="true">💸</span>
+        </div>
+        <h3>You have no system</h3>
+        <p>Posting whenever inspiration strikes isn't a strategy. Without a clear content system tied to your business goals, you're just making noise.</p>
+        <p class="problem-detail">We give you a repeatable content framework — specific post types, cadence, and content pillars — so you always know what to post next and why.</p>
       </div>
-      <h3>You have no system</h3>
-      <p>Posting whenever inspiration strikes isn't a strategy. Without a clear content system tied to your business goals, you're just making noise.</p>
-      <p class="problem-detail">We give you a repeatable content framework — specific post types, cadence, and content pillars — so you always know what to post next and why.</p>
     </div>
+
   </div>
 </section>
 
@@ -1447,6 +1507,40 @@
     /* Fallback: just run after 800ms */
     setTimeout(function() { stats.forEach(animateStat); }, 800);
   }
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   PURPLE GLOW — fades in behind each card when the mouse
+   moves nearby, fades out when it leaves.
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  var glowWraps = document.querySelectorAll('.glow-wrap');
+  if (!glowWraps.length) return;
+
+  var PROXIMITY = 80; // px outside the card that triggers the glow
+  var lastMouse = { x: -9999, y: -9999 };
+  var GLOW_ON  = '0 0 38px 10px rgba(123, 46, 255, 0.52)';
+  var GLOW_OFF = '0 0 0 0 rgba(123, 46, 255, 0)';
+
+  function updateGlow(mx, my) {
+    glowWraps.forEach(function (wrap) {
+      var r = wrap.getBoundingClientRect();
+      var active =
+        mx > r.left   - PROXIMITY && mx < r.right  + PROXIMITY &&
+        my > r.top    - PROXIMITY && my < r.bottom + PROXIMITY;
+      wrap.style.boxShadow = active ? GLOW_ON : GLOW_OFF;
+    });
+  }
+
+  document.body.addEventListener('pointermove', function (e) {
+    lastMouse.x = e.clientX;
+    lastMouse.y = e.clientY;
+    requestAnimationFrame(function () { updateGlow(lastMouse.x, lastMouse.y); });
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    updateGlow(lastMouse.x, lastMouse.y);
+  }, { passive: true });
 })();
 
 /* ═══════════════════════════════════════════════════════════

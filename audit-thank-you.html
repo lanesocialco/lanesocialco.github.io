@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In — Lane Social Co</title>
+  <meta name="description" content="Enter your access code to begin your social media audit intake.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Tokens ──────────────────────────────────────────── */
+    :root {
+      --purple: #7b2eff;
+      --purple-rgb: 123,46,255;
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #1e1e1e;
+      --text: #f0f0f0;
+      --text-sub: #a0a0a0;
+      --text-muted: #5a5a5a;
+      --font-body: 'Bricolage Grotesque', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --surface: #f2f2f2;
+        --border: #e0e0e0;
+        --text: #0a0a0a;
+        --text-sub: #555555;
+        --text-muted: #888888;
+      }
+    }
+
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ── Full-page wrapper ───────────────────────────────── */
+    .gate-wrapper {
+      width: 100%;
+      max-width: 560px;
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* ── Ambient glow ────────────────────────────────────── */
+    .gate-wrapper::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb), 0.10) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .gate-content { position: relative; z-index: 1; }
+
+    /* ── Pill badge ──────────────────────────────────────── */
+    .pill {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* ── Headings ─────────────────────────────────────────── */
+    h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .subheading {
+      font-size: 16px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 48px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Code input (2FA style) ───────────────────────────── */
+    .code-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .code-digit {
+      width: 56px;
+      height: 68px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      caret-color: var(--purple);
+      -moz-appearance: textfield;
+    }
+    .code-digit::-webkit-outer-spin-button,
+    .code-digit::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .code-digit:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(var(--purple-rgb), 0.2);
+    }
+    .code-digit.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+    }
+
+    .error-msg {
+      font-size: 13px;
+      color: #ef4444;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+      min-height: 20px;
+      margin-bottom: 24px;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .error-msg.visible { opacity: 1; }
+
+    /* ── Shake animation ──────────────────────────────────── */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      15% { transform: translateX(-8px); }
+      30% { transform: translateX(8px); }
+      45% { transform: translateX(-6px); }
+      60% { transform: translateX(6px); }
+      75% { transform: translateX(-3px); }
+      90% { transform: translateX(3px); }
+    }
+    .shake { animation: shake 0.5s ease; }
+
+    /* ── CTA Button ───────────────────────────────────────── */
+    .btn-gate {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      padding: 18px 40px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      box-shadow: 0 4px 24px rgba(var(--purple-rgb), 0.35);
+      white-space: nowrap;
+    }
+    .btn-gate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(var(--purple-rgb), 0.5);
+    }
+    .btn-gate:active { transform: translateY(0); }
+    .btn-gate:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── State transitions ────────────────────────────────── */
+    .state { transition: opacity 0.4s ease, transform 0.4s ease; }
+    .state.hidden {
+      opacity: 0;
+      transform: scale(0.97);
+      pointer-events: none;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+    }
+    .state.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      position: relative;
+    }
+
+    /* ── Checkmark animation (State 2) ────────────────────── */
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.4s ease 0.2s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+    }
+    .check-circle.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .check-circle svg {
+      width: 36px;
+      height: 36px;
+      stroke: #fff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .check-circle svg .check-path {
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      transition: stroke-dashoffset 0.4s ease 0.5s;
+    }
+    .check-circle.animate svg .check-path {
+      stroke-dashoffset: 0;
+    }
+
+    /* ── State 2 heading ──────────────────────────────────── */
+    .state-2 h1 { margin-bottom: 14px; }
+    .state-2 .subheading { margin-bottom: 40px; }
+    .note-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .code-digit {
+        width: 46px;
+        height: 58px;
+        font-size: 22px;
+      }
+      .code-group { gap: 7px; }
+      .btn-gate { padding: 16px 28px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gate-wrapper">
+    <div class="gate-content">
+
+      <!-- ════ STATE 1: Code Entry ════ -->
+      <div class="state state-1 visible" id="state1">
+        <div class="pill">You're in ✓</div>
+        <h1>Your audit starts here.</h1>
+        <p class="subheading">We received your order. Check your email for your personal access code, then enter it below to get started.</p>
+
+        <div class="code-group" id="codeGroup">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 1" data-index="0">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 2" data-index="1">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 3" data-index="2">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 4" data-index="3">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 5" data-index="4">
+          <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Digit 6" data-index="5">
+        </div>
+
+        <p class="error-msg" id="errorMsg">That code doesn't look right. Check your email and try again.</p>
+
+        <button class="btn-gate" id="unlockBtn" disabled>Unlock My Audit →</button>
+      </div>
+
+      <!-- ════ STATE 2: Confirmed ════ -->
+      <div class="state state-2 hidden" id="state2">
+        <div class="check-circle" id="checkCircle">
+          <svg viewBox="0 0 36 36">
+            <polyline class="check-path" points="8 18 15 26 28 10" />
+          </svg>
+        </div>
+        <h1>Perfect. Let's get your audit set up.</h1>
+        <p class="subheading">This takes about 5-7 minutes. Answer honestly and we can give you something actually useful.</p>
+        <a href="audit-intake.html" class="btn-gate">Start My Intake →</a>
+        <p class="note-text">Your responses are saved as you go. Take your time.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    'use strict';
+
+    /* ── Valid code (hardcoded, never sent to server) ── */
+    var VALID_CODE = '851236';
+
+    var digits = document.querySelectorAll('.code-digit');
+    var unlockBtn = document.getElementById('unlockBtn');
+    var errorMsg = document.getElementById('errorMsg');
+    var codeGroup = document.getElementById('codeGroup');
+    var state1 = document.getElementById('state1');
+    var state2 = document.getElementById('state2');
+    var checkCircle = document.getElementById('checkCircle');
+
+    /* ── Get current code from inputs ── */
+    function getCode() {
+      var code = '';
+      digits.forEach(function(d) { code += d.value; });
+      return code;
+    }
+
+    /* ── Enable/disable button based on digit count ── */
+    function updateButton() {
+      var code = getCode();
+      unlockBtn.disabled = code.length < 6;
+    }
+
+    /* ── Auto-advance on digit input ── */
+    digits.forEach(function(digit, i) {
+      digit.addEventListener('input', function(e) {
+        /* Allow only single digit */
+        var val = this.value.replace(/[^0-9]/g, '');
+        this.value = val.slice(-1);
+
+        /* Clear error state */
+        errorMsg.classList.remove('visible');
+        digits.forEach(function(d) { d.classList.remove('error'); });
+
+        /* Auto-advance */
+        if (this.value && i < digits.length - 1) {
+          digits[i + 1].focus();
+        }
+        updateButton();
+      });
+
+      digit.addEventListener('keydown', function(e) {
+        /* Backspace: clear current or go back */
+        if (e.key === 'Backspace') {
+          if (!this.value && i > 0) {
+            e.preventDefault();
+            digits[i - 1].focus();
+            digits[i - 1].value = '';
+          }
+          updateButton();
+        }
+        /* Arrow keys */
+        if (e.key === 'ArrowLeft' && i > 0) { e.preventDefault(); digits[i - 1].focus(); }
+        if (e.key === 'ArrowRight' && i < digits.length - 1) { e.preventDefault(); digits[i + 1].focus(); }
+        /* Enter to submit */
+        if (e.key === 'Enter') { e.preventDefault(); unlockBtn.click(); }
+      });
+
+      /* Handle paste across all fields */
+      digit.addEventListener('paste', function(e) {
+        e.preventDefault();
+        var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
+        for (var j = 0; j < digits.length && j < pasted.length; j++) {
+          digits[j].value = pasted[j];
+        }
+        /* Focus last filled or last digit */
+        var focusIdx = Math.min(pasted.length, digits.length) - 1;
+        if (focusIdx >= 0) digits[focusIdx].focus();
+        updateButton();
+      });
+    });
+
+    /* ── Unlock click ── */
+    unlockBtn.addEventListener('click', function() {
+      var code = getCode();
+      if (code.length < 6) return;
+
+      if (code === VALID_CODE) {
+        /* ✓ Correct: transition to State 2 */
+        state1.classList.remove('visible');
+        state1.classList.add('hidden');
+        setTimeout(function() {
+          state2.classList.remove('hidden');
+          state2.classList.add('visible');
+          /* Trigger checkmark animation */
+          setTimeout(function() {
+            checkCircle.classList.add('animate');
+          }, 100);
+        }, 400);
+      } else {
+        /* ✗ Wrong: shake + error */
+        codeGroup.classList.add('shake');
+        errorMsg.classList.add('visible');
+        digits.forEach(function(d) { d.classList.add('error'); });
+
+        setTimeout(function() {
+          codeGroup.classList.remove('shake');
+        }, 500);
+
+        /* Clear fields after shake */
+        setTimeout(function() {
+          digits.forEach(function(d) { d.value = ''; d.classList.remove('error'); });
+          digits[0].focus();
+          updateButton();
+        }, 800);
+      }
+    });
+
+    /* ── Focus first digit on load ── */
+    digits[0].focus();
+  })();
+  </script>
+
+</body>
+</html>

@@ -507,6 +507,89 @@
     }
     .faq-item.open .faq-answer { max-height: 500px; margin-top: 14px; }
 
+    /* ── BUNDLE UPSELL ──────────────────────────────────────── */
+    .bundle-upsell {
+      padding: 0 48px 80px;
+      background: var(--bg);
+    }
+    .bundle-upsell-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bundle-upsell-inner::before {
+      content: '';
+      position: absolute; top: -80px; left: 40%;
+      transform: translateX(-50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(var(--purple-rgb),0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bu-eyebrow {
+      display: inline-block;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--purple); background: rgba(var(--purple-rgb),0.12);
+      border: 1px solid rgba(var(--purple-rgb),0.25);
+      border-radius: 40px; padding: 3px 12px; margin-bottom: 14px;
+    }
+    .bu-left h3 {
+      font-size: clamp(20px, 2.5vw, 28px); font-weight: 800;
+      letter-spacing: -0.6px; color: #fff; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .bu-left p {
+      font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 20px;
+    }
+    .bu-compare { display: flex; flex-direction: column; gap: 8px; }
+    .bu-row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.7);
+    }
+    .bu-check {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(var(--purple-rgb),0.2); color: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; flex-shrink: 0;
+    }
+    .bu-price {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.35); margin-left: 6px;
+    }
+    .bu-right { text-align: center; flex-shrink: 0; min-width: 180px; }
+    .bu-was {
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      color: rgba(255,255,255,0.3); text-decoration: line-through; margin-bottom: 4px;
+    }
+    .bu-amount {
+      font-size: 60px; font-weight: 800; letter-spacing: -2.5px;
+      color: #fff; line-height: 1;
+    }
+    .bu-period {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.3); margin-top: 4px; margin-bottom: 10px;
+    }
+    .bu-savings {
+      display: inline-block;
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      color: #22c55e; background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 40px; padding: 3px 12px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+      .bundle-upsell { padding: 0 24px 60px; }
+      .bundle-upsell-inner { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; }
+      .bu-right { text-align: left; }
+    }
+
     /* ── CTA ─────────────────────────────────────────────────── */
     .cta-section {
       padding: 100px 48px;
@@ -1019,6 +1102,37 @@
         <div class="trust-item"><span class="trust-icon">📄</span> PDF you can reference anytime</div>
       </div>
     </div>
+
+    <!-- Bundle Upsell -->
+    <section class="bundle-upsell">
+      <div class="rainbow-glow" style="border-radius:20px;">
+      <div class="bundle-upsell-inner">
+        <div class="bu-left">
+          <span class="bu-eyebrow">Best value</span>
+          <h3>Already thinking about the strategy? Save $44.</h3>
+          <p>Most people who get the Audit end up coming back for the Strategy. Get both at once and your Strategy builds directly on your Audit findings — no overlap, no repeated intake form.</p>
+          <div class="bu-compare">
+            <div class="bu-row">
+              <span class="bu-check">✓</span>
+              <span class="bu-item">Social Media Audit <span class="bu-price">$97</span></span>
+            </div>
+            <div class="bu-row">
+              <span class="bu-check">✓</span>
+              <span class="bu-item">90-Day Custom Strategy <span class="bu-price">$147</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="bu-right">
+          <div class="bu-was">$244 separately</div>
+          <div class="bu-amount">$200</div>
+          <div class="bu-period">one-time</div>
+          <span class="bu-savings">You save $44</span>
+          <a href="product-bundle.html" class="btn-white" style="display:inline-flex; width:100%; justify-content:center; margin-top:20px; white-space:nowrap;">Get the Bundle →</a>
+          <p style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:10px;font-family:'DM Mono',monospace;letter-spacing:0.04em;">Or get the audit alone below for $97</p>
+        </div>
+      </div>
+      </div><!-- /.rainbow-glow -->
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">

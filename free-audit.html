@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -506,8 +507,8 @@
     }
     .fix-cards { display: flex; flex-direction: column; gap: 10px; }
     .fix-card {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
+      background: rgba(239, 68, 68, 0.07);
+      border: 1px solid rgba(239, 68, 68, 0.22);
       border-left: 4px solid var(--error);
       border-radius: 12px;
       padding: 18px 20px;
@@ -559,22 +560,22 @@
       color: var(--text);
     }
     .passed-chips {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.2);
       border-radius: 12px;
       padding: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-    
+
     .passed-chip {
       background: var(--surface);
-      border: 1px solid #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.28);
       border-radius: 6px;
       padding: 6px 12px;
       font-size: 13px;
-      color: #166534;
+      color: #4ade80;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -585,7 +586,8 @@
 
     /* PRO TIP */
     .pro-tip {
-      background: linear-gradient(135deg, #fefce8, #fef9c3);
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.2);
       border-radius: 12px;
       padding: 20px 24px;
       margin-bottom: 36px;
@@ -593,10 +595,10 @@
       gap: 14px;
       align-items: flex-start;
     }
-    
+
     .pro-tip-icon { font-size: 22px; flex-shrink: 0; }
-    .pro-tip-title { font-weight: 700; color: #78350f; font-size: 15px; margin-bottom: 4px; }
-    .pro-tip-text { font-size: 14px; color: #92400e; line-height: 1.55; }
+    .pro-tip-title { font-weight: 700; color: #fbbf24; font-size: 15px; margin-bottom: 4px; }
+    .pro-tip-text { font-size: 14px; color: rgba(251, 191, 36, 0.72); line-height: 1.55; }
     
 
     /* UPSELL CTA */
@@ -695,7 +697,7 @@
     .upsell-bundle-pill {
       position: relative;
       background: rgba(var(--purple-rgb),0.15);
-      border: 1px solid rgba(var(--purple-rgb),0.3);
+      border: none;
       border-radius: 10px;
       padding: 16px 20px;
       display: flex;
@@ -728,6 +730,44 @@
       border-radius: 6px;
       font-family: 'DM Mono', monospace;
     }
+
+    /* DOWNLOAD */
+    .download-banner {
+      background: linear-gradient(135deg, rgba(123,46,255,0.12), rgba(123,46,255,0.06));
+      border: 1px solid rgba(123,46,255,0.3);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .download-banner-left { flex: 1; min-width: 200px; }
+    .download-banner-title { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 4px; letter-spacing: -0.3px; }
+    .download-banner-sub { font-size: 13px; color: var(--text-muted); }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(var(--purple-rgb),0.35);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-download:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(var(--purple-rgb),0.45); }
+    .btn-download:active { transform: translateY(0); }
+    .btn-download.generating { opacity: 0.7; cursor: wait; }
 
     /* RETAKE */
     .retake-wrap { text-align: center; margin-top: 20px; }
@@ -1112,6 +1152,24 @@
 
     var wrap = el('div', { className: 'results-wrap' });
 
+    // Download banner
+    var dlBanner = el('div', { className: 'download-banner' });
+    var dlLeft = el('div', { className: 'download-banner-left' });
+    dlLeft.innerHTML = '<div class="download-banner-title">📄 Your personalized audit report is ready</div><div class="download-banner-sub">All your results, fixes, and recommendations in one PDF.</div>';
+    var dlBtn = el('button', { className: 'btn-download' }, '⬇ Download PDF Report');
+    dlBtn.addEventListener('click', function () {
+      dlBtn.textContent = 'Building PDF…';
+      dlBtn.classList.add('generating');
+      setTimeout(function () {
+        generatePDF(results, allPassed);
+        dlBtn.innerHTML = '⬇ Download PDF Report';
+        dlBtn.classList.remove('generating');
+      }, 50);
+    });
+    dlBanner.appendChild(dlLeft);
+    dlBanner.appendChild(dlBtn);
+    wrap.appendChild(dlBanner);
+
     // Score card
     var catColor = results.category.color;
     var scoreCard = el('div', { className: 'results-score-card' });
@@ -1221,6 +1279,7 @@
           '<div class="upsell-product-price"><span class="upsell-price-num">$147</span><span class="upsell-price-cta">Get the strategy →</span></div>',
         '</a>',
       '</div>',
+      '<div class="rainbow-glow" style="border-radius:10px;">',
       '<a href="product-bundle.html" class="upsell-bundle-pill">',
         '<div class="upsell-bundle-left">',
           '<span style="font-size:22px">📦</span>',
@@ -1233,7 +1292,8 @@
           '<span class="upsell-bundle-price">$200</span>',
           '<span class="upsell-bundle-save">Save $44</span>',
         '</div>',
-      '</a>'
+      '</a>',
+      '</div>'
     ].join('');
     wrap.appendChild(upsell);
 
@@ -1251,6 +1311,240 @@
     wrap.appendChild(retake);
 
     return wrap;
+  }
+
+  // ── PDF GENERATION ────────────────────────────────────────────────────────
+  function hexToRgb(hex) {
+    var r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return r ? { r: parseInt(r[1],16), g: parseInt(r[2],16), b: parseInt(r[3],16) } : { r: 40, g: 40, b: 40 };
+  }
+
+  function generatePDF(results, allPassed) {
+    var jsPDF = window.jspdf && window.jspdf.jsPDF;
+    if (!jsPDF) { alert('PDF library not loaded yet — please try again in a moment.'); return; }
+
+    var doc = new jsPDF({ unit: 'pt', format: 'letter' });
+    var PW   = doc.internal.pageSize.getWidth();
+    var PH   = doc.internal.pageSize.getHeight();
+    var ML   = 40;   // margin left
+    var MR   = 40;   // margin right
+    var CW   = PW - ML - MR;
+    var y    = 0;
+
+    function newPage() { doc.addPage(); y = 60; }
+    function checkY(need) { if (y + (need || 20) > PH - 50) { newPage(); } }
+
+    function setColor(hex) { var c = hexToRgb(hex); doc.setTextColor(c.r, c.g, c.b); }
+    function setFill(hex)  { var c = hexToRgb(hex); doc.setFillColor(c.r, c.g, c.b); }
+    function setDraw(hex)  { var c = hexToRgb(hex); doc.setDrawColor(c.r, c.g, c.b); }
+
+    // ── HEADER BAR ──────────────────────────────────────────
+    doc.setFillColor(123, 46, 255);
+    doc.rect(0, 0, PW, 52, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(18);
+    doc.text('Lane Social Co', ML, 32);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(10);
+    doc.text('Social Media Audit  ·  ' + new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}), PW - MR, 32, { align:'right' });
+
+    // purple accent line
+    doc.setFillColor(200, 150, 255);
+    doc.rect(0, 52, PW, 3, 'F');
+
+    y = 80;
+
+    // ── SCORE ───────────────────────────────────────────────
+    var catC  = results.category.color;
+    var catRgb = hexToRgb(catC);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(72);
+    doc.setTextColor(catRgb.r, catRgb.g, catRgb.b);
+    doc.text(String(results.score), ML, y + 52);
+
+    doc.setFontSize(26);
+    doc.setTextColor(180,180,180);
+    doc.text('/ ' + TOTAL_QUESTIONS, ML + 84, y + 52);
+
+    // badge pill
+    doc.setFillColor(catRgb.r, catRgb.g, catRgb.b);
+    doc.roundedRect(ML, y + 62, 160, 22, 4, 4, 'F');
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(11);
+    doc.setFont('helvetica','bold');
+    doc.text(results.category.label, ML + 80, y + 77, { align:'center' });
+
+    // description
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(11);
+    doc.setTextColor(catRgb.r, catRgb.g, catRgb.b);
+    var descLines = doc.splitTextToSize(results.category.desc, CW);
+    doc.text(descLines, ML, y + 102);
+    y += 102 + descLines.length * 14 + 16;
+
+    // divider
+    setDraw('#e5e5e5');
+    doc.setLineWidth(0.5);
+    doc.line(ML, y, PW - MR, y);
+    y += 20;
+
+    // ── SECTION BREAKDOWN ───────────────────────────────────
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(14);
+    doc.setTextColor(30,30,30);
+    doc.text('Section Breakdown', ML, y);
+    y += 14;
+
+    results.sections.forEach(function(s) {
+      checkY(28);
+      var st    = s.status;
+      var stRgb = hexToRgb(st.color);
+      // row bg
+      doc.setFillColor(248,248,250);
+      doc.roundedRect(ML, y - 4, CW, 22, 3, 3, 'F');
+      // icon + title
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(11);
+      doc.setTextColor(30,30,30);
+      doc.text(s.icon + '  ' + s.title, ML + 8, y + 10);
+      // score
+      doc.setTextColor(stRgb.r, stRgb.g, stRgb.b);
+      doc.text(s.score + ' / ' + s.total, PW - MR - 110, y + 10);
+      // status pill
+      doc.setFillColor(stRgb.r, stRgb.g, stRgb.b);
+      doc.setFillColor(stRgb.r, stRgb.g, stRgb.b);
+      var pillW = doc.getTextWidth(st.label) + 16;
+      doc.roundedRect(PW - MR - pillW, y, pillW, 15, 3, 3, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(9);
+      doc.text(st.label, PW - MR - pillW/2, y + 10, { align:'center' });
+      y += 26;
+    });
+
+    y += 12;
+
+    // ── WHAT TO FIX ─────────────────────────────────────────
+    var hasAnyFailed = results.sections.some(function(s) { return s.failed.length > 0; });
+    if (hasAnyFailed) {
+      checkY(30);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(14);
+      doc.setTextColor(30,30,30);
+      doc.text('What to Fix', ML, y);
+      y += 6;
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(10);
+      doc.setTextColor(120,120,120);
+      doc.text('Specific, actionable fixes for each gap — work through them one section at a time.', ML, y + 10);
+      y += 24;
+
+      results.sections.forEach(function(s) {
+        if (!s.failed.length) return;
+        checkY(22);
+        doc.setFont('helvetica','bold');
+        doc.setFontSize(12);
+        doc.setTextColor(123,46,255);
+        doc.text(s.icon + '  ' + s.title, ML, y);
+        y += 14;
+
+        s.failed.forEach(function(item) {
+          // estimate card height
+          var whyLines = doc.splitTextToSize(item.whyMatters, CW - 20);
+          var howLines = doc.splitTextToSize(item.howToFix,   CW - 20);
+          var cardH = 14 + 10 + whyLines.length * 13 + 10 + howLines.length * 13 + 18;
+          checkY(cardH);
+
+          // card bg
+          doc.setFillColor(255,245,245);
+          doc.roundedRect(ML, y - 6, CW, cardH, 4, 4, 'F');
+          // red left border
+          doc.setFillColor(220,38,38);
+          doc.roundedRect(ML, y - 6, 4, cardH, 2, 2, 'F');
+
+          // title
+          doc.setFont('helvetica','bold');
+          doc.setFontSize(11);
+          doc.setTextColor(220,38,38);
+          doc.text('✗  ' + item.text, ML + 12, y + 7);
+          y += 18;
+
+          // why label
+          doc.setFontSize(8.5);
+          doc.setTextColor(180,30,30);
+          doc.text('WHY IT MATTERS', ML + 12, y);
+          y += 11;
+
+          // why text
+          doc.setFont('helvetica','normal');
+          doc.setFontSize(10);
+          doc.setTextColor(80,80,80);
+          doc.text(whyLines, ML + 12, y);
+          y += whyLines.length * 13 + 8;
+
+          // how label
+          doc.setFont('helvetica','bold');
+          doc.setFontSize(8.5);
+          doc.setTextColor(22,101,52);
+          doc.text('HOW TO FIX IT', ML + 12, y);
+          y += 11;
+
+          // how text
+          doc.setFont('helvetica','normal');
+          doc.setFontSize(10);
+          doc.setTextColor(40,80,50);
+          doc.text(howLines, ML + 12, y);
+          y += howLines.length * 13 + 16;
+        });
+        y += 6;
+      });
+    }
+
+    // ── WHAT YOU'RE DOING RIGHT ──────────────────────────────
+    if (allPassed && allPassed.length > 0) {
+      checkY(30);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(14);
+      doc.setTextColor(30,30,30);
+      doc.text("What You're Doing Right", ML, y);
+      y += 14;
+
+      allPassed.forEach(function(item) {
+        checkY(16);
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(11);
+        doc.setTextColor(22,163,74);
+        doc.text('✓  ' + item.text, ML + 4, y);
+        y += 15;
+      });
+      y += 10;
+    }
+
+    // ── FOOTER CTA ──────────────────────────────────────────
+    checkY(60);
+    doc.setFillColor(123,46,255);
+    doc.roundedRect(ML, y, CW, 52, 6, 6, 'F');
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(13);
+    doc.setTextColor(255,255,255);
+    doc.text('Ready to fix this faster?', ML + CW/2, y + 20, { align:'center' });
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(11);
+    doc.setTextColor(220,200,255);
+    doc.text('Get a done-for-you audit or custom strategy at lanesocialco.com', ML + CW/2, y + 36, { align:'center' });
+
+    // ── PAGE NUMBERS ────────────────────────────────────────
+    var totalPages = doc.internal.getNumberOfPages();
+    for (var i = 1; i <= totalPages; i++) {
+      doc.setPage(i);
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(9);
+      doc.setTextColor(180,180,180);
+      doc.text('Lane Social Co  ·  lanesocialco.com', ML, PH - 20);
+      doc.text('Page ' + i + ' of ' + totalPages, PW - MR, PH - 20, { align:'right' });
+    }
+
+    doc.save('lane-social-co-audit-results.pdf');
   }
 
   // Boot

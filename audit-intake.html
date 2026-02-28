@@ -3,719 +3,1346 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Start Your Social Media Audit - Lane Social Co</title>
-  <meta name="description" content="Complete your intake form for the $97 social media audit and get a detailed analysis of your accounts from a Las Vegas-based strategist.">
+  <title>Start Your Social Media Audit — Lane Social Co</title>
+  <meta name="description" content="Complete your intake form to kick off your social media audit.">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/global.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Inter:wght@400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Bricolage Grotesque', sans-serif;
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Main content */
-    main {
-      background-color: var(--bg);
-    }
-
-    /* Hero section */
-    .hero {
-      padding: 140px 80px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse, rgba(123,47,255,0.12), transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero h1 {
-      font-size: 52px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero .subheading {
-      font-size: 18px;
-      color: var(--text-sub);
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .form-note {
-      background-color: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 0 auto 60px;
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .form-note p {
-      color: var(--text-sub);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .form-note a {
-      color: var(--purple);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .form-note a:hover {
-      text-decoration: underline;
-    }
-
-    /* Progress indicator */
-    .progress-bar {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .progress-step {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .progress-step:not(:last-child)::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background-color: var(--border);
-      margin-left: 12px;
-    }
-
-    .progress-step .step-number {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--bg-alt);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .progress-step.active .step-number {
-      background-color: var(--purple);
-      color: var(--ink-text);
-      border-color: var(--purple);
-    }
-
-    .progress-step.complete .step-number {
-      background-color: var(--purple);
-      color: var(--ink-text);
-      border-color: var(--purple);
-    }
-
-    .progress-step .step-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 500;
-      display: none;
-    }
-
-    @media (max-width: 900px) {
-      .progress-bar {
-        margin-bottom: 40px;
-      }
-
-      .progress-step .step-label {
-        display: block;
-      }
-
-      .progress-step:not(:last-child)::after {
-        content: none;
-      }
-    }
-
-    /* Form container */
-    .form-container {
-      max-width: 800px;
-      margin: 0 auto 80px;
-      padding: 0 80px;
-    }
-
-    .form-section {
-      margin-bottom: 60px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--border);
-      display: none;
-    }
-
-    .form-section.active {
-      display: block;
-    }
-
-    .form-section h2 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 32px;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="url"],
-    .form-group input[type="number"],
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 8px;
-      padding: 14px 18px;
-      font-family: inherit;
-      font-size: 14px;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input[type="text"]:focus,
-    .form-group input[type="email"]:focus,
-    .form-group input[type="url"]:focus,
-    .form-group input[type="number"]:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--purple);
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-group-inline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .form-group-inline.full {
-      grid-template-columns: 1fr;
-    }
-
-    .checkbox-group,
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .checkbox-item,
-    .radio-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .checkbox-item input[type="checkbox"],
-    .radio-item input[type="radio"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: var(--purple);
-    }
-
-    .checkbox-item label,
-    .radio-item label {
-      margin: 0;
-      font-weight: 400;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    /* Form navigation */
-    .form-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 60px;
-      padding: 0 80px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .form-nav button {
-      background-color: var(--purple);
-      color: var(--ink-text);
-      border: none;
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 14px;
-      transition: opacity 0.2s;
-    }
-
-    .form-nav button:hover:not(:disabled) {
-      opacity: 0.9;
-    }
-
-    .form-nav button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .form-nav button.secondary {
-      background-color: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .form-nav button.secondary:hover {
-      background-color: var(--bg-alt);
-    }
-
-    .form-nav .progress-text {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Success message */
-    .success-message {
-      display: none;
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 80px 80px;
-      text-align: center;
-    }
-
-    .success-message.show {
-      display: block;
-    }
-
-    .success-message h2 {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .success-message p {
-      font-size: 16px;
-      color: var(--text-sub);
-      margin-bottom: 32px;
-    }
-
-    .success-message a {
-      display: inline-block;
-      background-color: var(--purple);
-      color: var(--ink-text);
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .success-message a:hover {
-      opacity: 0.9;
-    }
-
-  /* MOUSE-FOLLOWING GLOW (dark mode + desktop only) */
-  .mouse-glow {
-    display: none;
-    position: fixed;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    will-change: left, top;
+/* ══════════════════════════════════════════════════════════
+   TOKENS
+   ══════════════════════════════════════════════════════════ */
+:root {
+  --purple: #7b2eff;
+  --purple-rgb: 123,46,255;
+  --purple-dim: rgba(123,46,255,0.12);
+  --magenta: #E040FB;
+  --teal: #00BCD4;
+  --coral: #FF6B6B;
+  --gold: #FFD700;
+  --bg: #0a0a0a;
+  --bg-alt: #111111;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --border: #1e1e1e;
+  --border-soft: #2a2a2a;
+  --text: #f0f0f0;
+  --text-sub: #aaaaaa;
+  --text-muted: #5a5a5a;
+  --card-shadow: rgba(0,0,0,0.5);
+  --font-heading: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f5f5f5;
+    --surface: #f2f2f2;
+    --surface-2: #e8e8e8;
+    --border: #e0e0e0;
+    --border-soft: #cccccc;
+    --text: #0a0a0a;
+    --text-sub: #444444;
+    --text-muted: #888888;
+    --card-shadow: rgba(0,0,0,0.08);
   }
-  @media (prefers-color-scheme: dark) and (hover: hover) and (pointer: fine) {
-    .mouse-glow { display: block; }
-  }
-</style>
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESET
+   ══════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+img, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+
+/* ══════════════════════════════════════════════════════════
+   PROGRESS TRACKER
+   ══════════════════════════════════════════════════════════ */
+.progress-track {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 48px;
+  backdrop-filter: blur(12px);
+}
+.progress-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.progress-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.progress-step:last-child { flex: 0 0 auto; }
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all 0.3s;
+  position: relative;
+}
+.step-circle.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(var(--purple-rgb), 0.2);
+  animation: pulseGlow 2s ease infinite;
+}
+.step-circle.done {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(var(--purple-rgb), 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(var(--purple-rgb), 0); }
+}
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 8px;
+  transition: background 0.3s;
+}
+.step-line.filled { background: var(--purple); }
+
+/* Mobile progress */
+.progress-mobile {
+  display: none;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+@media (max-width: 640px) {
+  .progress-inner { display: none; }
+  .progress-mobile { display: block; }
+  .progress-track { padding: 14px 24px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   FORM LAYOUT
+   ══════════════════════════════════════════════════════════ */
+.form-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 100px 48px 80px;
+}
+@media (max-width: 640px) {
+  .form-wrap { padding: 80px 20px 60px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   STEP SECTIONS
+   ══════════════════════════════════════════════════════════ */
+.step {
+  display: none;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.step.active {
+  display: block;
+}
+.step.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+.step.slide-out-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* Accent pill */
+.accent-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.accent-purple  { background: var(--purple); }
+.accent-teal    { background: var(--teal); }
+.accent-coral   { background: var(--coral); }
+.accent-gold    { background: #b8960c; color: #fff; }
+
+.step h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.step .step-sub {
+  font-size: 15px;
+  color: var(--text-sub);
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FORM FIELDS
+   ══════════════════════════════════════════════════════════ */
+.field {
+  margin-bottom: 28px;
+}
+.field label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.field .note {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="url"],
+.field input[type="number"],
+.field textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(var(--purple-rgb), 0.12);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+}
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 540px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PLATFORM CARDS (clickable checkboxes)
+   ══════════════════════════════════════════════════════════ */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+@media (max-width: 540px) {
+  .platform-grid { grid-template-columns: 1fr 1fr; }
+}
+.platform-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  user-select: none;
+}
+.platform-card:hover {
+  border-color: var(--border-soft);
+  background: var(--surface-2);
+}
+.platform-card.selected {
+  border-color: var(--purple);
+  background: var(--purple-dim);
+  box-shadow: 0 0 0 3px rgba(var(--purple-rgb), 0.12);
+}
+.platform-card .emoji {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+.platform-card .name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+}
+.platform-card input { display: none; }
+
+/* Dynamic handle fields */
+.handle-fields {
+  margin-top: 20px;
+}
+.handle-field {
+  display: none;
+  margin-bottom: 16px;
+}
+.handle-field.visible { display: block; }
+.handle-field label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+.handle-field input {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.handle-field input:focus { border-color: var(--purple); }
+.handle-field input::placeholder { color: var(--text-muted); }
+
+/* ══════════════════════════════════════════════════════════
+   SELECT CARDS (single-select, styled like platform cards)
+   ══════════════════════════════════════════════════════════ */
+.select-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+@media (max-width: 540px) {
+  .select-cards { grid-template-columns: 1fr; }
+}
+.select-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  user-select: none;
+}
+.select-card:hover {
+  border-color: var(--border-soft);
+  background: var(--surface-2);
+}
+.select-card.selected {
+  border-color: var(--purple);
+  background: var(--purple-dim);
+}
+.select-card input { display: none; }
+
+/* ══════════════════════════════════════════════════════════
+   TOGGLE (Yes/No/Kind of)
+   ══════════════════════════════════════════════════════════ */
+.toggle-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.toggle-btn {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+  color: var(--text);
+}
+.toggle-btn:hover { border-color: var(--border-soft); }
+.toggle-btn.selected {
+  border-color: var(--purple);
+  background: var(--purple-dim);
+}
+.toggle-btn input { display: none; }
+
+/* ══════════════════════════════════════════════════════════
+   DYNAMIC PER-PLATFORM SECTIONS (Step 4)
+   ══════════════════════════════════════════════════════════ */
+.platform-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  margin-bottom: 24px;
+}
+.platform-section h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.platform-section h3 .emoji { font-size: 22px; }
+
+/* Conditional reveal field */
+.conditional-field {
+  display: none;
+  margin-top: 12px;
+}
+.conditional-field.visible { display: block; }
+
+/* ══════════════════════════════════════════════════════════
+   SUMMARY CARD (Step 7)
+   ══════════════════════════════════════════════════════════ */
+.summary-card {
+  background: var(--surface);
+  border: 1.5px solid rgba(var(--purple-rgb), 0.25);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  margin-top: 40px;
+}
+.summary-card h4 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.summary-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.5;
+}
+.summary-list .num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--purple-dim);
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAVIGATION BUTTONS
+   ══════════════════════════════════════════════════════════ */
+.form-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+  gap: 16px;
+}
+.btn-continue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 20px rgba(var(--purple-rgb), 0.3);
+  white-space: nowrap;
+}
+.btn-continue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(var(--purple-rgb), 0.45);
+}
+.btn-submit {
+  background: linear-gradient(135deg, var(--purple), var(--magenta));
+  padding: 18px 44px;
+  font-size: 17px;
+}
+.btn-submit:hover {
+  box-shadow: 0 8px 40px rgba(var(--purple-rgb), 0.5);
+}
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+  font-family: var(--font-body);
+}
+.btn-back:hover { color: var(--text); }
+
+/* ══════════════════════════════════════════════════════════
+   SUCCESS STATE
+   ══════════════════════════════════════════════════════════ */
+.success-wrap {
+  display: none;
+  text-align: center;
+  padding: 120px 24px 80px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.success-wrap.visible { display: block; }
+.success-wrap h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+}
+.success-wrap .sub {
+  font-size: 17px;
+  color: var(--text-sub);
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+.success-wrap .btn-continue { margin-bottom: 16px; }
+
+/* ══════════════════════════════════════════════════════════
+   CONFETTI
+   ══════════════════════════════════════════════════════════ */
+.confetti-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ══════════════════════════════════════════════════════════
+   VALIDATION
+   ══════════════════════════════════════════════════════════ */
+.field.invalid input,
+.field.invalid textarea {
+  border-color: #ef4444;
+}
+.field .validation-msg {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  display: none;
+}
+.field.invalid .validation-msg { display: block; }
+
+/* ══════════════════════════════════════════════════════════
+   GLOW
+   ══════════════════════════════════════════════════════════ */
+.ambient-glow {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--purple-rgb), 0.08) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+  </style>
 </head>
 <body>
-  <div id="site-nav"></div>
 
-  <main>
-    <section class="hero">
-      <h1>Let's dig into your social.</h1>
-      <p class="subheading">We'll analyze your accounts, uncover what's working and what isn't, and give you a roadmap to grow.</p>
-    </section>
+<div class="ambient-glow"></div>
 
-    <div class="form-container">
-      <div class="form-note">
-        <p><strong>Important:</strong> Complete this form after purchasing your audit. If you haven't yet, <a href="services.html">grab it here →</a></p>
+<!-- ══════ PROGRESS TRACKER ══════ -->
+<div class="progress-track">
+  <div class="progress-inner" id="progressDesktop">
+    <div class="progress-step"><div class="step-circle active" data-step="1">1</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="2">2</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="3">3</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="4">4</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="5">5</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="6">6</div><div class="step-line"></div></div>
+    <div class="progress-step"><div class="step-circle" data-step="7">7</div></div>
+  </div>
+  <div class="progress-mobile" id="progressMobile">Step <span id="mobileStep">1</span> of 7</div>
+</div>
+
+<!-- ══════ FORM ══════ -->
+<div class="form-wrap" id="formWrap">
+
+  <!-- ──── STEP 1: The basics ──── -->
+  <div class="step active" data-step="1" id="step1">
+    <span class="accent-pill accent-purple">Step 1</span>
+    <h2>Let's start with you.</h2>
+    <p class="step-sub">Basic info so we know who we're talking to.</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="fullName">Full name *</label>
+        <input type="text" id="fullName" name="full_name" required>
+        <span class="validation-msg">Please enter your name.</span>
       </div>
-
-      <div class="progress-bar">
-        <div class="progress-step active" id="step-1-indicator">
-          <div class="step-number">1</div>
-          <div class="step-label">Your Business</div>
-        </div>
-        <div class="progress-step" id="step-2-indicator">
-          <div class="step-number">2</div>
-          <div class="step-label">Your Socials</div>
-        </div>
-        <div class="progress-step" id="step-3-indicator">
-          <div class="step-number">3</div>
-          <div class="step-label">Your Goals</div>
-        </div>
-        <div class="progress-step" id="step-4-indicator">
-          <div class="step-number">4</div>
-          <div class="step-label">Context</div>
-        </div>
+      <div class="field">
+        <label for="businessName">Business name *</label>
+        <input type="text" id="businessName" name="business_name" required>
+        <span class="validation-msg">Please enter your business name.</span>
       </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="websiteUrl">Website URL</label>
+        <input type="url" id="websiteUrl" name="website_url" placeholder="https://">
+      </div>
+      <div class="field">
+        <label for="emailAddr">Email address *</label>
+        <input type="email" id="emailAddr" name="email" required>
+        <p class="note">This is where we'll send your completed audit.</p>
+        <span class="validation-msg">Please enter a valid email.</span>
+      </div>
+    </div>
 
-      <form id="auditForm" name="audit-intake" data-netlify="true">
-        <input type="hidden" name="form-name" value="audit-intake">
-        <!-- Section 1: Your Business -->
-        <section class="form-section active" data-section="1">
-          <h2>Your Business</h2>
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" required>
-          </div>
-          <div class="form-group">
-            <label for="businessName">Business Name</label>
-            <input type="text" id="businessName" name="businessName" required>
-          </div>
-          <div class="form-group">
-            <label for="industry">Industry</label>
-            <input type="text" id="industry" name="industry" placeholder="e.g., Fitness, Coaching, E-commerce" required>
-          </div>
-          <div class="form-group-inline">
-            <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" id="location" name="location" placeholder="City, State" required>
-            </div>
-            <div class="form-group">
-              <label for="website">Website (if you have one)</label>
-              <input type="url" id="website" name="website" placeholder="https://example.com">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="yearsInBusiness">How long have you been in business?</label>
-            <select id="yearsInBusiness" name="yearsInBusiness" required>
-              <option value="">Select...</option>
-              <option value="less-than-1">Less than 1 year</option>
-              <option value="1-2">1-2 years</option>
-              <option value="2-5">2-5 years</option>
-              <option value="5-10">5-10 years</option>
-              <option value="10-plus">10+ years</option>
-            </select>
-          </div>
-        </section>
+    <label style="font-weight:500;font-size:14px;margin-bottom:12px;display:block;">Which platforms do you want audited? *</label>
+    <div class="platform-grid" id="platformGrid">
+      <label class="platform-card" data-platform="instagram">
+        <input type="checkbox" name="platforms" value="instagram">
+        <span class="emoji">📸</span>
+        <span class="name">Instagram</span>
+      </label>
+      <label class="platform-card" data-platform="tiktok">
+        <input type="checkbox" name="platforms" value="tiktok">
+        <span class="emoji">🎵</span>
+        <span class="name">TikTok</span>
+      </label>
+      <label class="platform-card" data-platform="facebook">
+        <input type="checkbox" name="platforms" value="facebook">
+        <span class="emoji">👤</span>
+        <span class="name">Facebook</span>
+      </label>
+      <label class="platform-card" data-platform="linkedin">
+        <input type="checkbox" name="platforms" value="linkedin">
+        <span class="emoji">💼</span>
+        <span class="name">LinkedIn</span>
+      </label>
+      <label class="platform-card" data-platform="youtube">
+        <input type="checkbox" name="platforms" value="youtube">
+        <span class="emoji">▶️</span>
+        <span class="name">YouTube</span>
+      </label>
+      <label class="platform-card" data-platform="pinterest">
+        <input type="checkbox" name="platforms" value="pinterest">
+        <span class="emoji">📌</span>
+        <span class="name">Pinterest</span>
+      </label>
+      <label class="platform-card" data-platform="twitter">
+        <input type="checkbox" name="platforms" value="twitter">
+        <span class="emoji">𝕏</span>
+        <span class="name">Twitter/X</span>
+      </label>
+    </div>
 
-        <!-- Section 2: Your Socials -->
-        <section class="form-section" data-section="2">
-          <h2>Your Social Accounts</h2>
-          <div class="form-group">
-            <label for="instagramHandle">Instagram Handle</label>
-            <input type="text" id="instagramHandle" name="instagramHandle" placeholder="@yourhandle" required>
-          </div>
-          <div class="form-group">
-            <label for="tiktokHandle">TikTok Handle (optional)</label>
-            <input type="text" id="tiktokHandle" name="tiktokHandle" placeholder="@yourhandle">
-          </div>
-          <div class="form-group">
-            <label for="facebookHandle">Facebook (optional)</label>
-            <input type="text" id="facebookHandle" name="facebookHandle" placeholder="Page name or URL">
-          </div>
-          <div class="form-group">
-            <label>Other platforms you use:</label>
-            <div class="checkbox-group">
-              <div class="checkbox-item">
-                <input type="checkbox" id="pinterest" name="otherPlatforms" value="Pinterest">
-                <label for="pinterest">Pinterest</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="linkedin" name="otherPlatforms" value="LinkedIn">
-                <label for="linkedin">LinkedIn</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="youtube" name="otherPlatforms" value="YouTube">
-                <label for="youtube">YouTube</label>
-              </div>
-              <div class="checkbox-item">
-                <input type="checkbox" id="twitter" name="otherPlatforms" value="Twitter/X">
-                <label for="twitter">Twitter/X</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="primaryPlatform">Which platform drives the most results for you?</label>
-            <select id="primaryPlatform" name="primaryPlatform" required>
-              <option value="">Select...</option>
-              <option value="instagram">Instagram</option>
-              <option value="tiktok">TikTok</option>
-              <option value="facebook">Facebook</option>
-              <option value="pinterest">Pinterest</option>
-              <option value="linkedin">LinkedIn</option>
-              <option value="youtube">YouTube</option>
-              <option value="twitter">Twitter/X</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </section>
-
-        <!-- Section 3: Your Goals -->
-        <section class="form-section" data-section="3">
-          <h2>Your Goals</h2>
-          <div class="form-group">
-            <label for="auditExpectations">What are you hoping to get from this audit?</label>
-            <textarea id="auditExpectations" name="auditExpectations" placeholder="Tell us what you want to learn..." required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="successLook">What does success look like in 90 days?</label>
-            <textarea id="successLook" name="successLook" placeholder="More followers? More sales? Better engagement?" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="biggestStruggle">What's your biggest social media struggle right now?</label>
-            <select id="biggestStruggle" name="biggestStruggle" required>
-              <option value="">Select...</option>
-              <option value="content-ideas">Content ideas</option>
-              <option value="posting-consistency">Posting consistency</option>
-              <option value="getting-engagement">Getting engagement</option>
-              <option value="growing-followers">Growing followers</option>
-              <option value="converting-customers">Converting followers to customers</option>
-              <option value="something-else">Something else</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="monthlyBudget">What's your monthly social media budget?</label>
-            <select id="monthlyBudget" name="monthlyBudget" required>
-              <option value="">Select...</option>
-              <option value="0">$0 (organic only)</option>
-              <option value="100-500">$100-500</option>
-              <option value="500-1000">$500-1,000</option>
-              <option value="1000-5000">$1,000-5,000</option>
-              <option value="5000-plus">$5,000+</option>
-            </select>
-          </div>
-        </section>
-
-        <!-- Section 4: Context -->
-        <section class="form-section" data-section="4">
-          <h2>Context</h2>
-          <div class="form-group">
-            <label for="idealCustomer">Who is your ideal customer? What are they like?</label>
-            <textarea id="idealCustomer" name="idealCustomer" placeholder="Describe your ideal customer..." required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="competitors">Who do you consider competitors? (2-3 accounts)</label>
-            <textarea id="competitors" name="competitors" placeholder="List competitors or accounts you look up to..." required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Have you worked with a social media strategist before?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="strategy-yes" name="workedWithStrategist" value="yes" required>
-                <label for="strategy-yes">Yes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="strategy-no" name="workedWithStrategist" value="no">
-                <label for="strategy-no">No</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="strategy-sort-of" name="workedWithStrategist" value="sort-of">
-                <label for="strategy-sort-of">Sort of</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="extraContext">Anything else we should know?</label>
-            <textarea id="extraContext" name="extraContext" placeholder="Any other context that would help us..." required></textarea>
-          </div>
-        </section>
-      </form>
+    <div class="handle-fields" id="handleFields">
+      <div class="handle-field" data-handle="instagram">
+        <label>📸 Instagram handle or profile URL</label>
+        <input type="text" name="handle_instagram" placeholder="@yourhandle or URL">
+      </div>
+      <div class="handle-field" data-handle="tiktok">
+        <label>🎵 TikTok handle or profile URL</label>
+        <input type="text" name="handle_tiktok" placeholder="@yourhandle or URL">
+      </div>
+      <div class="handle-field" data-handle="facebook">
+        <label>👤 Facebook handle or page URL</label>
+        <input type="text" name="handle_facebook" placeholder="Page name or URL">
+      </div>
+      <div class="handle-field" data-handle="linkedin">
+        <label>💼 LinkedIn profile or company URL</label>
+        <input type="text" name="handle_linkedin" placeholder="URL or company name">
+      </div>
+      <div class="handle-field" data-handle="youtube">
+        <label>▶️ YouTube channel URL</label>
+        <input type="text" name="handle_youtube" placeholder="Channel URL">
+      </div>
+      <div class="handle-field" data-handle="pinterest">
+        <label>📌 Pinterest profile URL</label>
+        <input type="text" name="handle_pinterest" placeholder="Profile URL">
+      </div>
+      <div class="handle-field" data-handle="twitter">
+        <label>𝕏 Twitter/X handle or profile URL</label>
+        <input type="text" name="handle_twitter" placeholder="@yourhandle or URL">
+      </div>
     </div>
 
     <div class="form-nav">
-      <button class="secondary" id="prevBtn" style="display: none;">Back</button>
-      <span class="progress-text"><span id="currentStep">1</span> of 4</span>
-      <button id="nextBtn">Next →</button>
+      <div></div>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ──── STEP 2: Your business ──── -->
+  <div class="step" data-step="2" id="step2">
+    <span class="accent-pill accent-teal">Step 2</span>
+    <h2>Tell me about what you do.</h2>
+    <p class="step-sub">Pretend you're explaining it to someone at a coffee shop, not a pitch deck.</p>
+
+    <div class="field">
+      <label for="bizDesc">Describe your business in 2-3 sentences. *</label>
+      <textarea id="bizDesc" name="business_description" placeholder="We help [who] do [what] so they can [result]..." required></textarea>
+      <span class="validation-msg">Please describe your business.</span>
+    </div>
+    <div class="field">
+      <label for="idealCust">Who is your ideal customer? *</label>
+      <input type="text" id="idealCust" name="ideal_customer" required>
+      <span class="validation-msg">Please describe your ideal customer.</span>
+    </div>
+    <div class="field">
+      <label for="topProduct">What product or service drives most of your revenue? *</label>
+      <input type="text" id="topProduct" name="top_product" required>
+      <span class="validation-msg">Please enter your main product/service.</span>
+    </div>
+    <div class="field">
+      <label for="custJourney">What does a customer's journey typically look like before they find you?</label>
+      <textarea id="custJourney" name="customer_journey" placeholder="How do people typically discover your business?"></textarea>
     </div>
 
-    <div class="success-message" id="successMessage">
-      <h2>We've got your info.</h2>
-      <p>Expect your audit within 3-7 business days. We'll dive deep into your accounts and deliver actionable insights.</p>
-      <a href="index.html">Back to Home →</a>
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
     </div>
-  </main>
+  </div>
 
-  <div id="site-footer"></div>
+  <!-- ──── STEP 3: Goals and frustrations ──── -->
+  <div class="step" data-step="3" id="step3">
+    <span class="accent-pill accent-coral">Step 3</span>
+    <h2>What are you actually trying to fix?</h2>
+    <p class="step-sub">Be honest. This is where the real work starts.</p>
 
-  <script>
-    // Hamburger
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navLinks.classList.remove('open'); navToggle.classList.remove('open');
-    }));
+    <label style="font-weight:500;font-size:14px;margin-bottom:12px;display:block;">What's the #1 thing you want social media to do right now? *</label>
+    <div class="select-cards" id="goalCards" data-name="primary_goal">
+      <label class="select-card"><input type="radio" name="primary_goal" value="Get more followers">Get more followers</label>
+      <label class="select-card"><input type="radio" name="primary_goal" value="Drive website traffic">Drive website traffic</label>
+      <label class="select-card"><input type="radio" name="primary_goal" value="Generate leads">Generate leads</label>
+      <label class="select-card"><input type="radio" name="primary_goal" value="Build brand awareness">Build brand awareness</label>
+      <label class="select-card"><input type="radio" name="primary_goal" value="Increase sales">Increase sales</label>
+      <label class="select-card"><input type="radio" name="primary_goal" value="Something else">Something else</label>
+    </div>
 
-    // Form handling
-    let currentStep = 1;
-    const form = document.getElementById('auditForm');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const currentStepSpan = document.getElementById('currentStep');
-    const successMessage = document.getElementById('successMessage');
+    <div class="field">
+      <label for="frustration">What's been your biggest frustration with social media over the last 6 months? *</label>
+      <textarea id="frustration" name="biggest_frustration" placeholder="Don't hold back..." required></textarea>
+      <span class="validation-msg">Please share your frustration.</span>
+    </div>
 
-    const sections = document.querySelectorAll('.form-section');
-    const totalSteps = sections.length;
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
+    </div>
+  </div>
 
-    function showStep(step) {
-      sections.forEach((section, index) => {
-        section.classList.remove('active');
-        const indicator = document.getElementById(`step-${index + 1}-indicator`);
-        indicator.classList.remove('active');
-        if (index + 1 < step) {
-          indicator.classList.add('complete');
-        }
-        if (index + 1 === step) {
-          section.classList.add('active');
-          indicator.classList.add('active');
-        }
-      });
+  <!-- ──── STEP 4: Current presence ──── -->
+  <div class="step" data-step="4" id="step4">
+    <span class="accent-pill accent-gold">Step 4</span>
+    <h2>Let's look at where you are right now.</h2>
+    <p class="step-sub">For each platform you selected, answer these quick questions.</p>
 
-      currentStepSpan.textContent = step;
-      prevBtn.style.display = step === 1 ? 'none' : 'block';
-      nextBtn.textContent = step === totalSteps ? 'Submit My Intake Form →' : 'Next →';
+    <div id="platformSections">
+      <!-- Dynamically generated per selected platform -->
+    </div>
 
-      window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
-    }
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
+    </div>
+  </div>
 
-    function validateStep(step) {
-      const section = document.querySelector(`[data-section="${step}"]`);
-      const inputs = section.querySelectorAll('input[required], select[required], textarea[required]');
-      let isValid = true;
+  <!-- ──── STEP 5: Content and voice ──── -->
+  <div class="step" data-step="5" id="step5">
+    <span class="accent-pill accent-purple">Step 5</span>
+    <h2>How are you showing up content-wise?</h2>
+    <p class="step-sub">Let's talk about what you're actually posting.</p>
 
-      inputs.forEach(input => {
-        if (input.type === 'radio') {
-          const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
-          let anyChecked = false;
-          radioGroup.forEach(radio => { if (radio.checked) anyChecked = true; });
-          if (!anyChecked) isValid = false;
-        } else if (input.type === 'checkbox') {
-          // Skip individual checkboxes validation
-        } else if (!input.value.trim()) {
-          isValid = false;
-        }
-      });
+    <label style="font-weight:500;font-size:14px;margin-bottom:12px;display:block;">How would you describe your current content style? *</label>
+    <div class="select-cards" data-name="content_style">
+      <label class="select-card"><input type="radio" name="content_style" value="Educational">Educational</label>
+      <label class="select-card"><input type="radio" name="content_style" value="Promotional">Promotional</label>
+      <label class="select-card"><input type="radio" name="content_style" value="Behind-the-scenes">Behind-the-scenes</label>
+      <label class="select-card"><input type="radio" name="content_style" value="Entertainment/personality">Entertainment/personality</label>
+      <label class="select-card"><input type="radio" name="content_style" value="A mix of everything">A mix of everything</label>
+    </div>
 
-      return isValid;
-    }
+    <label style="font-weight:500;font-size:14px;margin-bottom:12px;display:block;">Do you have a brand voice or style guide?</label>
+    <div class="toggle-group" id="brandVoiceToggle" data-name="has_brand_voice">
+      <label class="toggle-btn"><input type="radio" name="has_brand_voice" value="Yes">Yes</label>
+      <label class="toggle-btn"><input type="radio" name="has_brand_voice" value="No">No</label>
+      <label class="toggle-btn"><input type="radio" name="has_brand_voice" value="Kind of">Kind of</label>
+    </div>
 
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    <div class="field" style="margin-top:20px;">
+      <label for="samplePosts">Paste 3-5 examples of posts that best represent your brand.</label>
+      <textarea id="samplePosts" name="sample_posts" placeholder="Links, descriptions, or just copy-paste the caption."></textarea>
+    </div>
 
-      if (!validateStep(currentStep)) {
-        alert('Please fill in all required fields before proceeding.');
-        return;
-      }
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
+    </div>
+  </div>
 
-      if (currentStep === totalSteps) {
-        // Submit form data to Netlify
-        const formData = new FormData(form);
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
-        }).catch(() => { /* Netlify handles it; ignore fetch errors in dev */ });
-        form.style.display = 'none';
-        document.querySelector('.form-nav').style.display = 'none';
-        document.querySelector('.form-note').style.display = 'none';
-        document.querySelector('.progress-bar').style.display = 'none';
-        successMessage.classList.add('show');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        currentStep++;
-        showStep(currentStep);
-      }
-    });
+  <!-- ──── STEP 6: Competitors ──── -->
+  <div class="step" data-step="6" id="step6">
+    <span class="accent-pill accent-teal">Step 6</span>
+    <h2>Who's doing it right in your space?</h2>
+    <p class="step-sub">This helps me understand the world you're competing in.</p>
 
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentStep > 1) {
-        currentStep--;
-        showStep(currentStep);
-      }
-    });
+    <div class="field">
+      <label for="competitors">Name 2-3 competitors or accounts in your industry whose social media you admire. *</label>
+      <textarea id="competitors" name="competitors" placeholder="Handles or business names, doesn't matter" required></textarea>
+      <span class="validation-msg">Please share at least one competitor.</span>
+    </div>
+    <div class="field">
+      <label for="compStrength">What do you think they're doing better than you right now?</label>
+      <textarea id="compStrength" name="competitor_strengths" placeholder="Be specific if you can"></textarea>
+    </div>
 
-    showStep(currentStep);
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue" type="button" onclick="goNext()">Continue →</button>
+    </div>
+  </div>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  <!-- ──── STEP 7: Last things ──── -->
+  <div class="step" data-step="7" id="step7">
+    <span class="accent-pill accent-coral">Step 7</span>
+    <h2>Almost done. Two last things.</h2>
+    <p class="step-sub">You're so close. Just a couple more.</p>
 
-<!-- MOUSE GLOW -->
-<div class="mouse-glow" id="mouseGlow"></div>
+    <div class="field">
+      <label for="triedBefore">Is there anything you've already tried to fix that hasn't worked?</label>
+      <textarea id="triedBefore" name="tried_before" placeholder="We want to know so we don't tell you to do the same thing again."></textarea>
+    </div>
+    <div class="field">
+      <label for="anythingElse">Anything else you want me to know before I dig in?</label>
+      <textarea id="anythingElse" name="anything_else" placeholder="Open floor. Whatever feels relevant."></textarea>
+    </div>
+
+    <div class="summary-card">
+      <h4>Here's what happens next:</h4>
+      <ul class="summary-list">
+        <li><span class="num">1</span>We review your intake (usually within 24 hours)</li>
+        <li><span class="num">2</span>Your audit is delivered to your email within 5-7 business days</li>
+        <li><span class="num">3</span>Review your audit and book a follow-up call if you want to go deeper</li>
+      </ul>
+    </div>
+
+    <div class="form-nav">
+      <button class="btn-back" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-continue btn-submit" type="button" onclick="submitForm()">Submit My Intake →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════ SUCCESS STATE ══════ -->
+<div class="success-wrap" id="successWrap">
+  <h2>You're all set.</h2>
+  <p class="sub">Your audit is officially in the queue. Check your inbox over the next 5-7 business days.</p>
+  <a href="audit-complete.html" class="btn-continue" style="text-decoration:none;display:inline-flex;">See What's Next →</a>
+</div>
+
+<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
 <script>
-  (function() {
-    var glow = document.getElementById('mouseGlow');
-    if (!glow) return;
-    var rx = 0, ry = 0;
-    document.addEventListener('mousemove', function(e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
+(function() {
+  'use strict';
+
+  /* ══════════════════════════════════════════════════════
+     CONFIG
+     ══════════════════════════════════════════════════════ */
+  /* <!-- WEBHOOK_URL --> */
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzd1_mWfBsR_JDjyFwsEoWhhfIIElVPUeHkBCRekXme3IwUiSZdjWHOu8EXBUYezTy-/exec';
+
+  var currentStep = 1;
+  var totalSteps = 7;
+  var STORAGE_KEY = 'lsc_audit_intake';
+
+  /* Platform data for dynamic generation */
+  var platformMeta = {
+    instagram: { emoji: '📸', name: 'Instagram' },
+    tiktok:    { emoji: '🎵', name: 'TikTok' },
+    facebook:  { emoji: '👤', name: 'Facebook' },
+    linkedin:  { emoji: '💼', name: 'LinkedIn' },
+    youtube:   { emoji: '▶️', name: 'YouTube' },
+    pinterest: { emoji: '📌', name: 'Pinterest' },
+    twitter:   { emoji: '𝕏', name: 'Twitter/X' }
+  };
+
+  /* ══════════════════════════════════════════════════════
+     PLATFORM CARD SELECTION
+     ══════════════════════════════════════════════════════ */
+  var platformCards = document.querySelectorAll('.platform-card');
+  platformCards.forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      var cb = this.querySelector('input[type="checkbox"]');
+      /* Let the label toggle the checkbox naturally */
+      this.classList.toggle('selected', cb.checked);
+      updateHandleFields();
+      saveState();
     });
-  })();
+    /* Sync on initial load */
+    var cb = card.querySelector('input');
+    if (cb.checked) card.classList.add('selected');
+  });
+
+  function updateHandleFields() {
+    var fields = document.querySelectorAll('.handle-field');
+    fields.forEach(function(f) {
+      var platform = f.getAttribute('data-handle');
+      var cb = document.querySelector('.platform-card[data-platform="' + platform + '"] input');
+      if (cb && cb.checked) {
+        f.classList.add('visible');
+      } else {
+        f.classList.remove('visible');
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SELECT CARDS (single-select)
+     ══════════════════════════════════════════════════════ */
+  document.querySelectorAll('.select-cards').forEach(function(group) {
+    group.querySelectorAll('.select-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        group.querySelectorAll('.select-card').forEach(function(c) { c.classList.remove('selected'); });
+        this.classList.add('selected');
+        saveState();
+      });
+      if (card.querySelector('input:checked')) card.classList.add('selected');
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════
+     TOGGLE BUTTONS
+     ══════════════════════════════════════════════════════ */
+  document.querySelectorAll('.toggle-group').forEach(function(group) {
+    group.querySelectorAll('.toggle-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        group.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('selected'); });
+        this.classList.add('selected');
+        saveState();
+      });
+      if (btn.querySelector('input:checked')) btn.classList.add('selected');
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════
+     STEP 4: DYNAMIC PLATFORM SECTIONS
+     ══════════════════════════════════════════════════════ */
+  function buildPlatformSections() {
+    var container = document.getElementById('platformSections');
+    container.innerHTML = '';
+    var selected = getSelectedPlatforms();
+    if (selected.length === 0) {
+      container.innerHTML = '<p style="color:var(--text-muted);font-size:14px;">No platforms selected. Go back to Step 1 to choose platforms.</p>';
+      return;
+    }
+    selected.forEach(function(p) {
+      var meta = platformMeta[p];
+      var section = document.createElement('div');
+      section.className = 'platform-section';
+      section.setAttribute('data-platform-section', p);
+      section.innerHTML = '<h3><span class="emoji">' + meta.emoji + '</span> ' + meta.name + '</h3>' +
+        '<label style="font-weight:500;font-size:14px;margin-bottom:10px;display:block;">How long have you been active?</label>' +
+        '<div class="select-cards" data-name="active_time_' + p + '">' +
+          '<label class="select-card"><input type="radio" name="active_time_' + p + '" value="Under 6 months">Under 6 months</label>' +
+          '<label class="select-card"><input type="radio" name="active_time_' + p + '" value="6-12 months">6-12 months</label>' +
+          '<label class="select-card"><input type="radio" name="active_time_' + p + '" value="1-2 years">1-2 years</label>' +
+          '<label class="select-card"><input type="radio" name="active_time_' + p + '" value="3+ years">3+ years</label>' +
+        '</div>' +
+        '<label style="font-weight:500;font-size:14px;margin-bottom:10px;display:block;">How often do you post?</label>' +
+        '<div class="select-cards" data-name="post_freq_' + p + '">' +
+          '<label class="select-card"><input type="radio" name="post_freq_' + p + '" value="Daily">Daily</label>' +
+          '<label class="select-card"><input type="radio" name="post_freq_' + p + '" value="A few times a week">A few times a week</label>' +
+          '<label class="select-card"><input type="radio" name="post_freq_' + p + '" value="Weekly">Weekly</label>' +
+          '<label class="select-card"><input type="radio" name="post_freq_' + p + '" value="Sporadically">Sporadically</label>' +
+        '</div>' +
+        '<div class="field"><label>Current follower count</label><input type="text" name="followers_' + p + '" placeholder="approximate is fine"></div>' +
+        '<label style="font-weight:500;font-size:14px;margin-bottom:10px;display:block;">Do you track your analytics?</label>' +
+        '<div class="toggle-group" data-name="tracks_analytics_' + p + '">' +
+          '<label class="toggle-btn"><input type="radio" name="tracks_analytics_' + p + '" value="Yes">Yes</label>' +
+          '<label class="toggle-btn"><input type="radio" name="tracks_analytics_' + p + '" value="No">No</label>' +
+        '</div>' +
+        '<div class="conditional-field" data-condition="tracks_analytics_' + p + '" data-value="Yes">' +
+          '<div class="field"><label>What\'s your average reach or engagement rate?</label>' +
+          '<input type="text" name="engagement_' + p + '" placeholder="e.g. 3.2% engagement, 800 reach per post"></div>' +
+        '</div>';
+      container.appendChild(section);
+    });
+
+    /* Re-bind select cards and toggles in new sections */
+    container.querySelectorAll('.select-cards').forEach(function(group) {
+      group.querySelectorAll('.select-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          group.querySelectorAll('.select-card').forEach(function(c) { c.classList.remove('selected'); });
+          this.classList.add('selected');
+          saveState();
+        });
+      });
+    });
+    container.querySelectorAll('.toggle-group').forEach(function(group) {
+      group.querySelectorAll('.toggle-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          group.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('selected'); });
+          this.classList.add('selected');
+          /* Check conditional reveals */
+          var name = group.getAttribute('data-name');
+          var val = this.querySelector('input').value;
+          var cond = document.querySelector('[data-condition="' + name + '"]');
+          if (cond) {
+            cond.classList.toggle('visible', cond.getAttribute('data-value') === val);
+          }
+          saveState();
+        });
+      });
+    });
+  }
+
+  function getSelectedPlatforms() {
+    var selected = [];
+    document.querySelectorAll('.platform-card input:checked').forEach(function(cb) {
+      selected.push(cb.value);
+    });
+    return selected;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════════════════ */
+  window.goNext = function() {
+    if (!validateStep(currentStep)) return;
+    if (currentStep === 1) buildPlatformSections();
+    if (currentStep >= totalSteps) return;
+
+    var current = document.querySelector('.step[data-step="' + currentStep + '"]');
+    current.classList.add('slide-out-left');
+
+    setTimeout(function() {
+      current.classList.remove('active', 'slide-in', 'slide-out-left');
+      current.style.display = 'none';
+      currentStep++;
+      showStep(currentStep);
+      saveState();
+    }, 300);
+  };
+
+  window.goBack = function() {
+    if (currentStep <= 1) return;
+    var current = document.querySelector('.step[data-step="' + currentStep + '"]');
+    current.classList.remove('active', 'slide-in');
+    current.style.display = 'none';
+    currentStep--;
+    showStep(currentStep);
+    saveState();
+  };
+
+  function showStep(step) {
+    var el = document.querySelector('.step[data-step="' + step + '"]');
+    el.style.display = 'block';
+    el.classList.add('active');
+    /* Trigger slide-in animation */
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        el.classList.add('slide-in');
+      });
+    });
+    updateProgress(step);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('mobileStep').textContent = step;
+  }
+
+  function updateProgress(step) {
+    var circles = document.querySelectorAll('.step-circle');
+    var lines = document.querySelectorAll('.step-line');
+    circles.forEach(function(c, i) {
+      c.classList.remove('active', 'done');
+      if (i + 1 < step) { c.classList.add('done'); c.textContent = '✓'; }
+      else if (i + 1 === step) { c.classList.add('active'); c.textContent = i + 1; }
+      else { c.textContent = i + 1; }
+    });
+    lines.forEach(function(l, i) {
+      l.classList.toggle('filled', i + 1 < step);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     VALIDATION
+     ══════════════════════════════════════════════════════ */
+  function validateStep(step) {
+    var el = document.querySelector('.step[data-step="' + step + '"]');
+    var valid = true;
+
+    /* Check required text/email/textarea */
+    el.querySelectorAll('input[required], textarea[required]').forEach(function(inp) {
+      var field = inp.closest('.field');
+      if (!inp.value.trim()) {
+        if (field) field.classList.add('invalid');
+        valid = false;
+      } else {
+        if (field) field.classList.remove('invalid');
+      }
+      if (inp.type === 'email' && inp.value.trim()) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(inp.value.trim())) {
+          if (field) field.classList.add('invalid');
+          valid = false;
+        }
+      }
+    });
+
+    /* Step 1: at least one platform */
+    if (step === 1) {
+      var anyPlatform = document.querySelector('.platform-card input:checked');
+      if (!anyPlatform) {
+        valid = false;
+        /* Flash platform grid border */
+        document.getElementById('platformGrid').style.outline = '2px solid #ef4444';
+        document.getElementById('platformGrid').style.borderRadius = '12px';
+        setTimeout(function() { document.getElementById('platformGrid').style.outline = 'none'; }, 2000);
+      }
+    }
+
+    /* Step 3: goal selection */
+    if (step === 3) {
+      var goalPicked = document.querySelector('input[name="primary_goal"]:checked');
+      if (!goalPicked) valid = false;
+    }
+
+    return valid;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SESSION STORAGE
+     ══════════════════════════════════════════════════════ */
+  function saveState() {
+    try {
+      var data = { step: currentStep, fields: {} };
+      document.querySelectorAll('input, textarea').forEach(function(el) {
+        if (!el.name) return;
+        if (el.type === 'checkbox') {
+          if (!data.fields[el.name]) data.fields[el.name] = [];
+          if (el.checked) data.fields[el.name].push(el.value);
+        } else if (el.type === 'radio') {
+          if (el.checked) data.fields[el.name] = el.value;
+        } else {
+          data.fields[el.name] = el.value;
+        }
+      });
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch(e) { /* ignore */ }
+  }
+
+  function loadState() {
+    try {
+      var raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (data.fields) {
+        Object.keys(data.fields).forEach(function(name) {
+          var val = data.fields[name];
+          var els = document.querySelectorAll('[name="' + name + '"]');
+          els.forEach(function(el) {
+            if (el.type === 'checkbox') {
+              el.checked = Array.isArray(val) && val.indexOf(el.value) !== -1;
+              if (el.checked) {
+                var card = el.closest('.platform-card');
+                if (card) card.classList.add('selected');
+              }
+            } else if (el.type === 'radio') {
+              el.checked = el.value === val;
+              if (el.checked) {
+                var sc = el.closest('.select-card');
+                if (sc) sc.classList.add('selected');
+                var tb = el.closest('.toggle-btn');
+                if (tb) tb.classList.add('selected');
+              }
+            } else {
+              el.value = val;
+            }
+          });
+        });
+      }
+      updateHandleFields();
+      if (data.step && data.step > 1) {
+        /* Hide step 1 and go to saved step */
+        document.querySelector('.step[data-step="1"]').classList.remove('active');
+        document.querySelector('.step[data-step="1"]').style.display = 'none';
+        if (data.step === 4 || data.step > 4) buildPlatformSections();
+        currentStep = data.step;
+        showStep(currentStep);
+      }
+    } catch(e) { /* ignore */ }
+  }
+
+  /* ══════════════════════════════════════════════════════
+     SUBMIT
+     ══════════════════════════════════════════════════════ */
+  window.submitForm = function() {
+    if (!validateStep(7)) return;
+
+    /* Gather all data */
+    var payload = { source: 'audit-intake', timestamp: new Date().toISOString() };
+    document.querySelectorAll('input, textarea').forEach(function(el) {
+      if (!el.name) return;
+      if (el.type === 'checkbox') {
+        if (!payload[el.name]) payload[el.name] = [];
+        if (el.checked) payload[el.name].push(el.value);
+      } else if (el.type === 'radio') {
+        if (el.checked) payload[el.name] = el.value;
+      } else {
+        if (el.value.trim()) payload[el.name] = el.value.trim();
+      }
+    });
+
+    /* POST to webhook */
+    /* <!-- WEBHOOK_URL --> */
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function() { /* ignore for now */ });
+
+    /* Show success */
+    document.getElementById('formWrap').style.display = 'none';
+    document.querySelector('.progress-track').style.display = 'none';
+    var sw = document.getElementById('successWrap');
+    sw.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    fireConfetti();
+
+    /* Clear saved state */
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch(e) {}
+  };
+
+  /* ══════════════════════════════════════════════════════
+     CONFETTI
+     ══════════════════════════════════════════════════════ */
+  function fireConfetti() {
+    var canvas = document.getElementById('confettiCanvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var pieces = [];
+    var colors = ['#7b2eff', '#E040FB', '#00BCD4', '#FF6B6B', '#FFD700', '#22c55e', '#fff'];
+
+    for (var i = 0; i < 120; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        w: Math.random() * 8 + 4,
+        h: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vy: Math.random() * 3 + 2,
+        vx: (Math.random() - 0.5) * 2,
+        rot: Math.random() * 360,
+        vr: (Math.random() - 0.5) * 8,
+        opacity: 1
+      });
+    }
+
+    var startTime = Date.now();
+    function animate() {
+      var elapsed = Date.now() - startTime;
+      if (elapsed > 3000) { canvas.style.display = 'none'; return; }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var fadeFactor = elapsed > 2000 ? 1 - (elapsed - 2000) / 1000 : 1;
+
+      pieces.forEach(function(p) {
+        p.y += p.vy;
+        p.x += p.vx;
+        p.rot += p.vr;
+        p.opacity = fadeFactor;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot * Math.PI / 180);
+        ctx.globalAlpha = p.opacity;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      requestAnimationFrame(animate);
+    }
+    canvas.style.display = 'block';
+    animate();
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+     ══════════════════════════════════════════════════════ */
+  /* Auto-save on any input change */
+  document.addEventListener('input', function() { saveState(); });
+
+  /* Load saved state */
+  loadState();
+
+  /* Initial step display */
+  var initialStep = document.querySelector('.step[data-step="' + currentStep + '"]');
+  if (initialStep) {
+    initialStep.style.display = 'block';
+    initialStep.classList.add('active', 'slide-in');
+  }
+  updateProgress(currentStep);
+})();
 </script>
-  <script src="assets/site-components.js"></script>
+
 </body>
 </html>

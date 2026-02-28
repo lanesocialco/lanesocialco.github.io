@@ -230,6 +230,66 @@
   .process-step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
   .process-step p { font-size: 15px; line-height: 1.65; color: var(--text-sub); }
 
+  /* TESTIMONIAL STRIP */
+  .testimonial-strip {
+    padding: 0 48px 100px;
+    background: var(--bg);
+  }
+  .ts-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .ts-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .ts-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    border-color: rgba(var(--purple-rgb),0.25);
+  }
+  .ts-stars {
+    color: #f59e0b;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .ts-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-sub);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .ts-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .ts-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--purple);
+    background: rgba(var(--purple-rgb),0.1);
+    border: 1px solid rgba(var(--purple-rgb),0.25);
+    border-radius: 40px;
+    padding: 3px 10px;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 900px) {
+    .testimonial-strip { padding: 0 24px 80px; }
+    .ts-inner { grid-template-columns: 1fr; }
+  }
+
   /* PRICE BLOCK */
   .price-block {
     padding: 100px 48px; background: var(--ink);
@@ -629,6 +689,30 @@
   </div>
 </section>
 
+<!-- TESTIMONIAL STRIP -->
+<section class="testimonial-strip">
+  <div class="ts-inner">
+    <div class="ts-card">
+      <div class="ts-stars" aria-label="5 stars">★★★★★</div>
+      <p class="ts-text">"First month after the audit — 12,000 new followers and over a million accounts reached. We'd been posting for two years with nothing to show for it."</p>
+      <div class="ts-attr">Entertainment Client · Las Vegas</div>
+      <div class="ts-badge">+12K followers · 15 days</div>
+    </div>
+    <div class="ts-card">
+      <div class="ts-stars" aria-label="5 stars">★★★★★</div>
+      <p class="ts-text">"The report was the most useful thing I've gotten for my business in years. Specific to my audience, my niche, my content. I knew exactly what to change the day I got it."</p>
+      <div class="ts-attr">Creative Professional · Content Creator</div>
+      <div class="ts-badge">Strategy overhaul</div>
+    </div>
+    <div class="ts-card">
+      <div class="ts-stars" aria-label="5 stars">★★★★★</div>
+      <p class="ts-text">"Class sign-ups tripled within 6 weeks. The audit figured out in a week what we'd missed for two years — our audience wanted transformation stories, not exercise demos."</p>
+      <div class="ts-attr">Dani K. · Fitness Studio Owner</div>
+      <div class="ts-badge">3× sign-up increase</div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICE BLOCK -->
 <section class="price-block" id="get-audit">
   <div class="price-block-inner">
@@ -651,7 +735,7 @@
           <li><span class="check-sm">✓</span> Prioritized action list</li>
           <li><span class="check-sm">✓</span> Delivered as a written report</li>
         </ul>
-        <a href="#" class="btn-white">Get your audit →</a>
+        <a href="audit-intake.html" class="btn-white">Get your audit →</a>
         <div class="price-note">No subscription. No retainer. Just clarity.</div>
       </div>
 

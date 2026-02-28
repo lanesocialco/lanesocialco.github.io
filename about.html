@@ -448,7 +448,7 @@
     .journey-dot { left: -26px; }
   }
 
-  /* ── BEHIND THE WORK GALLERY ────────────────────────── */
+  /* ── RESULTS GRID ───────────────────────────────────── */
   .btw-section {
     padding: 100px 48px;
     background: var(--bg);
@@ -462,57 +462,95 @@
     font-size: 17px; color: var(--text-sub);
     line-height: 1.65; max-width: 520px; margin-bottom: 48px;
   }
+  /* Masonry-style grid using named areas */
   .btw-grid {
-    columns: 3;
-    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 16px;
   }
-  .btw-item {
-    break-inside: avoid;
-    margin-bottom: 16px;
+  .btw-card {
+    border-radius: 16px;
+    padding: 32px;
     position: relative;
-    border-radius: 12px;
     overflow: hidden;
-    display: block;
-    cursor: pointer;
-  }
-  .btw-placeholder {
-    width: 100%;
-    background: var(--surface);
-    filter: grayscale(100%);
-    transition: filter 0.4s ease, transform 0.4s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
     border: 1px solid var(--border);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    cursor: default;
   }
-  .btw-item:nth-child(1) .btw-placeholder { aspect-ratio: 4/5; }
-  .btw-item:nth-child(2) .btw-placeholder { aspect-ratio: 1/1; }
-  .btw-item:nth-child(3) .btw-placeholder { aspect-ratio: 3/4; }
-  .btw-item:nth-child(4) .btw-placeholder { aspect-ratio: 16/9; }
-  .btw-item:nth-child(5) .btw-placeholder { aspect-ratio: 4/3; }
-  .btw-item:nth-child(6) .btw-placeholder { aspect-ratio: 1/1; }
-  .btw-placeholder-icon { font-size: 36px; opacity: 0.25; }
-  .btw-caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 28px 16px 16px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.78));
-    transform: translateY(100%);
-    transition: transform 0.32s ease;
-    border-radius: 0 0 12px 12px;
+  .btw-card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.18); }
+  /* Dark cards */
+  .btw-card.dark { background: #111111; border-color: rgba(255,255,255,0.08); }
+  .btw-card.purple-dim { background: rgba(var(--purple-rgb),0.08); border-color: rgba(var(--purple-rgb),0.2); }
+  .btw-card.surface { background: var(--surface); }
+  /* Tall card spans 2 rows */
+  .btw-card.tall { grid-row: span 2; }
+  /* Big metric number */
+  .btw-metric {
+    font-size: 64px; font-weight: 800; letter-spacing: -3px;
+    line-height: 1; color: var(--purple); margin-bottom: 6px;
   }
-  .btw-caption span {
-    font-size: 13px; font-weight: 600;
-    color: rgba(255,255,255,0.92);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.04em;
-    display: block; line-height: 1.5;
+  .btw-metric-label {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 18px;
   }
-  .btw-item:hover .btw-placeholder { filter: grayscale(0%); transform: scale(1.02); }
-  .btw-item:hover .btw-caption { transform: translateY(0); }
-  @media (max-width: 900px) { .btw-grid { columns: 2; } }
-  @media (max-width: 580px) { .btw-grid { columns: 1; } .btw-section { padding: 80px 24px; } }
+  .btw-card.surface .btw-metric-label { color: var(--text-muted); }
+  .btw-card-title {
+    font-size: 18px; font-weight: 700; color: #fff;
+    letter-spacing: -0.3px; margin-bottom: 8px; line-height: 1.25;
+  }
+  .btw-card.surface .btw-card-title { color: var(--text); }
+  .btw-card-body {
+    font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65;
+  }
+  .btw-card.surface .btw-card-body { color: var(--text-sub); }
+  /* Mini bar chart inside tall card */
+  .btw-bars {
+    display: flex; align-items: flex-end; gap: 5px;
+    height: 80px; margin: 24px 0 16px;
+  }
+  .btw-bar {
+    flex: 1; border-radius: 4px 4px 0 0;
+    background: rgba(var(--purple-rgb),0.2);
+    height: var(--h);
+    transition: background 0.2s;
+  }
+  .btw-bar.hi { background: var(--purple); }
+  .btw-card:hover .btw-bar.hi { background: #9b5dff; }
+  /* Tag */
+  .btw-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--purple); background: rgba(var(--purple-rgb),0.15);
+    border: 1px solid rgba(var(--purple-rgb),0.3);
+    border-radius: 40px; padding: 3px 10px;
+    margin-bottom: 16px;
+  }
+  .btw-tag.green { color: #22c55e; background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.25); }
+  /* Glow accent in dark cards */
+  .btw-card.dark::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* Process steps inside card */
+  .btw-steps { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .btw-step {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5;
+  }
+  .btw-step-num {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: var(--purple); background: rgba(var(--purple-rgb),0.15);
+    border-radius: 4px; padding: 2px 6px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  @media (max-width: 900px) { .btw-grid { grid-template-columns: 1fr 1fr; } .btw-card.tall { grid-row: span 1; } }
+  @media (max-width: 580px) { .btw-grid { grid-template-columns: 1fr; } .btw-section { padding: 80px 24px; } }
 </style>
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -629,7 +667,7 @@
     <div class="stat-label">Interactions, month one</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">1<span>M+</span></div>
+    <div class="stat-num">3<span>M+</span></div>
     <div class="stat-label">Accounts reached</div>
   </div>
   <div class="stat-item">
@@ -768,36 +806,82 @@
   </div>
 </section>
 
-<!-- BEHIND THE WORK GALLERY -->
+<!-- RESULTS GRID -->
 <section class="btw-section">
-  <div class="section-label">Behind the scenes</div>
-  <h2>Behind the work.</h2>
-  <p class="btw-intro">Not every moment makes it to a case study. Here's a look at how the work actually gets done.</p>
+  <div class="section-label">By the numbers</div>
+  <h2>The results speak for themselves.</h2>
+  <p class="btw-intro">These aren't projections. They're real outcomes from real clients who started exactly where you are now.</p>
   <div class="btw-grid">
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>Strategy session prep — client onboarding</span></div>
+
+    <!-- Card 1: Tall — growth chart -->
+    <div class="btw-card dark tall">
+      <div class="btw-tag">Las Vegas · Entertainment</div>
+      <div class="btw-metric">12K</div>
+      <div class="btw-metric-label">Followers gained · 15 days</div>
+      <div class="btw-card-title">From 800 to 12,800 in two weeks</div>
+      <div class="btw-card-body">One positioning shift and a content cadence change was all it took. The account had been stuck for 18 months before the audit.</div>
+      <div class="btw-bars" aria-hidden="true">
+        <div class="btw-bar" style="--h:12%"></div>
+        <div class="btw-bar" style="--h:18%"></div>
+        <div class="btw-bar" style="--h:24%"></div>
+        <div class="btw-bar" style="--h:31%"></div>
+        <div class="btw-bar" style="--h:45%"></div>
+        <div class="btw-bar" style="--h:62%"></div>
+        <div class="btw-bar hi" style="--h:100%"></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.06em;">Day 1 → Day 15 · organic only</div>
     </div>
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>Audit in progress — competitor analysis deep dive</span></div>
+
+    <!-- Card 2: Platform focus -->
+    <div class="btw-card purple-dim">
+      <div class="btw-tag">Retail · Local Business</div>
+      <div class="btw-metric" style="font-size:48px;">5 → 2</div>
+      <div class="btw-metric-label" style="color:var(--text-muted);">Platforms consolidated</div>
+      <div class="btw-card-title" style="color:var(--text);">Less is more — when it's the right two</div>
+      <div class="btw-card-body" style="color:var(--text-sub);">Cut three platforms, tripled engagement within 60 days. Audience was there all along — just not being talked to.</div>
     </div>
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>Content framework build — pillar mapping session</span></div>
+
+    <!-- Card 3: Engagement stat -->
+    <div class="btw-card surface">
+      <div class="btw-tag">TikTok · Service Industry</div>
+      <div class="btw-metric">+113K%</div>
+      <div class="btw-metric-label">Share increase · one post · 30 days</div>
+      <div class="btw-card-title">One positioning shift. One post. Everything changed.</div>
+      <div class="btw-card-body">The account had been stuck in how-to content for months. One content angle change triggered a share cascade that reshaped the whole account.</div>
     </div>
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>Day one of the Las Vegas restaurant campaign</span></div>
+
+    <!-- Card 4: Process card -->
+    <div class="btw-card dark">
+      <div class="btw-tag">How every audit starts</div>
+      <div class="btw-card-title">The 6-point review process</div>
+      <div class="btw-steps">
+        <div class="btw-step"><span class="btw-step-num">01</span><span>Platform fit — are you where your audience actually is?</span></div>
+        <div class="btw-step"><span class="btw-step-num">02</span><span>Content mix analysis — what types are earning and which are wasted</span></div>
+        <div class="btw-step"><span class="btw-step-num">03</span><span>Audience targeting — who's following you vs. who should be</span></div>
+        <div class="btw-step"><span class="btw-step-num">04</span><span>Profile & bio review — first impressions most people get wrong</span></div>
+        <div class="btw-step"><span class="btw-step-num">05</span><span>Competitor positioning — where the gaps are in your niche</span></div>
+        <div class="btw-step"><span class="btw-step-num">06</span><span>Priority action list — what to do first, second, and third</span></div>
+      </div>
     </div>
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>12K followers — hitting the milestone</span></div>
+
+    <!-- Card 5: Reach stat -->
+    <div class="btw-card surface">
+      <div class="btw-tag green">Organic reach</div>
+      <div class="btw-metric">3M+</div>
+      <div class="btw-metric-label">Accounts reached · $0 paid ads</div>
+      <div class="btw-card-title">No ad spend. Real reach.</div>
+      <div class="btw-card-body">Total organic reach across audited client accounts. Every number is from content strategy, not media budget.</div>
     </div>
-    <div class="btw-item">
-      <div class="btw-placeholder"><span class="btw-placeholder-icon">📸</span></div>
-      <div class="btw-caption"><span>Working remotely from Las Vegas — the usual view</span></div>
+
+    <!-- Card 6: Delivery promise -->
+    <div class="btw-card dark">
+      <div class="btw-tag">Delivery</div>
+      <div class="btw-metric" style="font-size:52px;">7</div>
+      <div class="btw-metric-label">Business days. That's the whole deal.</div>
+      <div class="btw-card-title">No waiting. No calls you didn't ask for.</div>
+      <div class="btw-card-body">You fill out the intake form. We do the work. Your report lands in your inbox in 7 business days — usually less.</div>
     </div>
+
   </div>
 </section>
 
@@ -805,10 +889,11 @@
 <section class="about-cta">
   <h2>Ready to get<br>a real <em>answer?</em></h2>
   <p>Find out exactly what's holding your social media back — and get a clear plan to fix it.</p>
-  <a href="services.html" class="btn-primary">
-    Get your social audit
-    <span class="price">$97</span>
+  <a href="product-bundle.html" class="btn-primary">
+    Get the Audit + Strategy Bundle
+    <span class="price">$200</span>
   </a>
+  <p style="margin-top:16px; font-size:14px; color:rgba(255,255,255,0.45); font-family:'DM Mono',monospace; letter-spacing:0.04em;">Or just the audit for $97 — <a href="product-audit.html" style="color:rgba(255,255,255,0.6); text-decoration:underline;">see what's included →</a></p>
   <div class="email-copy-wrap">
     <span class="email-copy-label">Or reach out directly</span>
     <button class="email-copy-btn" id="email-copy-btn" aria-label="Copy email address">

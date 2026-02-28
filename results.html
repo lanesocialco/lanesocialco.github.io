@@ -16,14 +16,16 @@
     main { max-width: 1400px; margin: 0 auto; padding: 0 80px; }
     @media (max-width: 900px) { main { padding: 0 24px; } }
 
-    .hero { padding-top: 140px; padding-bottom: 80px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,46,255,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-    .hero h1 { font-size: 72px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; position: relative; z-index: 1; }
-    .hero p { font-size: 20px; color: var(--text-sub); max-width: 600px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.6; }
+    .hero { padding-top: 140px; padding-bottom: 80px; text-align: center; position: relative; overflow: hidden; background: var(--bg); }
+    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(123,46,255,0.13) 0%, transparent 70%); pointer-events: none; }
+    .hero .section-label { position: relative; z-index: 1; display: inline-block; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 800; margin-bottom: 20px; line-height: 1.0; letter-spacing: -2.5px; position: relative; z-index: 1; color: var(--text); }
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero p { font-size: 20px; color: var(--text-sub); max-width: 580px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.65; }
     @media (max-width: 900px) {
       .hero { padding-top: 100px; padding-bottom: 60px; }
-      .hero h1 { font-size: 48px; }
-      .hero p { font-size: 16px; }
+      .hero h1 { font-size: clamp(40px, 10vw, 64px); }
+      .hero p { font-size: 17px; }
     }
 
     .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 100px; padding: 60px 40px; background: var(--bg-alt); border-radius: 12px; border: 1px solid var(--border); }
@@ -138,9 +140,10 @@
   <div id="site-nav"></div>
 
   <main>
-    <section class="hero">
-      <h1>Results that speak.</h1>
-      <p>Not vanity metrics. Real transformations. Real businesses. Real revenue impact.</p>
+    <section class="hero" aria-labelledby="results-hero-heading">
+      <div class="section-label">Client results</div>
+      <h1 id="results-hero-heading">Real businesses.<br><em>Real numbers.</em></h1>
+      <p>Not projections. Not "up to" promises. These are actual outcomes from clients who started exactly where you are now — posting consistently, getting nothing back.</p>
     </section>
 
     <section class="stats-bar reveal">
