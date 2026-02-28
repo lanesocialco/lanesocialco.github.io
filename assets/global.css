@@ -1049,3 +1049,54 @@ footer {
   margin-top: 14px;
   font-family: var(--font-mono);
 }
+
+/* ── Rainbow Glow — rotating rainbow ring + ambient glow ───────────────── */
+/* Usage: wrap any bundle/CTA element in                                    */
+/*   <div class="rainbow-glow" style="border-radius:20px;">...</div>        */
+/* The 3px padding gap IS the visible rainbow border.                       */
+/* Child elements must have their own background to cover the gradient.     */
+@keyframes rg-spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+.rainbow-glow {
+  position: relative;
+  padding: 3px;          /* thickness of the rainbow border */
+}
+
+/* Spinning conic-gradient fills the wrapper — shows as border via padding */
+.rainbow-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    #ff0040, #ff7700, #ffee00, #00ff88, #00ccff, #8800ff, #ff00cc, #ff0040
+  );
+  animation: rg-spin 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient blur glow behind the whole element */
+.rainbow-glow::after {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: inherit;
+  background: conic-gradient(
+    #ff0040, #ff7700, #ffee00, #00ff88, #00ccff, #8800ff, #ff00cc, #ff0040
+  );
+  filter: blur(26px);
+  opacity: 0.55;
+  animation: rg-spin 4s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Direct children float above the gradient, their bg covers the center */
+.rainbow-glow > * {
+  position: relative;
+  z-index: 1;
+}

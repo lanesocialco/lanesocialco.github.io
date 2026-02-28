@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials — Lane Social Co</title>
+  <meta name="description" content="Real results from real clients. See what small business owners say about Lane Social Co's social media audits and strategy sessions.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lanesocialco.com/testimonials.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Client Testimonials — Lane Social Co">
+  <meta property="og:description" content="Real results from real clients. 12K followers in 15 days. 3x bookings. See what small business owners say.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lanesocialco.com/testimonials.html">
+  <meta property="og:image" content="https://lanesocialco.com/assets/images/og-default.jpg">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/global.css">
+
+  <style>
+    /* ── Page scaffold ───────────────────────────────────── */
+    main { overflow-x: hidden; }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      padding: 140px 48px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -180px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(123,46,255,0.13) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-soft);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 28px;
+      position: relative; z-index: 1;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+    .hero h1 {
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      color: var(--text);
+      position: relative; z-index: 1;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-sub);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      position: relative; z-index: 1;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--purple);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      position: relative; z-index: 1;
+    }
+    .hero-cta:hover { opacity: 0.88; }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 24px 60px; }
+      .hero h1 { font-size: clamp(36px, 10vw, 56px); }
+    }
+
+    /* ── Stats strip ─────────────────────────────────────── */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      flex: 1 1 160px;
+      max-width: 240px;
+      text-align: center;
+      padding: 32px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    @media (max-width: 600px) {
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+
+    /* ── Scrolling columns section ───────────────────────── */
+    .testi-section {
+      padding: 80px 0 100px;
+      background: var(--bg);
+      position: relative;
+    }
+    .testi-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .testi-section-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-label {
+      display: inline-block;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+    }
+    .testi-section-head h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .testi-section-head h2 em { font-style: normal; color: var(--purple); }
+    .testi-section-head p {
+      font-size: 16px;
+      color: var(--text-sub);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Scrolling columns wrapper */
+    .testi-cols-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-height: 740px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+    }
+
+    /* Individual column */
+    .testi-col {
+      width: 300px;
+      flex-shrink: 0;
+    }
+    .testi-col:nth-child(2) { display: none; }
+    .testi-col:nth-child(3) { display: none; }
+    @media (min-width: 768px) {
+      .testi-col:nth-child(2) { display: block; }
+    }
+    @media (min-width: 1024px) {
+      .testi-col:nth-child(3) { display: block; }
+    }
+
+    /* Inner track — doubled for seamless loop */
+    @keyframes testi-scroll {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+    .tc-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 20px;
+      animation: testi-scroll linear infinite;
+    }
+    .testi-col:nth-child(1) .tc-inner { animation-duration: 22s; }
+    .testi-col:nth-child(2) .tc-inner { animation-duration: 28s; }
+    .testi-col:nth-child(3) .tc-inner { animation-duration: 25s; }
+
+    /* Card */
+    .tc-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+      transition: border-color 0.25s;
+    }
+    .tc-card:hover { border-color: rgba(123,46,255,0.35); }
+    .tc-card-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-sub);
+    }
+    .tc-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .tc-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--surface-2);
+    }
+    .tc-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .tc-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .tc-result {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--purple);
+      background: rgba(123,46,255,0.1);
+      border: 1px solid rgba(123,46,255,0.2);
+      border-radius: 6px;
+      padding: 3px 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Bottom CTA ──────────────────────────────────────── */
+    .cta-section {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(123,46,255,0.11) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: var(--text-sub);
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+      position: relative; z-index: 1;
+    }
+    .cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-sub);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border-soft);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--purple); color: var(--text); }
+    @media (max-width: 600px) {
+      .cta-section { padding: 80px 24px; }
+      .testi-section-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Real clients · Real results
+      </div>
+      <h1>What our clients<br><em>actually say</em></h1>
+      <p>No paid reviews. No cherry-picked screenshots. Just what happened when small businesses stopped guessing and got a real strategy.</p>
+      <a href="audit-intake.html" class="hero-cta">Get your audit →</a>
+    </section>
+
+    <!-- ── Stats strip ── -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">12K+</div>
+        <div class="stat-lbl">Followers in 15 days</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1.2M</div>
+        <div class="stat-lbl">TikTok views</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3×</div>
+        <div class="stat-lbl">Avg. booking increase</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">97%</div>
+        <div class="stat-lbl">Client satisfaction</div>
+      </div>
+    </div>
+
+    <!-- ── Scrolling testimonials columns ── -->
+    <section class="testi-section">
+      <div class="testi-section-inner">
+        <div class="testi-section-head reveal">
+          <div class="section-label">Testimonials</div>
+          <h2>What our users <em>say</em></h2>
+          <p>See what small business owners across every industry have to say about working with Lane Social Co.</p>
+        </div>
+
+        <div class="testi-cols-wrap">
+
+          <!-- Column 1 — 3 cards, duplicated for seamless loop -->
+          <div class="testi-col">
+            <div class="tc-inner">
+              <!-- Set A -->
+              <div class="tc-card">
+                <div class="tc-card-text">"I was skeptical. Social media felt like a guessing game. Lane Social Co's strategy made it simple. We know exactly what to post, when, and why. The followers came naturally — but more importantly, customers are coming in because of what they see on Instagram."</div>
+                <div class="tc-result">12K followers in 15 days</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Sarah M.</div>
+                    <div class="tc-role">Restaurant Owner, Las Vegas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"The audit showed me exactly what wasn't working. But more importantly, the strategy gave me clarity. I stopped guessing. I stopped posting random things. Now I have a plan and it's working — my customers are more engaged than ever."</div>
+                <div class="tc-result">4.8K followers · 35% sales increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jade L." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Jade L.</div>
+                    <div class="tc-role">Boutique Owner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"Before the audit I was posting every single day and getting nowhere. Turns out I was on the wrong platform entirely. The strategy gave me focus. Now I post less and get 3x the engagement — and actually enjoy it."</div>
+                <div class="tc-result">3× engagement increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/3.jpg" alt="Taylor B." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Taylor B.</div>
+                    <div class="tc-role">Fitness Coach</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Set B (duplicate for seamless loop) -->
+              <div class="tc-card">
+                <div class="tc-card-text">"I was skeptical. Social media felt like a guessing game. Lane Social Co's strategy made it simple. We know exactly what to post, when, and why. The followers came naturally — but more importantly, customers are coming in because of what they see on Instagram."</div>
+                <div class="tc-result">12K followers in 15 days</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah M." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Sarah M.</div>
+                    <div class="tc-role">Restaurant Owner, Las Vegas</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"The audit showed me exactly what wasn't working. But more importantly, the strategy gave me clarity. I stopped guessing. I stopped posting random things. Now I have a plan and it's working — my customers are more engaged than ever."</div>
+                <div class="tc-result">4.8K followers · 35% sales increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jade L." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Jade L.</div>
+                    <div class="tc-role">Boutique Owner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"Before the audit I was posting every single day and getting nowhere. Turns out I was on the wrong platform entirely. The strategy gave me focus. Now I post less and get 3x the engagement — and actually enjoy it."</div>
+                <div class="tc-result">3× engagement increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/3.jpg" alt="Taylor B." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Taylor B.</div>
+                    <div class="tc-role">Fitness Coach</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 — visible md+ -->
+          <div class="testi-col">
+            <div class="tc-inner">
+              <!-- Set A -->
+              <div class="tc-card">
+                <div class="tc-card-text">"Real estate and TikTok? I thought it was a waste of time. Lane Social Co showed me how to position myself as the expert in my neighborhood. Now people are asking for me specifically because they saw my content."</div>
+                <div class="tc-result">3K TikTok followers · 2 closings</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Marcus T." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Marcus T.</div>
+                    <div class="tc-role">Local Realtor</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"We went from invisible to the go-to spot for our neighborhood. Instagram became our best referral source. Three customers a week now say they found us online. Never happened before the strategy."</div>
+                <div class="tc-result">Top local discovery source</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Ryan M." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Ryan M.</div>
+                    <div class="tc-role">Coffee Shop Owner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"I thought I knew what I was doing. The audit proved me wrong in the best way possible. Found gaps I never would have caught on my own. My reach doubled in the first month after making their changes."</div>
+                <div class="tc-result">2× reach in 30 days</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/4.jpg" alt="Priya S." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Priya S.</div>
+                    <div class="tc-role">Food Blogger</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Set B (duplicate) -->
+              <div class="tc-card">
+                <div class="tc-card-text">"Real estate and TikTok? I thought it was a waste of time. Lane Social Co showed me how to position myself as the expert in my neighborhood. Now people are asking for me specifically because they saw my content."</div>
+                <div class="tc-result">3K TikTok followers · 2 closings</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Marcus T." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Marcus T.</div>
+                    <div class="tc-role">Local Realtor</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"We went from invisible to the go-to spot for our neighborhood. Instagram became our best referral source. Three customers a week now say they found us online. Never happened before the strategy."</div>
+                <div class="tc-result">Top local discovery source</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Ryan M." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Ryan M.</div>
+                    <div class="tc-role">Coffee Shop Owner</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"I thought I knew what I was doing. The audit proved me wrong in the best way possible. Found gaps I never would have caught on my own. My reach doubled in the first month after making their changes."</div>
+                <div class="tc-result">2× reach in 30 days</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/4.jpg" alt="Priya S." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Priya S.</div>
+                    <div class="tc-role">Food Blogger</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 — visible lg+ -->
+          <div class="testi-col">
+            <div class="tc-inner">
+              <!-- Set A -->
+              <div class="tc-card">
+                <div class="tc-card-text">"Before, social media felt like a chore. We'd post occasionally and hope for engagement. Now it's part of our business model. Members see themselves on our Stories. New people book because they see the community."</div>
+                <div class="tc-result">3× booking rate increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/3.jpg" alt="Alex K." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Alex K.</div>
+                    <div class="tc-role">Wellness Studio Manager</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"I was posting beautiful work and getting zero traction. Lane Social Co figured out my hashtag strategy was killing my reach. They fixed it and my DM inquiries tripled. I'm now fully booked two months out."</div>
+                <div class="tc-result">3× DM inquiries · Fully booked</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/5.jpg" alt="Mia C." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Mia C.</div>
+                    <div class="tc-role">Wedding Photographer</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"Finally understood why my content wasn't converting. The audit laid it out clearly and the strategy gave me a real system. I stopped dreading social media and started enjoying it. My following grew and so did my revenue."</div>
+                <div class="tc-result">Consistent lead flow from social</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/4.jpg" alt="Derek F." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Derek F.</div>
+                    <div class="tc-role">Personal Trainer</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Set B (duplicate) -->
+              <div class="tc-card">
+                <div class="tc-card-text">"Before, social media felt like a chore. We'd post occasionally and hope for engagement. Now it's part of our business model. Members see themselves on our Stories. New people book because they see the community."</div>
+                <div class="tc-result">3× booking rate increase</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/3.jpg" alt="Alex K." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Alex K.</div>
+                    <div class="tc-role">Wellness Studio Manager</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"I was posting beautiful work and getting zero traction. Lane Social Co figured out my hashtag strategy was killing my reach. They fixed it and my DM inquiries tripled. I'm now fully booked two months out."</div>
+                <div class="tc-result">3× DM inquiries · Fully booked</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/women/5.jpg" alt="Mia C." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Mia C.</div>
+                    <div class="tc-role">Wedding Photographer</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tc-card">
+                <div class="tc-card-text">"Finally understood why my content wasn't converting. The audit laid it out clearly and the strategy gave me a real system. I stopped dreading social media and started enjoying it. My following grew and so did my revenue."</div>
+                <div class="tc-result">Consistent lead flow from social</div>
+                <div class="tc-card-footer">
+                  <img class="tc-avatar" src="https://randomuser.me/api/portraits/men/4.jpg" alt="Derek F." width="40" height="40">
+                  <div>
+                    <div class="tc-name">Derek F.</div>
+                    <div class="tc-role">Personal Trainer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.testi-cols-wrap -->
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section reveal">
+      <h2>Ready to be the next story?</h2>
+      <p>Every one of these clients started with an audit. One clear look at what's actually happening — and a plan to fix it.</p>
+      <div class="cta-btns">
+        <a href="product-audit.html" class="btn-primary">Get my Social Media Audit — $97 →</a>
+        <a href="results.html" class="btn-ghost">See case studies</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/site-components.js"></script>
+</body>
+</html>
