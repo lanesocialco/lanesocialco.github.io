@@ -1,689 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You're In - Lane Social Co</title>
-  <meta name="description" content="Your audit request has been received. Here's what happens next.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/global.css">
-  <style>
-    /* Main content */
-    main {
-      background-color: var(--bg);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for purchasing your Mini Audit. Get started with your personalized entertainment marketing review.">
+    <title>You're In — Mini Audit | Nate Lane</title>
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 140px 80px;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/global.css">
 
-    .hero-section {
-      text-align: center;
-      margin-bottom: 80px;
-      position: relative;
-    }
+    <style>
+        :root {
+            --purple: #7b2eff;
+            --purple-rgb: 123, 46, 255;
+            --bg: #0a0a0a;
+            --text: #ffffff;
+            --surface: #1a1a1a;
+            --border: #2a2a2a;
+        }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse, rgba(123,47,255,0.12), transparent 70%);
-      pointer-events: none;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
 
-    .hero-section .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--purple);
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
+        .thank-you-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
 
-    .hero-section h1 {
-      font-size: clamp(36px, 6vw, 60px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-    }
+        .top-logo {
+            margin-bottom: 32px;
+        }
 
-    .hero-section h1 em {
-      color: var(--purple);
-      font-style: normal;
-    }
+        .top-logo img {
+            height: 60px;
+            display: inline-block;
+        }
 
-    .hero-section .subheading {
-      font-size: 18px;
-      color: var(--text-sub);
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
-    }
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 32px;
+            line-height: 1;
+        }
 
-    .envelope-icon {
-      font-size: 48px;
-      margin-bottom: 24px;
-      display: inline-block;
-      position: relative;
-      z-index: 2;
-    }
+        .confirmation-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
 
-    /* Timeline section */
-    .timeline-section {
-      margin-bottom: 80px;
-    }
+        .confirmation-subtext {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
 
-    .timeline-section h2 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-align: center;
-    }
+        .code-heading {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.95rem;
+            color: #b3b3b3;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
 
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
+        .code-heading .copy-code {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(123, 46, 255, 0.15);
+            border: 1px solid rgba(123, 46, 255, 0.3);
+            color: var(--purple);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: 'DM Mono', monospace;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-    .timeline-item {
-      text-align: center;
-    }
+        .copy-code:hover {
+            background: rgba(123, 46, 255, 0.25);
+            box-shadow: 0 0 20px rgba(var(--purple-rgb), 0.3);
+        }
 
-    .timeline-step {
-      width: 50px;
-      height: 50px;
-      background-color: var(--purple);
-      color: var(--ink-text);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      margin: 0 auto 20px;
-    }
+        .copy-code svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
 
-    .timeline-item h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+        .copy-code .copied-msg {
+            position: absolute;
+            top: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--purple);
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+        }
 
-    .timeline-item p {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.6;
-    }
+        .copy-code .copied-msg.show {
+            opacity: 1;
+        }
 
-    /* While you wait section */
-    .wait-section {
-      background-color: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 60px;
-      margin-bottom: 60px;
-      text-align: center;
-    }
+        .primary-button {
+            display: inline-block;
+            background-color: var(--purple);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--purple);
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(var(--purple-rgb), 0);
+        }
 
-    .wait-section h2 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 32px;
-    }
+        .primary-button:hover {
+            box-shadow: 0 0 30px rgba(var(--purple-rgb), 0.5), 0 0 60px rgba(var(--purple-rgb), 0.25);
+            transform: translateY(-1px);
+        }
 
-    .freebie-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 32px;
-    }
+        .next-steps {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
 
-    .freebie-card {
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.3s;
-    }
+        .next-steps h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-    .freebie-card:hover {
-      border-color: var(--purple);
-      box-shadow: 0 4px 12px var(--card-shadow);
-      transform: translateY(-2px);
-    }
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .freebie-card-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-      display: block;
-    }
+        .steps-list li {
+            margin-bottom: 24px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
 
-    .freebie-card h3 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+        .steps-list li:last-child {
+            margin-bottom: 0;
+        }
 
-    .freebie-card p {
-      font-size: 12px;
-      color: var(--text-sub);
-    }
+        .steps-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'DM Mono', monospace;
+        }
 
-    /* Social sharing */
-    .share-section {
-      text-align: center;
-      margin-bottom: 60px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--border);
-    }
+        .email-reminder {
+            background-color: rgba(123, 46, 255, 0.1);
+            border: 1px solid var(--purple);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
 
-    .share-section h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+        .substack-cta {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
 
-    .share-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
+        .substack-cta p {
+            margin-bottom: 20px;
+            color: #b3b3b3;
+        }
 
-    .share-button {
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
+        .substack-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--purple);
+            text-decoration: none;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--purple);
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(var(--purple-rgb), 0);
+        }
 
-    .share-button:hover {
-      background-color: var(--bg-alt);
-      border-color: var(--purple);
-    }
+        .substack-button:hover {
+            box-shadow: 0 0 30px rgba(var(--purple-rgb), 0.5), 0 0 60px rgba(var(--purple-rgb), 0.25);
+            background-color: var(--purple);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
 
-    /* CTA section */
-    .cta-section {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+        /* Default to dark since site is dark-first */
+        .top-logo .logo-light { display: none; }
+        .top-logo .logo-dark { display: inline-block; }
 
-    .cta-section h2 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .cta-section p {
-      font-size: 16px;
-      color: var(--text-sub);
-      margin-bottom: 32px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background-color: var(--purple);
-      color: var(--ink-text);
-      padding: 16px 40px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      transition: opacity 0.2s;
-    }
-
-    .cta-button:hover {
-      opacity: 0.9;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        padding: 100px 24px;
-      }
-
-      .timeline {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .freebie-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .wait-section {
-        padding: 40px 24px;
-      }
-
-      .share-buttons {
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 60px 16px;
-      }
-
-      .hero-section .subheading {
-        font-size: 16px;
-      }
-
-      .wait-section {
-        padding: 30px 16px;
-      }
-
-      .wait-section h2 {
-        font-size: 20px;
-      }
-
-      .timeline-section h2 {
-        font-size: 20px;
-      }
-
-      .timeline-item h3 {
-        font-size: 14px;
-      }
-
-      .cta-section h2 {
-        font-size: 20px;
-      }
-    }
-
-    /* ── CALENDAR ADD ─────────────────────────────────────── */
-    .cal-section {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px 32px;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    .cal-label {
-      font-family: 'DM Mono', monospace; font-size: 10px;
-      text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple);
-      margin-bottom: 12px; display: block;
-    }
-    .cal-date-headline {
-      font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text);
-      letter-spacing: -0.3px;
-    }
-    .cal-sub {
-      font-size: 14px; color: var(--text-muted); margin-bottom: 28px;
-      font-family: 'DM Mono', monospace; letter-spacing: 0.02em;
-    }
-    .cal-options {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    }
-    .cal-option {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 20px; border-radius: 8px;
-      font-size: 13px; font-weight: 600; font-family: inherit;
-      cursor: pointer; text-decoration: none; transition: all 0.15s;
-    }
-    .cal-option-primary {
-      background: var(--purple); color: #fff; border: 1px solid transparent;
-    }
-    .cal-option-primary:hover { opacity: 0.88; }
-    .cal-option-secondary {
-      background: var(--surface); border: 1px solid var(--border); color: var(--text);
-    }
-    .cal-option-secondary:hover { border-color: var(--purple); }
-    @media (max-width: 480px) {
-      .cal-section { padding: 28px 20px; }
-      .cal-options { flex-direction: column; align-items: center; }
-      .cal-option { width: 100%; justify-content: center; max-width: 280px; }
-    }
-
-    /* ── BUNDLE UPSELL ─────────────────────────────────────── */
-    .bundle-upsell-ty {
-      background: #0d0d0d;
-      border: 1px solid rgba(123,47,255,0.25);
-      border-radius: 16px;
-      padding: 60px 56px;
-      margin-bottom: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .bundle-upsell-ty::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(123,47,255,0.14), transparent 65%);
-      pointer-events: none;
-    }
-    .bu-ty-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    .bu-ty-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--purple);
-      display: block;
-      margin-bottom: 14px;
-    }
-    .bu-ty-inner h2 {
-      font-size: clamp(22px, 3vw, 28px);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-    .bu-ty-inner h2 em {
-      color: var(--purple);
-      font-style: normal;
-    }
-    .bu-ty-inner p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.7;
-      max-width: 460px;
-    }
-    .bu-ty-right {
-      text-align: center;
-      min-width: 200px;
-    }
-    .bu-ty-was {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      text-decoration: line-through;
-      margin-bottom: 6px;
-      letter-spacing: 0.02em;
-    }
-    .bu-ty-amount {
-      font-size: 64px;
-      font-weight: 800;
-      letter-spacing: -3px;
-      color: #ffffff;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .bu-ty-amount span {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      vertical-align: super;
-    }
-    .bu-ty-savings {
-      display: inline-block;
-      background: rgba(34,197,94,0.15);
-      color: #22c55e;
-      font-size: 11px;
-      font-family: 'DM Mono', monospace;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .bu-ty-btn {
-      display: block;
-      background: var(--purple);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 15px 28px;
-      border-radius: 8px;
-      transition: opacity 0.18s;
-      white-space: nowrap;
-    }
-    .bu-ty-btn:hover { opacity: 0.88; }
-    .bu-ty-skip {
-      display: block;
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      margin-top: 12px;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.02em;
-    }
-    @media (max-width: 780px) {
-      .bundle-upsell-ty { padding: 40px 28px; }
-      .bu-ty-inner { grid-template-columns: 1fr; gap: 32px; }
-      .bu-ty-right { text-align: left; }
-      .bu-ty-amount { font-size: 48px; }
-    }
-    @media (max-width: 480px) {
-      .bundle-upsell-ty { padding: 32px 20px; }
-    }
-
-    /* ── TIMELINE SECTION LABEL ────────────────────────────── */
-    .timeline-section .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      display: block;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .timeline-section h2 {
-      margin-bottom: 40px;
-    }
-  </style>
+        @media (prefers-color-scheme: light) {
+            .top-logo .logo-dark { display: none; }
+            .top-logo .logo-light { display: inline-block; }
+        }
+    </style>
 </head>
 <body>
-  <div id="site-nav"></div>
 
-  <main>
-    <div class="container">
-      <section class="hero-section">
-        <div class="envelope-icon">📬</div>
-        <div class="section-label">Order confirmed</div>
-        <h1>You're in. <em>We've got it from here.</em></h1>
-        <p class="subheading">Your audit request has been received. Here's what happens next.</p>
-      </section>
-
-      <!-- ── CALENDAR ADD ──────────────────────────────────── -->
-      <div class="cal-section">
-        <span class="cal-label">📅 Expected delivery</span>
-        <p class="cal-date-headline" id="cal-date-headline">Your audit is expected within 7 business days.</p>
-        <p class="cal-sub">Save the date so you don't miss it.</p>
-        <div class="cal-options">
-          <a href="#" id="cal-google" target="_blank" rel="noopener" class="cal-option cal-option-primary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Add to Google Calendar
-          </a>
-          <button class="cal-option cal-option-secondary" id="cal-ics">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Apple / Outlook (.ics)
-          </button>
+    <main class="thank-you-container">
+        <div class="top-logo">
+            <img src="assets/logo-light.png" alt="Nate Lane" class="logo-light" height="60"
+                 onerror="this.style.display='none'">
+            <img src="assets/logo-dark.png" alt="Nate Lane" class="logo-dark" height="60"
+                 onerror="this.style.display='none'">
         </div>
-      </div>
 
-      <section class="timeline-section">
-        <span class="section-label">What happens next</span>
-        <h2>Your Audit Timeline</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-step">1</div>
-            <h3>We Review</h3>
-            <p>We dive into your intake form and get familiar with your business.</p>
-            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Within 24 hours</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-step">2</div>
-            <h3>We Audit</h3>
-            <p>Deep analysis of your accounts, competitors, and content performance.</p>
-            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">5-7 business days</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-step">3</div>
-            <h3>You Get Results</h3>
-            <p>Full written report delivered in 7 business days.</p>
-            <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">After audit complete</p>
-          </div>
+        <div class="success-icon">✅</div>
+
+        <h1 class="confirmation-heading">You're in.</h1>
+        <p class="confirmation-subtext">Just one more step.</p>
+
+        <p class="code-heading">Use code <span class="copy-code" onclick="copyCode(this)" role="button" tabindex="0"><span class="copied-msg">Copied!</span>MiniAudit<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span> on the form</p>
+        <a href="https://tally.so/r/0QMx5N" class="primary-button" target="_blank" rel="noopener noreferrer">Fill Out Your Intake Form</a>
+
+        <div class="next-steps">
+            <h3>What Happens Next</h3>
+            <ol class="steps-list">
+                <li data-step="1">Fill out the intake form — choose your platform and share your handle</li>
+                <li data-step="2">We review your profile and write your personalized audit</li>
+                <li data-step="3">Your written report lands in your inbox within 14 business days</li>
+            </ol>
         </div>
-      </section>
 
-      <section class="wait-section">
-        <h2>While You Wait</h2>
-        <p style="color: var(--text-sub); margin-bottom: 32px;">Grab one of our free resources to start optimizing today.</p>
-        <div class="freebie-cards">
-          <a href="freebie-audit-checklist.html" class="freebie-card">
-            <span class="freebie-card-icon">✓</span>
-            <h3>Audit Checklist</h3>
-            <p>Self-audit your accounts before we do.</p>
-          </a>
-          <a href="freebie-content-pillars.html" class="freebie-card">
-            <span class="freebie-card-icon">📍</span>
-            <h3>Content Pillars</h3>
-            <p>Define what you stand for on social.</p>
-          </a>
-          <a href="freebie-bio-optimization.html" class="freebie-card">
-            <span class="freebie-card-icon">🔤</span>
-            <h3>Bio Optimization</h3>
-            <p>Write a bio that converts.</p>
-          </a>
+        <div class="email-reminder">
+            📧 Watch your email (and check spam) for your audit delivery
         </div>
-      </section>
 
-      <section class="share-section">
-        <h3>Tell your followers you're leveling up.</h3>
-        <div class="share-buttons">
-          <a href="https://instagram.com" class="share-button" target="_blank">Share on Instagram</a>
-          <a href="https://tiktok.com" class="share-button" target="_blank">Share on TikTok</a>
-          <a href="https://twitter.com" class="share-button" target="_blank">Share on Twitter</a>
+        <div class="substack-cta">
+            <p>While you wait, subscribe to <em>The Culture Marquee</em> for free</p>
+            <a href="https://theculturemarquee.substack.com" class="substack-button" target="_blank" rel="noopener noreferrer">Subscribe on Substack →</a>
         </div>
-      </section>
+    </main>
 
-      <!-- BUNDLE UPSELL - post-purchase offer -->
-      <div class="bundle-upsell-ty">
-        <div class="bu-ty-inner">
-          <div class="bu-ty-left">
-            <span class="bu-ty-eyebrow">Best value — limited time</span>
-            <h2>Want the full roadmap <em>while we work?</em></h2>
-            <p>Most people come back for the 90-Day Custom Strategy after seeing their audit. You can skip that wait and add it now for $200 total — saving $44 and making sure your strategy is built directly around your findings the moment they land.</p>
-          </div>
-          <div class="bu-ty-right">
-            <div class="bu-ty-was">$244 separately</div>
-            <div class="bu-ty-amount"><span>$</span>200</div>
-            <div class="bu-ty-savings">You save $44</div>
-            <a href="product-bundle.html" class="bu-ty-btn">Upgrade to the Bundle →</a>
-            <span class="bu-ty-skip">No thanks — audit only is fine</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <div id="site-footer"></div>
-
-  <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /* ── ONE-CLICK CALENDAR ADD ────────────────────────────── */
-    (function () {
-      'use strict';
-
-      /* Date 7 days from today */
-      var target   = new Date();
-      target.setDate(target.getDate() + 7);
-
-      var yr  = target.getFullYear();
-      var mo  = target.getMonth() + 1;    /* 1-indexed */
-      var day = target.getDate();
-
-      var MONTHS = ['January','February','March','April','May','June',
-                    'July','August','September','October','November','December'];
-      var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
-      var friendly = DAYS[target.getDay()] + ', ' + MONTHS[target.getMonth()] + ' ' + day + ', ' + yr;
-
-      /* Pad to YYYYMMDD */
-      function pad(n) { return (n < 10 ? '0' : '') + n; }
-      var ymd1 = yr + '' + pad(mo) + pad(day);
-
-      var end  = new Date(target);
-      end.setDate(end.getDate() + 1);
-      var ymd2 = end.getFullYear() + '' + pad(end.getMonth() + 1) + pad(end.getDate());
-
-      /* Update headline */
-      var headEl = document.getElementById('cal-date-headline');
-      if (headEl) headEl.textContent = 'Your audit is expected by ' + friendly + '.';
-
-      /* Google Calendar link */
-      var gcalEl = document.getElementById('cal-google');
-      if (gcalEl) {
-        gcalEl.setAttribute('href',
-          'https://calendar.google.com/calendar/r/eventedit' +
-          '?dates=' + ymd1 + '%2F' + ymd2 +
-          '&text=Social+Media+Audit+Report+Ready' +
-          '&details=Your+Lane+Social+Co+Social+Media+Audit+is+complete.+Check+your+email+for+the+full+PDF+report.' +
-          '&action=TEMPLATE'
-        );
-      }
-
-      /* Apple / Outlook .ics download */
-      var icsBtn = document.getElementById('cal-ics');
-      if (icsBtn) {
-        icsBtn.addEventListener('click', function () {
-          var ics = [
-            'BEGIN:VCALENDAR',
-            'VERSION:2.0',
-            'PRODID:-//Lane Social Co//Audit//EN',
-            'BEGIN:VEVENT',
-            'DTSTART;VALUE=DATE:' + ymd1,
-            'DTEND;VALUE=DATE:'   + ymd2,
-            'SUMMARY:Social Media Audit Report Ready',
-            'DESCRIPTION:Your Lane Social Co Social Media Audit is complete. Check your email for the full PDF report and action list.',
-            'URL:https://lanesocialco.com',
-            'END:VEVENT',
-            'END:VCALENDAR'
-          ].join('\r\n');
-
-          var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-          var url  = URL.createObjectURL(blob);
-          var a    = document.createElement('a');
-          a.href        = url;
-          a.download    = 'audit-ready.ics';
-          a.style.display = 'none';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
+    <script>
+        function copyCode(el) {
+            navigator.clipboard.writeText('MiniAudit').then(function() {
+                var msg = el.querySelector('.copied-msg');
+                msg.classList.add('show');
+                setTimeout(function() { msg.classList.remove('show'); }, 1500);
+            });
+        }
+        // Also support keyboard Enter/Space
+        document.querySelector('.copy-code').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyCode(this); }
         });
-      }
-    }());
-  </script>
+    </script>
 
-  <script src="assets/site-components.js"></script>
 </body>
 </html>

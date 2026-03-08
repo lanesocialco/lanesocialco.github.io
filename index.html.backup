@@ -568,11 +568,20 @@
   }
   .bundle-card {
     background: linear-gradient(135deg, #0d0d0d 0%, #111111 100%);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 24px;
     padding: 48px;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
     text-align: left;
+  }
+  .bundle-card::before {
+    content: '';
+    position: absolute; top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(var(--purple-rgb),0.18) 0%, transparent 70%);
+    pointer-events: none;
   }
   .bundle-card-inner {
     display: grid; grid-template-columns: 1fr auto;
@@ -929,7 +938,7 @@
       "@type": "LocalBusiness",
       "@id": "https://natelane.co/#business",
       "name": "Nate Lane",
-      "description": "Entertainment marketing for working creatives. Social media audits and strategies for musicians, filmmakers, comedians, visual artists, and performers.",
+      "description": "Social media strategy and audits for small businesses and creators. Based in Las Vegas, serving clients everywhere.",
       "url": "https://natelane.co",
       "logo": "https://natelane.co/assets/logo-dark.png",
       "address": {
@@ -940,8 +949,8 @@
       },
       "priceRange": "$97–$200",
       "sameAs": [
-        "https://www.instagram.com/natelane",
-        "https://www.tiktok.com/@natelane"
+        "https://www.instagram.com/lanesocialco",
+        "https://www.tiktok.com/@lanesocialco"
       ]
     },
     {
@@ -969,7 +978,7 @@
   <div class="hero-content">
     <!-- Task 1a: hero eyebrow removed -->
     <h1>You don't have a<br>content problem.<br>You have a <em>clarity</em> problem.</h1>
-    <p class="hero-sub">Most creatives are posting regularly without the results they should be getting. Your content isn't the problem--your strategy is. We find what's really holding you back and build the roadmap to fix it.</p>
+    <p class="hero-sub">Most businesses are posting consistently and getting nothing back. The issue isn't effort — it's strategy. We find exactly what's broken and fix it.</p>
     <!-- Task 1b + 1c: Bundle CTA, secondary link stacked below -->
     <div class="hero-actions">
       <a href="product-bundle.html" class="btn-primary">
@@ -979,7 +988,7 @@
     </div>
     <div class="hero-activity">
       <span class="hero-activity-dot" aria-hidden="true"></span>
-      <span class="hero-activity-text">Audits currently open - 7-day turnaround</span>
+      <span class="hero-activity-text">Audits currently open — 7-day turnaround</span>
     </div>
     <p class="hero-micro">No subscription. No retainer. No ongoing commitment.</p>
     <!-- Task 1d: count-up stats — data-count and data-suffix for JS -->
@@ -1103,7 +1112,7 @@
 <section class="problem" aria-labelledby="problem-heading">
   <div class="section-label">The real problem</div>
   <h2 id="problem-heading">Posting more isn't the answer.<br>Posting smarter is.</h2>
-  <p class="problem-intro">Most creatives aren't failing on social because they're lazy. They're failing because nobody told them the truth about what actually works for entertainment and art. We tell you.</p>
+  <p class="problem-intro">Most businesses aren't failing on social because they're lazy. They're failing because nobody told them the truth about what actually works.</p>
   <div class="problem-grid">
 
     <div class="glow-wrap">
@@ -1114,8 +1123,8 @@
           <span class="pn-emoji" aria-hidden="true">🤔</span>
         </div>
         <h3>You're on the wrong platform</h3>
-        <p>Most creatives try to be everywhere at once and wonder why nothing's working. Your audience is concentrated in one or two places. We find them.</p>
-        <p class="problem-detail">We analyze where your type of content thrives, where your audience hangs out, and tell you exactly which platforms to focus on first.</p>
+        <p>Most businesses spread thin across 4–5 platforms and wonder why nothing's working. Your audience is concentrated in one or two places. We find them.</p>
+        <p class="problem-detail">We analyze where your competitors are thriving, where your target demographic actually spends time, and give you a clear platform priority list to follow.</p>
       </div>
     </div>
 
@@ -1128,7 +1137,7 @@
         </div>
         <h3>Your content has no point of view</h3>
         <p>Generic tips and product photos don't build audiences anymore. You need a position, an opinion, a reason for people to follow you specifically.</p>
-        <p class="problem-detail">We audit your existing content and show you exactly what converts your followers into fans--and what just gets scrolled past.</p>
+        <p class="problem-detail">We audit your existing content mix and identify exactly where your messaging goes flat — then show you the content angles that will make people actually care.</p>
       </div>
     </div>
 
@@ -1140,8 +1149,8 @@
           <span class="pn-emoji" aria-hidden="true">😤</span>
         </div>
         <h3>You're chasing trends instead of building</h3>
-        <p>Trend content gets views but doesn't build a real fanbase. The entertainers winning are building owned audiences, not chasing fleeting attention.</p>
-        <p class="problem-detail">We separate views from real engagement and build a content approach that turns casual viewers into actual supporters.</p>
+        <p>Trend content gets views but doesn't convert. The businesses winning on social right now are building owned audiences, not renting attention.</p>
+        <p class="problem-detail">We separate your vanity metrics from your business metrics and build you a content approach that turns followers into actual customers.</p>
       </div>
     </div>
 
@@ -1153,8 +1162,8 @@
           <span class="pn-emoji" aria-hidden="true">💸</span>
         </div>
         <h3>You have no system</h3>
-        <p>Posting whenever inspiration strikes isn't a strategy. Without a clear content system tied to your creative goals and audience, you're just hoping something sticks.</p>
-        <p class="problem-detail">We give you a repeatable content framework--specific post types, cadence, and content pillars--so you always know what to post next and why.</p>
+        <p>Posting whenever inspiration strikes isn't a strategy. Without a clear content system tied to your business goals, you're just making noise.</p>
+        <p class="problem-detail">We give you a repeatable content framework — specific post types, cadence, and content pillars — so you always know what to post next and why.</p>
       </div>
     </div>
 
@@ -1168,14 +1177,14 @@
   <div class="audit-left reveal">
     <div class="section-label">The Social Audit</div>
     <h2 id="audit-heading">A full breakdown of what's working, what's not, and exactly what to do next.</h2>
-    <p class="audit-desc">We go through your entire social presence--every platform, every post type, your bio, your content mix, your posting frequency--and come back with a clear, actionable report.</p>
+    <p class="audit-desc">We go through your entire social presence — every platform, every post type, your bio, your content mix, your posting frequency — and come back with a clear, actionable report.</p>
     <ul class="audit-list" role="list">
       <li><span class="check" aria-hidden="true">✓</span> Platform audit across all active channels</li>
       <li><span class="check" aria-hidden="true">✓</span> Content performance analysis by post type</li>
       <li><span class="check" aria-hidden="true">✓</span> Audience targeting assessment</li>
       <li><span class="check" aria-hidden="true">✓</span> Profile &amp; bio optimization notes</li>
       <li><span class="check" aria-hidden="true">✓</span> Competitor positioning review</li>
-      <li><span class="check" aria-hidden="true">✓</span> Priority action list - what to do first</li>
+      <li><span class="check" aria-hidden="true">✓</span> Priority action list — what to do first</li>
     </ul>
     <a href="product-audit.html" class="btn-primary" style="display:inline-flex;">See what's included →</a>
   </div>
@@ -1183,7 +1192,7 @@
     <div class="audit-card">
       <span class="audit-card-tag">Most popular</span>
       <h3>Social Media Audit</h3>
-      <p>Stop guessing why your posts aren't connecting. Get a clear breakdown of what's working and what's not--delivered in 7 business days.</p>
+      <p>Stop guessing why your posts aren't working. Get a clear answer and a concrete plan to fix it — delivered in 7 business days.</p>
       <div class="audit-price">
         <div class="amount">$97</div>
         <div class="period">One-time · delivered in 7 business days</div>
@@ -1203,7 +1212,7 @@
     <div class="strategy-card">
       <span class="strategy-card-tag">Complete roadmap</span>
       <h3>Social Media Strategy</h3>
-      <p>You know what's broken. Now here's the custom roadmap to fix it--built around your creative goals, your audience, and where you're trying to take your career.</p>
+      <p>You know what's broken. Now here's the custom roadmap to fix it — built around your business, your audience, and where you're actually trying to go.</p>
       <div class="strategy-price">
         <div class="amount">$149</div>
         <div class="period">One-time · delivered in 7 business days</div>
@@ -1215,7 +1224,7 @@
   <!-- RIGHT: copy -->
   <div class="strategy-text reveal">
     <div class="section-label">The Social Strategy</div>
-    <h2 id="strategy-heading">A custom roadmap built around your creative goals, your audience, and where you want to take your career.</h2>
+    <h2 id="strategy-heading">A custom roadmap built around your business, your audience, and your goals.</h2>
     <p class="audit-desc">Once we know what's broken, we build you a clear, platform-specific content strategy. No generic advice. No copy-paste playbooks. Just a plan designed for exactly where you are and where you're trying to go.</p>
     <ul class="audit-list" role="list">
       <li><span class="check" aria-hidden="true">✓</span> Custom content pillars for your brand</li>
@@ -1235,41 +1244,39 @@
 <section class="bundle-section" id="bundle" aria-labelledby="bundle-heading">
   <div class="bundle-inner">
     <div class="bundle-eyebrow">Best value</div>
-    <h2 id="bundle-heading">Get both. Save <em>$46.</em></h2>
-    <p>The Audit shows you what's holding you back. The Strategy shows you exactly how to fix it. Together they give you a complete picture--and a clear path forward.</p>
+    <h2 id="bundle-heading">Get both. Save <em>$44.</em></h2>
+    <p>The Audit tells you what's broken. The Strategy tells you exactly how to fix it. Together they give you a complete picture — and a clear path forward. Most people who get the Audit end up coming back for the Strategy anyway.</p>
 
-    <div class="rainbow-glow" style="border-radius:24px;">
     <div class="bundle-card">
       <div class="bundle-card-inner">
         <div>
           <div class="bundle-includes">
             <div class="bundle-include-row">
               <span class="bundle-check" aria-hidden="true">✓</span>
-              <span class="bundle-desc"><strong>Social Media Audit</strong> -- full breakdown of every platform, what's working, what isn't, and prioritized fixes</span>
+              <span class="bundle-desc"><strong>Social Media Audit</strong> — full breakdown of every platform, what's working, what isn't, and prioritized fixes</span>
               <span class="bundle-val">$97</span>
             </div>
             <div class="bundle-include-row">
               <span class="bundle-check" aria-hidden="true">✓</span>
-              <span class="bundle-desc"><strong>Social Media Strategy</strong> -- custom roadmap, content pillars, growth framework, and exactly what to post next</span>
+              <span class="bundle-desc"><strong>90-Day Social Strategy</strong> — custom roadmap, competitor analysis, content pillars, and optional 30-min call add-on</span>
               <span class="bundle-val">$149</span>
             </div>
             <div class="bundle-include-row">
               <span class="bundle-check" aria-hidden="true">✓</span>
-              <span class="bundle-desc"><strong>7-business-day delivery</strong> -- both delivered together so your strategy builds directly on your audit findings</span>
+              <span class="bundle-desc"><strong>7-business-day delivery</strong> — both delivered together so your strategy builds directly on your audit findings</span>
               <span class="bundle-val" style="color: var(--purple); font-weight: 700;">Included</span>
             </div>
           </div>
         </div>
         <div class="bundle-price-col">
-          <div class="bundle-was">$246 separately</div>
+          <div class="bundle-was">$244 separately</div>
           <div class="bundle-amount">$200</div>
           <div class="bundle-period">one-time</div>
-          <span class="bundle-savings">You save $46</span>
+          <span class="bundle-savings">You save $44</span>
           <a href="product-bundle.html" class="btn-primary" style="display:inline-flex; margin-top: 24px; width: 100%; justify-content: center;">Get the bundle →</a>
         </div>
       </div>
     </div>
-    </div><!-- /.rainbow-glow -->
   </div>
 </section>
 
@@ -1283,17 +1290,17 @@
     <div class="step step-connector reveal">
       <div class="step-number">01</div>
       <h3>You fill out a quick intake form</h3>
-      <p>Tell us your platforms, your goals, and what's frustrating you most. Takes about 10 minutes. This powers both your Audit and your Strategy -- one form, all the answers we need.</p>
+      <p>Tell us your platforms, your goals, and what's frustrating you most. Takes about 10 minutes. This powers both your Audit and your Strategy — one form, all the answers we need.</p>
     </div>
     <div class="step step-connector reveal">
       <div class="step-number">02</div>
       <h3>We dig into everything</h3>
-      <p>We go deep on your profiles, content, analytics, and competition. The Audit uncovers what's broken. The Strategy builds the roadmap to fix it. Both are specific to your career and nobody else's.</p>
+      <p>We go deep on your profiles, content, analytics, and competition. The Audit uncovers what's broken. The Strategy builds the roadmap to fix it. Both are specific to your business and nobody else's.</p>
     </div>
     <div class="step step-connector reveal">
       <div class="step-number">03</div>
       <h3>You get a clear action plan</h3>
-      <p>An Audit tells you exactly what's wrong and what to prioritize. A Strategy gives you the full content roadmap to execute on it. No fluff, no filler -- just the truth and what to do next.</p>
+      <p>An Audit tells you exactly what's wrong and what to prioritize. A Strategy gives you the full content roadmap to execute on it. No fluff, no filler — just the truth and what to do next.</p>
     </div>
   </div>
 </section>
@@ -1312,7 +1319,7 @@
         <span class="testimonial-emoji" aria-hidden="true">🚀</span>
         <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
         <div class="result-badge">12k followers · 15 days</div>
-        <p class="testimonial-text">"We'd been posting for two years with no real traction. Nate looked at our whole setup and told us exactly what the problem was. First month after implementing--12,000 new followers and over a million accounts reached."</p>
+        <p class="testimonial-text">"We'd been posting for two years with no real traction. Lane Social looked at our whole setup and told us exactly what the problem was. First month after implementing — 12,000 new followers and over a million accounts reached."</p>
         <div class="testimonial-author">Entertainment Client</div>
         <div class="testimonial-role">Las Vegas · Entertainment Industry</div>
       </div>
@@ -1322,9 +1329,9 @@
         <span class="testimonial-emoji" aria-hidden="true">📈</span>
         <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
         <div class="result-badge">Platform clarity</div>
-        <p class="testimonial-text">"I was trying to be everywhere at once and burning out. The audit told me to cut three platforms and go all-in on two. Within 60 days my engagement rate tripled because I was finally talking to the right people."</p>
-        <div class="testimonial-author">Alex M.</div>
-        <div class="testimonial-role">Musician · Los Angeles</div>
+        <p class="testimonial-text">"I was trying to be everywhere at once and burning out. The audit told me to cut three platforms and go all-in on two. Within 60 days our engagement rate tripled because we were finally talking to the right people."</p>
+        <div class="testimonial-author">Small Business Owner</div>
+        <div class="testimonial-role">Retail · Local Business</div>
       </div>
 
       <!-- Card 3 -->
@@ -1332,7 +1339,7 @@
         <span class="testimonial-emoji" aria-hidden="true">💬</span>
         <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
         <div class="result-badge">Strategy overhaul</div>
-        <p class="testimonial-text">"The report was the most useful thing I've gotten for my creative practice in years. It wasn't generic advice -- it was specific to my audience, my niche, my content. I knew exactly what to change the day I got it."</p>
+        <p class="testimonial-text">"The report was the most useful thing I've gotten for my business in years. It wasn't generic advice — it was specific to my audience, my niche, my content. I knew exactly what to change the day I got it."</p>
         <div class="testimonial-author">Creative Professional</div>
         <div class="testimonial-role">Content Creator · Las Vegas</div>
       </div>
@@ -1352,7 +1359,7 @@
         <span class="testimonial-emoji" aria-hidden="true">🏠</span>
         <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
         <div class="result-badge">3× more inbound leads</div>
-        <p class="testimonial-text">"My listings were getting maybe 20 likes and no real engagement. After the audit I completely changed my content approach - less polished, more personality. Three months later I'm getting 3× the inbound DMs from buyers who already trust me before we've even spoken."</p>
+        <p class="testimonial-text">"My listings were getting maybe 20 likes and no real engagement. After the audit I completely changed my content approach — less polished, more personality. Three months later I'm getting 3× the inbound DMs from buyers who already trust me before we've even spoken."</p>
         <div class="testimonial-author">James R.</div>
         <div class="testimonial-role">Real Estate Agent · Henderson, NV</div>
       </div>
@@ -1390,7 +1397,7 @@
   <div class="shop-teaser-inner">
     <div class="shop-teaser-left reveal">
       <div class="section-label">Free resources</div>
-      <h2 id="freebies-heading">Not ready for an audit? Start here - for free.</h2>
+      <h2 id="freebies-heading">Not ready for an audit? Start here — for free.</h2>
       <p>We've put together a handful of tools, templates, and guides that give you a real head start. No fluff. Grab what's useful and put it to work.</p>
       <a href="shop.html" class="btn-primary" style="display:inline-flex;">Browse all resources →</a>
     </div>
@@ -1411,7 +1418,7 @@
         <a href="freebie-content-pillars.html" class="freebie-grid-card">
           <h4>Content Pillars Workbook</h4>
           <span class="freebie-grid-type">PDF · Strategy template</span>
-          <p class="freebie-grid-desc">Define the 3-5 content categories that will anchor your brand. Includes prompts for each pillar and a sample content mix to model from.</p>
+          <p class="freebie-grid-desc">Define the 3–5 content categories that will anchor your brand. Includes prompts for each pillar and a sample content mix to model from.</p>
           <span class="freebie-grid-badge">Free</span>
         </a>
         <a href="product-audit.html" class="freebie-grid-card">
@@ -1430,7 +1437,7 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="final-cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Stop guessing.<br>Start <em>growing.</em></h2>
-  <p>Your social presence isn't broken. It just needs a strategy. Get your Audit, your Strategy, or both.</p>
+  <p>Your social media isn't broken. It just needs a strategy. Get your Audit, your Strategy, or both.</p>
   <div class="final-cta-actions">
     <a href="product-bundle.html" class="btn-primary" style="display:inline-flex;">
       Get the Audit + Strategy Bundle

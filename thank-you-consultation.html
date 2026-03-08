@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for purchasing your Strategy Call. Book your 60-minute call with Nate Lane.">
+    <title>You're In — Strategy Call | Nate Lane</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/global.css">
+
+    <style>
+        :root {
+            --purple: #7b2eff;
+            --bg: #0a0a0a;
+            --text: #ffffff;
+            --surface: #1a1a1a;
+            --border: #2a2a2a;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--surface);
+            border: 2px solid var(--purple);
+            border-radius: 50%;
+            font-size: 40px;
+        }
+
+        .confirmation-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .confirmation-subtext {
+            font-size: 1.1rem;
+            color: #b3b3b3;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        .primary-button {
+            display: inline-block;
+            background-color: var(--purple);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--purple);
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background-color: transparent;
+            color: var(--purple);
+        }
+
+        .next-steps {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .steps-list li {
+            margin-bottom: 24px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .steps-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .steps-list li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .substack-cta {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .substack-cta p {
+            margin-bottom: 15px;
+            color: #b3b3b3;
+        }
+
+        .substack-link {
+            display: inline-block;
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .substack-link:hover {
+            text-decoration: underline;
+        }
+
+        #site-nav {
+            margin-bottom: 40px;
+        }
+
+        #site-footer {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="site-nav"></div>
+
+    <main class="thank-you-container">
+        <div class="success-icon">✓</div>
+
+        <h1 class="confirmation-heading">You're in.</h1>
+        <p class="confirmation-subtext">Let's get your call booked.</p>
+
+        <a href="#book-time" class="primary-button">Book Your 60-Minute Slot</a>
+
+        <div class="next-steps">
+            <h3>What Happens Next</h3>
+            <ol class="steps-list">
+                <li data-step="1">Book your Google Meet time slot using the button above</li>
+                <li data-step="2">You'll get a calendar invite with the Google Meet link</li>
+                <li data-step="3">Optional: fill out the pre-call questionnaire sent to your email</li>
+                <li data-step="4">Show up to the call with your questions — Nate handles the rest</li>
+                <li data-step="5">Your Post-Game Report arrives within 48 hours of the call</li>
+            </ol>
+        </div>
+
+        <div class="substack-cta">
+            <p>While you wait, subscribe to <em>The Culture Marquee</em> for free</p>
+            <a href="https://theculturemarquee.substack.com" class="substack-link" target="_blank">Subscribe on Substack →</a>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/site-components.js"></script>
+</body>
+</html>

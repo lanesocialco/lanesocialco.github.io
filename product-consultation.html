@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy Call — $129 | Nate Lane</title>
+  <meta name="description" content="A live 60-minute 1-on-1 entertainment marketing strategy call. Get honest feedback, ask your questions, and receive a written summary with 3-5 actionable next steps.">
+  <meta name="keywords" content="entertainment consultant, marketing consultation, career coaching, entertainment industry, music marketing, creative professional consultation">
+  <meta name="author" content="Nate Lane">
+  <link rel="canonical" href="https://natelane.co/product-consultation.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Strategy Call — $129 | Nate Lane">
+  <meta property="og:description" content="A 60-minute live entertainment marketing strategy call. Get honest feedback, ask your questions, and receive a written summary with 3-5 actionable next steps.">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://natelane.co/product-consultation.html">
+  <meta property="og:image" content="https://natelane.co/assets/images/og-default.jpg">
+  <meta property="og:site_name" content="Nate Lane">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Strategy Call — $129 | Nate Lane">
+  <meta name="twitter:description" content="A 60-minute live entertainment marketing strategy call with honest feedback, answers to your questions, and actionable next steps.">
+  <meta name="twitter:image" content="https://natelane.co/assets/images/og-default.jpg">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    main { margin-top: 70px; }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      min-height: 96svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 140px 48px 100px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero-bg {
+      position: absolute;
+      top: -200px; right: -180px;
+      width: 820px; height: 820px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 68%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-bg-2 {
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 24px;
+      display: block;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+    .hero h1 em { font-style: normal; color: var(--purple); }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.35s;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+    .hero-micro {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HERO VISUAL (right col) ──────────────────────────────── */
+    .hero-visual {
+      position: relative; z-index: 1;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .hero-visual-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+    .hv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      overflow: hidden;
+    }
+    .hv-main { padding: 28px; position: relative; }
+    .hv-main::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hv-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .hv-title {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hv-icon {
+      font-size: 32px; line-height: 1;
+    }
+    .hv-content h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .hv-content p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .hv-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hv-feature {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .hv-feature-check {
+      font-size: 16px;
+      color: var(--purple);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .hv-feature-text {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+    .hv-badges {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .hv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: rgba(var(--purple-rgb), 0.1);
+      border: 1px solid rgba(var(--purple-rgb), 0.2);
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .hv-badge-icon {
+      font-size: 12px;
+    }
+
+    /* ── BUTTON STYLES WITH GLOW ─────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--purple);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      box-shadow: 0 4px 16px rgba(var(--purple-rgb), 0.2);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 8px 28px rgba(var(--purple-rgb), 0.5), 0 4px 16px rgba(var(--purple-rgb), 0.3);
+      transform: translateY(-2px);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* ── RECOMMENDED BADGE ─────────────────────────────────────── */
+    .recommended-badge {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      background: rgba(var(--purple-rgb), 0.15);
+      border: 1px solid rgba(var(--purple-rgb), 0.3);
+      border-radius: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    /* ── PROBLEMS SECTION ──────────────────────────────────────── */
+    section {
+      padding: 120px 48px;
+      position: relative;
+    }
+    .section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 36px;
+      display: block;
+    }
+    .section-headline {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 56px;
+      color: var(--text);
+    }
+
+    /* Problem cards grid */
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .problem-card:hover {
+      border-left-color: var(--purple);
+      border-color: var(--border-soft);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transform: translateY(-4px);
+    }
+    .problem-card-icon {
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+    .problem-card p {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── WHAT YOU GET SECTION ──────────────────────────────────── */
+    .benefits-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .benefit-part {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      position: relative;
+    }
+    .benefit-part::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .benefit-part-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .benefit-part-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+    .benefit-part h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+    .benefit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .benefit-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .benefit-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--purple);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .benefit-text h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .benefit-text p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS SECTION ──────────────────────────────────── */
+    .steps-container {
+      position: relative;
+      margin-top: 56px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple) 0%, var(--purple) 33%, transparent 33%, transparent 66%, var(--purple) 66%, var(--purple) 100%);
+      pointer-events: none;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .step-item {
+      position: relative;
+    }
+    .step-number {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: -2px;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ── WHO THIS IS FOR SECTION ───────────────────────────────── */
+    .who-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .who-section h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+    .who-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .who-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .who-bullet {
+      font-size: 18px;
+      color: var(--purple);
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .who-text {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+    .who-section.not-for h3 {
+      color: var(--text);
+    }
+    .who-section.not-for .who-bullet {
+      color: #d97706;
+    }
+
+    /* ── ABOUT NATE SECTION ────────────────────────────────────── */
+    .about-nate {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      max-width: 700px;
+      position: relative;
+    }
+    .about-nate::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(var(--purple-rgb),0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-nate h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+    .about-nate p {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-nate p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FAQ SECTION ───────────────────────────────────────────── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 800px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-item.open {
+      border-color: var(--purple);
+      box-shadow: 0 4px 24px rgba(var(--purple-rgb),0.1);
+    }
+    .faq-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+    .faq-trigger:hover {
+      color: var(--purple);
+    }
+    .faq-trigger .arrow {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-trigger .arrow {
+      transform: rotate(180deg);
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-content {
+      max-height: 500px;
+    }
+    .faq-text {
+      padding: 0 24px 24px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+
+    /* ── CTA SECTION ───────────────────────────────────────────── */
+    .final-cta {
+      text-align: center;
+      padding: 100px 48px;
+    }
+    .final-cta h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .final-cta .tagline {
+      font-size: 20px;
+      color: var(--text-sub);
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+    .final-cta-divider {
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--purple);
+      margin: 32px auto;
+    }
+    .final-cta-subtext {
+      font-size: 16px;
+      color: var(--text-sub);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+      margin-top: 32px;
+    }
+
+    /* ── REVEAL ANIMATIONS ─────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delays for grid items */
+    .problems-grid .reveal:nth-child(1) { transition-delay: 0s; }
+    .problems-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .problems-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .problems-grid .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+    .steps-grid .reveal:nth-child(1) { transition-delay: 0s; }
+    .steps-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .steps-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .steps-grid .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+    .who-section.reveal:nth-of-type(1) { transition-delay: 0s; }
+    .who-section.reveal:nth-of-type(2) { transition-delay: 0.15s; }
+
+    .faq-item.reveal:nth-child(1) { transition-delay: 0s; }
+    .faq-item.reveal:nth-child(2) { transition-delay: 0.08s; }
+    .faq-item.reveal:nth-child(3) { transition-delay: 0.16s; }
+    .faq-item.reveal:nth-child(4) { transition-delay: 0.24s; }
+    .faq-item.reveal:nth-child(5) { transition-delay: 0.32s; }
+    .faq-item.reveal:nth-child(6) { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      section { padding: 80px 48px; }
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 120px 48px 80px; }
+      .hero-visual { height: 400px; }
+      .benefits-wrapper { grid-template-columns: 1fr; gap: 48px; }
+      .who-container { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-px: 24px; }
+      section { padding: 64px 24px; }
+      .hero { padding: 100px 24px 60px; gap: 36px; }
+      .hero h1 { font-size: clamp(36px, 5vw, 56px); }
+      .hero-visual { height: 340px; }
+      .section-headline { font-size: clamp(28px, 4vw, 42px); margin-bottom: 36px; }
+      .problems-grid { grid-template-columns: 1fr; gap: 24px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .benefits-wrapper { grid-template-columns: 1fr; }
+      .benefit-part h3 { font-size: 22px; }
+      .benefit-part { padding: 32px; }
+      .who-container { grid-template-columns: 1fr; }
+      .final-cta { padding: 64px 24px; }
+      .final-cta h2 { font-size: clamp(28px, 4vw, 48px); }
+      .about-nate { padding: 32px 24px; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 48px 20px; }
+      .hero { padding: 80px 20px 50px; }
+      .section-headline { margin-bottom: 28px; }
+      .final-cta { padding: 48px 20px; }
+      .final-cta .tagline { font-size: 16px; }
+      .btn-primary { font-size: 15px; padding: 15px 24px; }
+      .about-nate { padding: 24px 20px; }
+      .benefits-wrapper { gap: 24px; }
+      .hv-badges { flex-direction: column; }
+      .hv-badge { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-nav"></div>
+
+  <main>
+    <!-- ── HERO SECTION ───────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-bg-2"></div>
+
+      <div class="hero-content">
+        <span class="hero-eyebrow">STRATEGY CALL — $129</span>
+        <h1>60 minutes. <em>Real strategy.</em> Clear next steps.</h1>
+        <p class="hero-sub">A live, 1-on-1 Google Meet where we dive into your entertainment marketing strategy. You'll get honest feedback, answers to your questions, and a written summary within 48 hours featuring 3-5 actionable next steps you can implement right away.</p>
+
+        <div class="hero-actions">
+          <div class="recommended-badge">✓ RECOMMENDED</div>
+          <a href="#buy" class="btn-primary">
+            Book the Strategy Call — $129
+          </a>
+          <div class="hero-micro">
+            60 min Google Meet · Post-Game Report within 48 hours
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-wrap">
+          <div class="hv-card">
+            <div class="hv-main">
+              <div class="hv-header">
+                <div class="hv-title">Google Meet</div>
+                <div class="hv-icon">📞</div>
+              </div>
+              <div class="hv-content">
+                <h3>Your Strategy Call</h3>
+                <p>Everything you need to move forward — in real time.</p>
+                <div class="hv-features">
+                  <div class="hv-feature">
+                    <span class="hv-feature-check">✓</span>
+                    <span class="hv-feature-text">Honest assessment of your strategy</span>
+                  </div>
+                  <div class="hv-feature">
+                    <span class="hv-feature-check">✓</span>
+                    <span class="hv-feature-text">Real-time strategic feedback</span>
+                  </div>
+                  <div class="hv-feature">
+                    <span class="hv-feature-check">✓</span>
+                    <span class="hv-feature-text">All your questions answered</span>
+                  </div>
+                  <div class="hv-feature">
+                    <span class="hv-feature-check">✓</span>
+                    <span class="hv-feature-text">Written summary with 3-5 actionable steps</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hv-badges">
+                <div class="hv-badge">
+                  <span class="hv-badge-icon">⏱</span>
+                  <span>60 min</span>
+                </div>
+                <div class="hv-badge">
+                  <span class="hv-badge-icon">📋</span>
+                  <span>Post-Game Report</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROBLEMS SECTION ───────────────────────────────────── -->
+    <section style="background: var(--bg-alt);">
+      <div class="container">
+        <span class="section-title reveal">THE PROBLEM</span>
+        <h2 class="section-headline reveal">Doing this alone is brutal.</h2>
+
+        <div class="problems-grid">
+          <div class="problem-card reveal">
+            <div class="problem-card-icon">🤔</div>
+            <h3>Making decisions without anyone who gets it</h3>
+            <p>Bouncing ideas off friends is one thing. But they're not in entertainment. They don't understand the nuances of your space.</p>
+          </div>
+
+          <div class="problem-card reveal">
+            <div class="problem-card-icon">📱</div>
+            <h3>Generic advice everywhere</h3>
+            <p>The internet is full of social media tips. But none of them are looking at YOUR situation. Your goals. Your specific challenges.</p>
+          </div>
+
+          <div class="problem-card reveal">
+            <div class="problem-card-icon">🎯</div>
+            <h3>No clear next move</h3>
+            <p>You know something's off. But what do you fix first? What actually matters? It's unclear, so you spin your wheels.</p>
+          </div>
+
+          <div class="problem-card reveal">
+            <div class="problem-card-icon">⚡</div>
+            <h3>You need someone in your corner</h3>
+            <p>Not a cheerleader. Someone honest. Someone who's been there, knows the industry, and will tell you what actually needs to happen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHAT YOU GET SECTION ───────────────────────────────── -->
+    <section>
+      <div class="container">
+        <span class="section-title reveal">WHAT YOU GET</span>
+        <h2 class="section-headline reveal">Two distinct deliverables.</h2>
+
+        <div class="benefits-wrapper">
+          <div class="benefit-part reveal">
+            <div class="benefit-part-header">
+              <div class="benefit-part-icon">📞</div>
+              <h3>The Call<br><span style="font-size: 16px; font-weight: 400; color: var(--text-sub);">(60 minutes, live)</span></h3>
+            </div>
+            <ul class="benefit-list">
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Full discussion of your situation</h4>
+                  <p>Your marketing, your creative career goals, what's working, what isn't, and where you're stuck.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Honest strategic assessment</h4>
+                  <p>Not what you want to hear. What you need to hear. A real take on your specific situation.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Real-time feedback and guidance</h4>
+                  <p>Ask questions. Think out loud. Get immediate, actionable feedback on your ideas and direction.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Platform-specific advice</h4>
+                  <p>Content ideas, brand positioning, growth strategy — tailored to your creative space.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="benefit-part reveal">
+            <div class="benefit-part-header">
+              <div class="benefit-part-icon">📋</div>
+              <h3>The Post-Game Report<br><span style="font-size: 16px; font-weight: 400; color: var(--text-sub);">(within 48 hours)</span></h3>
+            </div>
+            <ul class="benefit-list">
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Your top 3-5 actionable next steps, written out</h4>
+                  <p>A detailed summary of the 3-5 biggest things to do right now. Specific to your conversation, not a template.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Prioritized and actionable</h4>
+                  <p>You know exactly what to do first, second, and third. No guessing. No spinning.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>Resources and references</h4>
+                  <p>Any tools, links, or ideas mentioned during the call. Everything you need to move forward.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-check">✓</div>
+                <div class="benefit-text">
+                  <h4>A plan you can trust</h4>
+                  <p>Written by someone who knows the entertainment space and actually cares about your success.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS SECTION ────────────────────────────────── -->
+    <section style="background: var(--bg-alt);">
+      <div class="container">
+        <span class="section-title reveal">THE PROCESS</span>
+        <h2 class="section-headline reveal">Four simple steps.</h2>
+
+        <div class="steps-container">
+          <div class="steps-grid">
+            <div class="step-item reveal">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Purchase</h3>
+              <p class="step-desc">Buy the Strategy Call for $129. You'll get instant access to booking.</p>
+            </div>
+
+            <div class="step-item reveal">
+              <div class="step-number">2</div>
+              <h3 class="step-title">Book your slot</h3>
+              <p class="step-desc">Pick your 60-minute Google Meet time from available slots. Choose what works for you.</p>
+            </div>
+
+            <div class="step-item reveal">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Show up ready</h3>
+              <p class="step-desc">Optional pre-call questionnaire helps me prepare. Come with your questions and openness to real feedback.</p>
+            </div>
+
+            <div class="step-item reveal">
+              <div class="step-number">4</div>
+              <h3 class="step-title">Get your report</h3>
+              <p class="step-desc">Post-Game Report lands in your inbox within 48 hours. You know exactly what to do next.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHO THIS IS FOR SECTION ────────────────────────────── -->
+    <section>
+      <div class="container">
+        <span class="section-title reveal">IS THIS FOR YOU?</span>
+        <h2 class="section-headline reveal">Some signs you're a great fit.</h2>
+
+        <div class="who-container">
+          <div class="who-section reveal">
+            <h3>This IS for you if you:</h3>
+            <ul class="who-list">
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You're a musician with a project to launch and need feedback before release</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You're a filmmaker figuring out your brand and how to position your work</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You're a comedian building an audience and need strategy for growth</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You're a creator in any space — writer, podcaster, artist — figuring out your path</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You got the Mini Audit and want to go deeper in real time</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You feel stuck on your brand direction and need a new perspective</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You think better in conversation than in written back-and-forth</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✓</span>
+                <span class="who-text">You work in entertainment or a creative field and want honesty, not hype</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="who-section not-for reveal">
+            <h3>This is NOT for you if you:</h3>
+            <ul class="who-list">
+              <li class="who-item">
+                <span class="who-bullet">✕</span>
+                <span class="who-text">Want someone to manage your social media or handle day-to-day tasks</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✕</span>
+                <span class="who-text">Only want validation, not honest feedback about what needs to change</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✕</span>
+                <span class="who-text">Aren't in the entertainment or creative space</span>
+              </li>
+              <li class="who-item">
+                <span class="who-bullet">✕</span>
+                <span class="who-text">Aren't ready to act on the advice you get</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT NATE SECTION ────────────────────────────────── -->
+    <section style="background: var(--bg-alt);">
+      <div class="container">
+        <span class="section-title reveal">ABOUT THE EXPERT</span>
+        <h2 class="section-headline reveal">Who you're talking to.</h2>
+
+        <div class="about-nate reveal">
+          <h3>Nate Lane</h3>
+          <p>B.S. in Entertainment Business. Years of work in entertainment at the highest level — working with artists, creators, and projects that matter in film, music, and digital content.</p>
+          <p>Not a coach. Not a consultant in the generic sense. An entertainment marketing expert who tells the truth, knows the landscape, and genuinely cares about your career moving forward.</p>
+          <p>I've been in your position. I know what it's like to make decisions about your brand and your marketing without someone in your corner who actually understands the industry. That's what I'm here for.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ SECTION ─────────────────────────────────────────── -->
+    <section>
+      <div class="container">
+        <span class="section-title reveal">QUESTIONS</span>
+        <h2 class="section-headline reveal">Everything answered.</h2>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="1">
+              <span>What platform is the call on?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">Google Meet. After you book, you'll get a link to join the call. Simple, reliable, works everywhere. No downloading or weird platforms needed.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="2">
+              <span>How do I book my time slot?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">After purchase, you get a link to view available consultation times. Pick the slot that works for your schedule. You'll get a calendar invite and the Google Meet link right away.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="3">
+              <span>What should I prepare before the call?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">Optional. After you book, you'll receive a short pre-call questionnaire if you want to fill it out. It helps me get context on your situation and makes our time together more focused. But the call can absolutely work without it — just come ready to talk and bring your questions.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="4">
+              <span>When do I get the Post-Game Report?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">Within 48 hours of our call. You'll get an email with your written Post-Game Report covering your top 3-5 actionable next steps, prioritized and specific to what we discussed.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="5">
+              <span>What if I need to reschedule?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">Life happens. Rescheduling is available up to 48 hours before your call. Just reach out and we'll get you a new time slot from what's available.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-trigger" data-faq="6">
+              <span>What's the difference between this and the Mini Audit?</span>
+              <span class="arrow">▼</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-text">The Mini Audit ($49) is async and written — you submit info and get back a comprehensive written report on your marketing. This Strategy Call is live and conversational. You get real-time feedback, can ask follow-up questions, think out loud together, and walk away with a clear plan. They're great complements to each other, or work standalone.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA SECTION ────────────────────────────────── -->
+    <section class="final-cta" style="background: var(--bg-alt);">
+      <div class="container">
+        <h2 class="reveal">Ready to figure this out?</h2>
+        <div class="final-cta-divider reveal"></div>
+        <p class="tagline reveal">One call. One clear plan. Let's figure this out.</p>
+        <a href="#buy" class="btn-primary reveal" id="buy">Book the Strategy Call — $129</a>
+        <p class="final-cta-subtext reveal">No retainers. No long-term commitment. Just honest feedback and a clear next move.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- ── REVEAL SCROLL TRIGGER AND INTERACTIONS ──────────────── -->
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(element => observer.observe(element));
+
+    /* ── FAQ ACCORDION ───────────────────────────────────────── */
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <script src="assets/site-components.js"></script>
+</body>
+</html>
